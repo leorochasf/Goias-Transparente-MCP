@@ -1,0 +1,24 @@
+[project]
+name = "mcp-transparencia-municipal"
+version = "0.1.0"
+description = "Consulta o Portal da Transparência de municípios (plataforma NucleoGov) por MCP, linha de comando ou biblioteca."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["mcp", "transparencia", "portal-da-transparencia", "nucleogov", "dados-abertos", "lai", "municipios"]
+dependencies = ["requests>=2.31"]
+
+[project.optional-dependencies]
+mcp = ["mcp>=2.0"]
+dev = ["pytest>=8", "responses>=0.25"]
+
+[project.scripts]
+transparencia-municipal = "transparencia_municipal.cli:main"
+transparencia-municipal-mcp = "transparencia_municipal.servidor_mcp:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["transparencia_municipal*"]

@@ -45,10 +45,7 @@
 "portal": "https://acessoainformacao.camaraacreuna.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camaraacreuna.go.gov.br"
 ],
@@ -64,13 +61,31 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "acessoainformacao.acreuna.go.gov.br",
 "acreuna.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"despesas_periodo": "em https://acessoainformacao.camaraitapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5200159",
@@ -78,7 +93,7 @@
 "orgao": "camara",
 "portal": "https://camaraadelandia.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaradeadelandia.go.gov.br"
@@ -91,7 +106,7 @@
 "orgao": "prefeitura",
 "portal": "https://adelandia.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "adelandia.go.gov.br"
@@ -186,7 +201,10 @@
 "portal": "https://acessoainformacao.alexania.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "alexania.go.leg.br"
 ],
@@ -194,20 +212,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.alexania.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.alexania.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.alexania.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.alexania.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.alexania.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"receitas_mes": "receitas de 06/2025 vazias",
 "legislacao_ano": "nenhum decreto de 2025"
 }
 }
@@ -223,8 +241,8 @@
 "servidores": "frl",
 "licitacoes": "cnt",
 "contratos": "cnt",
-"despesas": "frl",
-"receitas": "frl"
+"receitas": "frl",
+"despesas": "frl"
 },
 "outros_enderecos": [
 "alexania.go.gov.br",
@@ -290,7 +308,7 @@
 "orgao": "prefeitura",
 "portal": "https://altohorizonte.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "transparencia.altohorizonte.go.gov.br",
@@ -302,36 +320,15 @@
 "ibge": "5200605",
 "municipio": "Alto Paraíso de Goiás",
 "orgao": "camara",
-"portal": "https://acessoainformacao.altoparaisodegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"portal": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
-"altoparaisodegoias.go.leg.br",
-"camaraaltoparaisodegoias.megasofttransparencia.com.br"
+"acessoainformacao.altoparaisodegoias.go.leg.br",
+"altoparaisodegoias.go.leg.br"
 ],
-"conferencia": {
-"data": "2026-11-04",
-"referencia": "06/2025",
-"filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro"
-},
-"detalhes": {
-"folha_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
-"folha_orgaos": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
-"despesas_periodo": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/despesas_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/receitas_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
-"legislacao_tipo": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
-"legislacao_ano": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))"
-}
-}
+"conferencia": null
 },
 {
 "ibge": "5200605",
@@ -339,7 +336,7 @@
 "orgao": "prefeitura",
 "portal": "https://altoparaisodegoias.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "altoparaiso.go.gov.br"
@@ -352,7 +349,7 @@
 "orgao": "camara",
 "portal": "https://camaraalvoradadonorte.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "alvoradadonorte.go.leg.br",
@@ -396,11 +393,7 @@
 "portal": "https://acessoainformacao.americanodobrasil.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "americanodobrasil.go.gov.br"
 ],
@@ -437,8 +430,8 @@
 "municipio": "Anápolis",
 "orgao": "camara",
 "portal": "https://anapolis.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sapl.anapolis.go.leg.br"
@@ -465,7 +458,7 @@
 "orgao": "camara",
 "portal": "https://camaraanhanguera.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "legislativo.camaraanhanguera.go.gov.br",
@@ -479,7 +472,7 @@
 "orgao": "prefeitura",
 "portal": "https://anhanguera.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -548,11 +541,7 @@
 "portal": "https://acessoainformacao.aparecidadoriodoce.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "aparecidadoriodoce.go.leg.br"
 ],
@@ -565,11 +554,7 @@
 "portal": "https://acessoainformacao.aparecidadoriodoce.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "aparecidadoriodoce.go.gov.br"
 ],
@@ -582,11 +567,7 @@
 "portal": "https://acessoainformacao.apore.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "apore.go.leg.br"
 ],
@@ -599,11 +580,7 @@
 "portal": "https://acessoainformacao.apore.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "apore.go.gov.br"
 ],
@@ -654,7 +631,7 @@
 "orgao": "prefeitura",
 "portal": "https://aragarcas.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "aragarcas.go.gov.br"
@@ -694,11 +671,7 @@
 "portal": "https://acessoainformacao.araguapaz.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "araguapaz.go.leg.br",
 "legislativo.araguapaz.go.leg.br"
@@ -712,11 +685,7 @@
 "portal": "https://acessoainformacao.araguapaz.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "araguapaz.go.gov.br"
 ],
@@ -756,7 +725,10 @@
 "portal": "https://acessoainformacao.aruana.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "aruana.go.leg.br",
 "camaraaruana.megasofttransparencia.com.br",
@@ -766,21 +738,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "falhou"
+"legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.aruana.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.aruana.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.aruana.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.aruana.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.aruana.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
-"legislacao_ano": "pediu 2025, vieram [None]"
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 }
 },
@@ -791,7 +762,11 @@
 "portal": "https://acessoainformacao.aruana.go.gov.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"receitas": "mg",
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "aruana.go.gov.br"
 ],
@@ -799,20 +774,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.aruana.go.gov.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.aruana.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.aruana.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.aruana.go.gov.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')"
+"receitas_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
 },
@@ -876,11 +851,7 @@
 "portal": "https://acessoainformacao.barroalto.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "barroalto.go.gov.br"
 ],
@@ -957,8 +928,8 @@
 "municipio": "Bom Jesus de Goiás",
 "orgao": "prefeitura",
 "portal": "https://bomjesus.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -993,12 +964,12 @@
 "ibge": "5203575",
 "municipio": "Bonópolis",
 "orgao": "camara",
-"portal": "https://transparencia.bonopolis.go.leg.br",
-"plataforma": null,
-"origem": null,
+"portal": "https://bonopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
-"bonopolis.go.leg.br",
+"transparencia.bonopolis.go.leg.br",
 "sapl.bonopolis.go.leg.br"
 ],
 "conferencia": null
@@ -1021,8 +992,8 @@
 "municipio": "Brazabrantes",
 "orgao": "camara",
 "portal": "https://brazabrantes.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -1034,11 +1005,7 @@
 "portal": "https://acessoainformacao.brazabrantes.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "brazabrantes.go.gov.br"
 ],
@@ -1077,9 +1044,7 @@
 "portal": "https://acessoainformacao.buritialegre.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "buritialegre.go.leg.br"
 ],
@@ -1143,7 +1108,7 @@
 "orgao": "prefeitura",
 "portal": "https://buritinopolis.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "buritinopolis.go.gov.br"
@@ -1183,11 +1148,7 @@
 "portal": "https://acessoainformacao.cachoeiraalta.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "cachoeiraalta.go.gov.br"
 ],
@@ -1199,7 +1160,7 @@
 "orgao": "camara",
 "portal": "https://camaracachoeiradegoias.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaradecachoeiradegoias.go.gov.br"
@@ -1212,7 +1173,7 @@
 "orgao": "prefeitura",
 "portal": "https://cachoeiradegoias.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "cachoeiradegoias.go.gov.br"
@@ -1224,8 +1185,8 @@
 "municipio": "Cachoeira Dourada",
 "orgao": "prefeitura",
 "portal": "https://cachoeiradourada.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -1237,11 +1198,7 @@
 "portal": "https://acessoainformacao.cacu.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "cacu.go.leg.br",
 "sapl.cacu.go.leg.br"
@@ -1255,9 +1212,7 @@
 "portal": "https://acessoainformacao.cacu.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "cacu.go.gov.br"
 ],
@@ -1270,9 +1225,7 @@
 "portal": "https://acessoainformacao.camaradecaiaponia.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camaradecaiaponia.go.gov.br"
 ],
@@ -1378,11 +1331,7 @@
 "portal": "https://acessoainformacao.camaracampinacu.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camaracampinacu.go.gov.br"
 ],
@@ -1395,9 +1344,7 @@
 "portal": "https://acessoainformacao.campinacu.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "campinacu.go.gov.br"
 ],
@@ -1409,7 +1356,7 @@
 "orgao": "camara",
 "portal": "https://camaracampinorte.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "campinorte.go.leg.br",
@@ -1464,10 +1411,7 @@
 "portal": "https://acessoainformacao.campolimpodegoias.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "campolimpodegoias.go.leg.br"
 ],
@@ -1480,9 +1424,7 @@
 "portal": "https://acessoainformacao.campolimpodegoias.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "campolimpodegoias.go.gov.br"
 ],
@@ -1507,7 +1449,7 @@
 "orgao": "prefeitura",
 "portal": "https://camposbelos.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camposbelos.go.gov.br"
@@ -1521,11 +1463,7 @@
 "portal": "https://acessoainformacao.camposverdes.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camposverdes.go.leg.br"
 ],
@@ -1538,11 +1476,7 @@
 "portal": "https://acessoainformacao.camposverdes.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camposverdes.go.gov.br"
 ],
@@ -1608,11 +1542,7 @@
 "portal": "https://acessoainformacao.caturai.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "caturai.go.leg.br"
 ],
@@ -1623,8 +1553,8 @@
 "municipio": "Caturaí",
 "orgao": "prefeitura",
 "portal": "https://caturai.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -1715,11 +1645,7 @@
 "portal": "https://acessoainformacao.chapadaodoceu.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "chapadaodoceu.go.leg.br"
 ],
@@ -1732,11 +1658,7 @@
 "portal": "https://acessoainformacao.chapadaodoceu.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "chapadaodoceu.go.gov.br"
 ],
@@ -1747,8 +1669,8 @@
 "municipio": "Cidade Ocidental",
 "orgao": "camara",
 "portal": "https://transparencia.cidadeocidental.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "ortrel",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "cidadeocidental.go.leg.br",
@@ -1777,7 +1699,7 @@
 "orgao": "camara",
 "portal": "https://camaracocalzinho.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaracocalzinho.go.gov.br"
@@ -1791,7 +1713,11 @@
 "portal": "https://acessoainformacao.cocalzinho.go.gov.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"receitas": "mg",
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "cocalzinho.go.gov.br"
 ],
@@ -1799,20 +1725,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.cocalzinho.go.gov.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.cocalzinho.go.gov.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"receitas_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
 }
@@ -1902,7 +1828,10 @@
 "portal": "https://acessoainformacao.corumbaiba.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "corumbaiba.go.leg.br"
 ],
@@ -1910,20 +1839,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.corumbaiba.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.corumbaiba.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')"
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 }
 },
@@ -1933,7 +1862,7 @@
 "orgao": "prefeitura",
 "portal": "https://corumbaiba.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "corumbaiba.go.gov.br"
@@ -1947,7 +1876,10 @@
 "portal": "https://acessoainformacao.cristalina.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "cristalina.go.leg.br"
 ],
@@ -1955,21 +1887,20 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "sem_dados",
-"folha_orgaos": "sem_dados",
-"despesas_periodo": "erro",
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
+"receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "falhou"
+"legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "folha de 06/2025 vazia",
-"folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.cristalina.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"folha_mes": "em https://acessoainformacao.cristalina.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.cristalina.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.cristalina.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
-"receitas_mes": "ErroPortal: https://acessoainformacao.cristalina.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
-"legislacao_ano": "pediu 2025, vieram [None]"
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 }
 },
@@ -1983,12 +1914,32 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "cristalina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "em https://acessoainformacao.cristalina.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.cristalina.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5206305",
@@ -2074,8 +2025,8 @@
 "municipio": "Cumari",
 "orgao": "camara",
 "portal": "https://camaradecumari.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -2085,8 +2036,8 @@
 "municipio": "Cumari",
 "orgao": "prefeitura",
 "portal": "https://cumari.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -2097,7 +2048,7 @@
 "orgao": "camara",
 "portal": "https://camaradamianopolis.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "damianopolis.go.leg.br"
@@ -2124,11 +2075,7 @@
 "portal": "https://acessoainformacao.damolandia.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "damolandia.go.gov.br"
 ],
@@ -2254,8 +2201,8 @@
 "municipio": "Edéia",
 "orgao": "prefeitura",
 "portal": "https://edeia.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saude.edeia.go.gov.br"
@@ -2282,11 +2229,7 @@
 "portal": "https://acessoainformacao.faina.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "faina.go.leg.br"
 ],
@@ -2299,11 +2242,7 @@
 "portal": "https://acessoainformacao.faina.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "faina.go.gov.br"
 ],
@@ -2316,11 +2255,7 @@
 "portal": "https://acessoainformacao.fazendanova.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "fazendanova.go.leg.br"
 ],
@@ -2436,8 +2371,8 @@
 "municipio": "Gameleira de Goiás",
 "orgao": "prefeitura",
 "portal": "https://gameleiradegoias.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -2475,11 +2410,33 @@
 "portal": "https://acessoainformacao.goianapolis.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "goianapolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5208400",
@@ -2488,11 +2445,35 @@
 "portal": "https://acessoainformacao.goianapolis.go.gov.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"receitas": "mg",
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "goianapolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "sem_dados"
+},
+"detalhes": {
+"folha_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"legislacao_ano": "nenhum decreto de 2025"
+}
+}
 },
 {
 "ibge": "5208509",
@@ -2512,8 +2493,8 @@
 "municipio": "Goiandira",
 "orgao": "prefeitura",
 "portal": "https://goiandira.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -2549,8 +2530,8 @@
 "municipio": "Goiânia",
 "orgao": "camara",
 "portal": "https://goiania.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "www10.goiania.go.gov.br"
@@ -2561,11 +2542,12 @@
 "ibge": "5208707",
 "municipio": "Goiânia",
 "orgao": "prefeitura",
-"portal": "https://portal.tce.go.gov.br",
-"plataforma": null,
-"origem": null,
+"portal": "https://saude.goiania.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
+"portal.tce.go.gov.br",
 "transparencia.al.go.leg.br",
 "transparencia.go.gov.br",
 "paineis.tce.go.gov.br",
@@ -2580,7 +2562,6 @@
 "ouvidoria.tce.go.gov.br",
 "vaptvupt.go.gov.br",
 "gnoi.tce.go.gov.br",
-"saude.goiania.go.gov.br",
 "saba.al.go.leg.br",
 "mapadeobras.seinfra.go.gov.br",
 "alegodigital.al.go.leg.br",
@@ -2645,7 +2626,7 @@
 "orgao": "prefeitura",
 "portal": "https://cidadedegoias.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "goias.go.gov.br",
@@ -2687,11 +2668,7 @@
 "portal": "https://acessoainformacao.camaragouvelandia.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camaragouvelandia.go.gov.br"
 ],
@@ -2704,9 +2681,7 @@
 "portal": "https://acessoainformacao.gouvelandia.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "gouvelandia.go.gov.br"
 ],
@@ -2722,13 +2697,31 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "guapo.go.leg.br",
 "legislativo.guapo.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"despesas_periodo": "em https://acessoainformacao.guapo.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5209200",
@@ -2740,12 +2733,32 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "guapo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 8",
+"despesas_periodo": "em https://acessoainformacao.guapo.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.guapo.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5209291",
@@ -2754,11 +2767,7 @@
 "portal": "https://acessoainformacao.guaraita.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "guaraita.go.leg.br"
 ],
@@ -2771,11 +2780,7 @@
 "portal": "https://acessoainformacao.guaraita.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "guaraita.go.gov.br"
 ],
@@ -2801,11 +2806,7 @@
 "portal": "https://acessoainformacao.guaranidegoias.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "guaranidegoias.go.gov.br"
 ],
@@ -2844,11 +2845,7 @@
 "portal": "https://acessoainformacao.heitorai.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "heitorai.go.leg.br"
 ],
@@ -2871,7 +2868,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.hidrolandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "hidrolandia.go.leg.br"
@@ -2896,8 +2893,8 @@
 "municipio": "Hidrolina",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.hidrolina.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "hidrolina.go.gov.br"
@@ -2910,7 +2907,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.iaciara.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "iaciara.go.leg.br"
@@ -2923,7 +2920,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.iaciara.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "iaciara.go.gov.br"
@@ -2934,12 +2931,12 @@
 "ibge": "5209937",
 "municipio": "Inaciolândia",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaradeinaciolandia.go.gov.br",
+"portal": "https://acessoainformacao.inaciolandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
-"acessoainformacao.inaciolandia.go.leg.br",
+"acessoainformacao.camaradeinaciolandia.go.gov.br",
 "camaradeinaciolandia.go.gov.br"
 ],
 "conferencia": null
@@ -2950,7 +2947,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.inaciolandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "inaciolandia.go.gov.br"
@@ -2963,7 +2960,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.indiara.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "indiara.go.leg.br"
@@ -2976,7 +2973,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.indiara.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "indiara.go.gov.br"
@@ -2989,7 +2986,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.inhumas.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "inhumas.go.leg.br"
@@ -3001,8 +2998,8 @@
 "municipio": "Inhumas",
 "orgao": "prefeitura",
 "portal": "https://inhumas.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -3013,7 +3010,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.ipameri.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ipameri.go.leg.br",
@@ -3027,7 +3024,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.ipameri.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ipameri.go.gov.br",
@@ -3053,8 +3050,8 @@
 "municipio": "Ipiranga de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.ipirangadegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ipirangadegoias.go.gov.br"
@@ -3066,8 +3063,8 @@
 "municipio": "Iporá",
 "orgao": "camara",
 "portal": "https://acessoainformacao.ipora.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ipora.go.leg.br"
@@ -3080,7 +3077,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.ipora.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ipora.go.gov.br"
@@ -3092,8 +3089,8 @@
 "municipio": "Israelândia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.israelandia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "israelandia.go.leg.br"
@@ -3105,8 +3102,8 @@
 "municipio": "Israelândia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.israelandia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "israelandia.megasofttransparencia.com.br",
@@ -3120,7 +3117,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.itaberai.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaberai.go.leg.br"
@@ -3133,7 +3130,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaberai.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaberai.go.gov.br"
@@ -3145,8 +3142,8 @@
 "municipio": "Itaguari",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaguari.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaguari.go.gov.br",
@@ -3159,8 +3156,8 @@
 "municipio": "Itaguaru",
 "orgao": "camara",
 "portal": "https://acessoainformacao.itaguaru.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaguaru.go.leg.br",
@@ -3173,8 +3170,8 @@
 "municipio": "Itaguaru",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaguaru.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaguaru.go.gov.br"
@@ -3187,7 +3184,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.itaja.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaja.go.leg.br"
@@ -3200,7 +3197,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaja.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaja.go.gov.br"
@@ -3212,8 +3209,8 @@
 "municipio": "Itapaci",
 "orgao": "camara",
 "portal": "https://acessoainformacao.itapaci.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itapaci.go.leg.br"
@@ -3225,8 +3222,8 @@
 "municipio": "Itapaci",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itapaci.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itapaci.go.gov.br"
@@ -3239,7 +3236,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.itapirapua.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itapirapua.go.leg.br"
@@ -3252,7 +3249,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itapirapua.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itapirapua.go.gov.br"
@@ -3266,15 +3263,28 @@
 "portal": "https://acessoainformacao.camaraitapuranga.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "itapuranga.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"despesas_periodo": "em https://acessoainformacao.camaraitapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5211206",
@@ -3282,12 +3292,36 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itapuranga.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "itapuranga.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 8",
+"despesas_periodo": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5211305",
@@ -3295,7 +3329,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.itaruma.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaruma.go.leg.br"
@@ -3308,7 +3342,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaruma.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaruma.go.gov.br"
@@ -3320,8 +3354,8 @@
 "municipio": "Itauçu",
 "orgao": "camara",
 "portal": "https://acessoainformacao.itaucu.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaucu.go.leg.br"
@@ -3333,8 +3367,8 @@
 "municipio": "Itauçu",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itaucu.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itaucu.go.gov.br"
@@ -3358,7 +3392,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.itumbiara.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "itumbiara.go.gov.br"
@@ -3370,8 +3404,8 @@
 "municipio": "Ivolândia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.ivolandia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ivolandia.go.gov.br"
@@ -3383,8 +3417,8 @@
 "municipio": "Jandaia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.jandaia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jandaia.go.leg.br"
@@ -3397,7 +3431,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.jandaia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jandaia.go.gov.br"
@@ -3409,8 +3443,8 @@
 "municipio": "Jaraguá",
 "orgao": "camara",
 "portal": "https://acessoainformacao.jaragua.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jaragua.go.leg.br"
@@ -3422,8 +3456,8 @@
 "municipio": "Jaraguá",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.jaragua.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jaragua.go.gov.br"
@@ -3446,8 +3480,8 @@
 "municipio": "Jaupaci",
 "orgao": "camara",
 "portal": "https://acessoainformacao.jaupaci.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jaupaci.go.leg.br"
@@ -3459,8 +3493,8 @@
 "municipio": "Jaupaci",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.jaupaci.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jaupaci.go.gov.br"
@@ -3472,8 +3506,8 @@
 "municipio": "Jesúpolis",
 "orgao": "camara",
 "portal": "https://acessoainformacao.jesupolis.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jesupolis.go.leg.br"
@@ -3485,8 +3519,8 @@
 "municipio": "Jesúpolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.jesupolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jesupolis.go.gov.br"
@@ -3499,7 +3533,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.joviania.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "joviania.go.leg.br"
@@ -3512,7 +3546,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.joviania.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "joviania.go.gov.br"
@@ -3524,8 +3558,8 @@
 "municipio": "Jussara",
 "orgao": "camara",
 "portal": "https://acessoainformacao.jussara.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jussara.go.leg.br"
@@ -3537,8 +3571,8 @@
 "municipio": "Jussara",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.jussara.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "jussara.go.gov.br",
@@ -3552,7 +3586,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.lagoasanta.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "lagoasanta.go.leg.br"
@@ -3565,7 +3599,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.lagoasanta.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "lagoasanta.go.gov.br"
@@ -3590,8 +3624,8 @@
 "municipio": "Leopoldo de Bulhões",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.leopoldodebulhoes.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "leopoldodebulhoes.go.gov.br"
@@ -3603,8 +3637,8 @@
 "municipio": "Luziânia",
 "orgao": "camara",
 "portal": "https://transparencia.luziania.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "ortrel",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "luziania.go.leg.br"
@@ -3627,8 +3661,8 @@
 "municipio": "Mairipotaba",
 "orgao": "camara",
 "portal": "https://acessoainformacao.mairipotaba.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mairipotaba.go.leg.br"
@@ -3640,8 +3674,8 @@
 "municipio": "Mairipotaba",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mairipotaba.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mairipotaba.go.gov.br"
@@ -3654,7 +3688,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.mambai.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mambai.go.leg.br"
@@ -3666,8 +3700,8 @@
 "municipio": "Mambaí",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mambai.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mambai.go.gov.br"
@@ -3679,8 +3713,8 @@
 "municipio": "Mara Rosa",
 "orgao": "camara",
 "portal": "https://acessoainformacao.mararosa.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaramararosa.megasofttransparencia.com.br",
@@ -3696,7 +3730,7 @@
 "orgao": "camara",
 "portal": "https://camaramarzagao.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "legislativo.camarademarzagao.go.gov.br",
@@ -3709,8 +3743,8 @@
 "municipio": "Marzagão",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.marzagao.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "marzagao.go.gov.br",
@@ -3736,8 +3770,8 @@
 "municipio": "Maurilândia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.legislativomaurilandia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "legislativomaurilandia.go.gov.br"
@@ -3749,8 +3783,8 @@
 "municipio": "Maurilândia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.maurilandia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "maurilandia.go.gov.br"
@@ -3762,8 +3796,8 @@
 "municipio": "Mimoso de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mimosodegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mimosodegoias.go.gov.br"
@@ -3776,7 +3810,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.minacu.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "minacu.go.leg.br",
@@ -3790,7 +3824,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.minacu.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "minacu.go.gov.br"
@@ -3802,8 +3836,8 @@
 "municipio": "Mineiros",
 "orgao": "camara",
 "portal": "https://mineiros.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -3825,7 +3859,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.moipora.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "moipora.go.gov.br"
@@ -3838,7 +3872,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.montealegredegoias.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montealegredegoias.go.leg.br"
@@ -3851,7 +3885,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.montealegre.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montealegre.go.gov.br"
@@ -3863,8 +3897,8 @@
 "municipio": "Montes Claros de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.montesclarosdegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montesclarosdegoias.go.leg.br"
@@ -3876,8 +3910,8 @@
 "municipio": "Montes Claros de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.montesclarosdegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montesclarosdegoias.go.gov.br"
@@ -3890,7 +3924,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.montividiu.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montividiu.go.leg.br"
@@ -3903,7 +3937,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.montividiu.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montividiu.go.gov.br"
@@ -3926,8 +3960,8 @@
 "municipio": "Montividiu do Norte",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.montividiudonorte.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "montividiudonorte.go.gov.br",
@@ -3940,8 +3974,8 @@
 "municipio": "Morrinhos",
 "orgao": "camara",
 "portal": "https://acessoainformacao.morrinhos.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "morrinhos.go.leg.br"
@@ -3954,7 +3988,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.morrinhos.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "morrinhos.go.gov.br"
@@ -3966,8 +4000,8 @@
 "municipio": "Morro Agudo de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.morroagudodegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "morroagudodegoias.go.leg.br"
@@ -3979,8 +4013,8 @@
 "municipio": "Morro Agudo de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.prefeiturademorroagudo.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "prefeiturademorroagudo.go.gov.br"
@@ -3992,8 +4026,8 @@
 "municipio": "Mossâmedes",
 "orgao": "camara",
 "portal": "https://acessoainformacao.mossamedes.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mossamedes.go.leg.br"
@@ -4005,8 +4039,8 @@
 "municipio": "Mossâmedes",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mossamedes.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mossamedes.go.gov.br",
@@ -4020,7 +4054,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.mozarlandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mozarlandia.go.leg.br"
@@ -4033,7 +4067,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mozarlandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mozarlandia.go.gov.br"
@@ -4046,7 +4080,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.mundonovo.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mundonovo.go.leg.br"
@@ -4059,7 +4093,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mundonovo.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mundonovo.go.gov.br"
@@ -4072,7 +4106,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.mutunopolis.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mutunopolis.go.leg.br"
@@ -4084,8 +4118,8 @@
 "municipio": "Mutunópolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.mutunopolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "mutunopolis.go.gov.br",
@@ -4109,8 +4143,8 @@
 "municipio": "Nazário",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.nazario.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "nazario.go.gov.br"
@@ -4122,8 +4156,8 @@
 "municipio": "Nerópolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.neropolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "neropolis.go.gov.br"
@@ -4135,8 +4169,8 @@
 "municipio": "Niquelândia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.niquelandia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "niquelandia.go.leg.br"
@@ -4149,7 +4183,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.niquelandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "niquelandia.go.gov.br"
@@ -4161,8 +4195,8 @@
 "municipio": "Nova América",
 "orgao": "camara",
 "portal": "https://acessoainformacao.novaamerica.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novaamerica.go.leg.br"
@@ -4174,8 +4208,8 @@
 "municipio": "Nova América",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novaamerica.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novaamerica.go.gov.br"
@@ -4188,7 +4222,7 @@
 "orgao": "camara",
 "portal": "https://camaranovaaurora.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "legislativo.camaranovaaurora.go.gov.br",
@@ -4206,23 +4240,69 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "camaranovacrixas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "em https://acessoainformacao.camaranovacrixas.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5214838",
 "municipio": "Nova Crixás",
 "orgao": "prefeitura",
 "portal": "https://novacrixas.go.gov.br",
-"plataforma": null,
-"origem": null,
-"sufixos": {},
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"contratos": "cnt",
+"servidores": "cnt",
+"licitacoes": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "erro",
+"folha_orgaos": "erro",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "erro",
+"legislacao_ano": "erro"
+},
+"detalhes": {
+"folha_mes": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"folha_orgaos": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"despesas_periodo": "em https://novacrixas.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://novacrixas.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"legislacao_tipo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"legislacao_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
+}
+}
 },
 {
 "ibge": "5214861",
@@ -4242,8 +4322,8 @@
 "municipio": "Nova Glória",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novagloria.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novagloria.go.gov.br"
@@ -4256,7 +4336,7 @@
 "orgao": "prefeitura",
 "portal": "https://novaiguacudegoias.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novaiguacu.go.gov.br"
@@ -4281,8 +4361,8 @@
 "municipio": "Nova Roma",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novaroma.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novaroma.go.gov.br"
@@ -4295,7 +4375,7 @@
 "orgao": "camara",
 "portal": "https://camaranovaveneza.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaradenovaveneza.go.gov.br"
@@ -4307,8 +4387,8 @@
 "municipio": "Nova Veneza",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novaveneza.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novaveneza.go.gov.br"
@@ -4320,8 +4400,8 @@
 "municipio": "Novo Brasil",
 "orgao": "camara",
 "portal": "https://acessoainformacao.novobrasil.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novobrasil.go.leg.br"
@@ -4333,8 +4413,8 @@
 "municipio": "Novo Brasil",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novobrasil.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novobrasil.go.gov.br"
@@ -4346,8 +4426,8 @@
 "municipio": "Novo Gama",
 "orgao": "camara",
 "portal": "https://acessoainformacao.novogama.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novogama.go.leg.br",
@@ -4360,8 +4440,8 @@
 "municipio": "Novo Gama",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novogama.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novogama.go.gov.br"
@@ -4373,8 +4453,8 @@
 "municipio": "Novo Planalto",
 "orgao": "camara",
 "portal": "https://acessoainformacao.novoplanalto.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novoplanalto.go.leg.br",
@@ -4387,8 +4467,8 @@
 "municipio": "Novo Planalto",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.novoplanalto.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "novoplanalto.go.gov.br"
@@ -4400,11 +4480,37 @@
 "municipio": "Orizona",
 "orgao": "camara",
 "portal": "https://camaradeorizona.go.gov.br",
-"plataforma": null,
-"origem": null,
-"sufixos": {},
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"contratos": "cnt",
+"servidores": "cnt",
+"licitacoes": "cnt",
+"despesas": "centi"
+},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "erro",
+"folha_orgaos": "erro",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "erro",
+"legislacao_ano": "erro"
+},
+"detalhes": {
+"folha_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"folha_orgaos": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"despesas_periodo": "em https://camaradeorizona.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em receitas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"legislacao_tipo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"legislacao_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
+}
+}
 },
 {
 "ibge": "5215306",
@@ -4412,20 +4518,42 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.orizona.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "orizona.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "a folha de 06/2025 está vazia; conferida em 10/2026, o mês mais recente publicado",
+"despesas_periodo": "em https://acessoainformacao.orizona.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.orizona.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5215405",
 "municipio": "Ouro Verde de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.ouroverdedegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ouroverdedegoias.go.leg.br"
@@ -4437,8 +4565,8 @@
 "municipio": "Ouro Verde de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.ouroverdegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ouroverdegoias.go.gov.br"
@@ -4450,8 +4578,8 @@
 "municipio": "Ouvidor",
 "orgao": "camara",
 "portal": "https://acessoainformacao.ouvidor.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ouvidor.go.leg.br"
@@ -4464,7 +4592,7 @@
 "orgao": "prefeitura",
 "portal": "https://ouvidor.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "ouvidor.go.gov.br"
@@ -4478,11 +4606,7 @@
 "portal": "https://acessoainformacao.camarapadrebernardo.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "padrebernardo.go.leg.br"
 ],
@@ -4493,8 +4617,8 @@
 "municipio": "Padre Bernardo",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.padrebernardo.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "padrebernardo.go.gov.br"
@@ -4506,8 +4630,8 @@
 "municipio": "Palestina de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.palestinadegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "palestinadegoias.go.leg.br"
@@ -4519,8 +4643,8 @@
 "municipio": "Palestina de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.palestinadegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "palestinadegoias.go.gov.br"
@@ -4532,8 +4656,8 @@
 "municipio": "Palmeiras de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.palmeirasdegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "palmeirasdegoias.go.leg.br"
@@ -4546,7 +4670,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.palmeirasdegoias.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "palmeirasdegoias.go.gov.br"
@@ -4558,8 +4682,8 @@
 "municipio": "Palmelo",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.palmelo.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "palmelo.go.gov.br"
@@ -4583,7 +4707,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.panama.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "panama.go.leg.br",
@@ -4597,7 +4721,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.panama.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "panama.go.gov.br"
@@ -4610,7 +4734,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.paranaiguara.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "paranaiguara.go.leg.br"
@@ -4623,7 +4747,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.paranaiguara.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "paranaiguara.go.gov.br"
@@ -4648,8 +4772,8 @@
 "municipio": "Paraúna",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.parauna.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "parauna.go.gov.br"
@@ -4662,7 +4786,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.perolandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "perolandia.go.leg.br"
@@ -4675,7 +4799,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.perolandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "perolandia.go.gov.br"
@@ -4700,8 +4824,8 @@
 "municipio": "Petrolina de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.petrolina.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "petrolina.go.gov.br"
@@ -4715,11 +4839,7 @@
 "portal": "https://acessoainformacao.camarapilar.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camarapilar.go.gov.br"
 ],
@@ -4731,7 +4851,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.pilar.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "pilar.go.gov.br"
@@ -4756,8 +4876,8 @@
 "municipio": "Piracanjuba",
 "orgao": "prefeitura",
 "portal": "https://piracanjuba.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -4767,8 +4887,8 @@
 "municipio": "Piranhas",
 "orgao": "camara",
 "portal": "https://acessoainformacao.piranhas.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "piranhas.go.leg.br",
@@ -4782,7 +4902,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.piranhas.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "piranhas.go.gov.br"
@@ -4795,12 +4915,31 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.pirenopolis.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "pirenopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "sem_dados",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia, e nenhuma folha recente",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "nenhuma despesa no 1º trimestre",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5217302",
@@ -4808,12 +4947,36 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.pirenopolis.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "pirenopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 7",
+"despesas_periodo": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5217401",
@@ -4821,7 +4984,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.piresdorio.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sapl.piresdorio.go.leg.br",
@@ -4835,7 +4998,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.piresdorio.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "piresdorio.go.gov.br"
@@ -4848,7 +5011,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.planaltina.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "planaltina.go.leg.br"
@@ -4861,7 +5024,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.planaltina.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "planaltina.go.gov.br"
@@ -4873,8 +5036,8 @@
 "municipio": "Pontalina",
 "orgao": "camara",
 "portal": "https://acessoainformacao.pontalina.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "pontalina.go.leg.br"
@@ -4886,8 +5049,8 @@
 "municipio": "Pontalina",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.pontalina.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "pontalina.go.gov.br"
@@ -4899,8 +5062,8 @@
 "municipio": "Porangatu",
 "orgao": "camara",
 "portal": "https://acessoainformacao.porangatu.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaraporangatu.go.gov.br",
@@ -4913,8 +5076,8 @@
 "municipio": "Porangatu",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.porangatu.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "porangatu.go.gov.br"
@@ -4926,8 +5089,8 @@
 "municipio": "Porteirão",
 "orgao": "camara",
 "portal": "https://acessoainformacao.porteirao.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "porteirao.go.leg.br"
@@ -4940,7 +5103,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.porteirao.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "porteirao.go.gov.br"
@@ -4953,7 +5116,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.portelandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "portelandia.go.leg.br"
@@ -4966,7 +5129,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.portelandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "portelandia.go.gov.br"
@@ -4979,12 +5142,33 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.posse.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "posse.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "em https://acessoainformacao.posse.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5218300",
@@ -4992,20 +5176,44 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.posse.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "posse.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5",
+"despesas_periodo": "em https://acessoainformacao.posse.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.posse.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5218391",
 "municipio": "Professor Jamil",
 "orgao": "camara",
 "portal": "https://acessoainformacao.professorjamil.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "professorjamil.go.leg.br"
@@ -5017,8 +5225,8 @@
 "municipio": "Professor Jamil",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.professorjamil.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "professorjamil.go.gov.br"
@@ -5031,7 +5239,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.quirinopolis.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "quirinopolis.go.leg.br"
@@ -5044,7 +5252,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.quirinopolis.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "quirinopolis.go.gov.br"
@@ -5069,8 +5277,8 @@
 "municipio": "Rialma",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.rialma.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rialma.go.gov.br"
@@ -5095,8 +5303,8 @@
 "municipio": "Rianápolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.rianapolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rianapolis.go.gov.br"
@@ -5108,8 +5316,8 @@
 "municipio": "Rio Quente",
 "orgao": "camara",
 "portal": "https://acessoainformacao.rioquente.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rioquente.go.leg.br"
@@ -5121,8 +5329,8 @@
 "municipio": "Rio Quente",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.rioquente.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rioquente.go.gov.br"
@@ -5135,7 +5343,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.rioverde.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rioverde.go.leg.br"
@@ -5148,7 +5356,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.rioverde.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rioverde.go.gov.br"
@@ -5173,8 +5381,8 @@
 "municipio": "Rubiataba",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.rubiataba.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "rubiataba.go.gov.br"
@@ -5187,7 +5395,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.sanclerlandia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sanclerlandia.go.leg.br"
@@ -5200,7 +5408,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.sanclerlandia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sanclerlandia.go.gov.br"
@@ -5213,7 +5421,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.santabarbaradegoias.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santabarbaradegoias.go.leg.br"
@@ -5226,7 +5434,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santabarbaradegoias.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santabarbaradegoias.go.gov.br"
@@ -5239,7 +5447,7 @@
 "orgao": "camara",
 "portal": "https://camarasantacruz.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaradesantacruzdegoias.go.gov.br"
@@ -5251,8 +5459,8 @@
 "municipio": "Santa Cruz de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santacruzdegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santacruzdegoias.go.gov.br"
@@ -5264,8 +5472,8 @@
 "municipio": "Santa Fé de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santafedegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santafedegoias.go.gov.br"
@@ -5278,7 +5486,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.legislativoshego.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "legislativoshego.go.gov.br"
@@ -5291,7 +5499,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santahelena.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santahelena.go.gov.br",
@@ -5317,8 +5525,8 @@
 "municipio": "Santa Isabel",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santaisabel.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaisabel.go.gov.br"
@@ -5330,8 +5538,8 @@
 "municipio": "Santa Rita do Araguaia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.santaritadoaraguaia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaritadoaraguaia.go.leg.br"
@@ -5342,13 +5550,13 @@
 "ibge": "5219407",
 "municipio": "Santa Rita do Araguaia",
 "orgao": "prefeitura",
-"portal": "https://acessoainformacao.santaritadoaraaguaia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"portal": "https://acessoainformacao.santaritadoaraguaia.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
-"acessoainformacao.santaritadoaraguaia.go.gov.br",
-"santaritadoaraguaia.go.gov.br"
+"santaritadoaraguaia.go.gov.br",
+"acessoainformacao.santaritadoaraaguaia.go.gov.br"
 ],
 "conferencia": null
 },
@@ -5357,8 +5565,8 @@
 "municipio": "Santa Rita do Novo Destino",
 "orgao": "camara",
 "portal": "https://acessoainformacao.santaritadonovodestino.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaritadonovodestino.go.leg.br"
@@ -5370,8 +5578,8 @@
 "municipio": "Santa Rita do Novo Destino",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santaritadonovodestino.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaritadonovodestino.go.gov.br"
@@ -5384,7 +5592,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.santarosadegoias.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santarosadegoias.go.leg.br"
@@ -5397,7 +5605,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santarosa.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santarosa.go.gov.br"
@@ -5410,7 +5618,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.santaterezadegoias.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaterezadegoias.go.leg.br",
@@ -5424,7 +5632,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santatereza.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santatereza.go.gov.br"
@@ -5438,11 +5646,7 @@
 "portal": "https://acessoainformacao.camarasantaterezinha.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camarasantaterezinha.go.gov.br"
 ],
@@ -5454,7 +5658,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santaterezinhadegoias.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santaterezinhadegoias.go.gov.br"
@@ -5480,8 +5684,8 @@
 "municipio": "Santo Antônio da Barra",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santoantoniodabarra.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santoantoniodabarra.go.gov.br"
@@ -5493,8 +5697,8 @@
 "municipio": "Santo Antônio de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santoantoniodegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santoantoniodegoias.go.gov.br"
@@ -5508,11 +5712,7 @@
 "portal": "https://acessoainformacao.camarasad.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "camarasad.go.gov.br",
 "camarasantoantoniododescoberto.megasofttransparencia.com.br",
@@ -5526,7 +5726,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.santoantoniododescoberto.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "santoantoniododescoberto.go.gov.br"
@@ -5539,7 +5739,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saodomingos.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saodomingos.go.gov.br"
@@ -5552,7 +5752,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.saofranciscodegoias.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saofranciscodegoias.go.leg.br"
@@ -5565,7 +5765,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saofranciscodegoias.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saofranciscodegoias.go.gov.br"
@@ -5577,8 +5777,8 @@
 "municipio": "São João d'Aliança",
 "orgao": "camara",
 "portal": "https://transparencia.saojoaodalianca.go.leg.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "ortrel",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saojoaodalianca.go.leg.br"
@@ -5590,8 +5790,8 @@
 "municipio": "São João d'Aliança",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saojoaodalianca.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saojoaodalianca.go.gov.br"
@@ -5604,7 +5804,7 @@
 "orgao": "camara",
 "portal": "https://camarasaojoaodaparauna.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saojoaodaparauna.go.leg.br",
@@ -5618,7 +5818,7 @@
 "orgao": "prefeitura",
 "portal": "https://saojoaodaparauna.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saojoaodaparauna.go.gov.br"
@@ -5631,7 +5831,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.saoluisdemontesbelos.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saoluisdemontesbelos.go.leg.br"
@@ -5644,7 +5844,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saoluisdemontesbelos.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saoluisdemontesbelos.go.gov.br"
@@ -5656,8 +5856,8 @@
 "municipio": "São Luiz do Norte",
 "orgao": "camara",
 "portal": "https://acessoainformacao.saoluizdonorte.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saoluizdonorte.go.leg.br"
@@ -5669,8 +5869,8 @@
 "municipio": "São Luiz do Norte",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saoluizdonorte.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saoluizdonorte.go.gov.br"
@@ -5683,13 +5883,35 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.saomigueldoaraguaia.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "saomigueldoaraguaia.go.leg.br",
 "sapl.saomigueldoaraguaia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"despesas_periodo": "em https://acessoainformacao.saomigueldoaraguaia.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5220207",
@@ -5697,12 +5919,37 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saomigueldoaraguaia.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "saomigueldoaraguaia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "sem_dados"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 1; com filtro aparecem 3, 4",
+"despesas_periodo": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"legislacao_ano": "nenhum decreto de 2025"
+}
+}
 },
 {
 "ibge": "5220264",
@@ -5710,7 +5957,7 @@
 "orgao": "camara",
 "portal": "https://camarasaomigueldopassaquatro.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saomigueldopassaquatro.go.leg.br",
@@ -5723,8 +5970,8 @@
 "municipio": "São Miguel do Passa Quatro",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saomigueldopassaquatro.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saomigueldopassaquatro.go.gov.br"
@@ -5736,8 +5983,8 @@
 "municipio": "São Patrício",
 "orgao": "camara",
 "portal": "https://acessoainformacao.saopatricio.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saopatricio.go.leg.br",
@@ -5751,7 +5998,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saopatricio.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saopatricio.go.gov.br"
@@ -5764,7 +6011,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.saosimao.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saosimao.go.leg.br",
@@ -5778,7 +6025,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.saosimao.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "saosimao.go.gov.br"
@@ -5791,7 +6038,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.senadorcanedo.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "senadorcanedo.go.leg.br"
@@ -5804,7 +6051,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.senadorcanedo.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "senadorcanedo.go.gov.br"
@@ -5831,8 +6078,8 @@
 "municipio": "Serranópolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.serranopolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "serranopolis.go.gov.br"
@@ -5845,7 +6092,7 @@
 "orgao": "camara",
 "portal": "https://camarasilvania.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "silvania.go.leg.br"
@@ -5857,8 +6104,8 @@
 "municipio": "Silvânia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.silvania.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "silvania.go.gov.br"
@@ -5872,11 +6119,7 @@
 "portal": "https://acessoainformacao.faina.go.gov.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {
-"servidores": "cnt",
-"licitacoes": "cnt",
-"contratos": "cnt"
-},
+"sufixos": {},
 "outros_enderecos": [
 "acessoainformacao.simolandia.go.leg.br",
 "simolandia.go.leg.br"
@@ -5889,7 +6132,7 @@
 "orgao": "prefeitura",
 "portal": "https://simolandia.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "simolandia.go.gov.br",
@@ -5902,8 +6145,8 @@
 "municipio": "Sítio d'Abadia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.sitiodabadia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sitiodabadia.go.leg.br"
@@ -5915,8 +6158,8 @@
 "municipio": "Sítio d'Abadia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.sitiodabadia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "sitiodabadia.go.gov.br"
@@ -5928,8 +6171,8 @@
 "municipio": "Taquaral de Goiás",
 "orgao": "camara",
 "portal": "https://camarataquaral.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
 "conferencia": null
@@ -5940,7 +6183,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.taquaral.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "taquaral.go.gov.br"
@@ -5952,8 +6195,8 @@
 "municipio": "Teresina de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.teresinadegoias.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "teresinadegoias.go.leg.br"
@@ -5965,8 +6208,8 @@
 "municipio": "Teresina de Goiás",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.teresinadegoias.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "teresinadegoias.go.gov.br"
@@ -5978,8 +6221,8 @@
 "municipio": "Terezópolis de Goiás",
 "orgao": "camara",
 "portal": "https://acessoainformacao.terezopolis.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "terezopolis.go.leg.br"
@@ -6004,8 +6247,8 @@
 "municipio": "Três Ranchos",
 "orgao": "camara",
 "portal": "https://acessoainformacao.tresranchos.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "tresranchos.go.leg.br"
@@ -6018,7 +6261,7 @@
 "orgao": "prefeitura",
 "portal": "https://tresranchos.megasofttransparencia.com.br",
 "plataforma": "megasoft",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "tresranchos.go.gov.br"
@@ -6035,13 +6278,31 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"despesas": "centi"
 },
 "outros_enderecos": [
 "camaratrindade.go.gov.br",
 "atividadelegislativa.camaratrindade.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"despesas_periodo": "em https://acessoainformacao.camaratrindade.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5221403",
@@ -6049,12 +6310,34 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.trindade.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"receitas": "centi",
+"despesas": "centi"
+},
 "outros_enderecos": [
 "trindade.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "falhou",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 7, 8, 10",
+"despesas_periodo": "em https://acessoainformacao.trindade.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.trindade.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5221452",
@@ -6085,8 +6368,8 @@
 "municipio": "Turvânia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.turvania.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "turvania.go.leg.br"
@@ -6098,8 +6381,8 @@
 "municipio": "Turvânia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.turvania.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "turvania.go.gov.br"
@@ -6111,8 +6394,8 @@
 "municipio": "Turvelândia",
 "orgao": "camara",
 "portal": "https://acessoainformacao.turvelandia.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "turvelandia.go.leg.br"
@@ -6124,8 +6407,8 @@
 "municipio": "Turvelândia",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.turvelandia.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "turvelandia.go.gov.br"
@@ -6138,7 +6421,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.uirapuru.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "uirapuru.go.leg.br"
@@ -6151,7 +6434,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.uirapuru.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "uirapuru.go.gov.br"
@@ -6162,12 +6445,12 @@
 "ibge": "5221601",
 "municipio": "Uruaçu",
 "orgao": "camara",
-"portal": "https://transparencia.camarauruacu.go.gov.br",
-"plataforma": null,
-"origem": null,
+"portal": "https://camarauruacu.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
-"camarauruacu.go.gov.br",
+"transparencia.camarauruacu.go.gov.br",
 "sapl.camarauruacu.go.gov.br"
 ],
 "conferencia": null
@@ -6177,8 +6460,8 @@
 "municipio": "Uruaçu",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.uruacu.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "uruacu.go.gov.br"
@@ -6190,8 +6473,8 @@
 "municipio": "Uruana",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.uruana.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "uruana.go.gov.br",
@@ -6204,8 +6487,8 @@
 "municipio": "Urutaí",
 "orgao": "camara",
 "portal": "https://acessoainformacao.urutai.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "urutai.go.leg.br"
@@ -6217,8 +6500,8 @@
 "municipio": "Urutaí",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.urutai.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "urutai.go.gov.br"
@@ -6230,8 +6513,8 @@
 "municipio": "Valparaíso de Goiás",
 "orgao": "camara",
 "portal": "https://transparencia.camaravalparaiso.go.gov.br",
-"plataforma": null,
-"origem": null,
+"plataforma": "ortrel",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "camaravalparaiso.go.gov.br"
@@ -6244,7 +6527,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.valparaisodegoias.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "valparaisodegoias.go.gov.br",
@@ -6258,7 +6541,7 @@
 "orgao": "camara",
 "portal": "https://acessoainformacao.varjao.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "varjao.go.leg.br"
@@ -6271,7 +6554,7 @@
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.varjao.go.gov.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "varjao.go.gov.br"
@@ -6285,25 +6568,70 @@
 "portal": "https://acessoainformacao.camaravianopolis.go.gov.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "camaravianopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "receitas de 06/2025 vazias"
+}
+}
 },
 {
 "ibge": "5222005",
 "municipio": "Vianópolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.vianopolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {
+"receitas": "mg",
+"despesas": "mg",
+"servidores": "mg"
+},
 "outros_enderecos": [
 "vianopolis.go.gov.br",
 "vianopolis.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "nao_suportado",
+"folha_orgaos": "nao_suportado",
+"despesas_periodo": "nao_suportado",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"folha_orgaos": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_periodo": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+}
+}
 },
 {
 "ibge": "5222054",
@@ -6321,8 +6649,8 @@
 "municipio": "Vicentinópolis",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.vicentinopolis.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "vicentinopolis.go.gov.br"
@@ -6347,8 +6675,8 @@
 "municipio": "Vila Boa",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.vilaboa.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "vilaboa.go.gov.br"
@@ -6360,8 +6688,8 @@
 "municipio": "Vila Propício",
 "orgao": "camara",
 "portal": "https://acessoainformacao.vilapropicio.go.leg.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "vilapropicio.go.leg.br"
@@ -6373,8 +6701,8 @@
 "municipio": "Vila Propício",
 "orgao": "prefeitura",
 "portal": "https://acessoainformacao.vilapropicio.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "endereco",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "vilapropicio.go.gov.br"

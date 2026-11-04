@@ -153,6 +153,18 @@ class Portal:
             return {}
         return reconhecer(r.text, self.url)["sufixos"] if r.status_code == 200 else {}
 
+    def _api_serve(self, modulo):
+        """O sufixo com que a API NucleoGov traz algum registro do módulo, sem filtro; None se nenhum."""
+        for sufixo in SUFIXOS:
+            try:
+                if self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"] > 0:
+                    return sufixo
+            except PortalBloqueou:
+                raise
+            except ErroPortal:
+                continue
+        return None
+
     def _consultar_modulo(self, nome, filtros, *, maximo, progresso=None):
         """Consulta um módulo com o sufixo deste portal. Sufixo desconhecido: `frl`; se der zero, `cnt`."""
         modulo = MODULOS[nome]
@@ -161,8 +173,14 @@ class Portal:
                 _SUFIXOS_APRENDIDOS[self.url] = self._descobrir_sufixos()
             self.sufixos = _SUFIXOS_APRENDIDOS[self.url]
         if self.sufixos.get(modulo) in EXTERNOS:
-            raise ModuloNaoSuportado(f"em {self.url}, o módulo {modulo} vem {EXTERNOS[self.sufixos[modulo]]}, ainda não "
-                             "suportada: a API NucleoGov responderia zero registros, sem aviso.")
+            # o menu aponta outra plataforma, mas a API NucleoGov às vezes serve o módulo mesmo assim
+            # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide, uma vez por portal
+            sufixo = self._api_serve(modulo)
+            if not sufixo:
+                raise ModuloNaoSuportado(
+                    f"em {self.url}, o módulo {modulo} vem {EXTERNOS[self.sufixos[modulo]]}, ainda não suportada: "
+                    "a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).")
+            self.sufixos[modulo] = sufixo
         if modulo in self.sufixos:
             return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
                                   progresso=progresso)

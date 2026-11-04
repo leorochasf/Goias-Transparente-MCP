@@ -67,9 +67,10 @@ def test_sufixos_informados_dispensam_a_pagina_inicial():
 @responses.activate
 def test_modulo_da_megasoft_embutida_e_recusado_em_vez_de_devolver_zero():
     responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/mgdespesas">D</a></div>')
+    _modulo("despesas_frl/listar", 0)
+    _modulo("despesas_cnt/listar", 0)
     with pytest.raises(ErroPortal, match="Megasoft"):
         Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
-    assert all(c.request.method == "GET" for c in responses.calls)
 
 
 @responses.activate
@@ -97,3 +98,13 @@ def test_sufixos_aprendidos_valem_para_o_proximo_portal_do_mesmo_endereco():
     Portal(PORTAL, pausa=0).folha(2025, 3, maximo=1)
     assert sum(1 for c in responses.calls if c.request.method == "GET") == 1
     cliente._SUFIXOS_APRENDIDOS.clear()
+
+
+@responses.activate
+def test_menu_da_centi_mas_api_nucleogov_com_dados_usa_a_api():
+    """Alexânia (04/11/2026): o menu mostra cntdespesas, e mesmo assim despesas_frl traz os empenhos."""
+    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/cntdespesas">D</a></div>')
+    _modulo("despesas_frl/listar", 12)
+    portal = Portal(PORTAL, pausa=0)
+    assert portal.despesas("2025-01-01", "2025-01-31")["total"] == 12
+    assert portal.sufixos["despesas"] == "frl"

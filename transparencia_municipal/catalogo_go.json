@@ -1,0 +1,6384 @@
+[
+{
+"ibge": "5200050",
+"municipio": "Abadia de Goiás",
+"orgao": "prefeitura",
+"portal": "https://abadiadegoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.abadiadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200100",
+"municipio": "Abadiânia",
+"orgao": "camara",
+"portal": "https://abadiania.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.abadiania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200100",
+"municipio": "Abadiânia",
+"orgao": "prefeitura",
+"portal": "https://abadiania.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.abadiania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200134",
+"municipio": "Acreúna",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraacreuna.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt"
+},
+"outros_enderecos": [
+"camaraacreuna.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200134",
+"municipio": "Acreúna",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.camaraitapuranga.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"acessoainformacao.acreuna.go.gov.br",
+"acreuna.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200159",
+"municipio": "Adelândia",
+"orgao": "camara",
+"portal": "https://camaraadelandia.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaradeadelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200159",
+"municipio": "Adelândia",
+"orgao": "prefeitura",
+"portal": "https://adelandia.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"adelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200175",
+"municipio": "Água Fria de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aguafriadegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aguafriadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200175",
+"municipio": "Água Fria de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aguafriadegoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aguafriadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200209",
+"municipio": "Água Limpa",
+"orgao": "camara",
+"portal": "https://acessoainformacao.agualimpa.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"agualimpa.go.leg.br",
+"legislativo.agualimpa.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200209",
+"municipio": "Água Limpa",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.agualimpa.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.agualimpa.go.leg.br",
+"agualimpa.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200258",
+"municipio": "Águas Lindas de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aguaslindasdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaraaguaslindasdegoias.megasofttransparencia.com.br",
+"camaradeaguaslindas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200258",
+"municipio": "Águas Lindas de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aguaslindasdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aguaslindasdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200308",
+"municipio": "Alexânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.alexania.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"alexania.go.leg.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "sem_dados"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.alexania.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.alexania.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"legislacao_ano": "nenhum decreto de 2025"
+}
+}
+},
+{
+"ibge": "5200308",
+"municipio": "Alexânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.alexania.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "frl",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"despesas": "frl",
+"receitas": "frl"
+},
+"outros_enderecos": [
+"alexania.go.gov.br",
+"folha.alexania.go.gov.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "ok",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {}
+}
+},
+{
+"ibge": "5200506",
+"municipio": "Aloândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aloandia.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aloandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200506",
+"municipio": "Aloândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aloandia.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aloandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200555",
+"municipio": "Alto Horizonte",
+"orgao": "camara",
+"portal": "https://acessoainformacao.altohorizonte.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"altohorizonte.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200555",
+"municipio": "Alto Horizonte",
+"orgao": "prefeitura",
+"portal": "https://altohorizonte.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"transparencia.altohorizonte.go.gov.br",
+"altohorizonte.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200605",
+"municipio": "Alto Paraíso de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.altoparaisodegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"altoparaisodegoias.go.leg.br",
+"camaraaltoparaisodegoias.megasofttransparencia.com.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "erro",
+"folha_orgaos": "erro",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "erro",
+"legislacao_ano": "erro"
+},
+"detalhes": {
+"folha_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
+"folha_orgaos": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
+"despesas_periodo": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/despesas_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/receitas_frl/listar (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
+"legislacao_tipo": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))",
+"legislacao_ano": "ErroPortal: não foi possível falar com https://acessoainformacao.altoparaisodegoias.go.leg.br: HTTPSConnectionPool(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by NameResolutionError(\"HTTPSConnection(host='acessoainformacao.altoparaisodegoias.go.leg.br', port=443): Failed to resolve 'acessoainformacao.altoparaisodegoias.go.leg.br' ([Errno 11001] getaddrinfo failed)\"))"
+}
+}
+},
+{
+"ibge": "5200605",
+"municipio": "Alto Paraíso de Goiás",
+"orgao": "prefeitura",
+"portal": "https://altoparaisodegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"altoparaiso.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200803",
+"municipio": "Alvorada do Norte",
+"orgao": "camara",
+"portal": "https://camaraalvoradadonorte.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"alvoradadonorte.go.leg.br",
+"sapl.alvoradadonorte.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200803",
+"municipio": "Alvorada do Norte",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.alvoradadonorte.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"alvoradadonorte.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200829",
+"municipio": "Amaralina",
+"orgao": "camara",
+"portal": "https://transparencia.amaralina.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"transparencia.amaralina.go.leg.br",
+"amaralina.go.gov.br",
+"amaralina.go.leg.br",
+"sapl.amaralina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200852",
+"municipio": "Americano do Brasil",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.americanodobrasil.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"americanodobrasil.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200902",
+"municipio": "Amorinópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.amorinopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"amorinopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5200902",
+"municipio": "Amorinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.amorinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"amorinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201108",
+"municipio": "Anápolis",
+"orgao": "camara",
+"portal": "https://anapolis.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"sapl.anapolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201108",
+"municipio": "Anápolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.anapolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"anapolis.go.gov.br",
+"ged.anapolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201207",
+"municipio": "Anhanguera",
+"orgao": "camara",
+"portal": "https://camaraanhanguera.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"legislativo.camaraanhanguera.go.gov.br",
+"camaraanhanguera.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201207",
+"municipio": "Anhanguera",
+"orgao": "prefeitura",
+"portal": "https://anhanguera.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5201306",
+"municipio": "Anicuns",
+"orgao": "camara",
+"portal": "https://acessoainformacao.anicuns.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"anicuns.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201306",
+"municipio": "Anicuns",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.anicuns.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"anicuns.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201405",
+"municipio": "Aparecida de Goiânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aparecidadegoiania.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aparecidadegoiania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201405",
+"municipio": "Aparecida de Goiânia",
+"orgao": "prefeitura",
+"portal": "https://transparencia.aparecida.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"sigp.aparecida.go.gov.br",
+"aparecida.go.gov.br",
+"servicos.aparecida.go.gov.br",
+"saude.aparecida.go.gov.br",
+"webio.aparecida.go.gov.br",
+"portaldacultura.aparecida.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201454",
+"municipio": "Aparecida do Rio Doce",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aparecidadoriodoce.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"aparecidadoriodoce.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201454",
+"municipio": "Aparecida do Rio Doce",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aparecidadoriodoce.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"aparecidadoriodoce.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201504",
+"municipio": "Aporé",
+"orgao": "camara",
+"portal": "https://acessoainformacao.apore.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"apore.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201504",
+"municipio": "Aporé",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.apore.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"apore.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201603",
+"municipio": "Araçu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aracu.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aracu.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201603",
+"municipio": "Araçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aracu.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aracu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201702",
+"municipio": "Aragarças",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aragarcas.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aragarcas.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201702",
+"municipio": "Aragarças",
+"orgao": "prefeitura",
+"portal": "https://aragarcas.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"aragarcas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201801",
+"municipio": "Aragoiânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aragoiania.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aragoiania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5201801",
+"municipio": "Aragoiânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aragoiania.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aragoiania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202155",
+"municipio": "Araguapaz",
+"orgao": "camara",
+"portal": "https://acessoainformacao.araguapaz.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"araguapaz.go.leg.br",
+"legislativo.araguapaz.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202155",
+"municipio": "Araguapaz",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.araguapaz.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"araguapaz.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202353",
+"municipio": "Arenópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.arenopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"arenopolis.go.leg.br",
+"legislativo.arenopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202353",
+"municipio": "Arenópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.arenopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"arenopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202502",
+"municipio": "Aruanã",
+"orgao": "camara",
+"portal": "https://acessoainformacao.aruana.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aruana.go.leg.br",
+"camaraaruana.megasofttransparencia.com.br",
+"legislativo.aruana.go.leg.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "falhou"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.aruana.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.aruana.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"legislacao_ano": "pediu 2025, vieram [None]"
+}
+}
+},
+{
+"ibge": "5202502",
+"municipio": "Aruanã",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aruana.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aruana.go.gov.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.aruana.go.gov.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.aruana.go.gov.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')"
+}
+}
+},
+{
+"ibge": "5202601",
+"municipio": "Aurilândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.aurilandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"aurilandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5202809",
+"municipio": "Avelinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.avelinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"avelinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203104",
+"municipio": "Baliza",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.baliza.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"baliza.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203203",
+"municipio": "Barro Alto",
+"orgao": "camara",
+"portal": "https://acessoainformacao.barroalto.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"barroalto.go.leg.br",
+"legislativo.barroalto.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203203",
+"municipio": "Barro Alto",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.barroalto.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"barroalto.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203302",
+"municipio": "Bela Vista de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.belavistadegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"belavistadegoias.go.leg.br",
+"legislativo.belavistadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203302",
+"municipio": "Bela Vista de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.belavista.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"belavista.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203401",
+"municipio": "Bom Jardim de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.bomjardimdegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"bomjardimdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203401",
+"municipio": "Bom Jardim de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.bomjardim.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"bomjardim.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203500",
+"municipio": "Bom Jesus de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.bomjesusdegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"bomjesusdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203500",
+"municipio": "Bom Jesus de Goiás",
+"orgao": "prefeitura",
+"portal": "https://bomjesus.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5203559",
+"municipio": "Bonfinópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarabonfinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camarabonfinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203559",
+"municipio": "Bonfinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.bonfinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"bonfinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203575",
+"municipio": "Bonópolis",
+"orgao": "camara",
+"portal": "https://transparencia.bonopolis.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"bonopolis.go.leg.br",
+"sapl.bonopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203575",
+"municipio": "Bonópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.bonopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"bonopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203609",
+"municipio": "Brazabrantes",
+"orgao": "camara",
+"portal": "https://brazabrantes.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5203609",
+"municipio": "Brazabrantes",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.brazabrantes.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"brazabrantes.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203807",
+"municipio": "Britânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.britania.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"britania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203807",
+"municipio": "Britânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.britania.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"britania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203906",
+"municipio": "Buriti Alegre",
+"orgao": "camara",
+"portal": "https://acessoainformacao.buritialegre.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"buritialegre.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203906",
+"municipio": "Buriti Alegre",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.buritialegre.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"buritialegre.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203939",
+"municipio": "Buriti de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.buritidegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"buritidegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203939",
+"municipio": "Buriti de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.buritidegoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"diariooficial.abc.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203962",
+"municipio": "Buritinópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.buritinopolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"buritinopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5203962",
+"municipio": "Buritinópolis",
+"orgao": "prefeitura",
+"portal": "https://buritinopolis.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"buritinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204003",
+"municipio": "Cabeceiras",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cabeceiras.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cabeceiras.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204003",
+"municipio": "Cabeceiras",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cabeceiras.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cabeceiras.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204102",
+"municipio": "Cachoeira Alta",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cachoeiraalta.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"cachoeiraalta.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204201",
+"municipio": "Cachoeira de Goiás",
+"orgao": "camara",
+"portal": "https://camaracachoeiradegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaradecachoeiradegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204201",
+"municipio": "Cachoeira de Goiás",
+"orgao": "prefeitura",
+"portal": "https://cachoeiradegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"cachoeiradegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204250",
+"municipio": "Cachoeira Dourada",
+"orgao": "prefeitura",
+"portal": "https://cachoeiradourada.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5204300",
+"municipio": "Caçu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cacu.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"cacu.go.leg.br",
+"sapl.cacu.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204300",
+"municipio": "Caçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cacu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"cacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204409",
+"municipio": "Caiapônia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaradecaiaponia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"camaradecaiaponia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204409",
+"municipio": "Caiapônia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.caiaponia.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"caiaponia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204508",
+"municipio": "Caldas Novas",
+"orgao": "camara",
+"portal": "https://acessoainformacao.caldasnovas.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"caldasnovas.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204508",
+"municipio": "Caldas Novas",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.caldasnovas.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"caldasnovas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204557",
+"municipio": "Caldazinha",
+"orgao": "camara",
+"portal": "https://acessoainformacao.caldazinha.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"caldazinha.go.leg.br",
+"leis.caldazinha.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204557",
+"municipio": "Caldazinha",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.caldazinha.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"caldazinha.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204607",
+"municipio": "Campestre de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaracampestre.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"campestredegoias.go.leg.br",
+"camaracampestre.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204607",
+"municipio": "Campestre de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.campestre.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"campestre.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204656",
+"municipio": "Campinaçu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaracampinacu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camaracampinacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204656",
+"municipio": "Campinaçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.campinacu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"campinacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204706",
+"municipio": "Campinorte",
+"orgao": "camara",
+"portal": "https://camaracampinorte.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"campinorte.go.leg.br",
+"sapl.campinorte.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204706",
+"municipio": "Campinorte",
+"orgao": "prefeitura",
+"portal": "https://transparencia.campinorte.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"campinorte.go.gov.br",
+"sapl.campinorte.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204805",
+"municipio": "Campo Alegre de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.campoalegredegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"campoalegredegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204805",
+"municipio": "Campo Alegre de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.campoalegre.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"campoalegre.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204854",
+"municipio": "Campo Limpo de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.campolimpodegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt"
+},
+"outros_enderecos": [
+"campolimpodegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204854",
+"municipio": "Campo Limpo de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.campolimpodegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"campolimpodegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204904",
+"municipio": "Campos Belos",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camposbelos.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camposbelos.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204904",
+"municipio": "Campos Belos",
+"orgao": "prefeitura",
+"portal": "https://camposbelos.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camposbelos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204953",
+"municipio": "Campos Verdes",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camposverdes.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camposverdes.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5204953",
+"municipio": "Campos Verdes",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.camposverdes.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camposverdes.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205000",
+"municipio": "Carmo do Rio Verde",
+"orgao": "camara",
+"portal": "https://acessoainformacao.carmodorioverde.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"carmodorioverde.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205000",
+"municipio": "Carmo do Rio Verde",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.carmodorioverde.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"carmodorioverde.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205059",
+"municipio": "Castelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.castelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"castelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205109",
+"municipio": "Catalão",
+"orgao": "prefeitura",
+"portal": "https://catalao.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"transparencia.catalao.go.gov.br",
+"ouvidoria.catalao.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205208",
+"municipio": "Caturaí",
+"orgao": "camara",
+"portal": "https://acessoainformacao.caturai.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"caturai.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205208",
+"municipio": "Caturaí",
+"orgao": "prefeitura",
+"portal": "https://caturai.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5205307",
+"municipio": "Cavalcante",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cavalcante.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cavalcante.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205307",
+"municipio": "Cavalcante",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cavalcante.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cavalcante.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205406",
+"municipio": "Ceres",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraceres.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaraceres.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205406",
+"municipio": "Ceres",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ceres.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"ceres.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205455",
+"municipio": "Cezarina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cezarina.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cezarina.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205455",
+"municipio": "Cezarina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cezarina.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cezarina.megasofttransparencia.com.br",
+"cezarina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205471",
+"municipio": "Chapadão do Céu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.chapadaodoceu.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"chapadaodoceu.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205471",
+"municipio": "Chapadão do Céu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.chapadaodoceu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"chapadaodoceu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205497",
+"municipio": "Cidade Ocidental",
+"orgao": "camara",
+"portal": "https://transparencia.cidadeocidental.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"cidadeocidental.go.leg.br",
+"api.transparencia.cidadeocidental.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205497",
+"municipio": "Cidade Ocidental",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cidadeocidental.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cidadeocidental.go.gov.br",
+"gestao.cidadeocidental.go.gov.br",
+"leis.cidadeocidental.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205513",
+"municipio": "Cocalzinho de Goiás",
+"orgao": "camara",
+"portal": "https://camaracocalzinho.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaracocalzinho.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205513",
+"municipio": "Cocalzinho de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cocalzinho.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cocalzinho.go.gov.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "sem_dados"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.cocalzinho.go.gov.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.cocalzinho.go.gov.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"legislacao_ano": "nenhum decreto de 2025"
+}
+}
+},
+{
+"ibge": "5205521",
+"municipio": "Colinas do Sul",
+"orgao": "camara",
+"portal": "https://acessoainformacao.colinasdosul.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"colinasdosul.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205521",
+"municipio": "Colinas do Sul",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.colinasdosul.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"colinasdosul.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205703",
+"municipio": "Córrego do Ouro",
+"orgao": "camara",
+"portal": "https://acessoainformacao.corregodoouro.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"corregodoouro.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205703",
+"municipio": "Córrego do Ouro",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.corregodoouro.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"corregodoouro.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205802",
+"municipio": "Corumbá de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.corumbadegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"corumbadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205802",
+"municipio": "Corumbá de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.corumbadegoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"corumbadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5205901",
+"municipio": "Corumbaíba",
+"orgao": "camara",
+"portal": "https://acessoainformacao.corumbaiba.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"corumbaiba.go.leg.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.corumbaiba.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.corumbaiba.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')"
+}
+}
+},
+{
+"ibge": "5205901",
+"municipio": "Corumbaíba",
+"orgao": "prefeitura",
+"portal": "https://corumbaiba.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"corumbaiba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206206",
+"municipio": "Cristalina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cristalina.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cristalina.go.leg.br"
+],
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "erro",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "erro",
+"legislacao_tipo": "ok",
+"legislacao_ano": "falhou"
+},
+"detalhes": {
+"folha_mes": "folha de 06/2025 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"despesas_periodo": "ErroPortal: https://acessoainformacao.cristalina.go.leg.br devolveu resposta inesperada em despesas_cnt/listar (2 bytes, começa com '[]')",
+"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"receitas_mes": "ErroPortal: https://acessoainformacao.cristalina.go.leg.br devolveu resposta inesperada em receitas_cnt/listar (2 bytes, começa com '[]')",
+"legislacao_ano": "pediu 2025, vieram [None]"
+}
+}
+},
+{
+"ibge": "5206206",
+"municipio": "Cristalina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cristalina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"cristalina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206305",
+"municipio": "Cristianópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.cristianopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cristianopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206305",
+"municipio": "Cristianópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.cristianopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"cristianopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206404",
+"municipio": "Crixás",
+"orgao": "camara",
+"portal": "https://transparencia.camaracrixas.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"camaracrixas.go.gov.br",
+"sapl.crixas.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206404",
+"municipio": "Crixás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.crixas.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"crixas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206503",
+"municipio": "Cromínia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.crominia.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"crominia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206503",
+"municipio": "Cromínia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.crominia.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"crominia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206602",
+"municipio": "Cumari",
+"orgao": "camara",
+"portal": "https://camaradecumari.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5206602",
+"municipio": "Cumari",
+"orgao": "prefeitura",
+"portal": "https://cumari.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5206701",
+"municipio": "Damianópolis",
+"orgao": "camara",
+"portal": "https://camaradamianopolis.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"damianopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206701",
+"municipio": "Damianópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.damianopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"damianopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206800",
+"municipio": "Damolândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.damolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"damolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206909",
+"municipio": "Davinópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.davinopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"davinopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5206909",
+"municipio": "Davinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.davinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"davinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207105",
+"municipio": "Diorama",
+"orgao": "camara",
+"portal": "https://acessoainformacao.diorama.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"diorama.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207105",
+"municipio": "Diorama",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.diorama.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"diorama.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207253",
+"municipio": "Doverlândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.doverlandia.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"doverlandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207253",
+"municipio": "Doverlândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.doverlandia.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"doverlandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207352",
+"municipio": "Edealina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.edealina.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"edealina.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207352",
+"municipio": "Edealina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.edealina.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"edealina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207402",
+"municipio": "Edéia",
+"orgao": "camara",
+"portal": "https://edeia.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5207402",
+"municipio": "Edéia",
+"orgao": "prefeitura",
+"portal": "https://edeia.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"saude.edeia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207501",
+"municipio": "Estrela do Norte",
+"orgao": "camara",
+"portal": "https://acessoainformacao.estreladonorte.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"estreladonorte.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207535",
+"municipio": "Faina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.faina.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"faina.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207535",
+"municipio": "Faina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.faina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"faina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207600",
+"municipio": "Fazenda Nova",
+"orgao": "camara",
+"portal": "https://acessoainformacao.fazendanova.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"fazendanova.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207808",
+"municipio": "Firminópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.firminopolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"firminopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207808",
+"municipio": "Firminópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.firminopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"firminopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5207907",
+"municipio": "Flores de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.floresdegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"floresdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208004",
+"municipio": "Formosa",
+"orgao": "camara",
+"portal": "https://formosa.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"sapl.formosa.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208004",
+"municipio": "Formosa",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.formosa.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"formosa.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208103",
+"municipio": "Formoso",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraformoso.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.formoso.go.leg.br",
+"formoso.go.leg.br",
+"legislativo.camaraformoso.go.gov.br",
+"camaraformoso.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208103",
+"municipio": "Formoso",
+"orgao": "prefeitura",
+"portal": "https://formoso.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5208152",
+"municipio": "Gameleira de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.gameleiradegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"gameleiradegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208152",
+"municipio": "Gameleira de Goiás",
+"orgao": "prefeitura",
+"portal": "https://gameleiradegoias.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5208301",
+"municipio": "Divinópolis de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.divinopolisdegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"divinopolisdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208301",
+"municipio": "Divinópolis de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.divinopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"divinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208400",
+"municipio": "Goianápolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.goianapolis.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goianapolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208400",
+"municipio": "Goianápolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.goianapolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goianapolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208509",
+"municipio": "Goiandira",
+"orgao": "camara",
+"portal": "https://acessoainformacao.goiandira.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goiandira.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208509",
+"municipio": "Goiandira",
+"orgao": "prefeitura",
+"portal": "https://goiandira.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5208608",
+"municipio": "Goianésia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaragoianesia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaragoianesia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208608",
+"municipio": "Goianésia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.goianesia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goianesia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208707",
+"municipio": "Goiânia",
+"orgao": "camara",
+"portal": "https://goiania.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"www10.goiania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208707",
+"municipio": "Goiânia",
+"orgao": "prefeitura",
+"portal": "https://portal.tce.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"transparencia.al.go.leg.br",
+"transparencia.go.gov.br",
+"paineis.tce.go.gov.br",
+"goiania.go.gov.br",
+"wiki.tce.go.gov.br",
+"ouvidoriageral.go.gov.br",
+"legisla.casacivil.go.gov.br",
+"static.agehab.go.gov.br",
+"portal.al.go.leg.br",
+"lgpd.go.gov.br",
+"dadosabertos.go.gov.br",
+"ouvidoria.tce.go.gov.br",
+"vaptvupt.go.gov.br",
+"gnoi.tce.go.gov.br",
+"saude.goiania.go.gov.br",
+"saba.al.go.leg.br",
+"mapadeobras.seinfra.go.gov.br",
+"alegodigital.al.go.leg.br",
+"sislog.go.gov.br",
+"sede-alego.al.go.leg.br",
+"extranet.saude.go.gov.br",
+"ppa.go.gov.br",
+"publicacoes.al.go.leg.br",
+"comprasnet.go.gov.br",
+"deputadosaqui.al.go.leg.br",
+"repositorio.saude.go.gov.br",
+"decisoes.tce.go.gov.br",
+"www10.goiania.go.gov.br",
+"tcexpress.tce.go.gov.br",
+"tcenet.tce.go.gov.br",
+"dadosabertos.tce.go.gov.br",
+"dec.tce.go.gov.br",
+"iquego.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208806",
+"municipio": "Goianira",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaragoianira.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaragoianira.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208806",
+"municipio": "Goianira",
+"orgao": "prefeitura",
+"portal": "https://goianira.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5208905",
+"municipio": "Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaragoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaragoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5208905",
+"municipio": "Goiás",
+"orgao": "prefeitura",
+"portal": "https://cidadedegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"goias.go.gov.br",
+"publicacoes.goias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209101",
+"municipio": "Goiatuba",
+"orgao": "camara",
+"portal": "https://acessoainformacao.goiatuba.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goiatuba.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209101",
+"municipio": "Goiatuba",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.goiatuba.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"goiatuba.go.gov.br",
+"editais.goiatuba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209150",
+"municipio": "Gouvelândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaragouvelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camaragouvelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209150",
+"municipio": "Gouvelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.gouvelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt"
+},
+"outros_enderecos": [
+"gouvelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209200",
+"municipio": "Guapó",
+"orgao": "camara",
+"portal": "https://acessoainformacao.guapo.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"guapo.go.leg.br",
+"legislativo.guapo.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209200",
+"municipio": "Guapó",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.guapo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"guapo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209291",
+"municipio": "Guaraíta",
+"orgao": "camara",
+"portal": "https://acessoainformacao.guaraita.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"guaraita.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209291",
+"municipio": "Guaraíta",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.guaraita.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"guaraita.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209408",
+"municipio": "Guarani de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.guaranidegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"guaranidegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209408",
+"municipio": "Guarani de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.guaranidegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"guaranidegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209457",
+"municipio": "Guarinos",
+"orgao": "camara",
+"portal": "https://acessoainformacao.guarinos.go.leg.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"guarinos.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209457",
+"municipio": "Guarinos",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.guarinos.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"guarinos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209606",
+"municipio": "Heitoraí",
+"orgao": "camara",
+"portal": "https://acessoainformacao.heitorai.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"heitorai.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209606",
+"municipio": "Heitoraí",
+"orgao": "prefeitura",
+"portal": "https://heitorai.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5209705",
+"municipio": "Hidrolândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.hidrolandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"hidrolandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209705",
+"municipio": "Hidrolândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.hidrolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"hidrolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209804",
+"municipio": "Hidrolina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.hidrolina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"hidrolina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209903",
+"municipio": "Iaciara",
+"orgao": "camara",
+"portal": "https://acessoainformacao.iaciara.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"iaciara.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209903",
+"municipio": "Iaciara",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.iaciara.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"iaciara.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209937",
+"municipio": "Inaciolândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaradeinaciolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.inaciolandia.go.leg.br",
+"camaradeinaciolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209937",
+"municipio": "Inaciolândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.inaciolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"inaciolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209952",
+"municipio": "Indiara",
+"orgao": "camara",
+"portal": "https://acessoainformacao.indiara.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"indiara.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5209952",
+"municipio": "Indiara",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.indiara.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"indiara.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210000",
+"municipio": "Inhumas",
+"orgao": "camara",
+"portal": "https://acessoainformacao.inhumas.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"inhumas.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210000",
+"municipio": "Inhumas",
+"orgao": "prefeitura",
+"portal": "https://inhumas.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5210109",
+"municipio": "Ipameri",
+"orgao": "camara",
+"portal": "https://acessoainformacao.ipameri.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ipameri.go.leg.br",
+"sapl.ipameri.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210109",
+"municipio": "Ipameri",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ipameri.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ipameri.go.gov.br",
+"sapl.ipameri.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210158",
+"municipio": "Ipiranga de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaradeipirangadegoias.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaradeipirangadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210158",
+"municipio": "Ipiranga de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ipirangadegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ipirangadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210208",
+"municipio": "Iporá",
+"orgao": "camara",
+"portal": "https://acessoainformacao.ipora.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ipora.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210208",
+"municipio": "Iporá",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ipora.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ipora.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210307",
+"municipio": "Israelândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.israelandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"israelandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210307",
+"municipio": "Israelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.israelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"israelandia.megasofttransparencia.com.br",
+"israelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210406",
+"municipio": "Itaberaí",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itaberai.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaberai.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210406",
+"municipio": "Itaberaí",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaberai.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaberai.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210562",
+"municipio": "Itaguari",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaguari.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaguari.go.gov.br",
+"itaguari.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210604",
+"municipio": "Itaguaru",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itaguaru.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaguaru.go.leg.br",
+"itaguaru.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210604",
+"municipio": "Itaguaru",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaguaru.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaguaru.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210802",
+"municipio": "Itajá",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itaja.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaja.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210802",
+"municipio": "Itajá",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaja.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaja.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210901",
+"municipio": "Itapaci",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itapaci.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itapaci.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5210901",
+"municipio": "Itapaci",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itapaci.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itapaci.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211008",
+"municipio": "Itapirapuã",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itapirapua.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itapirapua.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211008",
+"municipio": "Itapirapuã",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itapirapua.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itapirapua.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211206",
+"municipio": "Itapuranga",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraitapuranga.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"itapuranga.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211206",
+"municipio": "Itapuranga",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itapuranga.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itapuranga.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211305",
+"municipio": "Itarumã",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itaruma.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaruma.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211305",
+"municipio": "Itarumã",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaruma.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaruma.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211404",
+"municipio": "Itauçu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.itaucu.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaucu.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211404",
+"municipio": "Itauçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itaucu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itaucu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211503",
+"municipio": "Itumbiara",
+"orgao": "camara",
+"portal": "https://camaradeitumbiara.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5211503",
+"municipio": "Itumbiara",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.itumbiara.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"itumbiara.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211602",
+"municipio": "Ivolândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ivolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ivolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211701",
+"municipio": "Jandaia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.jandaia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jandaia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211701",
+"municipio": "Jandaia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.jandaia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jandaia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211800",
+"municipio": "Jaraguá",
+"orgao": "camara",
+"portal": "https://acessoainformacao.jaragua.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jaragua.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211800",
+"municipio": "Jaraguá",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.jaragua.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jaragua.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5211909",
+"municipio": "Jataí",
+"orgao": "camara",
+"portal": "https://jatai.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5212006",
+"municipio": "Jaupaci",
+"orgao": "camara",
+"portal": "https://acessoainformacao.jaupaci.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jaupaci.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212006",
+"municipio": "Jaupaci",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.jaupaci.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jaupaci.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212055",
+"municipio": "Jesúpolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.jesupolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jesupolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212055",
+"municipio": "Jesúpolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.jesupolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jesupolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212105",
+"municipio": "Joviânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.joviania.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"joviania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212105",
+"municipio": "Joviânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.joviania.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"joviania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212204",
+"municipio": "Jussara",
+"orgao": "camara",
+"portal": "https://acessoainformacao.jussara.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jussara.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212204",
+"municipio": "Jussara",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.jussara.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"jussara.go.gov.br",
+"jussara.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212253",
+"municipio": "Lagoa Santa",
+"orgao": "camara",
+"portal": "https://acessoainformacao.lagoasanta.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"lagoasanta.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212253",
+"municipio": "Lagoa Santa",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.lagoasanta.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"lagoasanta.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212303",
+"municipio": "Leopoldo de Bulhões",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaraleopoldodebulhoes.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212303",
+"municipio": "Leopoldo de Bulhões",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.leopoldodebulhoes.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"leopoldodebulhoes.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212501",
+"municipio": "Luziânia",
+"orgao": "camara",
+"portal": "https://transparencia.luziania.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"luziania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212501",
+"municipio": "Luziânia",
+"orgao": "prefeitura",
+"portal": "https://luziania.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5212600",
+"municipio": "Mairipotaba",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mairipotaba.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mairipotaba.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212600",
+"municipio": "Mairipotaba",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mairipotaba.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mairipotaba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212709",
+"municipio": "Mambaí",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mambai.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mambai.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212709",
+"municipio": "Mambaí",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mambai.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mambai.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212808",
+"municipio": "Mara Rosa",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mararosa.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaramararosa.megasofttransparencia.com.br",
+"mararosa.go.leg.br",
+"mararosa.go.gov.br",
+"legislativo.mararosa.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212907",
+"municipio": "Marzagão",
+"orgao": "camara",
+"portal": "https://camaramarzagao.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"legislativo.camarademarzagao.go.gov.br",
+"camarademarzagao.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212907",
+"municipio": "Marzagão",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.marzagao.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"marzagao.go.gov.br",
+"marzagao.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5212956",
+"municipio": "Matrinchã",
+"orgao": "prefeitura",
+"portal": "https://matrincha.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"leis.matrincha.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213004",
+"municipio": "Maurilândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.legislativomaurilandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"legislativomaurilandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213004",
+"municipio": "Maurilândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.maurilandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"maurilandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213053",
+"municipio": "Mimoso de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mimosodegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mimosodegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213087",
+"municipio": "Minaçu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.minacu.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"minacu.go.leg.br",
+"leis.camaraminacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213087",
+"municipio": "Minaçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.minacu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"minacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213103",
+"municipio": "Mineiros",
+"orgao": "camara",
+"portal": "https://mineiros.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5213103",
+"municipio": "Mineiros",
+"orgao": "prefeitura",
+"portal": "https://mineiros.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5213400",
+"municipio": "Moiporá",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.moipora.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"moipora.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213509",
+"municipio": "Monte Alegre de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.montealegredegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montealegredegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213509",
+"municipio": "Monte Alegre de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.montealegre.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montealegre.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213707",
+"municipio": "Montes Claros de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.montesclarosdegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montesclarosdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213707",
+"municipio": "Montes Claros de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.montesclarosdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montesclarosdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213756",
+"municipio": "Montividiu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.montividiu.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montividiu.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213756",
+"municipio": "Montividiu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.montividiu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montividiu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213772",
+"municipio": "Montividiu do Norte",
+"orgao": "camara",
+"portal": "https://montividiudonorte.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5213772",
+"municipio": "Montividiu do Norte",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.montividiudonorte.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"montividiudonorte.go.gov.br",
+"montividiudonorte.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213806",
+"municipio": "Morrinhos",
+"orgao": "camara",
+"portal": "https://acessoainformacao.morrinhos.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"morrinhos.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213806",
+"municipio": "Morrinhos",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.morrinhos.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"morrinhos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213855",
+"municipio": "Morro Agudo de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.morroagudodegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"morroagudodegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213855",
+"municipio": "Morro Agudo de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.prefeiturademorroagudo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"prefeiturademorroagudo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213905",
+"municipio": "Mossâmedes",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mossamedes.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mossamedes.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5213905",
+"municipio": "Mossâmedes",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mossamedes.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mossamedes.go.gov.br",
+"transparencia.mossamedes.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214002",
+"municipio": "Mozarlândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mozarlandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mozarlandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214002",
+"municipio": "Mozarlândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mozarlandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mozarlandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214051",
+"municipio": "Mundo Novo",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mundonovo.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mundonovo.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214051",
+"municipio": "Mundo Novo",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mundonovo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mundonovo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214101",
+"municipio": "Mutunópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.mutunopolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mutunopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214101",
+"municipio": "Mutunópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.mutunopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"mutunopolis.go.gov.br",
+"mutunopolis.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214408",
+"municipio": "Nazário",
+"orgao": "camara",
+"portal": "https://nazario.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5214408",
+"municipio": "Nazário",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.nazario.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"nazario.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214507",
+"municipio": "Nerópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.neropolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"neropolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214606",
+"municipio": "Niquelândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.niquelandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"niquelandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214606",
+"municipio": "Niquelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.niquelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"niquelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214705",
+"municipio": "Nova América",
+"orgao": "camara",
+"portal": "https://acessoainformacao.novaamerica.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novaamerica.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214705",
+"municipio": "Nova América",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novaamerica.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novaamerica.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214804",
+"municipio": "Nova Aurora",
+"orgao": "camara",
+"portal": "https://camaranovaaurora.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"legislativo.camaranovaaurora.go.gov.br",
+"camaranovaaurora.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214838",
+"municipio": "Nova Crixás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaranovacrixas.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camaranovacrixas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214838",
+"municipio": "Nova Crixás",
+"orgao": "prefeitura",
+"portal": "https://novacrixas.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5214861",
+"municipio": "Nova Glória",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaranovagloria.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaranovagloria.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214861",
+"municipio": "Nova Glória",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novagloria.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novagloria.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214879",
+"municipio": "Nova Iguaçu de Goiás",
+"orgao": "prefeitura",
+"portal": "https://novaiguacudegoias.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novaiguacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214903",
+"municipio": "Nova Roma",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaranovaroma.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaranovaroma.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5214903",
+"municipio": "Nova Roma",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novaroma.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novaroma.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215009",
+"municipio": "Nova Veneza",
+"orgao": "camara",
+"portal": "https://camaranovaveneza.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaradenovaveneza.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215009",
+"municipio": "Nova Veneza",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novaveneza.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novaveneza.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215207",
+"municipio": "Novo Brasil",
+"orgao": "camara",
+"portal": "https://acessoainformacao.novobrasil.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novobrasil.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215207",
+"municipio": "Novo Brasil",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novobrasil.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novobrasil.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215231",
+"municipio": "Novo Gama",
+"orgao": "camara",
+"portal": "https://acessoainformacao.novogama.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novogama.go.leg.br",
+"camaranovogama.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215231",
+"municipio": "Novo Gama",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novogama.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novogama.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215256",
+"municipio": "Novo Planalto",
+"orgao": "camara",
+"portal": "https://acessoainformacao.novoplanalto.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novoplanalto.go.leg.br",
+"legislativo.novoplanalto.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215256",
+"municipio": "Novo Planalto",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.novoplanalto.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"novoplanalto.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215306",
+"municipio": "Orizona",
+"orgao": "camara",
+"portal": "https://camaradeorizona.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5215306",
+"municipio": "Orizona",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.orizona.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"orizona.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215405",
+"municipio": "Ouro Verde de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.ouroverdedegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ouroverdedegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215405",
+"municipio": "Ouro Verde de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.ouroverdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ouroverdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215504",
+"municipio": "Ouvidor",
+"orgao": "camara",
+"portal": "https://acessoainformacao.ouvidor.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ouvidor.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215504",
+"municipio": "Ouvidor",
+"orgao": "prefeitura",
+"portal": "https://ouvidor.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"ouvidor.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215603",
+"municipio": "Padre Bernardo",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarapadrebernardo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"padrebernardo.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215603",
+"municipio": "Padre Bernardo",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.padrebernardo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"padrebernardo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215652",
+"municipio": "Palestina de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.palestinadegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"palestinadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215652",
+"municipio": "Palestina de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.palestinadegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"palestinadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215702",
+"municipio": "Palmeiras de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.palmeirasdegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"palmeirasdegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215702",
+"municipio": "Palmeiras de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.palmeirasdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"palmeirasdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215801",
+"municipio": "Palmelo",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.palmelo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"palmelo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5215900",
+"municipio": "Palminópolis",
+"orgao": "camara",
+"portal": "https://palminopolis.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5216007",
+"municipio": "Panamá",
+"orgao": "camara",
+"portal": "https://acessoainformacao.panama.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"panama.go.leg.br",
+"legislativo.panama.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216007",
+"municipio": "Panamá",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.panama.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"panama.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216304",
+"municipio": "Paranaiguara",
+"orgao": "camara",
+"portal": "https://acessoainformacao.paranaiguara.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"paranaiguara.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216304",
+"municipio": "Paranaiguara",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.paranaiguara.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"paranaiguara.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216403",
+"municipio": "Paraúna",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraparauna.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaraparauna.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216403",
+"municipio": "Paraúna",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.parauna.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"parauna.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216452",
+"municipio": "Perolândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.perolandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"perolandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216452",
+"municipio": "Perolândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.perolandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"perolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216809",
+"municipio": "Petrolina de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaradepetrolina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaradepetrolina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216809",
+"municipio": "Petrolina de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.petrolina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"petrolina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216908",
+"municipio": "Pilar de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarapilar.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camarapilar.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5216908",
+"municipio": "Pilar de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.pilar.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"pilar.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217104",
+"municipio": "Piracanjuba",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaradepiracanjuba.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaradepiracanjuba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217104",
+"municipio": "Piracanjuba",
+"orgao": "prefeitura",
+"portal": "https://piracanjuba.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5217203",
+"municipio": "Piranhas",
+"orgao": "camara",
+"portal": "https://acessoainformacao.piranhas.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"piranhas.go.leg.br",
+"legislativo.piranhas.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217203",
+"municipio": "Piranhas",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.piranhas.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"piranhas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217302",
+"municipio": "Pirenópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.pirenopolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"pirenopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217302",
+"municipio": "Pirenópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.pirenopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"pirenopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217401",
+"municipio": "Pires do Rio",
+"orgao": "camara",
+"portal": "https://acessoainformacao.piresdorio.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"sapl.piresdorio.go.leg.br",
+"piresdorio.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217401",
+"municipio": "Pires do Rio",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.piresdorio.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"piresdorio.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217609",
+"municipio": "Planaltina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.planaltina.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"planaltina.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217609",
+"municipio": "Planaltina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.planaltina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"planaltina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217708",
+"municipio": "Pontalina",
+"orgao": "camara",
+"portal": "https://acessoainformacao.pontalina.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"pontalina.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5217708",
+"municipio": "Pontalina",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.pontalina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"pontalina.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218003",
+"municipio": "Porangatu",
+"orgao": "camara",
+"portal": "https://acessoainformacao.porangatu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaraporangatu.go.gov.br",
+"leis.camaraporangatu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218003",
+"municipio": "Porangatu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.porangatu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"porangatu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218052",
+"municipio": "Porteirão",
+"orgao": "camara",
+"portal": "https://acessoainformacao.porteirao.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"porteirao.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218052",
+"municipio": "Porteirão",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.porteirao.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"porteirao.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218102",
+"municipio": "Portelândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.portelandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"portelandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218102",
+"municipio": "Portelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.portelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"portelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218300",
+"municipio": "Posse",
+"orgao": "camara",
+"portal": "https://acessoainformacao.posse.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"posse.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218300",
+"municipio": "Posse",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.posse.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"posse.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218391",
+"municipio": "Professor Jamil",
+"orgao": "camara",
+"portal": "https://acessoainformacao.professorjamil.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"professorjamil.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218391",
+"municipio": "Professor Jamil",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.professorjamil.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"professorjamil.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218508",
+"municipio": "Quirinópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.quirinopolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"quirinopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218508",
+"municipio": "Quirinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.quirinopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"quirinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218607",
+"municipio": "Rialma",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camararialma.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camararialma.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218607",
+"municipio": "Rialma",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.rialma.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rialma.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218706",
+"municipio": "Rianápolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camararianapolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camararianapolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218706",
+"municipio": "Rianápolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.rianapolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rianapolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218789",
+"municipio": "Rio Quente",
+"orgao": "camara",
+"portal": "https://acessoainformacao.rioquente.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rioquente.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218789",
+"municipio": "Rio Quente",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.rioquente.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rioquente.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218805",
+"municipio": "Rio Verde",
+"orgao": "camara",
+"portal": "https://acessoainformacao.rioverde.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rioverde.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218805",
+"municipio": "Rio Verde",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.rioverde.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rioverde.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218904",
+"municipio": "Rubiataba",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camararubiataba.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camararubiataba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5218904",
+"municipio": "Rubiataba",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.rubiataba.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"rubiataba.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219001",
+"municipio": "Sanclerlândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.sanclerlandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"sanclerlandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219001",
+"municipio": "Sanclerlândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.sanclerlandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"sanclerlandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219100",
+"municipio": "Santa Bárbara de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.santabarbaradegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santabarbaradegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219100",
+"municipio": "Santa Bárbara de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santabarbaradegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santabarbaradegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219209",
+"municipio": "Santa Cruz de Goiás",
+"orgao": "camara",
+"portal": "https://camarasantacruz.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"camaradesantacruzdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219209",
+"municipio": "Santa Cruz de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santacruzdegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santacruzdegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219258",
+"municipio": "Santa Fé de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santafedegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santafedegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219308",
+"municipio": "Santa Helena de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.legislativoshego.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"legislativoshego.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219308",
+"municipio": "Santa Helena de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santahelena.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santahelena.go.gov.br",
+"leis.santahelena.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219357",
+"municipio": "Santa Isabel",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarasantaisabel.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camarasantaisabel.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219357",
+"municipio": "Santa Isabel",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santaisabel.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaisabel.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219407",
+"municipio": "Santa Rita do Araguaia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.santaritadoaraguaia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaritadoaraguaia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219407",
+"municipio": "Santa Rita do Araguaia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santaritadoaraaguaia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.santaritadoaraguaia.go.gov.br",
+"santaritadoaraguaia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219456",
+"municipio": "Santa Rita do Novo Destino",
+"orgao": "camara",
+"portal": "https://acessoainformacao.santaritadonovodestino.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaritadonovodestino.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219456",
+"municipio": "Santa Rita do Novo Destino",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santaritadonovodestino.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaritadonovodestino.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219506",
+"municipio": "Santa Rosa de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.santarosadegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santarosadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219506",
+"municipio": "Santa Rosa de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santarosa.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santarosa.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219605",
+"municipio": "Santa Tereza de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.santaterezadegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaterezadegoias.go.leg.br",
+"legislativo.santaterezadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219605",
+"municipio": "Santa Tereza de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santatereza.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santatereza.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219704",
+"municipio": "Santa Terezinha de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarasantaterezinha.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camarasantaterezinha.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219704",
+"municipio": "Santa Terezinha de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santaterezinhadegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santaterezinhadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219712",
+"municipio": "Santo Antônio da Barra",
+"orgao": "camara",
+"portal": "https://acessoainformacao.carmodorioverde.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"acessoainformacao.santoantoniodabarra.go.leg.br",
+"santoantoniodabarra.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219712",
+"municipio": "Santo Antônio da Barra",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santoantoniodabarra.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santoantoniodabarra.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219738",
+"municipio": "Santo Antônio de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santoantoniodegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santoantoniodegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219753",
+"municipio": "Santo Antônio do Descoberto",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camarasad.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camarasad.go.gov.br",
+"camarasantoantoniododescoberto.megasofttransparencia.com.br",
+"leis.camarasad.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219753",
+"municipio": "Santo Antônio do Descoberto",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.santoantoniododescoberto.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"santoantoniododescoberto.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219803",
+"municipio": "São Domingos",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saodomingos.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saodomingos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219902",
+"municipio": "São Francisco de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saofranciscodegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saofranciscodegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5219902",
+"municipio": "São Francisco de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saofranciscodegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saofranciscodegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220009",
+"municipio": "São João d'Aliança",
+"orgao": "camara",
+"portal": "https://transparencia.saojoaodalianca.go.leg.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"saojoaodalianca.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220009",
+"municipio": "São João d'Aliança",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saojoaodalianca.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saojoaodalianca.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220058",
+"municipio": "São João da Paraúna",
+"orgao": "camara",
+"portal": "https://camarasaojoaodaparauna.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saojoaodaparauna.go.leg.br",
+"saojoaodaparauna.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220058",
+"municipio": "São João da Paraúna",
+"orgao": "prefeitura",
+"portal": "https://saojoaodaparauna.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saojoaodaparauna.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220108",
+"municipio": "São Luís de Montes Belos",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saoluisdemontesbelos.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saoluisdemontesbelos.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220108",
+"municipio": "São Luís de Montes Belos",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saoluisdemontesbelos.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saoluisdemontesbelos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220157",
+"municipio": "São Luiz do Norte",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saoluizdonorte.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saoluizdonorte.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220157",
+"municipio": "São Luiz do Norte",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saoluizdonorte.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saoluizdonorte.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220207",
+"municipio": "São Miguel do Araguaia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saomigueldoaraguaia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saomigueldoaraguaia.go.leg.br",
+"sapl.saomigueldoaraguaia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220207",
+"municipio": "São Miguel do Araguaia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saomigueldoaraguaia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saomigueldoaraguaia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220264",
+"municipio": "São Miguel do Passa Quatro",
+"orgao": "camara",
+"portal": "https://camarasaomigueldopassaquatro.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saomigueldopassaquatro.go.leg.br",
+"sapl.saomigueldopassaquatro.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220264",
+"municipio": "São Miguel do Passa Quatro",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saomigueldopassaquatro.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saomigueldopassaquatro.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220280",
+"municipio": "São Patrício",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saopatricio.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saopatricio.go.leg.br",
+"camarasaopatricio.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220280",
+"municipio": "São Patrício",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saopatricio.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saopatricio.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220405",
+"municipio": "São Simão",
+"orgao": "camara",
+"portal": "https://acessoainformacao.saosimao.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saosimao.go.leg.br",
+"sapl.saosimao.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220405",
+"municipio": "São Simão",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.saosimao.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"saosimao.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220454",
+"municipio": "Senador Canedo",
+"orgao": "camara",
+"portal": "https://acessoainformacao.senadorcanedo.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"senadorcanedo.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220454",
+"municipio": "Senador Canedo",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.senadorcanedo.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"senadorcanedo.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220504",
+"municipio": "Serranópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaraserranopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaraserranopolis.megasofttransparencia.com.br",
+"serranopolis.go.leg.br",
+"camaraserranopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220504",
+"municipio": "Serranópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.serranopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"serranopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220603",
+"municipio": "Silvânia",
+"orgao": "camara",
+"portal": "https://camarasilvania.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"silvania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220603",
+"municipio": "Silvânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.silvania.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"silvania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220686",
+"municipio": "Simolândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.faina.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"acessoainformacao.simolandia.go.leg.br",
+"simolandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220686",
+"municipio": "Simolândia",
+"orgao": "prefeitura",
+"portal": "https://simolandia.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"simolandia.go.gov.br",
+"transparencia.simolandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220702",
+"municipio": "Sítio d'Abadia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.sitiodabadia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"sitiodabadia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5220702",
+"municipio": "Sítio d'Abadia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.sitiodabadia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"sitiodabadia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221007",
+"municipio": "Taquaral de Goiás",
+"orgao": "camara",
+"portal": "https://camarataquaral.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5221007",
+"municipio": "Taquaral de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.taquaral.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"taquaral.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221080",
+"municipio": "Teresina de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.teresinadegoias.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"teresinadegoias.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221080",
+"municipio": "Teresina de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.teresinadegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"teresinadegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221197",
+"municipio": "Terezópolis de Goiás",
+"orgao": "camara",
+"portal": "https://acessoainformacao.terezopolis.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"terezopolis.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221197",
+"municipio": "Terezópolis de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.terezopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"terezopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221304",
+"municipio": "Três Ranchos",
+"orgao": "camara",
+"portal": "https://acessoainformacao.tresranchos.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"tresranchos.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221304",
+"municipio": "Três Ranchos",
+"orgao": "prefeitura",
+"portal": "https://tresranchos.megasofttransparencia.com.br",
+"plataforma": "megasoft",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"tresranchos.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221403",
+"municipio": "Trindade",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaratrindade.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt"
+},
+"outros_enderecos": [
+"camaratrindade.go.gov.br",
+"atividadelegislativa.camaratrindade.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221403",
+"municipio": "Trindade",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.trindade.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"trindade.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221452",
+"municipio": "Trombas",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaramunicipaldetrombas.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaramunicipaldetrombas.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221452",
+"municipio": "Trombas",
+"orgao": "prefeitura",
+"portal": "https://trombas.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5221502",
+"municipio": "Turvânia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.turvania.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"turvania.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221502",
+"municipio": "Turvânia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.turvania.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"turvania.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221551",
+"municipio": "Turvelândia",
+"orgao": "camara",
+"portal": "https://acessoainformacao.turvelandia.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"turvelandia.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221551",
+"municipio": "Turvelândia",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.turvelandia.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"turvelandia.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221577",
+"municipio": "Uirapuru",
+"orgao": "camara",
+"portal": "https://acessoainformacao.uirapuru.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"uirapuru.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221577",
+"municipio": "Uirapuru",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.uirapuru.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"uirapuru.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221601",
+"municipio": "Uruaçu",
+"orgao": "camara",
+"portal": "https://transparencia.camarauruacu.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"camarauruacu.go.gov.br",
+"sapl.camarauruacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221601",
+"municipio": "Uruaçu",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.uruacu.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"uruacu.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221700",
+"municipio": "Uruana",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.uruana.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"uruana.go.gov.br",
+"uruana.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221809",
+"municipio": "Urutaí",
+"orgao": "camara",
+"portal": "https://acessoainformacao.urutai.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"urutai.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221809",
+"municipio": "Urutaí",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.urutai.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"urutai.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221858",
+"municipio": "Valparaíso de Goiás",
+"orgao": "camara",
+"portal": "https://transparencia.camaravalparaiso.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [
+"camaravalparaiso.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221858",
+"municipio": "Valparaíso de Goiás",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.valparaisodegoias.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"valparaisodegoias.go.gov.br",
+"transparencia.valparaisodegoias.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221908",
+"municipio": "Varjão",
+"orgao": "camara",
+"portal": "https://acessoainformacao.varjao.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"varjao.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5221908",
+"municipio": "Varjão",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.varjao.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"varjao.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222005",
+"municipio": "Vianópolis",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaravianopolis.go.gov.br",
+"plataforma": "nucleogov-megasoft",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaravianopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222005",
+"municipio": "Vianópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.vianopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"vianopolis.go.gov.br",
+"vianopolis.megasofttransparencia.com.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222054",
+"municipio": "Vicentinópolis",
+"orgao": "camara",
+"portal": "https://camaravicentinopolis.go.gov.br",
+"plataforma": null,
+"origem": null,
+"sufixos": {},
+"outros_enderecos": [],
+"conferencia": null
+},
+{
+"ibge": "5222054",
+"municipio": "Vicentinópolis",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.vicentinopolis.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"vicentinopolis.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222203",
+"municipio": "Vila Boa",
+"orgao": "camara",
+"portal": "https://acessoainformacao.camaravilaboa.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "sondagem",
+"sufixos": {},
+"outros_enderecos": [
+"camaravilaboa.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222203",
+"municipio": "Vila Boa",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.vilaboa.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"vilaboa.go.gov.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222302",
+"municipio": "Vila Propício",
+"orgao": "camara",
+"portal": "https://acessoainformacao.vilapropicio.go.leg.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"vilapropicio.go.leg.br"
+],
+"conferencia": null
+},
+{
+"ibge": "5222302",
+"municipio": "Vila Propício",
+"orgao": "prefeitura",
+"portal": "https://acessoainformacao.vilapropicio.go.gov.br",
+"plataforma": "nucleogov",
+"origem": "endereco",
+"sufixos": {},
+"outros_enderecos": [
+"vilapropicio.go.gov.br"
+],
+"conferencia": null
+}
+]

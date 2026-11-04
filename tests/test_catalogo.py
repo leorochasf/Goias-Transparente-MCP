@@ -60,8 +60,11 @@ def test_mcp_recusa_portal_de_outra_plataforma_sem_chamar_o_portal():
     assert "Megasoft" in r["erro"] and "Corumbaíba" in r["erro"]
 
 
-def test_mcp_recusa_os_modulos_da_megasoft_embutida_sem_chamar_o_portal():
+@responses.activate
+def test_mcp_recusa_os_modulos_da_megasoft_embutida_quando_a_api_nao_os_serve():
     caldazinha = "https://acessoainformacao.caldazinha.go.gov.br"
+    for acao in ("servidores_frl", "servidores_cnt", "despesas_frl", "despesas_cnt"):
+        responses.add(responses.POST, f"{caldazinha}/api/{acao}/listar", body="[]")  # sufixo sem dados
     assert "Megasoft" in servidor_mcp.consultar_folha(2025, 3, portal=caldazinha)["erro"]
     assert "Megasoft" in servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=caldazinha)["erro"]
 

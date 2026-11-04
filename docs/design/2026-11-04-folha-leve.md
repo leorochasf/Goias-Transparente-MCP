@@ -5,7 +5,7 @@ Aprovado em 04/11/2026. Termos em `CONTEXT.md`.
 ## Problema
 
 Em Senador Canedo, um mês da folha tem 8.577 linhas da folha. 100 linhas completas somam cerca de 216 mil
-caracteres, e 66% disso são rubricas. O campo `eventos` sozinho é 39% e repete as listas. A ferramenta MCP
+caracteres, e 66% disso são rubricas. O campo `eventos` sozinho é 39%. A ferramenta MCP
 manda o assistente "trazer o mês inteiro e contar", o que é impossível: seriam uns 18 milhões de caracteres.
 
 ## Decisões
@@ -33,7 +33,8 @@ manda o assistente "trazer o mês inteiro e contar", o que é impossível: seria
   - `filtrar(linhas, cargo, lotacao, vinculo, tipo_pagamento)`;
   - `resumir(linhas, agrupar_por, todos_os_tipos=False)`.
   As rubricas saem de `lista_proventos` + `lista_descontos`, que somam exatamente o bruto e os descontos
-  (100/100 numa amostra de 04/11/2026). O campo `eventos` não bate.
+  (100/100 numa amostra de 04/11/2026). O campo `eventos` vem em outro formato numérico, e não foi
+  conferido se bate.
 - `Portal.consultar(..., progresso=)` avisa a cada página.
 - A leitura do mês fica no `servidor_mcp`, guardada por (portal, ano, mês). Ela só é guardada se trouxe
   todas as linhas que o portal anunciou.

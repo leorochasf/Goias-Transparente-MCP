@@ -16,6 +16,7 @@ from datetime import date, datetime
 import pytest
 
 from transparencia_municipal import Portal
+from transparencia_municipal.folha_leve import _valor, linha_leve
 
 pytestmark = [
     pytest.mark.ao_vivo,
@@ -62,10 +63,15 @@ def test_receitas_trazem_so_o_mes_pedido(portal):
     assert {(int(x["ano"]), int(x["mes"])) for x in r["registros"]} == {(2025, 3)}
 
 
-def test_folha_traz_so_o_mes_pedido(portal):
+def test_folha_traz_so_o_mes_pedido_e_as_rubricas_somam_o_bruto(portal):
     r = portal.folha(2025, 3, maximo=AMOSTRA)
     assert r["total"] > 0
     assert {(int(x["ano"]), int(x["mes"])) for x in r["registros"]} == {(2025, 3)}
+    for x in r["registros"]:  # a folha leve tira as rubricas destas listas (docs/portal-nucleogov.md)
+        leve = linha_leve(x, rubricas=True)
+        proventos = sum(_valor(rb["valor"]) for rb in leve["rubricas"] if rb["tipo"] == "Provento")
+        descontos = sum(_valor(rb["valor"]) for rb in leve["rubricas"] if rb["tipo"] == "Desconto")
+        assert (proventos, descontos) == (_valor(leve["bruto"]), _valor(leve["descontos"])), x["matricula"]
 
 
 def test_legislacao_filtra_por_tipo_ano_e_palavra(portal):

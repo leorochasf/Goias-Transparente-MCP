@@ -151,13 +151,9 @@ def test_identifica_o_projeto_com_honestidade(cliente):
 
 # --- encaixes: o cliente resolve o nome e chama o módulo da fonte ---------------------------------------------------
 
-def test_consultas_respondem_ainda_nao_disponivel_enquanto_a_fonte_esta_vazia(cliente):
+def test_processos_responde_ainda_nao_disponivel_enquanto_o_esiproc_esta_vazio(cliente):  # ticket 02 substitui
     with pytest.raises(NaoDisponivel, match="ainda não disponível"):
         cliente.processos("Posse", ano=2024)
-    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
-        cliente.acordaos("Posse")
-    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
-        cliente.ler_acordao("7b0e1c2a-0000-0000-0000-000000000000")
 
 
 def test_processos_entrega_ao_encaixe_o_nome_oficial_do_eSiproc(cliente, monkeypatch):
@@ -184,6 +180,13 @@ def test_acordaos_entrega_ao_encaixe_o_valor_do_tcmjuris_e_avisa_leitura_incompl
     r = cliente.acordaos("Alto Paraíso de Goiás", assunto="Contas", maximo=3)
     assert recebido["municipio"] == "ALTO PARAISO" and recebido["assunto"] == "Contas"
     assert "teto de 60 chamadas" in r["aviso_leitura"]
+
+
+def test_acordaos_e_leitura_respondem_ainda_nao_disponivel_enquanto_o_tcmjuris_esta_vazio(cliente):  # ticket 03
+    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
+        cliente.acordaos("Posse")
+    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
+        cliente.ler_acordao("7b0e1c2a-0000-0000-0000-000000000000")
 
 
 def test_acordaos_sem_municipio_nao_filtra_municipio(cliente, monkeypatch):
@@ -226,7 +229,7 @@ def test_cli_tcm_acordao_mostra_o_texto(monkeypatch, capsys):
     assert "ACÓRDÃO Nº 1" in capsys.readouterr().out
 
 
-def test_cli_tcm_com_a_fonte_vazia_diz_ainda_nao_disponivel():
+def test_cli_tcm_com_a_fonte_vazia_diz_ainda_nao_disponivel():  # ticket 03 substitui
     from transparencia_municipal import cli
     with pytest.raises(SystemExit, match="ainda não disponível"):
         cli.main(["tcm-acordaos", "--municipio", "Caldazinha", "--assunto", "Contas"])

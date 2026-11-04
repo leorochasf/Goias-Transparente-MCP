@@ -34,19 +34,11 @@ def test_as_tres_ferramentas_existem_com_os_parametros_da_spec():
     assert e["ler_acordao_tcm"]["required"] == ["id"]
 
 
-def test_processos_com_a_fonte_vazia_responde_ainda_nao_disponivel_com_os_avisos_fixos():
+def test_processos_com_a_fonte_vazia_responde_ainda_nao_disponivel_com_os_avisos_fixos():  # ticket 02 substitui
     r = _chamar("processos_tcm", municipio="nova crixas", ano=2024)
     assert "ainda não disponível" in r["erro"]
     assert r["aviso_fonte"] == tcm.AVISO_PROCESSOS and r["aviso_envolvidos"] == tcm.AVISO_ENVOLVIDOS
     assert r["aviso"] == tcm.AVISO_GERAL
-
-
-def test_acordaos_e_leitura_com_a_fonte_vazia_respondem_ainda_nao_disponivel_com_o_aviso_fixo():
-    for ferramenta, argumentos in (("acordaos_tcm", {"municipio": "Caldazinha"}),
-                                   ("ler_acordao_tcm", {"id": "7b0e1c2a-0000-0000-0000-000000000000"})):
-        r = _chamar(ferramenta, **argumentos)
-        assert "ainda não disponível" in r["erro"], ferramenta
-        assert r["aviso_fonte"] == tcm.AVISO_ACORDAOS and r["aviso"] == tcm.AVISO_GERAL
 
 
 def test_processos_resolve_o_municipio_e_diz_total_piso(monkeypatch):
@@ -80,3 +72,11 @@ def test_municipio_sem_casamento_exato_e_recusado_com_os_mais_parecidos(monkeypa
     r = _chamar("processos_tcm", municipio="Nova Crixa")
     assert "NOVA CRIXÁS" in r["erro"] and "zero" not in r["erro"]
     assert r["aviso_fonte"] == tcm.AVISO_PROCESSOS
+
+
+def test_acordaos_e_leitura_com_a_fonte_vazia_respondem_ainda_nao_disponivel_com_o_aviso_fixo():  # ticket 03
+    for ferramenta, argumentos in (("acordaos_tcm", {"municipio": "Caldazinha"}),
+                                   ("ler_acordao_tcm", {"id": "7b0e1c2a-0000-0000-0000-000000000000"})):
+        r = _chamar(ferramenta, **argumentos)
+        assert "ainda não disponível" in r["erro"], ferramenta
+        assert r["aviso_fonte"] == tcm.AVISO_ACORDAOS and r["aviso"] == tcm.AVISO_GERAL

@@ -12,10 +12,11 @@ import sys
 
 from .cliente import ErroPortal, Portal
 
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+for _saida in (sys.stdout, sys.stderr):  # stderr: o erro sai por SystemExit
+    try:
+        _saida.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 def _gravar(registros, csv_saida, json_saida):
@@ -54,11 +55,11 @@ def main(argv=None):
     s.add_argument("--busca")
     s = sub.add_parser("licitacoes")
     s.add_argument("--dispensas", action="store_true"); s.add_argument("--busca")
-    s = sub.add_parser("receitas")
-    s.add_argument("--de", required=True); s.add_argument("--ate", required=True)
-    s = sub.add_parser("legislacao")
-    s.add_argument("--municipio", required=True, help="apelido do portal (ex.: senador_canedo)")
-    s.add_argument("--tipo", help="DECRETO, PORTARIA, LEI..."); s.add_argument("--busca")
+    s = sub.add_parser("receitas", help="receitas de um mês (para um período, um mês por vez)")
+    s.add_argument("--ano", type=int, required=True); s.add_argument("--mes", type=int, required=True)
+    s = sub.add_parser("legislacao", help="decretos, portarias e resoluções")
+    s.add_argument("--tipo", default="DECRETO", help="DECRETO (padrão), PORTARIA, RESOLUCAO ou o código")
+    s.add_argument("--busca", help="palavra na ementa"); s.add_argument("--ano", type=int)
 
     a = p.parse_args(argv)
     portal = Portal(a.portal, navegador=a.navegador, pausa=a.pausa)
@@ -72,9 +73,9 @@ def main(argv=None):
         elif a.modulo == "licitacoes":
             r = portal.licitacoes(a.busca, dispensas=a.dispensas, maximo=a.maximo)
         elif a.modulo == "receitas":
-            r = portal.receitas(a.de, a.ate, maximo=a.maximo)
+            r = portal.receitas(a.ano, a.mes, maximo=a.maximo)
         else:
-            r = portal.legislacao(a.municipio, a.tipo, a.busca, maximo=a.maximo)
+            r = portal.legislacao(a.tipo, a.busca, ano=a.ano, maximo=a.maximo)
     except (ErroPortal, ValueError) as e:
         raise SystemExit(f"ERRO: {e}")
     print(f"{r['total']} registros no portal; {len(r['registros'])} trazidos.")

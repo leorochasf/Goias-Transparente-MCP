@@ -21,7 +21,7 @@ outros estados — os portais no padrão `acessoainformacao.<municipio>.go.gov.b
 | **Despesas (empenhos)** | *Quanto o município pagou para o CNPJ 00.000.000/0001-00 no ano passado?* |
 | **Contratos e aditivos** | *Quais contratos foram assinados em 2025 com a palavra "locação"?* |
 | **Licitações e dispensas** | *Liste as dispensas de licitação do município.* |
-| **Receitas** | *Quanto o município arrecadou de IPTU no primeiro trimestre?* |
+| **Receitas** | *Quanto o município arrecadou de IPTU em março de 2025?* (um mês por vez) |
 | **Legislação** | *Qual decreto criou o cargo de assessor especial?* |
 
 ## Instalação
@@ -101,11 +101,27 @@ público tem dever de transparência ativa, e o pedido costuma ser mais rápido 
 - **Este projeto não contorna captcha, não usa certificado digital e não faz login.** Só lê o que
   o portal já mostra a qualquer visitante.
 
-## Legislação: o apelido do município
+## Legislação
 
-A consulta de leis e decretos usa um apelido interno do portal. Para descobrir o seu: abra
-`{portal}/cidadao/legislacao/decretos_psc` no navegador, veja as chamadas de rede da página e leia
-o campo `acao` — o apelido é o trecho depois de `atos_pf_` (ex.: `atos_pf_senador_canedo`).
+A consulta lê o módulo `atos` do portal e não precisa mais de apelido do município:
+
+```bash
+python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
+    --navegador legislacao --tipo DECRETO --busca cargo
+```
+
+- `--tipo`: `DECRETO` (padrão), `PORTARIA` ou `RESOLUCAO` — ou o código numérico do portal
+  (1, 2 e 3, respectivamente).
+- `--busca` procura a palavra na ementa. `--ano` restringe o ano (filtro da própria tela do
+  portal; ainda não conferido ao vivo).
+
+Por que mudou: em Senador Canedo (04/11/2026) o caminho antigo, `atos_pf_senador_canedo/listar`,
+voltava **vazio** — inclusive na tela "Decretos" do próprio site —, enquanto o módulo `atos`
+trazia 3.905 decretos e 1.051 portarias. Se em outro portal o resultado vier zerado, o caminho
+antigo continua acessível pela biblioteca: `Portal.consultar("atos_pf_<apelido>/listar", {"tipo": "DECRETO"})`.
+
+**Leis** ficam em outro módulo, `leis/listar`, e não entram nesta consulta; leia com
+`Portal.consultar("leis/listar")`.
 
 ## Limites conhecidos
 
@@ -114,6 +130,8 @@ o campo `acao` — o apelido é o trecho depois de `atos_pf_` (ex.: `atos_pf_sen
 - Sem paginação infinita: use `--maximo` para pedir mais que os 200 registros padrão.
 - A busca livre (`--busca`) é a mesma caixinha do portal. **Na folha ela procura só por nome**:
   para filtrar por cargo ou lotação, traga o mês inteiro e filtre a planilha depois.
+  **Nas despesas, um CNPJ** (com ou sem pontuação) não vai para a caixinha, que não o encontra:
+  vai para o filtro de CNPJ do portal e traz só os empenhos daquele fornecedor.
 
 ## Licença
 

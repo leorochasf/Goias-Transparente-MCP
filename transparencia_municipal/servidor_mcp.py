@@ -53,6 +53,8 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
                        portal: str | None = None, maximo: int = 100) -> dict:
     """Empenhos e pagamentos no período (datas AAAA-MM-DD). `busca` aceita nome ou CNPJ do fornecedor.
 
+    CNPJ (com ou sem pontuação) traz só os empenhos daquele CNPJ; outro texto vai na busca livre.
+
     Ex.: quanto o município pagou à empresa tal em 2025.
     """
     return _executar(lambda: _portal(portal).despesas(de, ate, busca, maximo=maximo))
@@ -73,19 +75,22 @@ def consultar_licitacoes(busca: str | None = None, dispensas: bool = False,
 
 
 @mcp.tool()
-def consultar_receitas(de: str, ate: str, portal: str | None = None, maximo: int = 100) -> dict:
-    """Receitas arrecadadas no período (datas AAAA-MM-DD)."""
-    return _executar(lambda: _portal(portal).receitas(de, ate, maximo=maximo))
+def consultar_receitas(ano: int, mes: int, portal: str | None = None, maximo: int = 100) -> dict:
+    """Receitas de um mês (mes de 1 a 12). O portal responde um mês por vez.
+
+    Para um período (ex.: IPTU no primeiro trimestre), chame uma vez por mês.
+    """
+    return _executar(lambda: _portal(portal).receitas(ano, mes, maximo=maximo))
 
 
 @mcp.tool()
-def consultar_legislacao(municipio: str, tipo: str | None = None, busca: str | None = None,
+def consultar_legislacao(tipo: str = "DECRETO", busca: str | None = None, ano: int | None = None,
                          portal: str | None = None, maximo: int = 100) -> dict:
-    """Leis, decretos e portarias. `municipio` é o apelido do portal (ex.: senador_canedo).
+    """Decretos, portarias ou resoluções. `tipo`: DECRETO (padrão), PORTARIA ou RESOLUCAO.
 
-    Como descobrir o apelido: README, seção "Legislação".
+    `busca` procura palavra na ementa. Ex.: qual decreto criou o cargo de assessor especial.
     """
-    return _executar(lambda: _portal(portal).legislacao(municipio, tipo, busca, maximo=maximo))
+    return _executar(lambda: _portal(portal).legislacao(tipo, busca, ano=ano, maximo=maximo))
 
 
 def main():

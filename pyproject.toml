@@ -1,6 +1,6 @@
 [project]
 name = "mcp-transparencia-municipal"
-version = "0.1.0"
+version = "0.1.1"
 description = "Consulta o Portal da Transparência de municípios (plataforma NucleoGov) por MCP, linha de comando ou biblioteca."
 readme = "README.md"
 requires-python = ">=3.10"

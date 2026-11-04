@@ -34,6 +34,21 @@ MODULOS = {
 }
 
 
+#: tipo de ato → código no módulo `atos` (conferido em Senador Canedo, 04/11/2026)
+TIPOS_ATO = {"DECRETO": 1, "PORTARIA": 2, "RESOLUCAO": 3}
+
+
+def _tipo_ato(tipo):
+    """Aceita nome (decreto, Resolução...) ou código numérico e devolve o código."""
+    v = str(tipo).strip()
+    if v.isdigit():
+        return int(v)
+    chave = v.upper().replace("Ç", "C").replace("Ã", "A").replace("Õ", "O")
+    if chave not in TIPOS_ATO:
+        raise ValueError(f"tipo: use {', '.join(TIPOS_ATO)} ou o código numérico (recebido: {tipo!r})")
+    return TIPOS_ATO[chave]
+
+
 class ErroPortal(RuntimeError):
     """Falha ao falar com o portal. A mensagem sempre diz o que aconteceu."""
 
@@ -52,6 +67,17 @@ def _data_br(valor, *, campo):
         raise ValueError(f"{campo}: use AAAA-MM-DD, AAAA-MM ou dd/mm/aaaa (recebido: {valor!r})")
     ano, mes, dia = m.group(1), m.group(2), m.group(3) or "01"
     return f"{dia}/{mes}/{ano}"
+
+
+def _cnpj(texto):
+    """Se o texto é só um CNPJ (14 dígitos, com ou sem pontuação), devolve 00.000.000/0000-00."""
+    v = str(texto).strip()
+    if not re.fullmatch(r"[\d./\- ]+", v):
+        return None
+    d = re.sub(r"\D", "", v)
+    if len(d) != 14:
+        return None
+    return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
 
 
 @dataclass
@@ -133,9 +159,16 @@ class Portal:
         return self.consultar(MODULOS["folha"], f, maximo=maximo)
 
     def despesas(self, de, ate, busca=None, *, maximo=200):
-        """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor."""
+        """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor.
+
+        CNPJ (14 dígitos, com ou sem pontuação) vai no filtro próprio do portal, já no
+        formato 00.000.000/0000-00: a busca livre não acha CNPJ. Outro texto vai na busca livre.
+        """
         f = {"datamin": _data_br(de, campo="de"), "datamax": _data_br(ate, campo="ate")}
-        if busca:
+        cnpj = _cnpj(busca) if busca else None
+        if cnpj:
+            f["cpf_cnpj"] = cnpj
+        elif busca:
             f["txtbusca"] = busca
         return self.consultar(MODULOS["despesas"], f, maximo=maximo)
 
@@ -155,21 +188,27 @@ class Portal:
             f["txtbusca"] = busca
         return self.consultar(MODULOS["licitacoes"], f, maximo=maximo)
 
-    def receitas(self, de, ate, *, maximo=200):
-        """Receitas arrecadadas no período."""
-        return self.consultar(MODULOS["receitas"],
-                              {"datamin": _data_br(de, campo="de"), "datamax": _data_br(ate, campo="ate")},
+    def receitas(self, ano, mes, *, maximo=200):
+        """Receitas de um mês. Para um período, chame uma vez por mês.
+
+        Verificado em portal real: o filtro por datas (datamin/datamax) é ignorado
+        e devolve sempre o mês corrente; só ano + mês são respeitados.
+        """
+        v = str(mes).strip()
+        if not v.isdigit() or not 1 <= int(v) <= 12:
+            raise ValueError(f"mes: use um número de 1 a 12 (recebido: {mes!r})")
+        return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(int(v))},
                               maximo=maximo)
 
-    def legislacao(self, municipio, tipo=None, busca=None, *, maximo=200):
-        """Leis, decretos e portarias. `municipio` é o apelido do portal (ex.: senador_canedo).
+    def legislacao(self, tipo="DECRETO", busca=None, *, ano=None, maximo=200):
+        """Decretos, portarias ou resoluções. `tipo`: DECRETO, PORTARIA, RESOLUCAO ou o código.
 
-        Como descobrir: abra {portal}/cidadao/legislacao/decretos_psc no navegador, veja a
-        chamada de rede da página e leia o `acao` — o trecho depois de `atos_pf_`.
+        `busca` procura palavra na ementa. Lê o módulo `atos` do portal: em Senador Canedo
+        (04/11/2026) o antigo `atos_pf_<apelido>` estava vazio, inclusive na tela do site.
         """
-        f = {}
-        if tipo:
-            f["tipo"] = tipo.upper()
+        f = {"tipo": _tipo_ato(tipo)}
         if busca:
-            f["txtbusca"] = busca
-        return self.consultar(f"atos_pf_{municipio}/listar", f, maximo=maximo)
+            f["search"] = busca
+        if ano:
+            f["ano"] = str(ano)
+        return self.consultar("atos/buscaAvancada", f, maximo=maximo)

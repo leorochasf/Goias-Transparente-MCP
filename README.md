@@ -58,11 +58,14 @@ Sobre o `TRANSPARENCIA_NAVEGADOR`, leia a seção **O 403** abaixo antes de liga
 
 ```bash
 python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
-    --navegador folha --ano 2025 --mes 3 --csv folha-marco.csv
+    --navegador --csv folha-marco.csv folha --ano 2025 --mes 3
 
 python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
-    --navegador despesas --de 2025-01-01 --ate 2025-12-31 --busca "23.910.014/0001-48" --csv empenhos.csv
+    --navegador --csv empenhos.csv despesas --de 2025-01-01 --ate 2025-12-31 --busca "23.910.014/0001-48"
 ```
+
+As opções `--navegador`, `--csv`, `--json`, `--maximo` e `--pausa` valem para qualquer consulta e
+vêm **antes** do nome da consulta (`folha`, `despesas`...).
 
 ### Como biblioteca
 
@@ -112,8 +115,8 @@ python -m transparencia_municipal.cli --portal https://acessoainformacao.senador
 
 - `--tipo`: `DECRETO` (padrão), `PORTARIA` ou `RESOLUCAO` — ou o código numérico do portal
   (1, 2 e 3, respectivamente).
-- `--busca` procura a palavra na ementa. `--ano` restringe o ano (filtro da própria tela do
-  portal; ainda não conferido ao vivo).
+- `--busca` procura a palavra na ementa. `--ano` restringe o ano (em Senador Canedo, 04/11/2026:
+  1.201 decretos de 2025, de 3.905 no total).
 
 Por que mudou: em Senador Canedo (04/11/2026) o caminho antigo, `atos_pf_senador_canedo/listar`,
 voltava **vazio** — inclusive na tela "Decretos" do próprio site —, enquanto o módulo `atos`

@@ -12,4 +12,5 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - run: pip install -e ".[dev,mcp]"
+      - run: ruff check .
       - run: pytest -q

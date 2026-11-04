@@ -1,7 +1,7 @@
 """Linha de comando, para quem não usa assistente de IA.
 
   python -m transparencia_municipal.cli --portal https://acessoainformacao.cidade.go.gov.br \
-      folha --ano 2025 --mes 3 --busca "secretario" --csv folha.csv
+      --csv folha.csv folha --ano 2025 --mes 3 --busca "Fulano de Tal"
 """
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ def _gravar(registros, csv_saida, json_saida):
         print(f"{len(registros)} registros em {csv_saida}")
 
 
-def main(argv=None):
+def _parser():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     p.add_argument("--portal", required=True, help="https://acessoainformacao.<municipio>.go.gov.br")
     p.add_argument("--navegador", action="store_true",
@@ -60,8 +60,11 @@ def main(argv=None):
     s = sub.add_parser("legislacao", help="decretos, portarias e resoluções")
     s.add_argument("--tipo", default="DECRETO", help="DECRETO (padrão), PORTARIA, RESOLUCAO ou o código")
     s.add_argument("--busca", help="palavra na ementa"); s.add_argument("--ano", type=int)
+    return p
 
-    a = p.parse_args(argv)
+
+def main(argv=None):
+    a = _parser().parse_args(argv)
     portal = Portal(a.portal, navegador=a.navegador, pausa=a.pausa)
     try:
         if a.modulo == "folha":

@@ -10,7 +10,7 @@ dependencies = ["requests>=2.31"]
 
 [project.optional-dependencies]
 mcp = ["mcp>=2.0"]
-dev = ["pytest>=8", "responses>=0.25"]
+dev = ["pytest>=8", "responses>=0.25", "ruff>=0.6"]
 
 [project.scripts]
 transparencia-municipal = "transparencia_municipal.cli:main"
@@ -22,3 +22,10 @@ build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 include = ["transparencia_municipal*"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]  # fixo: versões novas do ruff ligam outras regras por padrão
+ignore = ["E702"]  # a CLI declara argumentos aos pares, numa linha só, de propósito
+
+[tool.pytest.ini_options]
+markers = ["ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1"]

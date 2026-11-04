@@ -259,7 +259,7 @@ python -m transparencia_municipal.cli tcm-acordao DOCUMENT_ID_DO_ACORDAO
   `--nao-finalizado` e `--numero` (NNNNN/AA). Os `tcm-*` não usam `--portal`. No CSV, decisões e envolvidos saem em
   JSON dentro da célula.
 - `tcm-acordaos` filtra por `--texto` (entre aspas para a expressão exata: sem aspas, as palavras são buscadas
-  soltas), `--assunto`, `--ano` (do julgamento) e `--relator`. O `document_id` de cada acórdão é o que o
+  soltas; em 04/11/2026, "tomada de contas especial" deu 6.176 acórdãos sem aspas e 1.815 com aspas), `--assunto`, `--ano` (do julgamento) e `--relator`. O `document_id` de cada acórdão é o que o
   `tcm-acordao` lê.
 - Biblioteca: `from transparencia_municipal import ClienteTCM`, com `processos`, `acordaos` e `ler_acordao`, no
   formato `{"total", "registros"}` das outras consultas.
@@ -282,7 +282,11 @@ Sem ela, `ler_acordao_tcm` diz como instalar e devolve o link do PDF original.
 - **Envolvidos** aparecem como o TCM os mostra, porque são dado público do processo: use para apuração, não para
   montar dossiê de pessoas.
 - Quando o TCM informa "10 mil ou mais", a resposta diz que o total é um piso; quando a leitura para no teto de
-  chamadas, diz que veio incompleta. Resposta incompleta ou fora do ar do TCM é erro, nunca lista vazia.
+  chamadas ou a fonte para de entregar antes do total, diz que veio incompleta. Resposta incompleta ou fora do ar
+  do TCM é erro, nunca lista vazia.
+- **Desconfiar do zero.** As duas fontes respondem "zero", sem aviso, a um nome de município que não conhecem. Diante
+  de um zero, o projeto relê a lista oficial da fonte: se o nome mudou, repete com o nome novo; se o município saiu da
+  lista, recusa.
 
 **Limites do TCM-GO:**
 

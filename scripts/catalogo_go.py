@@ -171,8 +171,8 @@ def tcm(args):
 def _nomes_tcm(municipios):
     """município do catálogo → {"esiproc": nome, "tcmjuris": valor}; sem casamento exato único, None (a verificar)."""
     from transparencia_municipal.tcm import casar
-    if not LISTAS_TCM.exists():
-        return {}
+    if not LISTAS_TCM.exists():  # sem as listas, o montar gravaria o catálogo sem a ponte com o TCM, em silêncio
+        raise SystemExit(f"falta {LISTAS_TCM}: rode antes `python scripts/catalogo_go.py tcm`")
     listas = json.loads(LISTAS_TCM.read_text(encoding="utf-8"))
     saida = {}
     for m in municipios:
@@ -206,7 +206,7 @@ def montar(args):
             "portal": f"https://{host}" if host else None, "plataforma": plataforma, "origem": origem,
             "sufixos": sufixos, "outros_enderecos": [h for h in o["hosts"] if h != host],
             "conferencia": conferencia,
-            **({"tcm": nomes_tcm[o["municipio"]]} if nomes_tcm else {}),
+            "tcm": nomes_tcm[o["municipio"]],
         })
     CATALOGO.write_text(json.dumps(catalogo, ensure_ascii=False, indent=0), encoding="utf-8")
     contagem = collections.Counter(x["plataforma"] for x in catalogo)

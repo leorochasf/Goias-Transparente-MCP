@@ -45,8 +45,6 @@ def acordaos(cliente, *, municipio, texto, assunto, ano, relator, maximo) -> dic
         if not dados or not pag.get("has_next"):
             break
         pagina += 1
-    if total == 0 and municipio:
-        _conferir_zero(cliente, municipio)
     saida = {"total": total, "registros": registros[:maximo]}
     if incompleta:
         saida["incompleta"] = incompleta
@@ -65,14 +63,6 @@ def _validar(d):
 
 def _registro(item):
     return {**{chave: item.get(campo) for chave, campo in CAMPOS.items()}, "fonte": FONTES["tcmjuris"]["nome"]}
-
-
-def _conferir_zero(cliente, municipio):
-    """O TCMJuris responde total 0, em silêncio, a um `municipio` que não conhece: desconfie do zero."""
-    if municipio not in {valor for _, valor in cliente.lista_oficial("tcmjuris")}:
-        raise ErroTCM(f"{FONTES['tcmjuris']['nome']}: nenhum acórdão para {municipio!r}, mas esse nome não está "
-                      "mais na lista oficial de municípios da fonte: o zero não vale. O catálogo precisa ser "
-                      "remontado.")
 
 
 def ler_acordao(cliente, *, document_id) -> dict:

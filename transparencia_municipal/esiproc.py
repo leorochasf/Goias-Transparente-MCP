@@ -45,6 +45,8 @@ def processos(cliente, *, municipio, tipo, ano, finalizado, relator, numero, max
         try:
             d = cliente.json("esiproc", "POST", "/pesquisar", corpo=corpo)
         except TetoAtingido:
+            if not registros:
+                raise
             return _saida(total, registros, piso, incompleta=f"teto de {cliente.teto} chamadas atingido")
         hits, total, piso = _ler(d)
         if not hits:

@@ -7,7 +7,8 @@ Este projeto liga um assistente de IA (Claude, ChatGPT, Cursor e outros que fala
 para quem quer só baixar a planilha.
 
 Cobre a plataforma **NucleoGov**, usada pela maioria dos municípios de Goiás e por municípios de
-outros estados — os portais no padrão `acessoainformacao.<municipio>.go.gov.br`.
+outros estados. São os portais no padrão `acessoainformacao.<municipio>.go.gov.br`. Para Goiás há um
+catálogo dos portais de prefeituras e câmaras (veja **Municípios de Goiás**).
 
 > Dado público, lido na hora, sem cadastro e sem senha (Lei 12.527/2011). Nada é armazenado.
 > **Confira no portal antes de usar em peça, denúncia ou matéria:** o portal pode estar
@@ -144,9 +145,38 @@ aberto, e as perguntas seguintes sobre o mesmo mês saem na hora. **13º e resci
 salário do mês.** O resumo separa por tipo de pagamento. A linha de comando e a biblioteca continuam
 devolvendo a folha completa.
 
+## Municípios de Goiás
+
+O pacote traz um **catálogo de portais** com os 461 órgãos (prefeituras e câmaras) de Goiás que aparecem nos
+dados abertos do Radar da Transparência Pública (Atricon, ciclo 2025,
+[radardatransparencia.atricon.org.br](https://radardatransparencia.atricon.org.br/downloads.html)).
+Para cada órgão o catálogo registra o portal e a plataforma. A plataforma foi confirmada por uma visita à
+página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara")` devolve o endereço.
+
+Toda resposta diz a **situação do portal**:
+
+- **conferido:** os filtros foram medidos ao vivo, com a data e o que falhou;
+- **não conferido:** confira os números no próprio portal;
+- **fora do catálogo.**
+
+Em 04/11/2026 foram conferidos os órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
+São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
+Goianápolis, Pirenópolis, Corumbaíba e Guapó. O resultado está em `docs/portal-nucleogov.md`.
+
+O que vale saber antes de confiar num número:
+
+- **Muitos portais NucleoGov puxam módulos de outros sistemas.** Despesas e receitas podem vir da
+  contabilidade Centi, e folha, despesas e receitas podem vir da Megasoft embutida. Quando a API NucleoGov não
+  traz esse módulo, a consulta é **recusada com aviso**, em vez de responder "zero". Na amostra, as despesas só
+  vieram pela API NucleoGov na Prefeitura de Alexânia.
+- **Em várias prefeituras a folha sem filtro esconde órgãos** (fundos, autarquias). As listas e o resumo da
+  folha buscam esses órgãos um a um. A busca rápida por nome avisa quando o portal faz isso.
+- **Muitos portais só publicam a folha dos meses recentes.** Um mês antigo pode vir vazio.
+
 ## Limites conhecidos
 
-- Só a plataforma **NucleoGov**. Megasoft e Ortrel, também comuns em Goiás, ficam para depois.
+- Só a plataforma **NucleoGov**. Megasoft (30 órgãos no catálogo), Ortrel (4), a Megasoft embutida e a
+  Centi ficam para depois. Portais dessas plataformas são recusados com aviso.
 - Os campos variam de município para município: cada prefeitura preenche o portal como quer.
 - Sem paginação infinita: use `--maximo` para pedir mais que os 200 registros padrão.
 - A busca livre (`--busca`) é a mesma caixinha do portal. **Na folha ela procura só por nome**:

@@ -76,3 +76,55 @@ def test_mes_vazio_diz_que_o_portal_nao_tem_folha():
     responses.add_callback(responses.POST, ACAO, callback=_folha_paginada(0), content_type="application/json")
     with pytest.raises(ValueError, match="não tem folha de 03/2025"):
         servidor_mcp._ler_mes(Portal(PORTAL, pausa=0), 2025, 3)
+
+
+@responses.activate
+def test_leitura_do_mes_soma_os_orgaos_que_a_folha_sem_filtro_esconde():
+    """Trindade (04/11/2026): sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 7, 8 e 10."""
+    def callback(requisicao):
+        campos = urllib.parse.parse_qs(requisicao.body.decode("utf-8"))
+        ident, corpo = next(iter(json.loads(campos["params"][0]).items()))
+        offset, n = (int(v) for v in corpo["limit"].split(","))
+        por_orgao = {"3": 150, "5": 20, "8": 7}
+        orgao = corpo.get("orgao", "3")  # sem filtro: só o órgão 3
+        total = por_orgao.get(orgao, 0)
+        dados = [{"matricula": f"{orgao}-{i}", "orgao_id": orgao, "tipo_folha": "Folha Mensal",
+                  "total_proventos": "1,00", "total_liquido": "1,00"} for i in range(offset, min(offset + n, total))]
+        return 200, {}, json.dumps({ident: {"dados": dados, "total": total}})
+    responses.add_callback(responses.POST, ACAO, callback=callback, content_type="application/json")
+    linhas = servidor_mcp._ler_mes(Portal(PORTAL, pausa=0), 2025, 3)
+    assert len(linhas) == 177
+    assert {x["orgao"] for x in linhas} == {"3", "5", "8"}
+
+
+@responses.activate
+def test_pagina_que_volta_vazia_com_total_zero_no_meio_e_consultada_de_novo():
+    """Trindade (04/11/2026): 2.237 linhas, mas a página do offset 1800 veio com total 0 e nenhum dado."""
+    falhou = {"vez": 0}
+    normal = _folha_paginada(250)
+
+    def callback(requisicao):
+        campos = urllib.parse.parse_qs(requisicao.body.decode("utf-8"))
+        ident, corpo = next(iter(json.loads(campos["params"][0]).items()))
+        if corpo["limit"].startswith("200,") and falhou["vez"] == 0:
+            falhou["vez"] = 1
+            return 200, {}, json.dumps({ident: {"dados": [], "total": 0}})
+        return normal(requisicao)
+    responses.add_callback(responses.POST, ACAO, callback=callback, content_type="application/json")
+    r = Portal(PORTAL, pausa=0).folha(2025, 3, maximo=10_000)
+    assert r["total"] == 250 and len(r["registros"]) == 250
+
+
+@responses.activate
+def test_pagina_que_segue_vazia_vira_leitura_incompleta_e_nao_mes_sem_folha():
+    normal = _folha_paginada(250)
+
+    def callback(requisicao):
+        campos = urllib.parse.parse_qs(requisicao.body.decode("utf-8"))
+        ident, corpo = next(iter(json.loads(campos["params"][0]).items()))
+        if corpo["limit"].startswith("200,"):
+            return 200, {}, json.dumps({ident: {"dados": [], "total": 0}})
+        return normal(requisicao)
+    responses.add_callback(responses.POST, ACAO, callback=callback, content_type="application/json")
+    with pytest.raises(ErroPortal, match="200 de 250"):
+        servidor_mcp._ler_mes(Portal(PORTAL, pausa=0), 2025, 3)

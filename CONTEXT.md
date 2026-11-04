@@ -19,3 +19,19 @@ _Evitar_: cache, download
 **Resumo da folha**:
 Contagens e somas de linhas da folha por agrupamento (cargo, lotação ou vínculo), separadas por tipo de pagamento e sem nomes.
 _Evitar_: relatório, estatística
+
+**Órgão**:
+A prefeitura ou a câmara de um município, cada um com seu portal da transparência.
+_Evitar_: entidade, ente
+
+**Catálogo de portais**:
+A lista dos órgãos de Goiás, cada um com o endereço do portal, a plataforma e a situação da conferência.
+_Evitar_: registro, lista de portais
+
+**Sondagem**:
+Uma visita à página inicial de um endereço para dizer qual plataforma ele usa.
+_Evitar_: varredura, crawl
+
+**Conferência**:
+A medição ao vivo de um portal, com data, que diz quais filtros ele respeita.
+_Evitar_: validação, teste

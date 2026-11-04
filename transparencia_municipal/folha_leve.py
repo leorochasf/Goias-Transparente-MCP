@@ -8,7 +8,6 @@ import unicodedata
 from decimal import Decimal, InvalidOperation
 
 AGRUPAMENTOS = ("cargo", "lotacao", "vinculo")
-MENSAL = "Folha Mensal"
 
 #: campo da linha leve → campo do portal
 CAMPOS = {
@@ -16,6 +15,7 @@ CAMPOS = {
     "cargo": "cargo", "lotacao": "lotacao", "vinculo": "vinculo", "tipo_pagamento": "tipo_folha",
     "data_admissao": "data_admissao", "data_demissao": "data_demissao", "carga_horaria": "carga_horaria",
     "bruto": "total_proventos", "descontos": "total_desconto", "liquido": "total_liquido",
+    "orgao": "orgao_id",
 }
 
 
@@ -35,10 +35,10 @@ def _comparavel(texto):
     return sem_acento.casefold()
 
 
-def filtrar(linhas, *, cargo=None, lotacao=None, vinculo=None, tipo_pagamento=None):
+def filtrar(linhas, *, cargo=None, lotacao=None, vinculo=None, tipo_pagamento=None, nome=None):
     """Linhas leves cujo campo contém o texto pedido, sem distinguir maiúscula nem acento. Filtros se somam."""
     pedidos = {c: _comparavel(v) for c, v in (("cargo", cargo), ("lotacao", lotacao), ("vinculo", vinculo),
-                                              ("tipo_pagamento", tipo_pagamento)) if v}
+                                              ("tipo_pagamento", tipo_pagamento), ("nome", nome)) if v}
     return [x for x in linhas if all(v in _comparavel(x.get(c)) for c, v in pedidos.items())]
 
 
@@ -63,6 +63,11 @@ def _somar(linhas):
             "bruto": float(round(bruto, 2)), "liquido": float(round(liquido, 2))}
 
 
+def _mensal(tipo):
+    """"Folha Mensal" (Senador Canedo) ou "MENSAL" (Trindade): cada portal escreve de um jeito."""
+    return "mensal" in _comparavel(tipo)
+
+
 def resumir(linhas, agrupar_por, *, todos_os_tipos=False):
     """Resumo da folha: contagens e somas por grupo, separadas por tipo de pagamento, sem nomes.
 
@@ -74,7 +79,7 @@ def resumir(linhas, agrupar_por, *, todos_os_tipos=False):
     por_tipo, fora = {}, {}
     for x in linhas:
         tipo = x.get("tipo_pagamento") or "(sem tipo)"
-        if todos_os_tipos or tipo == MENSAL:
+        if todos_os_tipos or _mensal(tipo):
             por_tipo.setdefault(tipo, []).append(x)
         else:
             fora[tipo] = fora.get(tipo, 0) + 1

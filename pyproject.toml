@@ -1,6 +1,6 @@
 [project]
 name = "mcp-transparencia-municipal"
-version = "0.2.0"
+version = "0.3.0"
 description = "Consulta o Portal da Transparência de municípios (plataforma NucleoGov) por MCP, linha de comando ou biblioteca."
 readme = "README.md"
 requires-python = ">=3.10"
@@ -23,9 +23,15 @@ build-backend = "setuptools.build_meta"
 [tool.setuptools.packages.find]
 include = ["transparencia_municipal*"]
 
+[tool.setuptools.package-data]
+transparencia_municipal = ["catalogo_go.json"]
+
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F"]  # fixo: versões novas do ruff ligam outras regras por padrão
 ignore = ["E702"]  # a CLI declara argumentos aos pares, numa linha só, de propósito
 
 [tool.pytest.ini_options]
-markers = ["ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1"]
+markers = [
+    "ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1",
+    "descobre_sufixos: o Portal aprende os sufixos na página inicial (simulada)",
+]

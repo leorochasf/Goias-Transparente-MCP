@@ -1,4 +1,4 @@
-# mcp-transparencia-municipal
+# Goias-Transparente-MCP
 
 - Preparar: `pip install -e ".[dev,mcp]"`. Conferir: `ruff check .` e `pytest` (offline).
 - Antes de mexer numa consulta do `cliente.py`, leia `docs/portal-nucleogov.md`: o portal ignora

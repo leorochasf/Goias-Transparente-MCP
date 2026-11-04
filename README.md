@@ -1,4 +1,4 @@
-# mcp-transparencia-municipal
+# Goias-Transparente-MCP
 
 Pergunte em português quanto sua prefeitura pagou, a quem e por quê.
 
@@ -32,7 +32,9 @@ câmaras (veja **Municípios de Goiás**).
 ## Instalação
 
 ```bash
-pip install -e .          # dentro da pasta do projeto
+git clone https://github.com/leorochasf/Goias-Transparente-MCP
+cd Goias-Transparente-MCP
+pip install -e .
 ```
 
 Python 3.10 ou mais novo.
@@ -44,7 +46,7 @@ No arquivo de configuração do seu cliente MCP:
 ```json
 {
   "mcpServers": {
-    "transparencia-municipal": {
+    "goias-transparente": {
       "command": "python",
       "args": ["-m", "transparencia_municipal.servidor_mcp"],
       "env": {

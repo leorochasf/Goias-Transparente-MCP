@@ -85,3 +85,15 @@ def test_cnt_inexistente_responde_lista_vazia_e_fica_valendo_o_zero_do_frl():
     _modulo("despesas_frl/listar", 0)
     responses.add(responses.POST, f"{PORTAL}/api/despesas_cnt/listar", body="[]")  # medido em Alexânia, 04/11/2026
     assert Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")["total"] == 0
+
+
+@responses.activate
+def test_sufixos_aprendidos_valem_para_o_proximo_portal_do_mesmo_endereco():
+    from transparencia_municipal import cliente
+    cliente._SUFIXOS_APRENDIDOS.clear()
+    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="/servidores_cnt">x</a></div>')
+    _modulo("servidores_cnt/listar", 3)
+    Portal(PORTAL, pausa=0).folha(2025, 3, maximo=1)
+    Portal(PORTAL, pausa=0).folha(2025, 3, maximo=1)
+    assert sum(1 for c in responses.calls if c.request.method == "GET") == 1
+    cliente._SUFIXOS_APRENDIDOS.clear()

@@ -165,10 +165,9 @@ def montar(args):
         else:
             host, plataforma, s, origem = (o["hosts"] or [None])[0], None, sondados.get((o["hosts"] or [""])[0]) or {}, None
         conferencia = conferencias.get(host)
-        # a página inicial (sondagem) manda; o que a conferência aprendeu completa
-        sufixos = {**((conferencia or {}).pop("sufixos", None) or {}), **(s.get("sufixos") or {})}
-        if plataforma == "nucleogov-megasoft" and "mg" not in sufixos.values():
-            sufixos = {}  # sondagem antiga, sem os módulos Megasoft: o cliente lê a página inicial na hora
+        # só a conferência grava sufixos: ela aprende com o código atual (módulos Megasoft e Centi inclusive).
+        # Sem conferência, o cliente lê a página inicial na primeira consulta.
+        sufixos = (conferencia or {}).pop("sufixos", None) or {}
         catalogo.append({
             "ibge": o["ibge"], "municipio": o["municipio"], "orgao": o["orgao"],
             "portal": f"https://{host}" if host else None, "plataforma": plataforma, "origem": origem,

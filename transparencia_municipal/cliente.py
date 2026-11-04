@@ -36,6 +36,8 @@ MODULOS = {
     "receitas": "receitas",
 }
 SUFIXOS = ("frl", "cnt")
+#: o que cada portal ensinou nesta execução (endereço → sufixos); evita reler a página inicial a cada consulta
+_SUFIXOS_APRENDIDOS: dict[str, dict] = {}
 #: "sufixos" de módulos que a página do portal mostra, mas que a API NucleoGov não serve
 EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov"}
 
@@ -155,7 +157,9 @@ class Portal:
         """Consulta um módulo com o sufixo deste portal. Sufixo desconhecido: `frl`; se der zero, `cnt`."""
         modulo = MODULOS[nome]
         if self.sufixos is None:
-            self.sufixos = self._descobrir_sufixos()
+            if self.url not in _SUFIXOS_APRENDIDOS:
+                _SUFIXOS_APRENDIDOS[self.url] = self._descobrir_sufixos()
+            self.sufixos = _SUFIXOS_APRENDIDOS[self.url]
         if self.sufixos.get(modulo) in EXTERNOS:
             raise ModuloNaoSuportado(f"em {self.url}, o módulo {modulo} vem {EXTERNOS[self.sufixos[modulo]]}, ainda não "
                              "suportada: a API NucleoGov responderia zero registros, sem aviso.")

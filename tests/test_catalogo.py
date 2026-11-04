@@ -21,7 +21,7 @@ EXEMPLO = [
      "outros_enderecos": [], "conferencia": None},
     {"ibge": "5204409", "municipio": "Caldazinha", "orgao": "prefeitura",
      "portal": "https://acessoainformacao.caldazinha.go.gov.br", "plataforma": "nucleogov-megasoft",
-     "sufixos": {"servidores": "mg", "despesas": "mg", "contratos": "cnt"},
+     "sufixos": {"servidores": "mg", "despesas": "mg", "receitas": "mg", "contratos": "cnt"},
      "outros_enderecos": [], "conferencia": None},
 ]
 
@@ -56,9 +56,9 @@ def test_mcp_encontrar_portal():
 
 
 @responses.activate
-def test_mcp_recusa_portal_megasoft_proprio_sem_chamar_o_portal():
-    """Quem recusa agora é o encaixe da Megasoft de domínio próprio, no Portal (ainda sem acesso)."""
-    r = servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal="https://corumbaiba.megasofttransparencia.com.br")
+def test_mcp_recusa_modulo_nao_lido_do_portal_megasoft_proprio_sem_chamar_o_portal():
+    """Receitas da Megasoft de domínio próprio ficam fora desta frente: o Portal recusa sem chamar a rede."""
+    r = servidor_mcp.consultar_receitas(2025, 3, portal="https://corumbaiba.megasofttransparencia.com.br")
     assert "Megasoft" in r["erro"] and "corumbaiba" in r["erro"]
     assert len(responses.calls) == 0
 
@@ -72,12 +72,12 @@ def test_mcp_recusa_portal_ortrel_sem_chamar_o_portal(monkeypatch):
 
 
 @responses.activate
-def test_mcp_recusa_os_modulos_da_megasoft_embutida_quando_a_api_nao_os_serve():
+def test_mcp_recusa_modulo_nao_lido_da_megasoft_embutida_quando_a_api_nao_o_serve():
+    """Receitas da Megasoft embutida ficam fora desta frente (só folha e despesas são lidas)."""
     caldazinha = "https://acessoainformacao.caldazinha.go.gov.br"
-    for acao in ("servidores_frl", "servidores_cnt", "despesas_frl", "despesas_cnt"):
+    for acao in ("receitas_frl", "receitas_cnt"):
         responses.add(responses.POST, f"{caldazinha}/api/{acao}/listar", body="[]")  # sufixo sem dados
-    assert "Megasoft" in servidor_mcp.consultar_folha(2025, 3, portal=caldazinha)["erro"]
-    assert "Megasoft" in servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=caldazinha)["erro"]
+    assert "Megasoft" in servidor_mcp.consultar_receitas(2025, 3, portal=caldazinha)["erro"]
 
 
 @responses.activate

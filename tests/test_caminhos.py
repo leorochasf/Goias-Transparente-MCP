@@ -73,10 +73,9 @@ def test_modulo_centi_vai_pelo_encaixe_da_centi(monkeypatch):
 
 
 @responses.activate
-def test_encaixe_megasoft_proprio_ainda_recusa_e_nao_chama_o_portal():
+def test_portal_megasoft_proprio_recusa_os_modulos_que_nao_le_e_nao_chama_o_portal():
     portal = Portal(PROPRIA, pausa=0)
-    for consulta in (lambda: portal.folha(2025, 6), lambda: portal.despesas("2025-01-01", "2025-01-31"),
-                     lambda: portal.receitas(2025, 3), lambda: portal.contratos(2025),
+    for consulta in (lambda: portal.receitas(2025, 3), lambda: portal.contratos(2025),
                      lambda: portal.legislacao("DECRETO")):
         with pytest.raises(ModuloNaoSuportado, match="Megasoft"):
             consulta()

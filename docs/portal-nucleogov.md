@@ -73,3 +73,11 @@ A conferência (`transparencia_municipal/conferencia.py`, rodada por `scripts/ca
 - **Legislação sem `ano`.** Em 6 portais o campo `ano` vem vazio; o ano sai de `data_publicacao`.
 - **Site oficial NucleoGov sem API.** `novacrixas.go.gov.br` e `camaradeorizona.go.gov.br` mostram páginas
   NucleoGov, mas `/api/` responde 404.
+- **Paginação que falha no meio.** Na leitura do mês inteiro de Trindade (10/2026, 2.237 linhas sem filtro), uma
+  página no meio voltou vazia e com total 0. Foi o offset 1800 numa leitura e o 1000 na outra; sozinha, a mesma
+  página responde. O cliente usa o total da 1ª página e repete a página vazia esperando 2, 5 e 10 s. Se ainda
+  faltar linha, a leitura sai como **incompleta**, nunca como "zero".
+- **Rótulos do tipo de pagamento.** Senador Canedo: `Folha Mensal`, `Fechamento 13º Salário`, `Rescisão`.
+  Trindade: `MENSAL`, `13º SALÁRIO ADIANTAMENTO`, `RESCISÃO`. O resumo trata como mensal todo rótulo com "mensal".
+- **Trindade, 10/2026, com os órgãos escondidos:** 3.638 linhas, contra 2.237 sem filtro. Órgão 3: 2.237;
+  órgão 5: 835; órgão 7: 496; órgão 8: 70.

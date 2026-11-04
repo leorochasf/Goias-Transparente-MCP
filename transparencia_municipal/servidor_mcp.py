@@ -120,7 +120,7 @@ async def listar_folha(ano: int, mes: int, cargo: str | None = None, lotacao: st
 
     Ex.: quem são os comissionados da Secretaria de Saúde. Filtro "contém", sem distinguir maiúscula
     nem acento (vinculo="comissionado" pega todas as variantes); filtros se somam. tipo_pagamento:
-    "mensal", "13" ou "rescis". Lê o mês inteiro do portal: na primeira vez pode levar ~5 minutos
+    "mensal", "13" ou "rescis". Lê o mês inteiro do portal: na primeira vez pode levar ~10 minutos
     (avisa o progresso); depois o mesmo mês sai na hora. Até 300 linhas; `encontradas` diz quantas
     casaram. Dado de pessoa: use para apuração, não para montar dossiê.
     """
@@ -148,7 +148,7 @@ async def resumir_folha(ano: int, mes: int, agrupar_por: str = "lotacao", cargo:
     Ex.: quantos comissionados há por secretaria e quanto custam. Aceita os mesmos filtros de
     listar_folha. Por padrão resume só a Folha Mensal (13º e rescisão vêm contados em
     `fora_do_resumo`); todos_os_tipos=True traz cada tipo de pagamento separado, nunca somado.
-    Mesma leitura do mês de listar_folha: ~5 minutos na primeira vez.
+    Mesma leitura do mês de listar_folha: ~10 minutos na primeira vez.
     """
     try:
         if agrupar_por not in AGRUPAMENTOS:

@@ -139,7 +139,7 @@ cabe na memória de um assistente. Por isso o servidor MCP entrega a folha **lev
 - `resumir_folha`: por cargo, lotação ou vínculo, conta linhas e matrículas e soma bruto e líquido, sem nomes.
 
 Listar e resumir leem o **mês inteiro** do portal, com pausa entre as páginas. Em Senador Canedo, isso dá
-uns 5 minutos na primeira pergunta. A leitura fica guardada **só na memória**, enquanto o servidor estiver
+uns 9 minutos na primeira pergunta (medido em 04/11/2026). A leitura fica guardada **só na memória**, enquanto o servidor estiver
 aberto, e as perguntas seguintes sobre o mesmo mês saem na hora. **13º e rescisão nunca são somados ao
 salário do mês.** O resumo separa por tipo de pagamento. A linha de comando e a biblioteca continuam
 devolvendo a folha completa.

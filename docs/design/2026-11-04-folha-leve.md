@@ -12,7 +12,7 @@ manda o assistente "trazer o mês inteiro e contar", o que é impossível: seria
 
 1. A folha responde três perguntas: uma pessoa (com rubricas), contagens e somas (resumo da folha, sem
    nomes) e listas filtradas (com nomes).
-2. Listas e resumo usam a leitura do mês. São 86 páginas, cerca de 5 minutos com 1 s de pausa, guardadas na
+2. Listas e resumo usam a leitura do mês. São 86 páginas, cerca de 9 minutos com 1 s de pausa (medido: 548 s), guardadas na
    memória do servidor enquanto ele estiver aberto, nunca em disco. Durante a leitura vão avisos de progresso.
 3. 13º e rescisão nunca se somam à Folha Mensal. O resumo separa por tipo de pagamento e, por padrão,
    resume só a Folha Mensal, contando à parte as linhas dos outros tipos.
@@ -53,4 +53,4 @@ manda o assistente "trazer o mês inteiro e contar", o que é impossível: seria
   o portal de novo; a falha não fica guardada; as ferramentas, por um cliente MCP em processo, incluindo os
   avisos de progresso.
 - Ao vivo, no teste de fumaça: numa amostra, as rubricas somam o bruto.
-- Uma leitura do mês inteiro, rodada uma vez à mão pelo Claude, para ver se a espera de 5 minutos aguenta.
+- Uma leitura do mês inteiro, rodada uma vez à mão pelo Claude, para ver se a espera aguenta. Feita em 04/11/2026 por cliente MCP stdio: 548 s, 86 avisos, leitura completa; a espera de cada assistente (Claude Desktop, Claude Code) não foi conferida.

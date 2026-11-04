@@ -51,10 +51,11 @@ A conferência (`transparencia_municipal/conferencia.py`, rodada por `scripts/ca
   que não existe responde `[]`. O cliente aprende o sufixo na página inicial; quando não acha, tenta `frl` e depois `cnt`.
 - **Módulos de outros sistemas.** Na página inicial, `mgservidores`, `mgdespesas` e `mgreceitas` indicam a Megasoft
   embutida; `cntdespesas` e `cntreceitas` indicam a contabilidade Centi. A API NucleoGov às vezes serve o módulo
-  mesmo assim (Alexânia sim, Posse não), então uma consulta sem filtro decide. Se ela volta vazia, o cliente recusa
+  mesmo assim (Alexânia sim, Posse não), então uma consulta sem filtro decide, uma vez por endereço. Se ela volta
+  vazia, folha e despesas vão pela Megasoft embutida ou pela Centi (seção seguinte); os outros módulos são recusados
   (`ModuloNaoSuportado`). Na amostra:
   - despesas pela API NucleoGov só na Prefeitura de Alexânia;
-  - folha recusada (Megasoft embutida) em 10 órgãos.
+  - folha da Megasoft embutida em 10 órgãos.
 - **Órgãos escondidos na folha.** Sem o filtro `orgao`, a folha trouxe um órgão só em 6 prefeituras:
 
   | Prefeitura | Órgão que vem sem filtro | Órgãos que só aparecem com filtro |
@@ -81,3 +82,35 @@ A conferência (`transparencia_municipal/conferencia.py`, rodada por `scripts/ca
   Trindade: `MENSAL`, `13º SALÁRIO ADIANTAMENTO`, `RESCISÃO`. O resumo trata como mensal todo rótulo com "mensal".
 - **Trindade, 10/2026, com os órgãos escondidos:** 3.638 linhas, contra 2.237 sem filtro. Órgão 3: 2.237;
   órgão 5: 835; órgão 7: 496; órgão 8: 70.
+
+## Megasoft e Centi (04/11/2026)
+
+Folha e despesas que não vêm pela API NucleoGov. Medido em Corumbaíba (Megasoft própria), Aruanã (Megasoft embutida)
+e Posse (Centi); o desenho é `docs/design/2026-11-04-megasoft-centi.md`. Os testes ao vivo
+`tests/test_ao_vivo_megasoft_propria.py`, `tests/test_ao_vivo_megasoft_embutida.py` e `tests/test_ao_vivo_centi.py`
+reconferem estes pontos.
+
+| Sistema | Pedido | Funciona | Ignorado ou armadilha |
+|---|---|---|---|
+| Megasoft própria (`*.megasofttransparencia.com.br`) | `GET /api/<caminho>?pagina=&tamanhoDaPagina=` com `Authorization: Bearer <tokenPortal>` e `cliente-integrado: megasoft-portal-da-transparencia` | folha por `ano` + `mes` ("09"); empenhos por `dataInicial`/`dataFinal`; `cnpjDoFornecedor` filtra | `nome=` e `filtro=` não filtram a folha; `cpfOuCnpjDoFornecedor` é ignorado |
+| Megasoft embutida (menu `mg*`) | API NucleoGov, `acao = megasoft/servidores` ou `megasoft/empenhos`, com `pagina` (começa em 1), `tamanhoDaPagina`, `ordenacao: {}` | folha por `ano` + `mes` ("12") + `mesInteger`; empenhos por `dataInicial`/`dataFinal` | o `limit` do envelope é ignorado; folha sem mês não é aceita pelo projeto |
+| Centi (menu `cntdespesas`) | `POST /api/centi`, formulário simples, `acao=empenhos`, `id_orgao=0`, `data_inicio`/`data_fim` | período; lista inteira, sem páginas, com `TotalRegistros` | `cpf_cnpj` devolve lista vazia; `relatorioEmpenhos` só traz três somas |
+
+- **Senha pública da Megasoft própria.** `GET {portal}/api/configuracao/carregamento-inicial` devolve o
+  `tokenPortal`, sem login: é o que o navegador de qualquer visitante faz ao abrir o portal. O JWT vence em
+  cerca de 24 h; vencida dá 401 e ilegível dá **500 "Token inválido"**.
+- **A fronteira de página perde registros nas duas Megasoft.** A listagem de empenhos ordena só por data e, entre
+  uma página e a seguinte, repete uns e pula outros (fevereiro/2025 em páginas de 100: 236 perdidos em Corumbaíba,
+  33 em Aruanã). Páginas de 5.000 não perdem. O projeto pede páginas grandes, tira repetidos pelo `codigo`
+  (empenho) e pela `chave` (folha) e confere com o `total`.
+- **O 13º não está na listagem da folha Megasoft,** nem somado em dezembro (mediana da razão 12/11 dos proventos
+  por matrícula: 1,00; `mes="13"` responde 0). A rescisão não vem separada, e a listagem não traz rubricas.
+- **Totais da Megasoft:** `valorTotalDo... = valorDo... − anulação`, conferido em todos os empenhos medidos.
+- **Período respeitado** nos três sistemas (nenhuma data fora em trimestres e meses inteiros).
+- **Câmara e fundos junto com a Prefeitura.** A Centi com `id_orgao=0` traz todas as entidades (Posse, 01/2025:
+  Fundo de Saúde, Poder Executivo, Fundeb, FMAS, Poder Legislativo, FPPS); os empenhos Megasoft de Aruanã trazem 9
+  entidades. O projeto mantém tudo e leva o campo `orgao` em cada despesa.
+- **Centi: vazio espúrio.** Uma janela com empenhos voltou `[]` em 0,4 s e, repetida, respondeu. O projeto repete
+  a lista vazia duas vezes antes de aceitá-la.
+- **Tempo:** folha Megasoft de um mês numa página, 1,6 a 3,2 s; empenhos de um trimestre, 0,4 a 3,7 s; Centi, um
+  mês em 2,2 a 2,7 s.

@@ -17,7 +17,7 @@ from .cliente import FONTE, ErroPortal, Portal
 from .folha_leve import AGRUPAMENTOS, filtrar, linha_leve, resumir
 
 mcp = MCPServer("transparencia-municipal",
-                instructions="Consulta dados públicos do Portal da Transparência de municípios brasileiros na plataforma NucleoGov: folha de pagamento, empenhos, contratos, licitações, receitas e legislação.")
+                instructions="Consulta dados públicos do Portal da Transparência de municípios brasileiros na plataforma NucleoGov: folha de pagamento, empenhos, contratos, licitações, receitas e legislação. Folha e empenhos também da Megasoft e da contabilidade Centi.")
 
 AVISO = ("Dado público do Portal da Transparência do município (Lei 12.527/2011), lido na hora. "
          "Confira no portal antes de usar em peça, denúncia ou matéria.")
@@ -290,8 +290,9 @@ def consultar_legislacao(tipo: str = "DECRETO", busca: str | None = None, ano: i
 def encontrar_portal(municipio: str, orgao: str | None = None) -> dict:
     """O portal da transparência de um órgão de Goiás pelo nome do município.
 
-    `orgao`: "prefeitura" ou "camara" (vazio traz os dois). Devolve o endereço, a plataforma (só NucleoGov é
-    consultável por enquanto) e a situação da conferência (se os filtros daquele portal foram medidos).
+    `orgao`: "prefeitura" ou "camara" (vazio traz os dois). Devolve o endereço, a plataforma (NucleoGov inteiro;
+    Megasoft só folha e despesas; Ortrel ainda não) e a situação da conferência (se os filtros daquele portal foram
+    medidos).
     Ex.: qual o portal da Câmara de Posse. Use o endereço no parâmetro `portal` das outras ferramentas.
     """
     achados = catalogo.encontrar(municipio, orgao)

@@ -1,7 +1,7 @@
 # Glossário
 
 **Linha da folha**:
-Um pagamento a uma matrícula, num mês, de um tipo de pagamento. Quem recebe salário e 13º no mesmo mês tem duas linhas.
+Um pagamento a uma matrícula, num mês, de um tipo de pagamento. Quem recebe salário e 13º no mesmo mês tem duas linhas (no NucleoGov; a listagem da Megasoft não traz o 13º).
 _Evitar_: registro, servidor (quando se quer dizer a linha)
 
 **Tipo de pagamento**:
@@ -21,8 +21,12 @@ Contagens e somas de linhas da folha por agrupamento (cargo, lotação ou víncu
 _Evitar_: relatório, estatística
 
 **Órgão**:
-A prefeitura ou a câmara de um município, cada um com seu portal da transparência.
+A prefeitura ou a câmara de um município, cada um com seu portal da transparência. Nas despesas da Megasoft e da Centi, o campo `orgao` diz de quem é cada empenho: Prefeitura, Câmara ou fundo, que vêm juntos no mesmo portal.
 _Evitar_: entidade, ente
+
+**Fonte**:
+O sistema de onde veio um registro de folha ou de despesas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio) ou Centi.
+_Evitar_: origem, plataforma (quando se quer dizer a fonte do registro)
 
 **Catálogo de portais**:
 A lista dos órgãos de Goiás, cada um com o endereço do portal, a plataforma e a situação da conferência.

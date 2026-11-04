@@ -189,15 +189,25 @@ dados abertos do Radar da Transparência Pública (Atricon, ciclo 2025,
 Para cada órgão o catálogo registra o portal e a plataforma. A plataforma foi confirmada por uma visita à
 página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara")` devolve o endereço.
 
+| Plataforma no catálogo | Órgãos |
+|---|---|
+| NucleoGov | 188 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 219 |
+| Megasoft de domínio próprio | 30 |
+| Ortrel (recusado) | 4 |
+| Sem portal reconhecido | 20 |
+
 Toda resposta diz a **situação do portal**:
 
 - **conferido:** os filtros foram medidos ao vivo, com a data e o que falhou;
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04/11/2026 foram conferidos os órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
+Em 04/11/2026 foram conferidos os 32 órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
 São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
-Goianápolis, Pirenópolis, Corumbaíba e Guapó. O resultado está em `docs/portal-nucleogov.md`.
+Goianápolis, Pirenópolis, Corumbaíba e Guapó. A conferência passa pelos mesmos caminhos das consultas: inclui os quatro
+órgãos da Megasoft de domínio próprio da amostra e os que leem folha e despesas pela Megasoft embutida ou pela Centi.
+Folha e despesas saíram conferidas em 29 deles. O resultado está em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:
 

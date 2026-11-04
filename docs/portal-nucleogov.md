@@ -44,7 +44,17 @@ folha inteira para um assistente de IA estoura o contexto dele.
 ## Outras cidades de Goiás (conferência de 04/11/2026)
 
 A conferência (`transparencia_municipal/conferencia.py`, rodada por `scripts/catalogo_go.py conferir`) mediu os
-órgãos NucleoGov de 16 municípios. O resultado de cada portal fica no catálogo (`catalogo_go.json`).
+32 órgãos de 16 municípios. O resultado de cada portal fica no catálogo (`catalogo_go.json`). A 4ª rodada (04/11/2026)
+passou pelos caminhos da Megasoft (embutida e própria) e da Centi:
+- folha (mês) e despesas (período e CNPJ) `ok` em 29 órgãos, entre eles Posse (Centi), Aruanã (Megasoft embutida),
+  Corumbaíba e Alto Paraíso (Megasoft própria), antes recusados;
+- fora do NucleoGov, a sondagem de órgãos escondidos sai `sem_dados`, e receitas e legislação da Megasoft própria,
+  `nao_suportado`;
+- `erro` só onde não há API: Nova Crixás e a Câmara de Orizona (`/api/` responde 404); a Câmara de Pirenópolis não
+  publica folha nem despesas. A Câmara de Alto Paraíso, cujo endereço NucleoGov não resolve, é conferida pelo portal
+  Megasoft próprio dela.
+As despesas são conferidas no mês de referência (a Centi devolve o período inteiro numa resposta só). Dez órgãos
+NucleoGov e Megasoft embutida foram medidos antes dessa mudança, no 1º trimestre.
 
 - **Sufixo do módulo por portal.** A ação é `<modulo>_frl/listar` ou `<modulo>_cnt/listar`. **Com o sufixo errado o
   portal responde total 0, sem erro.** Chapadão do Céu: `servidores_frl` dá 0 e `servidores_cnt` dá 224. Um sufixo

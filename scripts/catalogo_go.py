@@ -112,17 +112,23 @@ def _sondados():
 
 #: plataformas que o `Portal` lê (a Megasoft embutida e a Centi entram pelo portal NucleoGov)
 CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft")
+PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
 
 
-def _portal_conferivel(orgao, sondados):
-    """O endereço que o `Portal` lê: NucleoGov (o reconhecido pelo endereço ou o que a sondagem confirmou) ou, sem
-    ele, o da Megasoft de domínio próprio."""
-    achados = []
-    for i, h in enumerate(orgao["hosts"]):
-        plataforma = (sondados.get(h) or {}).get("plataforma") or plataforma_pelo_endereco(h)
-        if plataforma in CONFERIVEIS:
-            achados.append((plataforma == "megasoft", i, h, plataforma))
-    return min(achados)[2:] if achados else (None, None)
+def _portal_escolhido(orgao, sondados):
+    """O portal do órgão no catálogo: o que a sondagem viu no ar antes do só reconhecido pelo endereço; entre eles, a
+    plataforma na ordem de PREFERENCIA. Devolve (host, plataforma, sondagem); sem plataforma, (host ou None, None, ...)."""
+    opcoes = []
+    for h in orgao["hosts"]:
+        s = sondados.get(h) or {}
+        plataforma = s.get("plataforma") or plataforma_pelo_endereco(h)
+        if plataforma:
+            confirmado = bool(s.get("plataforma"))  # a sondagem viu a marca da plataforma no ar
+            opcoes.append((not confirmado, PREFERENCIA.index(plataforma), h, plataforma, s))
+    if opcoes:
+        return min(opcoes)[2:]
+    primeiro = (orgao["hosts"] or [None])[0]
+    return primeiro, None, sondados.get(primeiro or "") or {}
 
 
 def conferir(args):
@@ -132,9 +138,9 @@ def conferir(args):
     sondados = _sondados()
     feitas = json.loads(CONFERENCIAS.read_text(encoding="utf-8")) if CONFERENCIAS.exists() else {}
     for o in orgaos:
-        host, plataforma = _portal_conferivel(o, sondados)
+        host, plataforma, _ = _portal_escolhido(o, sondados)  # o mesmo que o `montar` grava
         rotulo = f"{o['municipio']} ({o['orgao']})"
-        if not host:
+        if plataforma not in CONFERIVEIS:
             print(f"{rotulo}: sem portal NucleoGov nem Megasoft conhecido; fica de fora", flush=True)
             continue
         if host in feitas:
@@ -149,27 +155,14 @@ def conferir(args):
         time.sleep(args.pausa)
 
 
-PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
-
-
 def montar(args):
     """Um registro por órgão: o portal preferido, a plataforma, os sufixos e a conferência, se houver."""
     sondados, conferencias = _sondados(), (json.loads(CONFERENCIAS.read_text(encoding="utf-8"))
                                            if CONFERENCIAS.exists() else {})
     catalogo = []
     for o in json.loads(CANDIDATOS.read_text(encoding="utf-8")):
-        opcoes = []
-        for h in o["hosts"]:
-            s = sondados.get(h) or {}
-            plataforma = s.get("plataforma") or plataforma_pelo_endereco(h)
-            if plataforma:
-                confirmado = bool(s.get("plataforma"))  # a sondagem viu a marca da plataforma no ar
-                opcoes.append((not confirmado, PREFERENCIA.index(plataforma), h, plataforma, s))
-        if opcoes:
-            _, _, host, plataforma, s = min(opcoes)
-            origem = "sondagem" if s.get("plataforma") else "endereco"
-        else:
-            host, plataforma, s, origem = (o["hosts"] or [None])[0], None, sondados.get((o["hosts"] or [""])[0]) or {}, None
+        host, plataforma, s = _portal_escolhido(o, sondados)
+        origem = ("sondagem" if s.get("plataforma") else "endereco") if plataforma else None
         conferencia = conferencias.get(host)
         # só a conferência grava sufixos: ela aprende com o código atual (módulos Megasoft e Centi inclusive).
         # Sem conferência, o cliente lê a página inicial na primeira consulta.

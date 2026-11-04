@@ -22,6 +22,8 @@ CAMPOS = {
 def linha_leve(linha, *, rubricas=False):
     """A linha da folha sem o que só pesa. `rubricas=True` acrescenta proventos e descontos."""
     leve = {nosso: linha.get(do_portal) for nosso, do_portal in CAMPOS.items()}
+    if linha.get("fonte"):  # linha traduzida de outro sistema (Megasoft): diz de onde veio
+        leve["fonte"] = linha["fonte"]
     if rubricas:
         leve["rubricas"] = [
             {"codigo": r.get("evento"), "nome": r.get("nome"), "valor": r.get("valor"), "tipo": r.get("tipo")}

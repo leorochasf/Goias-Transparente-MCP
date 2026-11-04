@@ -7,8 +7,10 @@ Este projeto liga um assistente de IA (Claude, ChatGPT, Cursor e outros que fala
 para quem quer só baixar a planilha.
 
 Cobre a plataforma **NucleoGov**, usada pela maioria dos municípios de Goiás e por municípios de
-outros estados. São os portais no padrão `acessoainformacao.<municipio>.go.gov.br`. Para Goiás há um
-catálogo dos portais de prefeituras e câmaras (veja **Municípios de Goiás**).
+outros estados. São os portais no padrão `acessoainformacao.<municipio>.go.gov.br`. Folha e despesas
+também saem da **Megasoft** (embutida no NucleoGov ou no domínio próprio `<municipio>.megasofttransparencia.com.br`)
+e da contabilidade **Centi** (veja **Megasoft e Centi**). Para Goiás há um catálogo dos portais de prefeituras e
+câmaras (veja **Municípios de Goiás**).
 
 > Dado público, lido na hora, sem cadastro e sem senha (Lei 12.527/2011). Nada é armazenado.
 > **Confira no portal antes de usar em peça, denúncia ou matéria:** o portal pode estar
@@ -143,7 +145,43 @@ Listar e resumir leem o **mês inteiro** do portal, com pausa entre as páginas.
 uns 9 minutos na primeira pergunta (medido em 04/11/2026). A leitura fica guardada **só na memória**, enquanto o servidor estiver
 aberto, e as perguntas seguintes sobre o mesmo mês saem na hora. **13º e rescisão nunca são somados ao
 salário do mês.** O resumo separa por tipo de pagamento. A linha de comando e a biblioteca continuam
-devolvendo a folha completa.
+devolvendo a folha completa. Na folha da Megasoft o 13º não aparece (veja **Megasoft e Centi**).
+
+## Megasoft e Centi
+
+Muitos portais de Goiás mostram folha e despesas de outros sistemas. O projeto escolhe o caminho sozinho, pelo
+endereço e pelo menu do portal, e entrega os registros no mesmo formato. Cada registro de folha e de despesas traz
+o campo `fonte`, que diz de onde veio: `NucleoGov`, `Megasoft` ou `Centi`.
+
+| Sistema | Onde aparece | Folha | Despesas |
+|---|---|---|---|
+| Megasoft embutida | menu `mg*` de um portal NucleoGov | sim | sim |
+| Megasoft de domínio próprio | `<municipio>.megasofttransparencia.com.br` | sim | sim |
+| Centi | menu `cntdespesas` de um portal NucleoGov | não tem | sim |
+
+Receitas, contratos, licitações, diárias e legislação desses sistemas **seguem recusados com aviso**, em vez de
+responder "zero".
+
+- **A senha pública da Megasoft de domínio próprio.** A API desse portal pede uma senha (um `tokenPortal`). Ela
+  não exige cadastro nem login: o portal a entrega a qualquer visitante em
+  `GET <portal>/api/configuracao/carregamento-inicial`, que é a primeira coisa que o navegador faz ao abrir o site.
+  O projeto faz o mesmo, **identificando-se honestamente** como ferramenta (o portal aceita), guarda a senha só na
+  memória enquanto o programa roda e pede outra quando ela vence (cerca de 24 h).
+- **O 13º fica fora da folha Megasoft.** A listagem da Megasoft não traz o 13º, nem separado nem somado ao
+  salário de dezembro (medido em Aruanã, 11 e 12/2025), e não separa a rescisão. Cada linha sai com o tipo de
+  pagamento "Mensal (a listagem da Megasoft não traz 13º; rescisão não vem separada)". A listagem também não traz
+  rubricas: só bruto, descontos e líquido.
+- **A Centi traz a Câmara e os fundos junto com a Prefeitura.** A consulta de despesas da Centi devolve todas as
+  entidades do município (Poder Executivo, Poder Legislativo, fundos de saúde, educação, assistência e
+  previdência). A despesa Megasoft faz o mesmo. Cada empenho traz o campo `orgao`, e o assistente avisa quando a
+  resposta mistura órgãos: some só os do órgão que interessa.
+- **Busca por CNPJ ou nome do fornecedor** é conferida pelo projeto, empenho por empenho. O filtro de CNPJ da
+  Centi não funciona; o da Megasoft de domínio próprio funciona e, mesmo assim, cada empenho é conferido; o da
+  Megasoft embutida não foi medido. Por isso a busca lê o período inteiro (na Megasoft embutida, mês a mês) e pode
+  demorar mais.
+- **Leitura que não fecha não vira "zero".** A Megasoft pula registros quando a leitura vai em páginas pequenas; o
+  projeto pede páginas grandes, tira os repetidos e confere o total. Se ainda faltar registro, a leitura sai como
+  incompleta.
 
 ## Municípios de Goiás
 
@@ -153,36 +191,50 @@ dados abertos do Radar da Transparência Pública (Atricon, ciclo 2025,
 Para cada órgão o catálogo registra o portal e a plataforma. A plataforma foi confirmada por uma visita à
 página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara")` devolve o endereço.
 
+| Plataforma no catálogo | Órgãos |
+|---|---|
+| NucleoGov | 188 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 219 |
+| Megasoft de domínio próprio | 30 |
+| Ortrel (recusado) | 4 |
+| Sem portal reconhecido | 20 |
+
 Toda resposta diz a **situação do portal**:
 
 - **conferido:** os filtros foram medidos ao vivo, com a data e o que falhou;
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04/11/2026 foram conferidos os órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
+Em 04/11/2026 foram conferidos os 32 órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
 São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
-Goianápolis, Pirenópolis, Corumbaíba e Guapó. O resultado está em `docs/portal-nucleogov.md`.
+Goianápolis, Pirenópolis, Corumbaíba e Guapó. A conferência passa pelos mesmos caminhos das consultas: inclui os quatro
+órgãos da Megasoft de domínio próprio da amostra e os que leem folha e despesas pela Megasoft embutida ou pela Centi.
+Folha e despesas saíram conferidas em 29 deles. O resultado está em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:
 
 - **Muitos portais NucleoGov puxam módulos de outros sistemas.** Despesas e receitas podem vir da
-  contabilidade Centi, e folha, despesas e receitas podem vir da Megasoft embutida. Quando a API NucleoGov não
-  traz esse módulo, a consulta é **recusada com aviso**, em vez de responder "zero". Na amostra, as despesas só
-  vieram pela API NucleoGov na Prefeitura de Alexânia.
+  contabilidade Centi, e folha, despesas e receitas podem vir da Megasoft embutida. Folha e despesas desses
+  sistemas são lidas (veja **Megasoft e Centi**); os outros módulos são **recusados com aviso**, em vez de
+  responder "zero". Na amostra, as despesas só vieram pela API NucleoGov na Prefeitura de Alexânia.
 - **Em várias prefeituras a folha sem filtro esconde órgãos** (fundos, autarquias). As listas e o resumo da
   folha buscam esses órgãos um a um. A busca rápida por nome avisa quando o portal faz isso.
 - **Muitos portais só publicam a folha dos meses recentes.** Um mês antigo pode vir vazio.
 
 ## Limites conhecidos
 
-- Só a plataforma **NucleoGov**. Megasoft (30 órgãos no catálogo), Ortrel (4), a Megasoft embutida e a
-  Centi ficam para depois. Portais dessas plataformas são recusados com aviso.
+- **NucleoGov** inteiro. Da **Megasoft** (embutida e de domínio próprio) e da **Centi**, só folha e despesas;
+  receitas, contratos, licitações e legislação delas são recusados com aviso. **Ortrel** (4 órgãos no catálogo)
+  fica para depois e é recusado.
+- Folha da Megasoft **sem 13º e sem rubricas**; a rescisão não vem separada.
+- Despesas da Centi e da Megasoft **incluem Câmara e fundos**: confira o campo `orgao`.
 - Os campos variam de município para município: cada prefeitura preenche o portal como quer.
 - Sem paginação infinita: use `--maximo` para pedir mais que os 200 registros padrão.
 - A busca livre (`--busca`) é a mesma caixinha do portal. **Na folha ela procura só por nome**:
   para filtrar por cargo ou lotação, traga o mês inteiro e filtre a planilha depois.
   **Nas despesas, um CNPJ** (com ou sem pontuação) não vai para a caixinha, que não o encontra:
-  vai para o filtro de CNPJ do portal e traz só os empenhos daquele fornecedor.
+  no NucleoGov ele vai para o filtro de CNPJ do portal; na Megasoft e na Centi o projeto lê o período e
+  separa os empenhos daquele fornecedor. Nos dois casos, só vêm os empenhos daquele CNPJ.
 
 ## Licença
 

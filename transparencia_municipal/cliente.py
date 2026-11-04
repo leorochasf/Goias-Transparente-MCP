@@ -19,9 +19,9 @@ from dataclasses import dataclass, field
 
 import requests
 
-from .plataformas import reconhecer
+from .plataformas import plataforma_pelo_endereco, reconhecer
 
-UA_FERRAMENTA = ("mcp-transparencia-municipal/0.3 "
+UA_FERRAMENTA = ("mcp-transparencia-municipal/0.4 "
                  "(+https://github.com/leorochasf/mcp-transparencia-municipal)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -38,8 +38,16 @@ MODULOS = {
 SUFIXOS = ("frl", "cnt")
 #: o que cada portal ensinou nesta execução (endereço → sufixos); evita reler a página inicial a cada consulta
 _SUFIXOS_APRENDIDOS: dict[str, dict] = {}
+#: (endereço, módulo) → sufixo com que a API NucleoGov serve um módulo `mg`/`centi`, ou None; evita sondar a cada consulta
+_API_SONDADA: dict[tuple[str, str], str | None] = {}
+#: `fonte` dos registros que vêm da API NucleoGov; os traduzidos de outro sistema trazem a sua
+FONTE = "NucleoGov"
 #: "sufixos" de módulos que a página do portal mostra, mas que a API NucleoGov não serve
 EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov"}
+#: origem do portal `*.megasofttransparencia.com.br`, que vai inteiro pela Megasoft de domínio próprio
+PROPRIA = "da Megasoft de domínio próprio"
+#: módulos que os acessos a outros sistemas leem; os demais são recusados nesses portais
+LIDOS_POR_ACESSO = ("folha", "despesas")
 
 
 #: tipo de ato → código no módulo `atos` (conferido em Senador Canedo, 04/11/2026)
@@ -67,6 +75,16 @@ class ModuloNaoSuportado(ErroPortal):
 
 class PortalBloqueou(ErroPortal):
     """O portal recusou a requisição (403) — em geral, por não vir de um navegador."""
+
+
+def recusa(portal, nome, origem):
+    """A recusa de um módulo que vem de outro sistema e que este projeto ainda não lê. `origem`: EXTERNOS ou PROPRIA."""
+    modulo = MODULOS.get(nome, nome)
+    if origem == PROPRIA:
+        return ModuloNaoSuportado(f"{portal.url} é portal da Megasoft de domínio próprio: o módulo {modulo} "
+                                  "ainda não é suportado por este projeto.")
+    return ModuloNaoSuportado(f"em {portal.url}, o módulo {modulo} vem {origem}, ainda não suportada: "
+                              "a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).")
 
 
 def _data_br(valor, *, campo):
@@ -154,33 +172,79 @@ class Portal:
         return reconhecer(r.text, self.url)["sufixos"] if r.status_code == 200 else {}
 
     def _api_serve(self, modulo):
-        """O sufixo com que a API NucleoGov traz algum registro do módulo, sem filtro; None se nenhum."""
+        """O sufixo com que a API NucleoGov traz algum registro do módulo, sem filtro; None se nenhum.
+
+        Lembrado por endereço enquanto o processo vive, se a API respondeu; erro em todos os sufixos não é lembrado.
+        """
+        chave = (self.url, modulo)
+        if chave in _API_SONDADA:
+            return _API_SONDADA[chave]
+        respondeu = False
         for sufixo in SUFIXOS:
             try:
-                if self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"] > 0:
-                    return sufixo
+                total = self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"]
             except PortalBloqueou:
                 raise
             except ErroPortal:
                 continue
+            respondeu = True
+            if total > 0:
+                _API_SONDADA[chave] = sufixo
+                return sufixo
+        if respondeu:
+            _API_SONDADA[chave] = None
         return None
 
-    def _consultar_modulo(self, nome, filtros, *, maximo, progresso=None):
-        """Consulta um módulo com o sufixo deste portal. Sufixo desconhecido: `frl`; se der zero, `cnt`."""
-        modulo = MODULOS[nome]
-        if self.sufixos is None:
-            if self.url not in _SUFIXOS_APRENDIDOS:
-                _SUFIXOS_APRENDIDOS[self.url] = self._descobrir_sufixos()
-            self.sufixos = _SUFIXOS_APRENDIDOS[self.url]
-        if self.sufixos.get(modulo) in EXTERNOS:
+    def _acesso(self, nome):
+        """Ponto único da escolha do caminho de um módulo (`folha`, `despesas`...) neste portal.
+
+        None: API NucleoGov. Senão, a função do módulo de acesso que lê o módulo: Megasoft de domínio próprio
+        (o endereço basta, sem catálogo nem página inicial), Megasoft embutida (menu `mg*`) ou Centi (menu `cnt*`).
+        Módulo que o acesso não lê é recusado (`ModuloNaoSuportado`).
+        """
+        # importados aqui: os módulos de acesso importam do cliente
+        from . import centi, megasoft_embutida, megasoft_propria
+        if plataforma_pelo_endereco(self.url) == "megasoft":
+            acesso, origem = megasoft_propria, PROPRIA
+        else:
+            modulo = MODULOS.get(nome)
+            if modulo is None:
+                return None
+            if self.sufixos is None:
+                if self.url not in _SUFIXOS_APRENDIDOS:
+                    _SUFIXOS_APRENDIDOS[self.url] = self._descobrir_sufixos()
+                self.sufixos = _SUFIXOS_APRENDIDOS[self.url]
+            externo = self.sufixos.get(modulo)
+            if externo not in EXTERNOS:
+                return None
             # o menu aponta outra plataforma, mas a API NucleoGov às vezes serve o módulo mesmo assim
-            # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide, uma vez por portal
+            # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide, uma vez por endereço
             sufixo = self._api_serve(modulo)
-            if not sufixo:
-                raise ModuloNaoSuportado(
-                    f"em {self.url}, o módulo {modulo} vem {EXTERNOS[self.sufixos[modulo]]}, ainda não suportada: "
-                    "a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).")
-            self.sufixos[modulo] = sufixo
+            if sufixo:
+                self.sufixos[modulo] = sufixo
+                return None
+            acesso, origem = {"mg": megasoft_embutida, "centi": centi}[externo], EXTERNOS[externo]
+        ler = getattr(acesso, nome, None) if nome in LIDOS_POR_ACESSO else None
+        if ler is None:
+            raise recusa(self, nome, origem)
+        return ler
+
+    def _consultar_modulo(self, nome, filtros, *, maximo, progresso=None, pedido=None):
+        """Consulta um módulo pelo caminho deste portal.
+
+        Outro sistema: a função do módulo de acesso recebe `pedido` (os argumentos já normalizados) e `maximo`.
+        API NucleoGov: `filtros`, com o sufixo deste portal; sufixo desconhecido: `frl`; se der zero, `cnt`.
+        """
+        ler = self._acesso(nome)
+        if ler:
+            return ler(self, **(pedido or {}), maximo=maximo)
+        r = self._consultar_api(MODULOS[nome], filtros, maximo=maximo, progresso=progresso)
+        if nome in LIDOS_POR_ACESSO:  # folha e despesas podem vir de outro sistema: todo registro diz de onde veio
+            for x in r["registros"]:
+                x.setdefault("fonte", FONTE)
+        return r
+
+    def _consultar_api(self, modulo, filtros, *, maximo, progresso):
         if modulo in self.sufixos:
             return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
                                   progresso=progresso)
@@ -239,7 +303,8 @@ class Portal:
             f["mes"] = str(int(mes))
         if busca:
             f["txtbusca"] = busca
-        return self._consultar_modulo("folha", f, maximo=maximo, progresso=progresso)
+        pedido = {"ano": int(ano), "mes": int(mes) if mes else None, "busca": busca, "progresso": progresso}
+        return self._consultar_modulo("folha", f, maximo=maximo, progresso=progresso, pedido=pedido)
 
     def despesas(self, de, ate, busca=None, *, maximo=200):
         """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor.
@@ -249,11 +314,12 @@ class Portal:
         """
         f = {"datamin": _data_br(de, campo="de"), "datamax": _data_br(ate, campo="ate")}
         cnpj = _cnpj(busca) if busca else None
+        pedido = {"de": f["datamin"], "ate": f["datamax"], "cnpj": cnpj, "busca": None if cnpj else busca}
         if cnpj:
             f["cpf_cnpj"] = cnpj
         elif busca:
             f["txtbusca"] = busca
-        return self._consultar_modulo("despesas", f, maximo=maximo)
+        return self._consultar_modulo("despesas", f, maximo=maximo, pedido=pedido)
 
     def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
         """Contratos (tipo="contrato") ou aditivos (tipo="aditivo")."""
@@ -289,6 +355,7 @@ class Portal:
         `busca` procura palavra na ementa. Lê o módulo `atos` do portal: em Senador Canedo
         (04/11/2026) o antigo `atos_pf_<apelido>` estava vazio, inclusive na tela do site.
         """
+        self._acesso("legislacao")  # portal de outro sistema: recusa
         f = {"tipo": _tipo_ato(tipo)}
         if busca:
             f["search"] = busca

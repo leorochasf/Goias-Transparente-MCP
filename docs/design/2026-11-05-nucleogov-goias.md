@@ -4,7 +4,7 @@ Aprovado em 04/11/2026. Termos em `CONTEXT.md`. É a primeira de três frentes: 
 
 ## Decisões
 
-1. O projeto público aproveita do AJE só o **conhecimento** sobre as APIs, nunca o código.
+1. O projeto aproveita de medições anteriores do autor só o **conhecimento** sobre as APIs, nunca código.
 2. **Catálogo de portais** de Goiás (prefeituras e câmaras), feito com os dados abertos do Radar da Transparência
    Pública (Atricon). A plataforma se reconhece pelo endereço; o que o endereço não revela, uma **sondagem** de
    Goiás resolve (uma visita à página inicial de cada endereço, com 1 s de pausa).
@@ -20,8 +20,8 @@ Aprovado em 04/11/2026. Termos em `CONTEXT.md`. É a primeira de três frentes: 
 
 - **Sufixo do módulo por portal.** Senador Canedo usa `_frl`; Chapadão do Céu e a Câmara de Posse usam `_cnt`. O
   sufixo aparece na página inicial (`servidores_cnt`), mas nem todo módulo aparece lá. Por isso o cliente usa o
-  sufixo da página e, sem ele, tenta `_frl` e depois `_cnt`. Fonte do conhecimento: AJE `diagnostico_servidores.py`.
-- **Órgãos da folha.** Segundo o AJE, em Chapadão do Céu a folha sem filtro trazia só o órgão 1, e os fundos só
+  sufixo da página e, sem ele, tenta `_frl` e depois `_cnt`.
+- **Órgãos da folha.** Numa medição anterior, em Chapadão do Céu a folha sem filtro trazia só o órgão 1, e os fundos só
   apareciam com `orgao` explícito. Em Senador Canedo a folha sem filtro mistura os órgãos 001, 002, 004 e 005, e
   `orgao=1` devolve zero, porque o portal usa o código "001". A conferência passa a checar se a folha sem
   filtro cobre os órgãos.

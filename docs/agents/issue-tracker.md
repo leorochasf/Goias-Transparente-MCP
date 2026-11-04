@@ -2,6 +2,8 @@
 
 Issues and specs for this repo live as markdown files in `.scratch/`.
 
+`.scratch/` está no `.gitignore`: os tickets ficam só nesta máquina. Agentes trabalhando em worktrees leem os tickets pelo caminho absoluto da pasta principal do projeto (`C:\Users\Leoro\Projetos\mcp-transparencia-municipal\.scratch`).
+
 ## Conventions
 
 - One feature per directory: `.scratch/<feature-slug>/`

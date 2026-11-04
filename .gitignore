@@ -9,3 +9,4 @@ dist/
 !tests/**/*.json
 scripts/_catalogo/
 !transparencia_municipal/catalogo_go.json
+.scratch/

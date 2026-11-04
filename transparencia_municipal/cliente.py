@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 
 import requests
 
-UA_FERRAMENTA = ("mcp-transparencia-municipal/0.1 "
+UA_FERRAMENTA = ("mcp-transparencia-municipal/0.2 "
                  "(+https://github.com/leorochasf/mcp-transparencia-municipal)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")

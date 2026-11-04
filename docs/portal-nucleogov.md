@@ -40,3 +40,36 @@ toda consulta nova precisa de uma chamada ao vivo que mostre o total mudando e o
 
 A folha é pesada: 100 servidores dão cerca de 330 mil caracteres (uns 83 mil tokens). Mandar a
 folha inteira para um assistente de IA estoura o contexto dele.
+
+## Outras cidades de Goiás (conferência de 04/11/2026)
+
+A conferência (`transparencia_municipal/conferencia.py`, rodada por `scripts/catalogo_go.py conferir`) mediu os
+órgãos NucleoGov de 16 municípios. O resultado de cada portal fica no catálogo (`catalogo_go.json`).
+
+- **Sufixo do módulo por portal.** A ação é `<modulo>_frl/listar` ou `<modulo>_cnt/listar`. **Com o sufixo errado o
+  portal responde total 0, sem erro.** Chapadão do Céu: `servidores_frl` dá 0 e `servidores_cnt` dá 224. Um sufixo
+  que não existe responde `[]`. O cliente aprende o sufixo na página inicial; quando não acha, tenta `frl` e depois `cnt`.
+- **Módulos de outros sistemas.** Na página inicial, `mgservidores`, `mgdespesas` e `mgreceitas` indicam a Megasoft
+  embutida; `cntdespesas` e `cntreceitas` indicam a contabilidade Centi. A API NucleoGov às vezes serve o módulo
+  mesmo assim (Alexânia sim, Posse não), então uma consulta sem filtro decide. Se ela volta vazia, o cliente recusa
+  (`ModuloNaoSuportado`). Na amostra:
+  - despesas pela API NucleoGov só na Prefeitura de Alexânia;
+  - folha recusada (Megasoft embutida) em 10 órgãos.
+- **Órgãos escondidos na folha.** Sem o filtro `orgao`, a folha trouxe um órgão só em 6 prefeituras:
+
+  | Prefeitura | Órgão que vem sem filtro | Órgãos que só aparecem com filtro |
+  |---|---|---|
+  | Trindade | 3 | 5, 6, 7, 8 e 10 |
+  | Guapó | 3 | 4, 5 e 8 |
+  | Itapuranga | 3 | 4, 6 e 8 |
+  | Pirenópolis | 3 | 4, 6 e 7 |
+  | Posse | 3 | 5 |
+  | São Miguel do Araguaia | 1 | 3 e 4 |
+
+  Em Senador Canedo a folha sem filtro já mistura os órgãos (o código é `001`). A leitura do mês sonda os
+  códigos de 1 a 15.
+- **Folha só recente.** Em vários portais o mês 06/2025 veio vazio, mas o mês mais recente (10/2026) estava
+  publicado. A conferência usa o mês mais recente.
+- **Legislação sem `ano`.** Em 6 portais o campo `ano` vem vazio; o ano sai de `data_publicacao`.
+- **Site oficial NucleoGov sem API.** `novacrixas.go.gov.br` e `camaradeorizona.go.gov.br` mostram páginas
+  NucleoGov, mas `/api/` responde 404.

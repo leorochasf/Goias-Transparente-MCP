@@ -208,7 +208,13 @@ class Portal:
         """
         registros, total, offset = [], 0, 0
         while len(registros) < maximo:
-            lote, total = self._pagina(acao, filtros, offset)
+            lote, total_da_pagina = self._pagina(acao, filtros, offset)
+            if offset and not lote and len(registros) < total:
+                # página vazia antes do fim, com total 0 (Trindade, offset 1800, 04/11/2026): consulta de novo
+                time.sleep(self.pausa)
+                lote, total_da_pagina = self._pagina(acao, filtros, offset)
+            # vale o total anunciado na 1ª página; quem lê confere se trouxe tudo
+            total = total_da_pagina if not offset else total
             registros += lote
             if progresso:
                 progresso(len(registros), total)

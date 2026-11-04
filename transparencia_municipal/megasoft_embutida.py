@@ -9,7 +9,8 @@ Vai pela própria API NucleoGov do portal, no envelope `multi_request`, com `aca
 (04/11/2026): o `limit` que o envelope NucleoGov acrescenta é ignorado; 5.000 por página foram aceitos; o período
 das despesas é respeitado; o filtro de fornecedor não filtra no servidor (AJE), por isso CNPJ e nome são filtrados
 aqui; e a fronteira de página repete um empenho e perde outro (ano de 2025 em 2 páginas: 7.481 lidos, 7.480
-distintos). Com filtro, a leitura vai mês a mês, cada mês numa página só.
+distintos; fev/2025 em páginas de 100: 567 linhas, 534 códigos). Com filtro, a leitura vai mês a mês, cada mês
+numa página só.
 """
 from __future__ import annotations
 
@@ -25,10 +26,11 @@ from .traducao_megasoft import despesa, linha_da_folha
 POR_PAGINA = 5000
 
 
-def _ler(portal, acao, filtros, *, maximo, progresso=None):
+def _ler(portal, acao, filtros, *, maximo, campo_chave, progresso=None):
     """Páginas de `acao` até o total anunciado ou `maximo`. Devolve (total anunciado, registros sem repetidos).
 
-    Repetido é o registro idêntico em todos os campos (as cópias da fronteira de página são idênticas, AJE).
+    Repetido é o registro com o mesmo `campo_chave` (`codigo` no empenho, `chave` na folha); sem ele, o registro
+    inteiro. O total anunciado conta chaves distintas (AJE).
     """
     tamanho = min(maximo, POR_PAGINA)
     registros, vistos, total, pagina = [], set(), 0, 1
@@ -37,7 +39,7 @@ def _ler(portal, acao, filtros, *, maximo, progresso=None):
             acao, {**filtros, "pagina": pagina, "tamanhoDaPagina": tamanho, "ordenacao": {}}, 0)
         total = total_da_pagina if pagina == 1 else total
         for reg in lote:
-            chave = json.dumps(reg, sort_keys=True, ensure_ascii=False)
+            chave = json.dumps(reg.get(campo_chave, reg), sort_keys=True, ensure_ascii=False)
             if chave not in vistos:
                 vistos.add(chave)
                 registros.append(reg)
@@ -64,7 +66,7 @@ def folha(portal, *, ano, mes, busca, maximo, progresso=None):
         raise ValueError("a folha da Megasoft embutida é lida por mês: informe o mês")
     filtros = {"mes": f"{mes:02d}", "ano": str(ano), "mesInteger": mes}
     total, registros = _ler(portal, "megasoft/servidores", filtros, maximo=float("inf") if busca else maximo,
-                            progresso=progresso)
+                            campo_chave="chave", progresso=progresso)
     linhas = [linha_da_folha(r) for r in registros]
     if busca:
         if len(linhas) != total:
@@ -90,14 +92,14 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
     """
     if not (cnpj or busca):
         total, registros = _ler(portal, "megasoft/empenhos", {"dataInicial": de, "dataFinal": ate},
-                                maximo=maximo)
+                                maximo=maximo, campo_chave="codigo")
         return {"total": total, "registros": [despesa(r) for r in registros[:maximo]]}
     achados = []
     for i, (inicio, fim) in enumerate(_meses(de, ate)):
         if i:
             time.sleep(portal.pausa)
         total, registros = _ler(portal, "megasoft/empenhos", {"dataInicial": inicio, "dataFinal": fim},
-                                maximo=float("inf"))
+                                maximo=float("inf"), campo_chave="codigo")
         if len(registros) != total:
             raise _incompleta(f"dos empenhos de {inicio} a {fim}", len(registros), total)
         for x in map(despesa, registros):

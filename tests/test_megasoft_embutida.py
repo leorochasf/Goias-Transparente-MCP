@@ -72,7 +72,8 @@ def _servidor(i, **campos):
     return {"ano": 2025, "mes": "06", "mesAno": "06/2025", "matricula": i, "nome": f"PESSOA {i}",
             "cpf": "XXX.000.000-XX", "cargo": "AGENTE", "departamento": "SECRETARIA DE SAÚDE",
             "tipoDeVinculo": "Comissionado" if i % 2 else "Concursado", "proventos": 1000 + i, "descontos": 100,
-            "totalLiquido": 900 + i, "situacao": "Ativo", "situacaoPagamento": "PAGO", **campos}
+            "totalLiquido": 900 + i, "situacao": "Ativo", "situacaoPagamento": "PAGO",
+            "chave": {"matricula": i, "mes": 6, "ano": 2025}, **campos}
 
 
 def _empenho(codigo, data, documento="25.107.525/0001-51", nome="EMPRESA EXEMPLO LTDA"):

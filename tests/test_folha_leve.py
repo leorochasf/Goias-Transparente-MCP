@@ -109,3 +109,13 @@ def test_linha_leve_guarda_o_orgao_e_filtro_por_nome():
     linhas = [linha_leve(_linha(nome="JOSÉ DA SILVA")), linha_leve(_linha(nome="MARIA SOUZA"))]
     assert [x["nome"] for x in filtrar(linhas, nome="jose silva")] == []
     assert [x["nome"] for x in filtrar(linhas, nome="jose da")] == ["JOSÉ DA SILVA"]
+
+
+def test_resumo_reconhece_a_folha_mensal_escrita_de_outro_jeito():
+    """Trindade (04/11/2026) escreve MENSAL, 13º SALÁRIO ADIANTAMENTO e RESCISÃO."""
+    linhas = [linha_leve(_linha(matricula="1", tipo_folha="MENSAL")),
+              linha_leve(_linha(matricula="1", tipo_folha="13º SALÁRIO ADIANTAMENTO")),
+              linha_leve(_linha(matricula="2", tipo_folha="RESCISÃO"))]
+    r = resumir(linhas, "lotacao")
+    assert r["por_tipo_de_pagamento"]["MENSAL"]["linhas"] == 1
+    assert r["fora_do_resumo"] == {"13º SALÁRIO ADIANTAMENTO": 1, "RESCISÃO": 1}

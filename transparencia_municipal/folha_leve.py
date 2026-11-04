@@ -8,7 +8,6 @@ import unicodedata
 from decimal import Decimal, InvalidOperation
 
 AGRUPAMENTOS = ("cargo", "lotacao", "vinculo")
-MENSAL = "Folha Mensal"
 
 #: campo da linha leve → campo do portal
 CAMPOS = {
@@ -64,6 +63,11 @@ def _somar(linhas):
             "bruto": float(round(bruto, 2)), "liquido": float(round(liquido, 2))}
 
 
+def _mensal(tipo):
+    """"Folha Mensal" (Senador Canedo) ou "MENSAL" (Trindade): cada portal escreve de um jeito."""
+    return "mensal" in _comparavel(tipo)
+
+
 def resumir(linhas, agrupar_por, *, todos_os_tipos=False):
     """Resumo da folha: contagens e somas por grupo, separadas por tipo de pagamento, sem nomes.
 
@@ -75,7 +79,7 @@ def resumir(linhas, agrupar_por, *, todos_os_tipos=False):
     por_tipo, fora = {}, {}
     for x in linhas:
         tipo = x.get("tipo_pagamento") or "(sem tipo)"
-        if todos_os_tipos or tipo == MENSAL:
+        if todos_os_tipos or _mensal(tipo):
             por_tipo.setdefault(tipo, []).append(x)
         else:
             fora[tipo] = fora.get(tipo, 0) + 1

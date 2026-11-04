@@ -209,9 +209,12 @@ class Portal:
         registros, total, offset = [], 0, 0
         while len(registros) < maximo:
             lote, total_da_pagina = self._pagina(acao, filtros, offset)
-            if offset and not lote and len(registros) < total:
-                # página vazia antes do fim, com total 0 (Trindade, offset 1800, 04/11/2026): consulta de novo
-                time.sleep(self.pausa)
+            for fator in (2, 5, 10):
+                if not (offset and not lote and len(registros) < total):
+                    break
+                # página vazia antes do fim, com total 0, depois de várias páginas seguidas (Trindade, 04/11/2026:
+                # parou em 1800 numa leitura e em 1000 na outra; sozinha, a mesma página responde): espera e repete
+                time.sleep(self.pausa * fator)
                 lote, total_da_pagina = self._pagina(acao, filtros, offset)
             # vale o total anunciado na 1ª página; quem lê confere se trouxe tudo
             total = total_da_pagina if not offset else total

@@ -5,7 +5,7 @@ import pytest
 import responses
 
 from transparencia_municipal import catalogo, esiproc, tcm, tcmjuris
-from transparencia_municipal.tcm import ClienteTCM, ErroTCM, MunicipioNaoEncontrado, NaoDisponivel, TetoAtingido
+from transparencia_municipal.tcm import ClienteTCM, ErroTCM, MunicipioNaoEncontrado, TetoAtingido
 
 ESIPROC = tcm.FONTES["esiproc"]["base"]
 TCMJURIS = tcm.FONTES["tcmjuris"]["base"]

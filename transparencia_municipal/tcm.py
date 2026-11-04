@@ -59,10 +59,6 @@ class TetoAtingido(ErroTCM):
     """A consulta chegou ao teto de chamadas. O módulo da fonte devolve o que leu e marca a leitura incompleta."""
 
 
-class NaoDisponivel(ErroTCM):
-    """A consulta desta fonte ainda não foi feita neste projeto."""
-
-
 class MunicipioNaoEncontrado(ValueError):
     """O nome não casa exatamente com a lista oficial da fonte. A mensagem traz os mais parecidos."""
 

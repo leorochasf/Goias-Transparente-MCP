@@ -182,13 +182,6 @@ def test_acordaos_entrega_ao_encaixe_o_valor_do_tcmjuris_e_avisa_leitura_incompl
     assert "teto de 60 chamadas" in r["aviso_leitura"]
 
 
-def test_acordaos_e_leitura_respondem_ainda_nao_disponivel_enquanto_o_tcmjuris_esta_vazio(cliente):  # ticket 03
-    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
-        cliente.acordaos("Posse")
-    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
-        cliente.ler_acordao("7b0e1c2a-0000-0000-0000-000000000000")
-
-
 def test_acordaos_sem_municipio_nao_filtra_municipio(cliente, monkeypatch):
     recebido = {}
     monkeypatch.setattr(tcmjuris, "acordaos", lambda c, **p: recebido.update(p) or {"total": 0, "registros": []})
@@ -227,12 +220,6 @@ def test_cli_tcm_acordao_mostra_o_texto(monkeypatch, capsys):
         "total": 1, "registros": [{"document_id": document_id, "pdf": "https://x/pdf", "texto": "ACÓRDÃO Nº 1"}]})
     cli.main(["tcm-acordao", "abc"])
     assert "ACÓRDÃO Nº 1" in capsys.readouterr().out
-
-
-def test_cli_tcm_com_a_fonte_vazia_diz_ainda_nao_disponivel():  # ticket 03 substitui
-    from transparencia_municipal import cli
-    with pytest.raises(SystemExit, match="ainda não disponível"):
-        cli.main(["tcm-acordaos", "--municipio", "Caldazinha", "--assunto", "Contas"])
 
 
 def test_cli_do_portal_continua_exigindo_o_portal():

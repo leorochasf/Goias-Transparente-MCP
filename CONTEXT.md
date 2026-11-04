@@ -25,7 +25,7 @@ A prefeitura ou a câmara de um município, cada um com seu portal da transparê
 _Evitar_: entidade, ente
 
 **Fonte**:
-O sistema de onde veio um registro de folha ou de despesas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio) ou Centi.
+O sistema de onde veio um registro de folha ou de despesas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio) ou Centi. Nos dados do TCM-GO, a fonte é o eSiproc (processos) ou o TCMJuris (acórdãos).
 _Evitar_: plataforma (quando se quer dizer a fonte do registro)
 
 **Catálogo de portais**:
@@ -39,3 +39,11 @@ _Evitar_: varredura, crawl
 **Conferência**:
 A medição ao vivo de um portal, com data, que diz quais filtros ele respeita.
 _Evitar_: validação, teste
+
+**Processo do TCM**:
+Um processo eletrônico do TCM-GO sobre um órgão do município (ex.: prestação de contas, RGF), lido do eSiproc, com fase, decisões e envolvidos. O índice não é histórico: não achar um processo não prova que ele não existe.
+_Evitar_: autos, procedimento
+
+**Acórdão**:
+Uma decisão colegiada do TCM-GO julgada desde 2020, lida do TCMJuris. A ementa que a fonte mostra é resumo feito por IA (`ementa_ia`): cita-se pelo texto do PDF.
+_Evitar_: ementa (quando se quer dizer a decisão), julgado

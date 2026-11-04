@@ -3,6 +3,7 @@
   python scripts/catalogo_go.py candidatos --respostas respostas_GO.csv   # endereços por órgão (offline)
   python scripts/catalogo_go.py sondar                                    # uma visita por endereço, 1 s de pausa
   python scripts/catalogo_go.py conferir --municipios "Posse,Trindade"     # conferência ao vivo da amostra
+  python scripts/catalogo_go.py tcm                                       # listas de municípios do TCM-GO (2 consultas)
   python scripts/catalogo_go.py montar                                    # grava transparencia_municipal/catalogo_go.json
 
 Fonte: dados abertos do Radar da Transparência Pública (Atricon), ciclo 2025,
@@ -33,6 +34,7 @@ TRABALHO = RAIZ / "scripts" / "_catalogo"
 CANDIDATOS = TRABALHO / "candidatos.json"
 SONDAGEM = TRABALHO / "sondagem.jsonl"
 CONFERENCIAS = TRABALHO / "conferencias.json"
+LISTAS_TCM = TRABALHO / "tcm_listas.json"
 CATALOGO = RAIZ / "transparencia_municipal" / "catalogo_go.json"
 COLUNAS_LINK = ("link_avaliacao", "link_validacao", "link_revisao")
 MAX_MUNICIPIOS_POR_HOST = 2  # host em mais municípios é do Estado ou de terceiros, não do órgão
@@ -155,12 +157,44 @@ def conferir(args):
         time.sleep(args.pausa)
 
 
+def tcm(args):
+    """As listas oficiais de municípios das duas fontes do TCM-GO: `/listar-campo` do eSiproc e `/filtros` do TCMJuris."""
+    from transparencia_municipal.tcm import FONTES, ClienteTCM
+    cliente = ClienteTCM(pausa=args.pausa)
+    listas = {fonte: cliente.lista_oficial(fonte) for fonte in FONTES}
+    TRABALHO.mkdir(exist_ok=True)
+    LISTAS_TCM.write_text(json.dumps({"data": time.strftime("%Y-%m-%d"), **listas}, ensure_ascii=False, indent=0),
+                          encoding="utf-8")
+    print(f"eSiproc: {len(listas['esiproc'])} municípios; TCMJuris: {len(listas['tcmjuris'])} -> {LISTAS_TCM}")
+
+
+def _nomes_tcm(municipios):
+    """município do catálogo → {"esiproc": nome, "tcmjuris": valor}; sem casamento exato único, None (a verificar)."""
+    from transparencia_municipal.tcm import casar
+    if not LISTAS_TCM.exists():  # sem as listas, o montar gravaria o catálogo sem a ponte com o TCM, em silêncio
+        raise SystemExit(f"falta {LISTAS_TCM}: rode antes `python scripts/catalogo_go.py tcm`")
+    listas = json.loads(LISTAS_TCM.read_text(encoding="utf-8"))
+    saida = {}
+    for m in municipios:
+        saida[m] = {}
+        for fonte in ("esiproc", "tcmjuris"):
+            achado = casar(m, [n for n, _ in listas[fonte]])
+            saida[m][fonte] = dict(map(tuple, listas[fonte]))[achado] if achado else None
+    for fonte in ("esiproc", "tcmjuris"):
+        sem = sorted(m for m, x in saida.items() if not x[fonte])
+        print(f"TCM {fonte}: {len(saida) - len(sem)} de {len(saida)} municípios casaram"
+              + (f"; a verificar: {', '.join(sem)}" if sem else ""))
+    return saida
+
+
 def montar(args):
     """Um registro por órgão: o portal preferido, a plataforma, os sufixos e a conferência, se houver."""
     sondados, conferencias = _sondados(), (json.loads(CONFERENCIAS.read_text(encoding="utf-8"))
                                            if CONFERENCIAS.exists() else {})
     catalogo = []
-    for o in json.loads(CANDIDATOS.read_text(encoding="utf-8")):
+    orgaos = json.loads(CANDIDATOS.read_text(encoding="utf-8"))
+    nomes_tcm = _nomes_tcm(sorted({o["municipio"] for o in orgaos}))
+    for o in orgaos:
         host, plataforma, s = _portal_escolhido(o, sondados)
         origem = ("sondagem" if s.get("plataforma") else "endereco") if plataforma else None
         conferencia = conferencias.get(host)
@@ -172,6 +206,7 @@ def montar(args):
             "portal": f"https://{host}" if host else None, "plataforma": plataforma, "origem": origem,
             "sufixos": sufixos, "outros_enderecos": [h for h in o["hosts"] if h != host],
             "conferencia": conferencia,
+            "tcm": nomes_tcm[o["municipio"]],
         })
     CATALOGO.write_text(json.dumps(catalogo, ensure_ascii=False, indent=0), encoding="utf-8")
     contagem = collections.Counter(x["plataforma"] for x in catalogo)
@@ -193,9 +228,11 @@ def main():
     s.add_argument("--ano", type=int, default=2025)
     s.add_argument("--mes", type=int, default=6)
     s.add_argument("--pausa", type=float, default=2.0)
+    s = sub.add_parser("tcm")
+    s.add_argument("--pausa", type=float, default=1.0)
     sub.add_parser("montar")
     a = p.parse_args()
-    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir, "montar": montar}[a.passo](a)
+    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir, "tcm": tcm, "montar": montar}[a.passo](a)
 
 
 if __name__ == "__main__":

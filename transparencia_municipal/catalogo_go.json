@@ -10,7 +10,11 @@
 "outros_enderecos": [
 "acessoainformacao.abadiadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ABADIA DE GOIÁS",
+"tcmjuris": "ABADIA GOIAS"
+}
 },
 {
 "ibge": "5200100",
@@ -23,7 +27,11 @@
 "outros_enderecos": [
 "acessoainformacao.abadiania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ABADIÂNIA",
+"tcmjuris": "ABADIANIA"
+}
 },
 {
 "ibge": "5200100",
@@ -36,7 +44,11 @@
 "outros_enderecos": [
 "acessoainformacao.abadiania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ABADIÂNIA",
+"tcmjuris": "ABADIANIA"
+}
 },
 {
 "ibge": "5200134",
@@ -49,7 +61,11 @@
 "outros_enderecos": [
 "camaraacreuna.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ACREÚNA",
+"tcmjuris": "ACREUNA"
+}
 },
 {
 "ibge": "5200134",
@@ -83,6 +99,10 @@
 "detalhes": {
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "ACREÚNA",
+"tcmjuris": "ACREUNA"
 }
 },
 {
@@ -96,7 +116,11 @@
 "outros_enderecos": [
 "camaradeadelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ADELÂNDIA",
+"tcmjuris": "ADELANDIA"
+}
 },
 {
 "ibge": "5200159",
@@ -109,7 +133,11 @@
 "outros_enderecos": [
 "adelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ADELÂNDIA",
+"tcmjuris": "ADELANDIA"
+}
 },
 {
 "ibge": "5200175",
@@ -122,7 +150,11 @@
 "outros_enderecos": [
 "aguafriadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUA FRIA DE GOIÁS",
+"tcmjuris": "AGUA FRIA GOIAS"
+}
 },
 {
 "ibge": "5200175",
@@ -135,7 +167,11 @@
 "outros_enderecos": [
 "aguafriadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUA FRIA DE GOIÁS",
+"tcmjuris": "AGUA FRIA GOIAS"
+}
 },
 {
 "ibge": "5200209",
@@ -149,7 +185,11 @@
 "agualimpa.go.leg.br",
 "legislativo.agualimpa.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUA LIMPA",
+"tcmjuris": "AGUA LIMPA"
+}
 },
 {
 "ibge": "5200209",
@@ -163,7 +203,11 @@
 "acessoainformacao.agualimpa.go.leg.br",
 "agualimpa.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUA LIMPA",
+"tcmjuris": "AGUA LIMPA"
+}
 },
 {
 "ibge": "5200258",
@@ -177,7 +221,11 @@
 "camaraaguaslindasdegoias.megasofttransparencia.com.br",
 "camaradeaguaslindas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUAS LINDAS DE GOIÁS",
+"tcmjuris": "AGUAS LINDAS GOIAS"
+}
 },
 {
 "ibge": "5200258",
@@ -190,7 +238,11 @@
 "outros_enderecos": [
 "aguaslindasdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ÁGUAS LINDAS DE GOIÁS",
+"tcmjuris": "AGUAS LINDAS GOIAS"
+}
 },
 {
 "ibge": "5200308",
@@ -223,6 +275,10 @@
 "receitas_mes": "receitas de 06/2025 vazias",
 "legislacao_ano": "nenhum decreto de 2025"
 }
+},
+"tcm": {
+"esiproc": "ALEXÂNIA",
+"tcmjuris": "ALEXANIA"
 }
 },
 {
@@ -256,6 +312,10 @@
 "legislacao_ano": "ok"
 },
 "detalhes": {}
+},
+"tcm": {
+"esiproc": "ALEXÂNIA",
+"tcmjuris": "ALEXANIA"
 }
 },
 {
@@ -269,7 +329,11 @@
 "outros_enderecos": [
 "aloandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALOÂNDIA",
+"tcmjuris": "ALOANDIA"
+}
 },
 {
 "ibge": "5200506",
@@ -282,7 +346,11 @@
 "outros_enderecos": [
 "aloandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALOÂNDIA",
+"tcmjuris": "ALOANDIA"
+}
 },
 {
 "ibge": "5200555",
@@ -295,7 +363,11 @@
 "outros_enderecos": [
 "altohorizonte.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALTO HORIZONTE",
+"tcmjuris": "ALTO HORIZONTE"
+}
 },
 {
 "ibge": "5200555",
@@ -309,7 +381,11 @@
 "transparencia.altohorizonte.go.gov.br",
 "altohorizonte.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALTO HORIZONTE",
+"tcmjuris": "ALTO HORIZONTE"
+}
 },
 {
 "ibge": "5200605",
@@ -341,6 +417,10 @@
 "legislacao_tipo": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
+},
+"tcm": {
+"esiproc": "ALTO PARAÍSO DE GOIÁS",
+"tcmjuris": "ALTO PARAISO"
 }
 },
 {
@@ -372,6 +452,10 @@
 "legislacao_tipo": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
+},
+"tcm": {
+"esiproc": "ALTO PARAÍSO DE GOIÁS",
+"tcmjuris": "ALTO PARAISO"
 }
 },
 {
@@ -386,7 +470,11 @@
 "alvoradadonorte.go.leg.br",
 "sapl.alvoradadonorte.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALVORADA DO NORTE",
+"tcmjuris": "ALVORADA NORTE"
+}
 },
 {
 "ibge": "5200803",
@@ -399,7 +487,11 @@
 "outros_enderecos": [
 "alvoradadonorte.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ALVORADA DO NORTE",
+"tcmjuris": "ALVORADA NORTE"
+}
 },
 {
 "ibge": "5200829",
@@ -415,7 +507,11 @@
 "amaralina.go.leg.br",
 "sapl.amaralina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AMARALINA",
+"tcmjuris": "AMARALINA"
+}
 },
 {
 "ibge": "5200852",
@@ -428,7 +524,11 @@
 "outros_enderecos": [
 "americanodobrasil.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AMERICANO DO BRASIL",
+"tcmjuris": "AMERICANO BRASIL"
+}
 },
 {
 "ibge": "5200902",
@@ -441,7 +541,11 @@
 "outros_enderecos": [
 "amorinopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AMORINÓPOLIS",
+"tcmjuris": "AMORINOPOLIS"
+}
 },
 {
 "ibge": "5200902",
@@ -454,7 +558,11 @@
 "outros_enderecos": [
 "amorinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AMORINÓPOLIS",
+"tcmjuris": "AMORINOPOLIS"
+}
 },
 {
 "ibge": "5201108",
@@ -467,7 +575,11 @@
 "outros_enderecos": [
 "sapl.anapolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANÁPOLIS",
+"tcmjuris": "ANAPOLIS"
+}
 },
 {
 "ibge": "5201108",
@@ -481,7 +593,11 @@
 "anapolis.go.gov.br",
 "ged.anapolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANÁPOLIS",
+"tcmjuris": "ANAPOLIS"
+}
 },
 {
 "ibge": "5201207",
@@ -495,7 +611,11 @@
 "legislativo.camaraanhanguera.go.gov.br",
 "camaraanhanguera.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANHANGUERA",
+"tcmjuris": "ANHANGUERA"
+}
 },
 {
 "ibge": "5201207",
@@ -506,7 +626,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANHANGUERA",
+"tcmjuris": "ANHANGUERA"
+}
 },
 {
 "ibge": "5201306",
@@ -519,7 +643,11 @@
 "outros_enderecos": [
 "anicuns.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANICUNS",
+"tcmjuris": "ANICUNS"
+}
 },
 {
 "ibge": "5201306",
@@ -532,7 +660,11 @@
 "outros_enderecos": [
 "anicuns.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ANICUNS",
+"tcmjuris": "ANICUNS"
+}
 },
 {
 "ibge": "5201405",
@@ -545,7 +677,11 @@
 "outros_enderecos": [
 "aparecidadegoiania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APARECIDA DE GOIÂNIA",
+"tcmjuris": "APARECIDA GOIANIA"
+}
 },
 {
 "ibge": "5201405",
@@ -563,7 +699,11 @@
 "webio.aparecida.go.gov.br",
 "portaldacultura.aparecida.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APARECIDA DE GOIÂNIA",
+"tcmjuris": "APARECIDA GOIANIA"
+}
 },
 {
 "ibge": "5201454",
@@ -576,7 +716,11 @@
 "outros_enderecos": [
 "aparecidadoriodoce.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APARECIDA DO RIO DOCE",
+"tcmjuris": "APARECIDA RIO DOCE"
+}
 },
 {
 "ibge": "5201454",
@@ -589,7 +733,11 @@
 "outros_enderecos": [
 "aparecidadoriodoce.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APARECIDA DO RIO DOCE",
+"tcmjuris": "APARECIDA RIO DOCE"
+}
 },
 {
 "ibge": "5201504",
@@ -602,7 +750,11 @@
 "outros_enderecos": [
 "apore.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APORÉ",
+"tcmjuris": "APORE"
+}
 },
 {
 "ibge": "5201504",
@@ -615,7 +767,11 @@
 "outros_enderecos": [
 "apore.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "APORÉ",
+"tcmjuris": "APORE"
+}
 },
 {
 "ibge": "5201603",
@@ -628,7 +784,11 @@
 "outros_enderecos": [
 "aracu.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAÇU",
+"tcmjuris": "ARACU"
+}
 },
 {
 "ibge": "5201603",
@@ -641,7 +801,11 @@
 "outros_enderecos": [
 "aracu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAÇU",
+"tcmjuris": "ARACU"
+}
 },
 {
 "ibge": "5201702",
@@ -654,7 +818,11 @@
 "outros_enderecos": [
 "aragarcas.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGARÇAS",
+"tcmjuris": "ARAGARCAS"
+}
 },
 {
 "ibge": "5201702",
@@ -667,7 +835,11 @@
 "outros_enderecos": [
 "aragarcas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGARÇAS",
+"tcmjuris": "ARAGARCAS"
+}
 },
 {
 "ibge": "5201801",
@@ -680,7 +852,11 @@
 "outros_enderecos": [
 "aragoiania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGOIÂNIA",
+"tcmjuris": "ARAGOIANIA"
+}
 },
 {
 "ibge": "5201801",
@@ -693,7 +869,11 @@
 "outros_enderecos": [
 "aragoiania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGOIÂNIA",
+"tcmjuris": "ARAGOIANIA"
+}
 },
 {
 "ibge": "5202155",
@@ -707,7 +887,11 @@
 "araguapaz.go.leg.br",
 "legislativo.araguapaz.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGUAPAZ",
+"tcmjuris": "ARAGUAPAZ"
+}
 },
 {
 "ibge": "5202155",
@@ -720,7 +904,11 @@
 "outros_enderecos": [
 "araguapaz.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARAGUAPAZ",
+"tcmjuris": "ARAGUAPAZ"
+}
 },
 {
 "ibge": "5202353",
@@ -734,7 +922,11 @@
 "arenopolis.go.leg.br",
 "legislativo.arenopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARENÓPOLIS",
+"tcmjuris": "ARENOPOLIS"
+}
 },
 {
 "ibge": "5202353",
@@ -747,7 +939,11 @@
 "outros_enderecos": [
 "arenopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ARENÓPOLIS",
+"tcmjuris": "ARENOPOLIS"
+}
 },
 {
 "ibge": "5202502",
@@ -781,6 +977,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "ARUANÃ",
+"tcmjuris": "ARUANA"
 }
 },
 {
@@ -814,6 +1014,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "ARUANÃ",
+"tcmjuris": "ARUANA"
 }
 },
 {
@@ -827,7 +1031,11 @@
 "outros_enderecos": [
 "aurilandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AURILÂNDIA",
+"tcmjuris": "AURILANDIA"
+}
 },
 {
 "ibge": "5202809",
@@ -840,7 +1048,11 @@
 "outros_enderecos": [
 "avelinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "AVELINÓPOLIS",
+"tcmjuris": "AVELINOPOLIS"
+}
 },
 {
 "ibge": "5203104",
@@ -853,7 +1065,11 @@
 "outros_enderecos": [
 "baliza.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BALIZA",
+"tcmjuris": "BALIZA"
+}
 },
 {
 "ibge": "5203203",
@@ -867,7 +1083,11 @@
 "barroalto.go.leg.br",
 "legislativo.barroalto.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BARRO ALTO",
+"tcmjuris": "BARRO ALTO"
+}
 },
 {
 "ibge": "5203203",
@@ -880,7 +1100,11 @@
 "outros_enderecos": [
 "barroalto.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BARRO ALTO",
+"tcmjuris": "BARRO ALTO"
+}
 },
 {
 "ibge": "5203302",
@@ -894,7 +1118,11 @@
 "belavistadegoias.go.leg.br",
 "legislativo.belavistadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BELA VISTA DE GOIÁS",
+"tcmjuris": "BELA VISTA GOIAS"
+}
 },
 {
 "ibge": "5203302",
@@ -907,7 +1135,11 @@
 "outros_enderecos": [
 "belavista.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BELA VISTA DE GOIÁS",
+"tcmjuris": "BELA VISTA GOIAS"
+}
 },
 {
 "ibge": "5203401",
@@ -920,7 +1152,11 @@
 "outros_enderecos": [
 "bomjardimdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BOM JARDIM DE GOIÁS",
+"tcmjuris": "BOM JARDIM GOIAS"
+}
 },
 {
 "ibge": "5203401",
@@ -933,7 +1169,11 @@
 "outros_enderecos": [
 "bomjardim.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BOM JARDIM DE GOIÁS",
+"tcmjuris": "BOM JARDIM GOIAS"
+}
 },
 {
 "ibge": "5203500",
@@ -946,7 +1186,11 @@
 "outros_enderecos": [
 "bomjesusdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BOM JESUS DE GOIÁS",
+"tcmjuris": "BOM JESUS GOIAS"
+}
 },
 {
 "ibge": "5203500",
@@ -957,7 +1201,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BOM JESUS DE GOIÁS",
+"tcmjuris": "BOM JESUS GOIAS"
+}
 },
 {
 "ibge": "5203559",
@@ -970,7 +1218,11 @@
 "outros_enderecos": [
 "camarabonfinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BONFINÓPOLIS",
+"tcmjuris": "BONFINOPOLIS"
+}
 },
 {
 "ibge": "5203559",
@@ -983,7 +1235,11 @@
 "outros_enderecos": [
 "bonfinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BONFINÓPOLIS",
+"tcmjuris": "BONFINOPOLIS"
+}
 },
 {
 "ibge": "5203575",
@@ -997,7 +1253,11 @@
 "transparencia.bonopolis.go.leg.br",
 "sapl.bonopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BONÓPOLIS",
+"tcmjuris": "BONOPOLIS"
+}
 },
 {
 "ibge": "5203575",
@@ -1010,7 +1270,11 @@
 "outros_enderecos": [
 "bonopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BONÓPOLIS",
+"tcmjuris": "BONOPOLIS"
+}
 },
 {
 "ibge": "5203609",
@@ -1021,7 +1285,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BRAZABRANTES",
+"tcmjuris": "BRAZABRANTES"
+}
 },
 {
 "ibge": "5203609",
@@ -1034,7 +1302,11 @@
 "outros_enderecos": [
 "brazabrantes.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BRAZABRANTES",
+"tcmjuris": "BRAZABRANTES"
+}
 },
 {
 "ibge": "5203807",
@@ -1047,7 +1319,11 @@
 "outros_enderecos": [
 "britania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BRITÂNIA",
+"tcmjuris": "BRITANIA"
+}
 },
 {
 "ibge": "5203807",
@@ -1060,7 +1336,11 @@
 "outros_enderecos": [
 "britania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BRITÂNIA",
+"tcmjuris": "BRITANIA"
+}
 },
 {
 "ibge": "5203906",
@@ -1073,7 +1353,11 @@
 "outros_enderecos": [
 "buritialegre.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITI ALEGRE",
+"tcmjuris": "BURITI ALEGRE"
+}
 },
 {
 "ibge": "5203906",
@@ -1086,7 +1370,11 @@
 "outros_enderecos": [
 "buritialegre.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITI ALEGRE",
+"tcmjuris": "BURITI ALEGRE"
+}
 },
 {
 "ibge": "5203939",
@@ -1099,7 +1387,11 @@
 "outros_enderecos": [
 "buritidegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITI DE GOIÁS",
+"tcmjuris": "BURITI GOIAS"
+}
 },
 {
 "ibge": "5203939",
@@ -1112,7 +1404,11 @@
 "outros_enderecos": [
 "diariooficial.abc.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITI DE GOIÁS",
+"tcmjuris": "BURITI GOIAS"
+}
 },
 {
 "ibge": "5203962",
@@ -1125,7 +1421,11 @@
 "outros_enderecos": [
 "buritinopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITINÓPOLIS",
+"tcmjuris": "BURITINOPOLIS"
+}
 },
 {
 "ibge": "5203962",
@@ -1138,7 +1438,11 @@
 "outros_enderecos": [
 "buritinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "BURITINÓPOLIS",
+"tcmjuris": "BURITINOPOLIS"
+}
 },
 {
 "ibge": "5204003",
@@ -1151,7 +1455,11 @@
 "outros_enderecos": [
 "cabeceiras.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CABECEIRAS",
+"tcmjuris": "CABECEIRAS"
+}
 },
 {
 "ibge": "5204003",
@@ -1164,7 +1472,11 @@
 "outros_enderecos": [
 "cabeceiras.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CABECEIRAS",
+"tcmjuris": "CABECEIRAS"
+}
 },
 {
 "ibge": "5204102",
@@ -1177,7 +1489,11 @@
 "outros_enderecos": [
 "cachoeiraalta.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CACHOEIRA ALTA",
+"tcmjuris": "CACHOEIRA ALTA"
+}
 },
 {
 "ibge": "5204201",
@@ -1190,7 +1506,11 @@
 "outros_enderecos": [
 "camaradecachoeiradegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CACHOEIRA DE GOIÁS",
+"tcmjuris": "CACHOEIRA GOIAS"
+}
 },
 {
 "ibge": "5204201",
@@ -1203,7 +1523,11 @@
 "outros_enderecos": [
 "cachoeiradegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CACHOEIRA DE GOIÁS",
+"tcmjuris": "CACHOEIRA GOIAS"
+}
 },
 {
 "ibge": "5204250",
@@ -1214,7 +1538,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CACHOEIRA DOURADA",
+"tcmjuris": "CACHOEIRA DOURADA"
+}
 },
 {
 "ibge": "5204300",
@@ -1228,7 +1556,11 @@
 "cacu.go.leg.br",
 "sapl.cacu.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAÇU",
+"tcmjuris": "CACU"
+}
 },
 {
 "ibge": "5204300",
@@ -1241,7 +1573,11 @@
 "outros_enderecos": [
 "cacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAÇU",
+"tcmjuris": "CACU"
+}
 },
 {
 "ibge": "5204409",
@@ -1254,7 +1590,11 @@
 "outros_enderecos": [
 "camaradecaiaponia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAIAPÔNIA",
+"tcmjuris": "CAIAPONIA"
+}
 },
 {
 "ibge": "5204409",
@@ -1267,7 +1607,11 @@
 "outros_enderecos": [
 "caiaponia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAIAPÔNIA",
+"tcmjuris": "CAIAPONIA"
+}
 },
 {
 "ibge": "5204508",
@@ -1280,7 +1624,11 @@
 "outros_enderecos": [
 "caldasnovas.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CALDAS NOVAS",
+"tcmjuris": "CALDAS NOVAS"
+}
 },
 {
 "ibge": "5204508",
@@ -1293,7 +1641,11 @@
 "outros_enderecos": [
 "caldasnovas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CALDAS NOVAS",
+"tcmjuris": "CALDAS NOVAS"
+}
 },
 {
 "ibge": "5204557",
@@ -1307,7 +1659,11 @@
 "caldazinha.go.leg.br",
 "leis.caldazinha.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CALDAZINHA",
+"tcmjuris": "CALDAZINHA"
+}
 },
 {
 "ibge": "5204557",
@@ -1320,7 +1676,11 @@
 "outros_enderecos": [
 "caldazinha.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CALDAZINHA",
+"tcmjuris": "CALDAZINHA"
+}
 },
 {
 "ibge": "5204607",
@@ -1334,7 +1694,11 @@
 "campestredegoias.go.leg.br",
 "camaracampestre.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPESTRE DE GOIÁS",
+"tcmjuris": "CAMPESTRE"
+}
 },
 {
 "ibge": "5204607",
@@ -1347,7 +1711,11 @@
 "outros_enderecos": [
 "campestre.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPESTRE DE GOIÁS",
+"tcmjuris": "CAMPESTRE"
+}
 },
 {
 "ibge": "5204656",
@@ -1360,7 +1728,11 @@
 "outros_enderecos": [
 "camaracampinacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPINAÇU",
+"tcmjuris": "CAMPINACU"
+}
 },
 {
 "ibge": "5204656",
@@ -1373,7 +1745,11 @@
 "outros_enderecos": [
 "campinacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPINAÇU",
+"tcmjuris": "CAMPINACU"
+}
 },
 {
 "ibge": "5204706",
@@ -1387,7 +1763,11 @@
 "campinorte.go.leg.br",
 "sapl.campinorte.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPINORTE",
+"tcmjuris": "CAMPINORTE"
+}
 },
 {
 "ibge": "5204706",
@@ -1401,7 +1781,11 @@
 "campinorte.go.gov.br",
 "sapl.campinorte.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPINORTE",
+"tcmjuris": "CAMPINORTE"
+}
 },
 {
 "ibge": "5204805",
@@ -1414,7 +1798,11 @@
 "outros_enderecos": [
 "campoalegredegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPO ALEGRE DE GOIÁS",
+"tcmjuris": "CAMPO ALEGRE GOIAS"
+}
 },
 {
 "ibge": "5204805",
@@ -1427,7 +1815,11 @@
 "outros_enderecos": [
 "campoalegre.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPO ALEGRE DE GOIÁS",
+"tcmjuris": "CAMPO ALEGRE GOIAS"
+}
 },
 {
 "ibge": "5204854",
@@ -1440,7 +1832,11 @@
 "outros_enderecos": [
 "campolimpodegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPO LIMPO DE GOIÁS",
+"tcmjuris": "CAMPO LIMPO GOIAS"
+}
 },
 {
 "ibge": "5204854",
@@ -1453,7 +1849,11 @@
 "outros_enderecos": [
 "campolimpodegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPO LIMPO DE GOIÁS",
+"tcmjuris": "CAMPO LIMPO GOIAS"
+}
 },
 {
 "ibge": "5204904",
@@ -1466,7 +1866,11 @@
 "outros_enderecos": [
 "camposbelos.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPOS BELOS",
+"tcmjuris": "CAMPOS BELOS"
+}
 },
 {
 "ibge": "5204904",
@@ -1479,7 +1883,11 @@
 "outros_enderecos": [
 "camposbelos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPOS BELOS",
+"tcmjuris": "CAMPOS BELOS"
+}
 },
 {
 "ibge": "5204953",
@@ -1492,7 +1900,11 @@
 "outros_enderecos": [
 "camposverdes.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPOS VERDES",
+"tcmjuris": "CAMPOS VERDES"
+}
 },
 {
 "ibge": "5204953",
@@ -1505,7 +1917,11 @@
 "outros_enderecos": [
 "camposverdes.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAMPOS VERDES",
+"tcmjuris": "CAMPOS VERDES"
+}
 },
 {
 "ibge": "5205000",
@@ -1518,7 +1934,11 @@
 "outros_enderecos": [
 "carmodorioverde.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CARMO DO RIO VERDE",
+"tcmjuris": "CARMO RIO VERDE"
+}
 },
 {
 "ibge": "5205000",
@@ -1531,7 +1951,11 @@
 "outros_enderecos": [
 "carmodorioverde.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CARMO DO RIO VERDE",
+"tcmjuris": "CARMO RIO VERDE"
+}
 },
 {
 "ibge": "5205059",
@@ -1544,7 +1968,11 @@
 "outros_enderecos": [
 "castelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CASTELÂNDIA",
+"tcmjuris": "CASTELANDIA"
+}
 },
 {
 "ibge": "5205109",
@@ -1558,7 +1986,11 @@
 "transparencia.catalao.go.gov.br",
 "ouvidoria.catalao.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CATALÃO",
+"tcmjuris": "CATALAO"
+}
 },
 {
 "ibge": "5205208",
@@ -1571,7 +2003,11 @@
 "outros_enderecos": [
 "caturai.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CATURAÍ",
+"tcmjuris": "CATURAI"
+}
 },
 {
 "ibge": "5205208",
@@ -1582,7 +2018,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CATURAÍ",
+"tcmjuris": "CATURAI"
+}
 },
 {
 "ibge": "5205307",
@@ -1595,7 +2035,11 @@
 "outros_enderecos": [
 "cavalcante.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAVALCANTE",
+"tcmjuris": "CAVALCANTE"
+}
 },
 {
 "ibge": "5205307",
@@ -1608,7 +2052,11 @@
 "outros_enderecos": [
 "cavalcante.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CAVALCANTE",
+"tcmjuris": "CAVALCANTE"
+}
 },
 {
 "ibge": "5205406",
@@ -1621,7 +2069,11 @@
 "outros_enderecos": [
 "camaraceres.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CERES",
+"tcmjuris": "CERES"
+}
 },
 {
 "ibge": "5205406",
@@ -1634,7 +2086,11 @@
 "outros_enderecos": [
 "ceres.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CERES",
+"tcmjuris": "CERES"
+}
 },
 {
 "ibge": "5205455",
@@ -1647,7 +2103,11 @@
 "outros_enderecos": [
 "cezarina.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CEZARINA",
+"tcmjuris": "CEZARINA"
+}
 },
 {
 "ibge": "5205455",
@@ -1661,7 +2121,11 @@
 "cezarina.megasofttransparencia.com.br",
 "cezarina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CEZARINA",
+"tcmjuris": "CEZARINA"
+}
 },
 {
 "ibge": "5205471",
@@ -1674,7 +2138,11 @@
 "outros_enderecos": [
 "chapadaodoceu.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CHAPADÃO DO CÉU",
+"tcmjuris": "CHAPADAO CEU"
+}
 },
 {
 "ibge": "5205471",
@@ -1687,7 +2155,11 @@
 "outros_enderecos": [
 "chapadaodoceu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CHAPADÃO DO CÉU",
+"tcmjuris": "CHAPADAO CEU"
+}
 },
 {
 "ibge": "5205497",
@@ -1701,7 +2173,11 @@
 "cidadeocidental.go.leg.br",
 "api.transparencia.cidadeocidental.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CIDADE OCIDENTAL",
+"tcmjuris": "CIDADE OCIDENTAL"
+}
 },
 {
 "ibge": "5205497",
@@ -1716,7 +2192,11 @@
 "gestao.cidadeocidental.go.gov.br",
 "leis.cidadeocidental.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CIDADE OCIDENTAL",
+"tcmjuris": "CIDADE OCIDENTAL"
+}
 },
 {
 "ibge": "5205513",
@@ -1747,6 +2227,10 @@
 "legislacao_tipo": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
+},
+"tcm": {
+"esiproc": "COCALZINHO DE GOIÁS",
+"tcmjuris": "COCALZINHO GOIAS"
 }
 },
 {
@@ -1781,6 +2265,10 @@
 "receitas_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
+},
+"tcm": {
+"esiproc": "COCALZINHO DE GOIÁS",
+"tcmjuris": "COCALZINHO GOIAS"
 }
 },
 {
@@ -1794,7 +2282,11 @@
 "outros_enderecos": [
 "colinasdosul.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "COLINAS DO SUL",
+"tcmjuris": "COLINAS SUL"
+}
 },
 {
 "ibge": "5205521",
@@ -1807,7 +2299,11 @@
 "outros_enderecos": [
 "colinasdosul.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "COLINAS DO SUL",
+"tcmjuris": "COLINAS SUL"
+}
 },
 {
 "ibge": "5205703",
@@ -1820,7 +2316,11 @@
 "outros_enderecos": [
 "corregodoouro.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CÓRREGO DO OURO",
+"tcmjuris": "CORREGO OURO"
+}
 },
 {
 "ibge": "5205703",
@@ -1833,7 +2333,11 @@
 "outros_enderecos": [
 "corregodoouro.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CÓRREGO DO OURO",
+"tcmjuris": "CORREGO OURO"
+}
 },
 {
 "ibge": "5205802",
@@ -1846,7 +2350,11 @@
 "outros_enderecos": [
 "corumbadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CORUMBÁ DE GOIÁS",
+"tcmjuris": "CORUMBA GOIAS"
+}
 },
 {
 "ibge": "5205802",
@@ -1859,7 +2367,11 @@
 "outros_enderecos": [
 "corumbadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CORUMBÁ DE GOIÁS",
+"tcmjuris": "CORUMBA GOIAS"
+}
 },
 {
 "ibge": "5205901",
@@ -1891,6 +2403,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "CORUMBAÍBA",
+"tcmjuris": "CORUMBAIBA"
 }
 },
 {
@@ -1922,6 +2438,10 @@
 "legislacao_tipo": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
+},
+"tcm": {
+"esiproc": "CORUMBAÍBA",
+"tcmjuris": "CORUMBAIBA"
 }
 },
 {
@@ -1954,6 +2474,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "CRISTALINA",
+"tcmjuris": "CRISTALINA"
 }
 },
 {
@@ -1989,6 +2513,10 @@
 "folha_orgaos": "a folha não traz orgao_id",
 "receitas_mes": "em https://acessoainformacao.cristalina.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "CRISTALINA",
+"tcmjuris": "CRISTALINA"
 }
 },
 {
@@ -2002,7 +2530,11 @@
 "outros_enderecos": [
 "cristianopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CRISTIANÓPOLIS",
+"tcmjuris": "CRISTIANOPOLIS"
+}
 },
 {
 "ibge": "5206305",
@@ -2015,7 +2547,11 @@
 "outros_enderecos": [
 "cristianopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CRISTIANÓPOLIS",
+"tcmjuris": "CRISTIANOPOLIS"
+}
 },
 {
 "ibge": "5206404",
@@ -2029,7 +2565,11 @@
 "camaracrixas.go.gov.br",
 "sapl.crixas.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CRIXÁS",
+"tcmjuris": "CRIXAS"
+}
 },
 {
 "ibge": "5206404",
@@ -2042,7 +2582,11 @@
 "outros_enderecos": [
 "crixas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CRIXÁS",
+"tcmjuris": "CRIXAS"
+}
 },
 {
 "ibge": "5206503",
@@ -2055,7 +2599,11 @@
 "outros_enderecos": [
 "crominia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CROMÍNIA",
+"tcmjuris": "CROMINIA"
+}
 },
 {
 "ibge": "5206503",
@@ -2068,7 +2616,11 @@
 "outros_enderecos": [
 "crominia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CROMÍNIA",
+"tcmjuris": "CROMINIA"
+}
 },
 {
 "ibge": "5206602",
@@ -2079,7 +2631,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CUMARI",
+"tcmjuris": "CUMARI"
+}
 },
 {
 "ibge": "5206602",
@@ -2090,7 +2646,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "CUMARI",
+"tcmjuris": "CUMARI"
+}
 },
 {
 "ibge": "5206701",
@@ -2103,7 +2663,11 @@
 "outros_enderecos": [
 "damianopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DAMIANÓPOLIS",
+"tcmjuris": "DAMIANOPOLIS"
+}
 },
 {
 "ibge": "5206701",
@@ -2116,7 +2680,11 @@
 "outros_enderecos": [
 "damianopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DAMIANÓPOLIS",
+"tcmjuris": "DAMIANOPOLIS"
+}
 },
 {
 "ibge": "5206800",
@@ -2129,7 +2697,11 @@
 "outros_enderecos": [
 "damolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DAMOLÂNDIA",
+"tcmjuris": "DAMOLANDIA"
+}
 },
 {
 "ibge": "5206909",
@@ -2142,7 +2714,11 @@
 "outros_enderecos": [
 "davinopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DAVINÓPOLIS",
+"tcmjuris": "DAVINOPOLIS"
+}
 },
 {
 "ibge": "5206909",
@@ -2155,7 +2731,11 @@
 "outros_enderecos": [
 "davinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DAVINÓPOLIS",
+"tcmjuris": "DAVINOPOLIS"
+}
 },
 {
 "ibge": "5207105",
@@ -2168,7 +2748,11 @@
 "outros_enderecos": [
 "diorama.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DIORAMA",
+"tcmjuris": "DIORAMA"
+}
 },
 {
 "ibge": "5207105",
@@ -2181,7 +2765,11 @@
 "outros_enderecos": [
 "diorama.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DIORAMA",
+"tcmjuris": "DIORAMA"
+}
 },
 {
 "ibge": "5207253",
@@ -2194,7 +2782,11 @@
 "outros_enderecos": [
 "doverlandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DOVERLÂNDIA",
+"tcmjuris": "DOVERLANDIA"
+}
 },
 {
 "ibge": "5207253",
@@ -2207,7 +2799,11 @@
 "outros_enderecos": [
 "doverlandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DOVERLÂNDIA",
+"tcmjuris": "DOVERLANDIA"
+}
 },
 {
 "ibge": "5207352",
@@ -2220,7 +2816,11 @@
 "outros_enderecos": [
 "edealina.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "EDEALINA",
+"tcmjuris": "EDEALINA"
+}
 },
 {
 "ibge": "5207352",
@@ -2233,7 +2833,11 @@
 "outros_enderecos": [
 "edealina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "EDEALINA",
+"tcmjuris": "EDEALINA"
+}
 },
 {
 "ibge": "5207402",
@@ -2244,7 +2848,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "EDÉIA",
+"tcmjuris": "EDEIA"
+}
 },
 {
 "ibge": "5207402",
@@ -2257,7 +2865,11 @@
 "outros_enderecos": [
 "saude.edeia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "EDÉIA",
+"tcmjuris": "EDEIA"
+}
 },
 {
 "ibge": "5207501",
@@ -2270,7 +2882,11 @@
 "outros_enderecos": [
 "estreladonorte.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ESTRELA DO NORTE",
+"tcmjuris": "ESTRELA NORTE"
+}
 },
 {
 "ibge": "5207535",
@@ -2283,7 +2899,11 @@
 "outros_enderecos": [
 "faina.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FAINA",
+"tcmjuris": "FAINA"
+}
 },
 {
 "ibge": "5207535",
@@ -2296,7 +2916,11 @@
 "outros_enderecos": [
 "faina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FAINA",
+"tcmjuris": "FAINA"
+}
 },
 {
 "ibge": "5207600",
@@ -2309,7 +2933,11 @@
 "outros_enderecos": [
 "fazendanova.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FAZENDA NOVA",
+"tcmjuris": "FAZENDA NOVA"
+}
 },
 {
 "ibge": "5207808",
@@ -2322,7 +2950,11 @@
 "outros_enderecos": [
 "firminopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FIRMINÓPOLIS",
+"tcmjuris": "FIRMINOPOLIS"
+}
 },
 {
 "ibge": "5207808",
@@ -2335,7 +2967,11 @@
 "outros_enderecos": [
 "firminopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FIRMINÓPOLIS",
+"tcmjuris": "FIRMINOPOLIS"
+}
 },
 {
 "ibge": "5207907",
@@ -2348,7 +2984,11 @@
 "outros_enderecos": [
 "floresdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FLORES DE GOIÁS",
+"tcmjuris": "FLORES GOIAS"
+}
 },
 {
 "ibge": "5208004",
@@ -2361,7 +3001,11 @@
 "outros_enderecos": [
 "sapl.formosa.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FORMOSA",
+"tcmjuris": "FORMOSA"
+}
 },
 {
 "ibge": "5208004",
@@ -2374,7 +3018,11 @@
 "outros_enderecos": [
 "formosa.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FORMOSA",
+"tcmjuris": "FORMOSA"
+}
 },
 {
 "ibge": "5208103",
@@ -2390,7 +3038,11 @@
 "legislativo.camaraformoso.go.gov.br",
 "camaraformoso.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FORMOSO",
+"tcmjuris": "FORMOSO"
+}
 },
 {
 "ibge": "5208103",
@@ -2401,7 +3053,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "FORMOSO",
+"tcmjuris": "FORMOSO"
+}
 },
 {
 "ibge": "5208152",
@@ -2414,7 +3070,11 @@
 "outros_enderecos": [
 "gameleiradegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GAMELEIRA DE GOIÁS",
+"tcmjuris": "GAMELEIRA GOIAS"
+}
 },
 {
 "ibge": "5208152",
@@ -2425,7 +3085,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GAMELEIRA DE GOIÁS",
+"tcmjuris": "GAMELEIRA GOIAS"
+}
 },
 {
 "ibge": "5208301",
@@ -2438,7 +3102,11 @@
 "outros_enderecos": [
 "divinopolisdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DIVINÓPOLIS DE GOIÁS",
+"tcmjuris": "DIVINOPOLIS"
+}
 },
 {
 "ibge": "5208301",
@@ -2451,7 +3119,11 @@
 "outros_enderecos": [
 "divinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "DIVINÓPOLIS DE GOIÁS",
+"tcmjuris": "DIVINOPOLIS"
+}
 },
 {
 "ibge": "5208400",
@@ -2483,6 +3155,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "GOIANÁPOLIS",
+"tcmjuris": "GOIANAPOLIS"
 }
 },
 {
@@ -2517,6 +3193,10 @@
 "receitas_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
+},
+"tcm": {
+"esiproc": "GOIANÁPOLIS",
+"tcmjuris": "GOIANAPOLIS"
 }
 },
 {
@@ -2530,7 +3210,11 @@
 "outros_enderecos": [
 "goiandira.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANDIRA",
+"tcmjuris": "GOIANDIRA"
+}
 },
 {
 "ibge": "5208509",
@@ -2541,7 +3225,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANDIRA",
+"tcmjuris": "GOIANDIRA"
+}
 },
 {
 "ibge": "5208608",
@@ -2554,7 +3242,11 @@
 "outros_enderecos": [
 "camaragoianesia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANÉSIA",
+"tcmjuris": "GOIANESIA"
+}
 },
 {
 "ibge": "5208608",
@@ -2567,7 +3259,11 @@
 "outros_enderecos": [
 "goianesia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANÉSIA",
+"tcmjuris": "GOIANESIA"
+}
 },
 {
 "ibge": "5208707",
@@ -2580,7 +3276,11 @@
 "outros_enderecos": [
 "www10.goiania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIÂNIA",
+"tcmjuris": "GOIANIA"
+}
 },
 {
 "ibge": "5208707",
@@ -2625,7 +3325,11 @@
 "dec.tce.go.gov.br",
 "iquego.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIÂNIA",
+"tcmjuris": "GOIANIA"
+}
 },
 {
 "ibge": "5208806",
@@ -2638,7 +3342,11 @@
 "outros_enderecos": [
 "camaragoianira.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANIRA",
+"tcmjuris": "GOIANIRA"
+}
 },
 {
 "ibge": "5208806",
@@ -2649,7 +3357,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIANIRA",
+"tcmjuris": "GOIANIRA"
+}
 },
 {
 "ibge": "5208905",
@@ -2662,7 +3374,11 @@
 "outros_enderecos": [
 "camaragoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIÁS",
+"tcmjuris": "GOIAS"
+}
 },
 {
 "ibge": "5208905",
@@ -2676,7 +3392,11 @@
 "goias.go.gov.br",
 "publicacoes.goias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIÁS",
+"tcmjuris": "GOIAS"
+}
 },
 {
 "ibge": "5209101",
@@ -2689,7 +3409,11 @@
 "outros_enderecos": [
 "goiatuba.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIATUBA",
+"tcmjuris": "GOIATUBA"
+}
 },
 {
 "ibge": "5209101",
@@ -2703,7 +3427,11 @@
 "goiatuba.go.gov.br",
 "editais.goiatuba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOIATUBA",
+"tcmjuris": "GOIATUBA"
+}
 },
 {
 "ibge": "5209150",
@@ -2716,7 +3444,11 @@
 "outros_enderecos": [
 "camaragouvelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOUVELÂNDIA",
+"tcmjuris": "GOUVELANDIA"
+}
 },
 {
 "ibge": "5209150",
@@ -2729,7 +3461,11 @@
 "outros_enderecos": [
 "gouvelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GOUVELÂNDIA",
+"tcmjuris": "GOUVELANDIA"
+}
 },
 {
 "ibge": "5209200",
@@ -2763,6 +3499,10 @@
 "detalhes": {
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "GUAPÓ",
+"tcmjuris": "GUAPO"
 }
 },
 {
@@ -2798,6 +3538,10 @@
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 8",
 "receitas_mes": "em https://acessoainformacao.guapo.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "GUAPÓ",
+"tcmjuris": "GUAPO"
 }
 },
 {
@@ -2811,7 +3555,11 @@
 "outros_enderecos": [
 "guaraita.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARAÍTA",
+"tcmjuris": "GUARAITA"
+}
 },
 {
 "ibge": "5209291",
@@ -2824,7 +3572,11 @@
 "outros_enderecos": [
 "guaraita.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARAÍTA",
+"tcmjuris": "GUARAITA"
+}
 },
 {
 "ibge": "5209408",
@@ -2837,7 +3589,11 @@
 "outros_enderecos": [
 "guaranidegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARANI DE GOIÁS",
+"tcmjuris": "GUARANI GOIAS"
+}
 },
 {
 "ibge": "5209408",
@@ -2850,7 +3606,11 @@
 "outros_enderecos": [
 "guaranidegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARANI DE GOIÁS",
+"tcmjuris": "GUARANI GOIAS"
+}
 },
 {
 "ibge": "5209457",
@@ -2863,7 +3623,11 @@
 "outros_enderecos": [
 "guarinos.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARINOS",
+"tcmjuris": "GUARINOS"
+}
 },
 {
 "ibge": "5209457",
@@ -2876,7 +3640,11 @@
 "outros_enderecos": [
 "guarinos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "GUARINOS",
+"tcmjuris": "GUARINOS"
+}
 },
 {
 "ibge": "5209606",
@@ -2889,7 +3657,11 @@
 "outros_enderecos": [
 "heitorai.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "HEITORAÍ",
+"tcmjuris": "HEITORAI"
+}
 },
 {
 "ibge": "5209606",
@@ -2900,7 +3672,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "HEITORAÍ",
+"tcmjuris": "HEITORAI"
+}
 },
 {
 "ibge": "5209705",
@@ -2913,7 +3689,11 @@
 "outros_enderecos": [
 "hidrolandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "HIDROLÂNDIA",
+"tcmjuris": "HIDROLANDIA"
+}
 },
 {
 "ibge": "5209705",
@@ -2926,7 +3706,11 @@
 "outros_enderecos": [
 "hidrolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "HIDROLÂNDIA",
+"tcmjuris": "HIDROLANDIA"
+}
 },
 {
 "ibge": "5209804",
@@ -2939,7 +3723,11 @@
 "outros_enderecos": [
 "hidrolina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "HIDROLINA",
+"tcmjuris": "HIDROLINA"
+}
 },
 {
 "ibge": "5209903",
@@ -2952,7 +3740,11 @@
 "outros_enderecos": [
 "iaciara.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IACIARA",
+"tcmjuris": "IACIARA"
+}
 },
 {
 "ibge": "5209903",
@@ -2965,7 +3757,11 @@
 "outros_enderecos": [
 "iaciara.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IACIARA",
+"tcmjuris": "IACIARA"
+}
 },
 {
 "ibge": "5209937",
@@ -2979,7 +3775,11 @@
 "acessoainformacao.camaradeinaciolandia.go.gov.br",
 "camaradeinaciolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INACIOLÂNDIA",
+"tcmjuris": "INACIOLANDIA"
+}
 },
 {
 "ibge": "5209937",
@@ -2992,7 +3792,11 @@
 "outros_enderecos": [
 "inaciolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INACIOLÂNDIA",
+"tcmjuris": "INACIOLANDIA"
+}
 },
 {
 "ibge": "5209952",
@@ -3005,7 +3809,11 @@
 "outros_enderecos": [
 "indiara.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INDIARA",
+"tcmjuris": "INDIARA"
+}
 },
 {
 "ibge": "5209952",
@@ -3018,7 +3826,11 @@
 "outros_enderecos": [
 "indiara.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INDIARA",
+"tcmjuris": "INDIARA"
+}
 },
 {
 "ibge": "5210000",
@@ -3031,7 +3843,11 @@
 "outros_enderecos": [
 "inhumas.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INHUMAS",
+"tcmjuris": "INHUMAS"
+}
 },
 {
 "ibge": "5210000",
@@ -3042,7 +3858,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "INHUMAS",
+"tcmjuris": "INHUMAS"
+}
 },
 {
 "ibge": "5210109",
@@ -3056,7 +3876,11 @@
 "ipameri.go.leg.br",
 "sapl.ipameri.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPAMERI",
+"tcmjuris": "IPAMERI"
+}
 },
 {
 "ibge": "5210109",
@@ -3070,7 +3894,11 @@
 "ipameri.go.gov.br",
 "sapl.ipameri.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPAMERI",
+"tcmjuris": "IPAMERI"
+}
 },
 {
 "ibge": "5210158",
@@ -3083,7 +3911,11 @@
 "outros_enderecos": [
 "camaradeipirangadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPIRANGA DE GOIÁS",
+"tcmjuris": "IPIRANGA GOIAS"
+}
 },
 {
 "ibge": "5210158",
@@ -3096,7 +3928,11 @@
 "outros_enderecos": [
 "ipirangadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPIRANGA DE GOIÁS",
+"tcmjuris": "IPIRANGA GOIAS"
+}
 },
 {
 "ibge": "5210208",
@@ -3109,7 +3945,11 @@
 "outros_enderecos": [
 "ipora.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPORÁ",
+"tcmjuris": "IPORA"
+}
 },
 {
 "ibge": "5210208",
@@ -3122,7 +3962,11 @@
 "outros_enderecos": [
 "ipora.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IPORÁ",
+"tcmjuris": "IPORA"
+}
 },
 {
 "ibge": "5210307",
@@ -3135,7 +3979,11 @@
 "outros_enderecos": [
 "israelandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ISRAELÂNDIA",
+"tcmjuris": "ISRAELANDIA"
+}
 },
 {
 "ibge": "5210307",
@@ -3149,7 +3997,11 @@
 "israelandia.megasofttransparencia.com.br",
 "israelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ISRAELÂNDIA",
+"tcmjuris": "ISRAELANDIA"
+}
 },
 {
 "ibge": "5210406",
@@ -3162,7 +4014,11 @@
 "outros_enderecos": [
 "itaberai.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITABERAÍ",
+"tcmjuris": "ITABERAI"
+}
 },
 {
 "ibge": "5210406",
@@ -3175,7 +4031,11 @@
 "outros_enderecos": [
 "itaberai.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITABERAÍ",
+"tcmjuris": "ITABERAI"
+}
 },
 {
 "ibge": "5210562",
@@ -3189,7 +4049,11 @@
 "itaguari.go.gov.br",
 "itaguari.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAGUARI",
+"tcmjuris": "ITAGUARI"
+}
 },
 {
 "ibge": "5210604",
@@ -3203,7 +4067,11 @@
 "itaguaru.go.leg.br",
 "itaguaru.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAGUARU",
+"tcmjuris": "ITAGUARU"
+}
 },
 {
 "ibge": "5210604",
@@ -3216,7 +4084,11 @@
 "outros_enderecos": [
 "itaguaru.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAGUARU",
+"tcmjuris": "ITAGUARU"
+}
 },
 {
 "ibge": "5210802",
@@ -3229,7 +4101,11 @@
 "outros_enderecos": [
 "itaja.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAJÁ",
+"tcmjuris": "ITAJA"
+}
 },
 {
 "ibge": "5210802",
@@ -3242,7 +4118,11 @@
 "outros_enderecos": [
 "itaja.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAJÁ",
+"tcmjuris": "ITAJA"
+}
 },
 {
 "ibge": "5210901",
@@ -3255,7 +4135,11 @@
 "outros_enderecos": [
 "itapaci.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAPACI",
+"tcmjuris": "ITAPACI"
+}
 },
 {
 "ibge": "5210901",
@@ -3268,7 +4152,11 @@
 "outros_enderecos": [
 "itapaci.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAPACI",
+"tcmjuris": "ITAPACI"
+}
 },
 {
 "ibge": "5211008",
@@ -3281,7 +4169,11 @@
 "outros_enderecos": [
 "itapirapua.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAPIRAPUÃ",
+"tcmjuris": "ITAPIRAPUA"
+}
 },
 {
 "ibge": "5211008",
@@ -3294,7 +4186,11 @@
 "outros_enderecos": [
 "itapirapua.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAPIRAPUÃ",
+"tcmjuris": "ITAPIRAPUA"
+}
 },
 {
 "ibge": "5211206",
@@ -3322,6 +4218,10 @@
 "detalhes": {
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "ITAPURANGA",
+"tcmjuris": "ITAPURANGA"
 }
 },
 {
@@ -3357,6 +4257,10 @@
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 8",
 "receitas_mes": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "ITAPURANGA",
+"tcmjuris": "ITAPURANGA"
 }
 },
 {
@@ -3370,7 +4274,11 @@
 "outros_enderecos": [
 "itaruma.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITARUMÃ",
+"tcmjuris": "ITARUMA"
+}
 },
 {
 "ibge": "5211305",
@@ -3383,7 +4291,11 @@
 "outros_enderecos": [
 "itaruma.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITARUMÃ",
+"tcmjuris": "ITARUMA"
+}
 },
 {
 "ibge": "5211404",
@@ -3396,7 +4308,11 @@
 "outros_enderecos": [
 "itaucu.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAUÇU",
+"tcmjuris": "ITAUCU"
+}
 },
 {
 "ibge": "5211404",
@@ -3409,7 +4325,11 @@
 "outros_enderecos": [
 "itaucu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITAUÇU",
+"tcmjuris": "ITAUCU"
+}
 },
 {
 "ibge": "5211503",
@@ -3420,7 +4340,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITUMBIARA",
+"tcmjuris": "ITUMBIARA"
+}
 },
 {
 "ibge": "5211503",
@@ -3433,7 +4357,11 @@
 "outros_enderecos": [
 "itumbiara.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "ITUMBIARA",
+"tcmjuris": "ITUMBIARA"
+}
 },
 {
 "ibge": "5211602",
@@ -3446,7 +4374,11 @@
 "outros_enderecos": [
 "ivolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "IVOLÂNDIA",
+"tcmjuris": "IVOLANDIA"
+}
 },
 {
 "ibge": "5211701",
@@ -3459,7 +4391,11 @@
 "outros_enderecos": [
 "jandaia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JANDAIA",
+"tcmjuris": "JANDAIA"
+}
 },
 {
 "ibge": "5211701",
@@ -3472,7 +4408,11 @@
 "outros_enderecos": [
 "jandaia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JANDAIA",
+"tcmjuris": "JANDAIA"
+}
 },
 {
 "ibge": "5211800",
@@ -3485,7 +4425,11 @@
 "outros_enderecos": [
 "jaragua.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JARAGUÁ",
+"tcmjuris": "JARAGUA"
+}
 },
 {
 "ibge": "5211800",
@@ -3498,7 +4442,11 @@
 "outros_enderecos": [
 "jaragua.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JARAGUÁ",
+"tcmjuris": "JARAGUA"
+}
 },
 {
 "ibge": "5211909",
@@ -3509,7 +4457,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JATAÍ",
+"tcmjuris": "JATAI"
+}
 },
 {
 "ibge": "5212006",
@@ -3522,7 +4474,11 @@
 "outros_enderecos": [
 "jaupaci.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JAUPACI",
+"tcmjuris": "JAUPACI"
+}
 },
 {
 "ibge": "5212006",
@@ -3535,7 +4491,11 @@
 "outros_enderecos": [
 "jaupaci.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JAUPACI",
+"tcmjuris": "JAUPACI"
+}
 },
 {
 "ibge": "5212055",
@@ -3548,7 +4508,11 @@
 "outros_enderecos": [
 "jesupolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JESÚPOLIS",
+"tcmjuris": "JESUPOLIS"
+}
 },
 {
 "ibge": "5212055",
@@ -3561,7 +4525,11 @@
 "outros_enderecos": [
 "jesupolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JESÚPOLIS",
+"tcmjuris": "JESUPOLIS"
+}
 },
 {
 "ibge": "5212105",
@@ -3574,7 +4542,11 @@
 "outros_enderecos": [
 "joviania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JOVIÂNIA",
+"tcmjuris": "JOVIANIA"
+}
 },
 {
 "ibge": "5212105",
@@ -3587,7 +4559,11 @@
 "outros_enderecos": [
 "joviania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JOVIÂNIA",
+"tcmjuris": "JOVIANIA"
+}
 },
 {
 "ibge": "5212204",
@@ -3600,7 +4576,11 @@
 "outros_enderecos": [
 "jussara.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JUSSARA",
+"tcmjuris": "JUSSARA"
+}
 },
 {
 "ibge": "5212204",
@@ -3614,7 +4594,11 @@
 "jussara.go.gov.br",
 "jussara.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "JUSSARA",
+"tcmjuris": "JUSSARA"
+}
 },
 {
 "ibge": "5212253",
@@ -3627,7 +4611,11 @@
 "outros_enderecos": [
 "lagoasanta.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LAGOA SANTA",
+"tcmjuris": "LAGOA SANTA"
+}
 },
 {
 "ibge": "5212253",
@@ -3640,7 +4628,11 @@
 "outros_enderecos": [
 "lagoasanta.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LAGOA SANTA",
+"tcmjuris": "LAGOA SANTA"
+}
 },
 {
 "ibge": "5212303",
@@ -3653,7 +4645,11 @@
 "outros_enderecos": [
 "camaraleopoldodebulhoes.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LEOPOLDO DE BULHÕES",
+"tcmjuris": "LEOPOLDO BULHOES"
+}
 },
 {
 "ibge": "5212303",
@@ -3666,7 +4662,11 @@
 "outros_enderecos": [
 "leopoldodebulhoes.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LEOPOLDO DE BULHÕES",
+"tcmjuris": "LEOPOLDO BULHOES"
+}
 },
 {
 "ibge": "5212501",
@@ -3679,7 +4679,11 @@
 "outros_enderecos": [
 "luziania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LUZIÂNIA",
+"tcmjuris": "LUZIANIA"
+}
 },
 {
 "ibge": "5212501",
@@ -3690,7 +4694,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "LUZIÂNIA",
+"tcmjuris": "LUZIANIA"
+}
 },
 {
 "ibge": "5212600",
@@ -3703,7 +4711,11 @@
 "outros_enderecos": [
 "mairipotaba.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAIRIPOTABA",
+"tcmjuris": "MAIRIPOTABA"
+}
 },
 {
 "ibge": "5212600",
@@ -3716,7 +4728,11 @@
 "outros_enderecos": [
 "mairipotaba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAIRIPOTABA",
+"tcmjuris": "MAIRIPOTABA"
+}
 },
 {
 "ibge": "5212709",
@@ -3729,7 +4745,11 @@
 "outros_enderecos": [
 "mambai.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAMBAÍ",
+"tcmjuris": "MAMBAI"
+}
 },
 {
 "ibge": "5212709",
@@ -3742,7 +4762,11 @@
 "outros_enderecos": [
 "mambai.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAMBAÍ",
+"tcmjuris": "MAMBAI"
+}
 },
 {
 "ibge": "5212808",
@@ -3758,7 +4782,11 @@
 "mararosa.go.gov.br",
 "legislativo.mararosa.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MARA ROSA",
+"tcmjuris": "MARA ROSA"
+}
 },
 {
 "ibge": "5212907",
@@ -3772,7 +4800,11 @@
 "legislativo.camarademarzagao.go.gov.br",
 "camarademarzagao.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MARZAGÃO",
+"tcmjuris": "MARZAGAO"
+}
 },
 {
 "ibge": "5212907",
@@ -3786,7 +4818,11 @@
 "marzagao.go.gov.br",
 "marzagao.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MARZAGÃO",
+"tcmjuris": "MARZAGAO"
+}
 },
 {
 "ibge": "5212956",
@@ -3799,7 +4835,11 @@
 "outros_enderecos": [
 "leis.matrincha.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MATRINCHÃ",
+"tcmjuris": "MATRINCHA"
+}
 },
 {
 "ibge": "5213004",
@@ -3812,7 +4852,11 @@
 "outros_enderecos": [
 "legislativomaurilandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAURILÂNDIA",
+"tcmjuris": "MAURILANDIA"
+}
 },
 {
 "ibge": "5213004",
@@ -3825,7 +4869,11 @@
 "outros_enderecos": [
 "maurilandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MAURILÂNDIA",
+"tcmjuris": "MAURILANDIA"
+}
 },
 {
 "ibge": "5213053",
@@ -3838,7 +4886,11 @@
 "outros_enderecos": [
 "mimosodegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MIMOSO DE GOIÁS",
+"tcmjuris": "MIMOSO GOIAS"
+}
 },
 {
 "ibge": "5213087",
@@ -3852,7 +4904,11 @@
 "minacu.go.leg.br",
 "leis.camaraminacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MINAÇU",
+"tcmjuris": "MINACU"
+}
 },
 {
 "ibge": "5213087",
@@ -3865,7 +4921,11 @@
 "outros_enderecos": [
 "minacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MINAÇU",
+"tcmjuris": "MINACU"
+}
 },
 {
 "ibge": "5213103",
@@ -3876,7 +4936,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MINEIROS",
+"tcmjuris": "MINEIROS"
+}
 },
 {
 "ibge": "5213103",
@@ -3887,7 +4951,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MINEIROS",
+"tcmjuris": "MINEIROS"
+}
 },
 {
 "ibge": "5213400",
@@ -3900,7 +4968,11 @@
 "outros_enderecos": [
 "moipora.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MOIPORÁ",
+"tcmjuris": "MOIPORA"
+}
 },
 {
 "ibge": "5213509",
@@ -3913,7 +4985,11 @@
 "outros_enderecos": [
 "montealegredegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTE ALEGRE DE GOIÁS",
+"tcmjuris": "MONTE ALEGRE GOIAS"
+}
 },
 {
 "ibge": "5213509",
@@ -3926,7 +5002,11 @@
 "outros_enderecos": [
 "montealegre.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTE ALEGRE DE GOIÁS",
+"tcmjuris": "MONTE ALEGRE GOIAS"
+}
 },
 {
 "ibge": "5213707",
@@ -3939,7 +5019,11 @@
 "outros_enderecos": [
 "montesclarosdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTES CLAROS DE GOIÁS",
+"tcmjuris": "MONTES CLAROS GOIAS"
+}
 },
 {
 "ibge": "5213707",
@@ -3952,7 +5036,11 @@
 "outros_enderecos": [
 "montesclarosdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTES CLAROS DE GOIÁS",
+"tcmjuris": "MONTES CLAROS GOIAS"
+}
 },
 {
 "ibge": "5213756",
@@ -3965,7 +5053,11 @@
 "outros_enderecos": [
 "montividiu.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTIVIDIU",
+"tcmjuris": "MONTIVIDIU"
+}
 },
 {
 "ibge": "5213756",
@@ -3978,7 +5070,11 @@
 "outros_enderecos": [
 "montividiu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTIVIDIU",
+"tcmjuris": "MONTIVIDIU"
+}
 },
 {
 "ibge": "5213772",
@@ -3989,7 +5085,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTIVIDIU DO NORTE",
+"tcmjuris": "MONTIVIDIU NORTE"
+}
 },
 {
 "ibge": "5213772",
@@ -4003,7 +5103,11 @@
 "montividiudonorte.go.gov.br",
 "montividiudonorte.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MONTIVIDIU DO NORTE",
+"tcmjuris": "MONTIVIDIU NORTE"
+}
 },
 {
 "ibge": "5213806",
@@ -4016,7 +5120,11 @@
 "outros_enderecos": [
 "morrinhos.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MORRINHOS",
+"tcmjuris": "MORRINHOS"
+}
 },
 {
 "ibge": "5213806",
@@ -4029,7 +5137,11 @@
 "outros_enderecos": [
 "morrinhos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MORRINHOS",
+"tcmjuris": "MORRINHOS"
+}
 },
 {
 "ibge": "5213855",
@@ -4042,7 +5154,11 @@
 "outros_enderecos": [
 "morroagudodegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MORRO AGUDO DE GOIÁS",
+"tcmjuris": "MORRO AGUDO GOIAS"
+}
 },
 {
 "ibge": "5213855",
@@ -4055,7 +5171,11 @@
 "outros_enderecos": [
 "prefeiturademorroagudo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MORRO AGUDO DE GOIÁS",
+"tcmjuris": "MORRO AGUDO GOIAS"
+}
 },
 {
 "ibge": "5213905",
@@ -4068,7 +5188,11 @@
 "outros_enderecos": [
 "mossamedes.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MOSSÂMEDES",
+"tcmjuris": "MOSSAMEDES"
+}
 },
 {
 "ibge": "5213905",
@@ -4082,7 +5206,11 @@
 "mossamedes.go.gov.br",
 "transparencia.mossamedes.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MOSSÂMEDES",
+"tcmjuris": "MOSSAMEDES"
+}
 },
 {
 "ibge": "5214002",
@@ -4095,7 +5223,11 @@
 "outros_enderecos": [
 "mozarlandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MOZARLÂNDIA",
+"tcmjuris": "MOZARLANDIA"
+}
 },
 {
 "ibge": "5214002",
@@ -4108,7 +5240,11 @@
 "outros_enderecos": [
 "mozarlandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MOZARLÂNDIA",
+"tcmjuris": "MOZARLANDIA"
+}
 },
 {
 "ibge": "5214051",
@@ -4121,7 +5257,11 @@
 "outros_enderecos": [
 "mundonovo.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MUNDO NOVO",
+"tcmjuris": "MUNDO NOVO"
+}
 },
 {
 "ibge": "5214051",
@@ -4134,7 +5274,11 @@
 "outros_enderecos": [
 "mundonovo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MUNDO NOVO",
+"tcmjuris": "MUNDO NOVO"
+}
 },
 {
 "ibge": "5214101",
@@ -4147,7 +5291,11 @@
 "outros_enderecos": [
 "mutunopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MUTUNÓPOLIS",
+"tcmjuris": "MUTUNOPOLIS"
+}
 },
 {
 "ibge": "5214101",
@@ -4161,7 +5309,11 @@
 "mutunopolis.go.gov.br",
 "mutunopolis.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "MUTUNÓPOLIS",
+"tcmjuris": "MUTUNOPOLIS"
+}
 },
 {
 "ibge": "5214408",
@@ -4172,7 +5324,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NAZÁRIO",
+"tcmjuris": "NAZARIO"
+}
 },
 {
 "ibge": "5214408",
@@ -4185,7 +5341,11 @@
 "outros_enderecos": [
 "nazario.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NAZÁRIO",
+"tcmjuris": "NAZARIO"
+}
 },
 {
 "ibge": "5214507",
@@ -4198,7 +5358,11 @@
 "outros_enderecos": [
 "neropolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NERÓPOLIS",
+"tcmjuris": "NEROPOLIS"
+}
 },
 {
 "ibge": "5214606",
@@ -4211,7 +5375,11 @@
 "outros_enderecos": [
 "niquelandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NIQUELÂNDIA",
+"tcmjuris": "NIQUELANDIA"
+}
 },
 {
 "ibge": "5214606",
@@ -4224,7 +5392,11 @@
 "outros_enderecos": [
 "niquelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NIQUELÂNDIA",
+"tcmjuris": "NIQUELANDIA"
+}
 },
 {
 "ibge": "5214705",
@@ -4237,7 +5409,11 @@
 "outros_enderecos": [
 "novaamerica.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA AMÉRICA",
+"tcmjuris": "NOVA AMERICA"
+}
 },
 {
 "ibge": "5214705",
@@ -4250,7 +5426,11 @@
 "outros_enderecos": [
 "novaamerica.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA AMÉRICA",
+"tcmjuris": "NOVA AMERICA"
+}
 },
 {
 "ibge": "5214804",
@@ -4264,7 +5444,11 @@
 "legislativo.camaranovaaurora.go.gov.br",
 "camaranovaaurora.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA AURORA",
+"tcmjuris": "NOVA AURORA"
+}
 },
 {
 "ibge": "5214838",
@@ -4298,6 +5482,10 @@
 "folha_orgaos": "a folha não traz orgao_id",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "NOVA CRIXÁS",
+"tcmjuris": "NOVA CRIXAS"
 }
 },
 {
@@ -4336,6 +5524,10 @@
 "legislacao_tipo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
 }
+},
+"tcm": {
+"esiproc": "NOVA CRIXÁS",
+"tcmjuris": "NOVA CRIXAS"
 }
 },
 {
@@ -4349,7 +5541,11 @@
 "outros_enderecos": [
 "camaranovagloria.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA GLÓRIA",
+"tcmjuris": "NOVA GLORIA"
+}
 },
 {
 "ibge": "5214861",
@@ -4362,7 +5558,11 @@
 "outros_enderecos": [
 "novagloria.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA GLÓRIA",
+"tcmjuris": "NOVA GLORIA"
+}
 },
 {
 "ibge": "5214879",
@@ -4375,7 +5575,11 @@
 "outros_enderecos": [
 "novaiguacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA IGUAÇU DE GOIÁS",
+"tcmjuris": "NOVA IGUACU"
+}
 },
 {
 "ibge": "5214903",
@@ -4388,7 +5592,11 @@
 "outros_enderecos": [
 "camaranovaroma.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA ROMA",
+"tcmjuris": "NOVA ROMA"
+}
 },
 {
 "ibge": "5214903",
@@ -4401,7 +5609,11 @@
 "outros_enderecos": [
 "novaroma.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA ROMA",
+"tcmjuris": "NOVA ROMA"
+}
 },
 {
 "ibge": "5215009",
@@ -4414,7 +5626,11 @@
 "outros_enderecos": [
 "camaradenovaveneza.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA VENEZA",
+"tcmjuris": "NOVA VENEZA"
+}
 },
 {
 "ibge": "5215009",
@@ -4427,7 +5643,11 @@
 "outros_enderecos": [
 "novaveneza.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVA VENEZA",
+"tcmjuris": "NOVA VENEZA"
+}
 },
 {
 "ibge": "5215207",
@@ -4440,7 +5660,11 @@
 "outros_enderecos": [
 "novobrasil.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO BRASIL",
+"tcmjuris": "NOVO BRASIL"
+}
 },
 {
 "ibge": "5215207",
@@ -4453,7 +5677,11 @@
 "outros_enderecos": [
 "novobrasil.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO BRASIL",
+"tcmjuris": "NOVO BRASIL"
+}
 },
 {
 "ibge": "5215231",
@@ -4467,7 +5695,11 @@
 "novogama.go.leg.br",
 "camaranovogama.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO GAMA",
+"tcmjuris": "NOVO GAMA"
+}
 },
 {
 "ibge": "5215231",
@@ -4480,7 +5712,11 @@
 "outros_enderecos": [
 "novogama.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO GAMA",
+"tcmjuris": "NOVO GAMA"
+}
 },
 {
 "ibge": "5215256",
@@ -4494,7 +5730,11 @@
 "novoplanalto.go.leg.br",
 "legislativo.novoplanalto.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO PLANALTO",
+"tcmjuris": "NOVO PLANALTO"
+}
 },
 {
 "ibge": "5215256",
@@ -4507,7 +5747,11 @@
 "outros_enderecos": [
 "novoplanalto.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "NOVO PLANALTO",
+"tcmjuris": "NOVO PLANALTO"
+}
 },
 {
 "ibge": "5215306",
@@ -4544,6 +5788,10 @@
 "legislacao_tipo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
 }
+},
+"tcm": {
+"esiproc": "ORIZONA",
+"tcmjuris": "ORIZONA"
 }
 },
 {
@@ -4577,6 +5825,10 @@
 "folha_mes": "a folha de 06/2025 está vazia; conferida em 09/2026, o mês mais recente publicado",
 "receitas_mes": "em https://acessoainformacao.orizona.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "ORIZONA",
+"tcmjuris": "ORIZONA"
 }
 },
 {
@@ -4590,7 +5842,11 @@
 "outros_enderecos": [
 "ouroverdedegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "OURO VERDE DE GOIÁS",
+"tcmjuris": "OURO VERDE"
+}
 },
 {
 "ibge": "5215405",
@@ -4603,7 +5859,11 @@
 "outros_enderecos": [
 "ouroverdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "OURO VERDE DE GOIÁS",
+"tcmjuris": "OURO VERDE"
+}
 },
 {
 "ibge": "5215504",
@@ -4616,7 +5876,11 @@
 "outros_enderecos": [
 "ouvidor.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "OUVIDOR",
+"tcmjuris": "OUVIDOR"
+}
 },
 {
 "ibge": "5215504",
@@ -4629,7 +5893,11 @@
 "outros_enderecos": [
 "ouvidor.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "OUVIDOR",
+"tcmjuris": "OUVIDOR"
+}
 },
 {
 "ibge": "5215603",
@@ -4642,7 +5910,11 @@
 "outros_enderecos": [
 "padrebernardo.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PADRE BERNARDO",
+"tcmjuris": "PADRE BERNARDO"
+}
 },
 {
 "ibge": "5215603",
@@ -4655,7 +5927,11 @@
 "outros_enderecos": [
 "padrebernardo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PADRE BERNARDO",
+"tcmjuris": "PADRE BERNARDO"
+}
 },
 {
 "ibge": "5215652",
@@ -4668,7 +5944,11 @@
 "outros_enderecos": [
 "palestinadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALESTINA DE GOIÁS",
+"tcmjuris": "PALESTINA GOIAS"
+}
 },
 {
 "ibge": "5215652",
@@ -4681,7 +5961,11 @@
 "outros_enderecos": [
 "palestinadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALESTINA DE GOIÁS",
+"tcmjuris": "PALESTINA GOIAS"
+}
 },
 {
 "ibge": "5215702",
@@ -4694,7 +5978,11 @@
 "outros_enderecos": [
 "palmeirasdegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALMEIRAS DE GOIÁS",
+"tcmjuris": "PALMEIRAS GOIAS"
+}
 },
 {
 "ibge": "5215702",
@@ -4707,7 +5995,11 @@
 "outros_enderecos": [
 "palmeirasdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALMEIRAS DE GOIÁS",
+"tcmjuris": "PALMEIRAS GOIAS"
+}
 },
 {
 "ibge": "5215801",
@@ -4720,7 +6012,11 @@
 "outros_enderecos": [
 "palmelo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALMELO",
+"tcmjuris": "PALMELO"
+}
 },
 {
 "ibge": "5215900",
@@ -4731,7 +6027,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PALMINÓPOLIS",
+"tcmjuris": "PALMINOPOLIS"
+}
 },
 {
 "ibge": "5216007",
@@ -4745,7 +6045,11 @@
 "panama.go.leg.br",
 "legislativo.panama.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PANAMÁ",
+"tcmjuris": "PANAMA"
+}
 },
 {
 "ibge": "5216007",
@@ -4758,7 +6062,11 @@
 "outros_enderecos": [
 "panama.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PANAMÁ",
+"tcmjuris": "PANAMA"
+}
 },
 {
 "ibge": "5216304",
@@ -4771,7 +6079,11 @@
 "outros_enderecos": [
 "paranaiguara.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PARANAIGUARA",
+"tcmjuris": "PARANAIGUARA"
+}
 },
 {
 "ibge": "5216304",
@@ -4784,7 +6096,11 @@
 "outros_enderecos": [
 "paranaiguara.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PARANAIGUARA",
+"tcmjuris": "PARANAIGUARA"
+}
 },
 {
 "ibge": "5216403",
@@ -4797,7 +6113,11 @@
 "outros_enderecos": [
 "camaraparauna.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PARAÚNA",
+"tcmjuris": "PARAUNA"
+}
 },
 {
 "ibge": "5216403",
@@ -4810,7 +6130,11 @@
 "outros_enderecos": [
 "parauna.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PARAÚNA",
+"tcmjuris": "PARAUNA"
+}
 },
 {
 "ibge": "5216452",
@@ -4823,7 +6147,11 @@
 "outros_enderecos": [
 "perolandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PEROLÂNDIA",
+"tcmjuris": "PEROLANDIA"
+}
 },
 {
 "ibge": "5216452",
@@ -4836,7 +6164,11 @@
 "outros_enderecos": [
 "perolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PEROLÂNDIA",
+"tcmjuris": "PEROLANDIA"
+}
 },
 {
 "ibge": "5216809",
@@ -4849,7 +6181,11 @@
 "outros_enderecos": [
 "camaradepetrolina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PETROLINA DE GOIÁS",
+"tcmjuris": "PETROLINA GOIAS"
+}
 },
 {
 "ibge": "5216809",
@@ -4862,7 +6198,11 @@
 "outros_enderecos": [
 "petrolina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PETROLINA DE GOIÁS",
+"tcmjuris": "PETROLINA GOIAS"
+}
 },
 {
 "ibge": "5216908",
@@ -4875,7 +6215,11 @@
 "outros_enderecos": [
 "camarapilar.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PILAR DE GOIÁS",
+"tcmjuris": "PILAR GOIAS"
+}
 },
 {
 "ibge": "5216908",
@@ -4888,7 +6232,11 @@
 "outros_enderecos": [
 "pilar.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PILAR DE GOIÁS",
+"tcmjuris": "PILAR GOIAS"
+}
 },
 {
 "ibge": "5217104",
@@ -4901,7 +6249,11 @@
 "outros_enderecos": [
 "camaradepiracanjuba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRACANJUBA",
+"tcmjuris": "PIRACANJUBA"
+}
 },
 {
 "ibge": "5217104",
@@ -4912,7 +6264,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRACANJUBA",
+"tcmjuris": "PIRACANJUBA"
+}
 },
 {
 "ibge": "5217203",
@@ -4926,7 +6282,11 @@
 "piranhas.go.leg.br",
 "legislativo.piranhas.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRANHAS",
+"tcmjuris": "PIRANHAS"
+}
 },
 {
 "ibge": "5217203",
@@ -4939,7 +6299,11 @@
 "outros_enderecos": [
 "piranhas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRANHAS",
+"tcmjuris": "PIRANHAS"
+}
 },
 {
 "ibge": "5217302",
@@ -4971,6 +6335,10 @@
 "despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "PIRENÓPOLIS",
+"tcmjuris": "PIRENOPOLIS"
 }
 },
 {
@@ -5006,6 +6374,10 @@
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 7",
 "receitas_mes": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "PIRENÓPOLIS",
+"tcmjuris": "PIRENOPOLIS"
 }
 },
 {
@@ -5020,7 +6392,11 @@
 "sapl.piresdorio.go.leg.br",
 "piresdorio.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRES DO RIO",
+"tcmjuris": "PIRES RIO"
+}
 },
 {
 "ibge": "5217401",
@@ -5033,7 +6409,11 @@
 "outros_enderecos": [
 "piresdorio.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PIRES DO RIO",
+"tcmjuris": "PIRES RIO"
+}
 },
 {
 "ibge": "5217609",
@@ -5046,7 +6426,11 @@
 "outros_enderecos": [
 "planaltina.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PLANALTINA",
+"tcmjuris": "PLANALTINA"
+}
 },
 {
 "ibge": "5217609",
@@ -5059,7 +6443,11 @@
 "outros_enderecos": [
 "planaltina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PLANALTINA",
+"tcmjuris": "PLANALTINA"
+}
 },
 {
 "ibge": "5217708",
@@ -5072,7 +6460,11 @@
 "outros_enderecos": [
 "pontalina.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PONTALINA",
+"tcmjuris": "PONTALINA"
+}
 },
 {
 "ibge": "5217708",
@@ -5085,7 +6477,11 @@
 "outros_enderecos": [
 "pontalina.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PONTALINA",
+"tcmjuris": "PONTALINA"
+}
 },
 {
 "ibge": "5218003",
@@ -5099,7 +6495,11 @@
 "camaraporangatu.go.gov.br",
 "leis.camaraporangatu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORANGATU",
+"tcmjuris": "PORANGATU"
+}
 },
 {
 "ibge": "5218003",
@@ -5112,7 +6512,11 @@
 "outros_enderecos": [
 "porangatu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORANGATU",
+"tcmjuris": "PORANGATU"
+}
 },
 {
 "ibge": "5218052",
@@ -5125,7 +6529,11 @@
 "outros_enderecos": [
 "porteirao.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORTEIRÃO",
+"tcmjuris": "PORTEIRAO"
+}
 },
 {
 "ibge": "5218052",
@@ -5138,7 +6546,11 @@
 "outros_enderecos": [
 "porteirao.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORTEIRÃO",
+"tcmjuris": "PORTEIRAO"
+}
 },
 {
 "ibge": "5218102",
@@ -5151,7 +6563,11 @@
 "outros_enderecos": [
 "portelandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORTELÂNDIA",
+"tcmjuris": "PORTELANDIA"
+}
 },
 {
 "ibge": "5218102",
@@ -5164,7 +6580,11 @@
 "outros_enderecos": [
 "portelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PORTELÂNDIA",
+"tcmjuris": "PORTELANDIA"
+}
 },
 {
 "ibge": "5218300",
@@ -5196,6 +6616,10 @@
 "folha_orgaos": "a folha não traz orgao_id",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "POSSE",
+"tcmjuris": "POSSE"
 }
 },
 {
@@ -5231,6 +6655,10 @@
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5",
 "receitas_mes": "em https://acessoainformacao.posse.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "POSSE",
+"tcmjuris": "POSSE"
 }
 },
 {
@@ -5244,7 +6672,11 @@
 "outros_enderecos": [
 "professorjamil.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PROFESSOR JAMIL",
+"tcmjuris": "PROFESSOR JAMIL"
+}
 },
 {
 "ibge": "5218391",
@@ -5257,7 +6689,11 @@
 "outros_enderecos": [
 "professorjamil.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "PROFESSOR JAMIL",
+"tcmjuris": "PROFESSOR JAMIL"
+}
 },
 {
 "ibge": "5218508",
@@ -5270,7 +6706,11 @@
 "outros_enderecos": [
 "quirinopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "QUIRINÓPOLIS",
+"tcmjuris": "QUIRINOPOLIS"
+}
 },
 {
 "ibge": "5218508",
@@ -5283,7 +6723,11 @@
 "outros_enderecos": [
 "quirinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "QUIRINÓPOLIS",
+"tcmjuris": "QUIRINOPOLIS"
+}
 },
 {
 "ibge": "5218607",
@@ -5296,7 +6740,11 @@
 "outros_enderecos": [
 "camararialma.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIALMA",
+"tcmjuris": "RIALMA"
+}
 },
 {
 "ibge": "5218607",
@@ -5309,7 +6757,11 @@
 "outros_enderecos": [
 "rialma.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIALMA",
+"tcmjuris": "RIALMA"
+}
 },
 {
 "ibge": "5218706",
@@ -5322,7 +6774,11 @@
 "outros_enderecos": [
 "camararianapolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIANÁPOLIS",
+"tcmjuris": "RIANAPOLIS"
+}
 },
 {
 "ibge": "5218706",
@@ -5335,7 +6791,11 @@
 "outros_enderecos": [
 "rianapolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIANÁPOLIS",
+"tcmjuris": "RIANAPOLIS"
+}
 },
 {
 "ibge": "5218789",
@@ -5348,7 +6808,11 @@
 "outros_enderecos": [
 "rioquente.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIO QUENTE",
+"tcmjuris": "RIO QUENTE"
+}
 },
 {
 "ibge": "5218789",
@@ -5361,7 +6825,11 @@
 "outros_enderecos": [
 "rioquente.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIO QUENTE",
+"tcmjuris": "RIO QUENTE"
+}
 },
 {
 "ibge": "5218805",
@@ -5374,7 +6842,11 @@
 "outros_enderecos": [
 "rioverde.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIO VERDE",
+"tcmjuris": "RIO VERDE"
+}
 },
 {
 "ibge": "5218805",
@@ -5387,7 +6859,11 @@
 "outros_enderecos": [
 "rioverde.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RIO VERDE",
+"tcmjuris": "RIO VERDE"
+}
 },
 {
 "ibge": "5218904",
@@ -5400,7 +6876,11 @@
 "outros_enderecos": [
 "camararubiataba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RUBIATABA",
+"tcmjuris": "RUBIATABA"
+}
 },
 {
 "ibge": "5218904",
@@ -5413,7 +6893,11 @@
 "outros_enderecos": [
 "rubiataba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "RUBIATABA",
+"tcmjuris": "RUBIATABA"
+}
 },
 {
 "ibge": "5219001",
@@ -5426,7 +6910,11 @@
 "outros_enderecos": [
 "sanclerlandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANCLERLÂNDIA",
+"tcmjuris": "SANCLERLANDIA"
+}
 },
 {
 "ibge": "5219001",
@@ -5439,7 +6927,11 @@
 "outros_enderecos": [
 "sanclerlandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANCLERLÂNDIA",
+"tcmjuris": "SANCLERLANDIA"
+}
 },
 {
 "ibge": "5219100",
@@ -5452,7 +6944,11 @@
 "outros_enderecos": [
 "santabarbaradegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA BÁRBARA DE GOIÁS",
+"tcmjuris": "SANTA BARBARA GOIAS"
+}
 },
 {
 "ibge": "5219100",
@@ -5465,7 +6961,11 @@
 "outros_enderecos": [
 "santabarbaradegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA BÁRBARA DE GOIÁS",
+"tcmjuris": "SANTA BARBARA GOIAS"
+}
 },
 {
 "ibge": "5219209",
@@ -5478,7 +6978,11 @@
 "outros_enderecos": [
 "camaradesantacruzdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA CRUZ DE GOIÁS",
+"tcmjuris": "SANTA CRUZ GOIAS"
+}
 },
 {
 "ibge": "5219209",
@@ -5491,7 +6995,11 @@
 "outros_enderecos": [
 "santacruzdegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA CRUZ DE GOIÁS",
+"tcmjuris": "SANTA CRUZ GOIAS"
+}
 },
 {
 "ibge": "5219258",
@@ -5504,7 +7012,11 @@
 "outros_enderecos": [
 "santafedegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA FÉ DE GOIÁS",
+"tcmjuris": "SANTA FE GOIAS"
+}
 },
 {
 "ibge": "5219308",
@@ -5517,7 +7029,11 @@
 "outros_enderecos": [
 "legislativoshego.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA HELENA DE GOIÁS",
+"tcmjuris": "SANTA HELENA GOIAS"
+}
 },
 {
 "ibge": "5219308",
@@ -5531,7 +7047,11 @@
 "santahelena.go.gov.br",
 "leis.santahelena.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA HELENA DE GOIÁS",
+"tcmjuris": "SANTA HELENA GOIAS"
+}
 },
 {
 "ibge": "5219357",
@@ -5544,7 +7064,11 @@
 "outros_enderecos": [
 "camarasantaisabel.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA ISABEL",
+"tcmjuris": "SANTA ISABEL"
+}
 },
 {
 "ibge": "5219357",
@@ -5557,7 +7081,11 @@
 "outros_enderecos": [
 "santaisabel.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA ISABEL",
+"tcmjuris": "SANTA ISABEL"
+}
 },
 {
 "ibge": "5219407",
@@ -5570,7 +7098,11 @@
 "outros_enderecos": [
 "santaritadoaraguaia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA RITA DO ARAGUAIA",
+"tcmjuris": "SANTA RITA ARAGUAIA"
+}
 },
 {
 "ibge": "5219407",
@@ -5584,7 +7116,11 @@
 "santaritadoaraguaia.go.gov.br",
 "acessoainformacao.santaritadoaraaguaia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA RITA DO ARAGUAIA",
+"tcmjuris": "SANTA RITA ARAGUAIA"
+}
 },
 {
 "ibge": "5219456",
@@ -5597,7 +7133,11 @@
 "outros_enderecos": [
 "santaritadonovodestino.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA RITA DO NOVO DESTINO",
+"tcmjuris": "SANTA RITA NOVO DESTINO"
+}
 },
 {
 "ibge": "5219456",
@@ -5610,7 +7150,11 @@
 "outros_enderecos": [
 "santaritadonovodestino.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA RITA DO NOVO DESTINO",
+"tcmjuris": "SANTA RITA NOVO DESTINO"
+}
 },
 {
 "ibge": "5219506",
@@ -5623,7 +7167,11 @@
 "outros_enderecos": [
 "santarosadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA ROSA DE GOIÁS",
+"tcmjuris": "SANTA ROSA GOIAS"
+}
 },
 {
 "ibge": "5219506",
@@ -5636,7 +7184,11 @@
 "outros_enderecos": [
 "santarosa.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA ROSA DE GOIÁS",
+"tcmjuris": "SANTA ROSA GOIAS"
+}
 },
 {
 "ibge": "5219605",
@@ -5650,7 +7202,11 @@
 "santaterezadegoias.go.leg.br",
 "legislativo.santaterezadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA TEREZA DE GOIÁS",
+"tcmjuris": "SANTA TEREZA GOIAS"
+}
 },
 {
 "ibge": "5219605",
@@ -5663,7 +7219,11 @@
 "outros_enderecos": [
 "santatereza.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA TEREZA DE GOIÁS",
+"tcmjuris": "SANTA TEREZA GOIAS"
+}
 },
 {
 "ibge": "5219704",
@@ -5676,7 +7236,11 @@
 "outros_enderecos": [
 "camarasantaterezinha.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA TEREZINHA DE GOIÁS",
+"tcmjuris": "SANTA TEREZINHA GOIAS"
+}
 },
 {
 "ibge": "5219704",
@@ -5689,7 +7253,11 @@
 "outros_enderecos": [
 "santaterezinhadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTA TEREZINHA DE GOIÁS",
+"tcmjuris": "SANTA TEREZINHA GOIAS"
+}
 },
 {
 "ibge": "5219712",
@@ -5703,7 +7271,11 @@
 "acessoainformacao.santoantoniodabarra.go.leg.br",
 "santoantoniodabarra.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTO ANTÔNIO DA BARRA",
+"tcmjuris": "SANTO ANTONIO BARRA"
+}
 },
 {
 "ibge": "5219712",
@@ -5716,7 +7288,11 @@
 "outros_enderecos": [
 "santoantoniodabarra.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTO ANTÔNIO DA BARRA",
+"tcmjuris": "SANTO ANTONIO BARRA"
+}
 },
 {
 "ibge": "5219738",
@@ -5729,7 +7305,11 @@
 "outros_enderecos": [
 "santoantoniodegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTO ANTÔNIO DE GOIÁS",
+"tcmjuris": "SANTO ANTONIO GOIAS"
+}
 },
 {
 "ibge": "5219753",
@@ -5744,7 +7324,11 @@
 "camarasantoantoniododescoberto.megasofttransparencia.com.br",
 "leis.camarasad.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTO ANTÔNIO DO DESCOBERTO",
+"tcmjuris": "SANTO ANTONIO DESCOBERTO"
+}
 },
 {
 "ibge": "5219753",
@@ -5757,7 +7341,11 @@
 "outros_enderecos": [
 "santoantoniododescoberto.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SANTO ANTÔNIO DO DESCOBERTO",
+"tcmjuris": "SANTO ANTONIO DESCOBERTO"
+}
 },
 {
 "ibge": "5219803",
@@ -5770,7 +7358,11 @@
 "outros_enderecos": [
 "saodomingos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO DOMINGOS",
+"tcmjuris": "SAO DOMINGOS"
+}
 },
 {
 "ibge": "5219902",
@@ -5783,7 +7375,11 @@
 "outros_enderecos": [
 "saofranciscodegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO FRANCISCO DE GOIÁS",
+"tcmjuris": "SAO FRANCISCO GOIAS"
+}
 },
 {
 "ibge": "5219902",
@@ -5796,7 +7392,11 @@
 "outros_enderecos": [
 "saofranciscodegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO FRANCISCO DE GOIÁS",
+"tcmjuris": "SAO FRANCISCO GOIAS"
+}
 },
 {
 "ibge": "5220009",
@@ -5809,7 +7409,11 @@
 "outros_enderecos": [
 "saojoaodalianca.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO JOÃO D'ALIANÇA",
+"tcmjuris": "SAO JOAO DALIANCA"
+}
 },
 {
 "ibge": "5220009",
@@ -5822,7 +7426,11 @@
 "outros_enderecos": [
 "saojoaodalianca.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO JOÃO D'ALIANÇA",
+"tcmjuris": "SAO JOAO DALIANCA"
+}
 },
 {
 "ibge": "5220058",
@@ -5836,7 +7444,11 @@
 "saojoaodaparauna.go.leg.br",
 "saojoaodaparauna.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO JOÃO DA PARAÚNA",
+"tcmjuris": "SAO JOAO PARAUNA"
+}
 },
 {
 "ibge": "5220058",
@@ -5849,7 +7461,11 @@
 "outros_enderecos": [
 "saojoaodaparauna.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO JOÃO DA PARAÚNA",
+"tcmjuris": "SAO JOAO PARAUNA"
+}
 },
 {
 "ibge": "5220108",
@@ -5862,7 +7478,11 @@
 "outros_enderecos": [
 "saoluisdemontesbelos.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO LUÍS DE MONTES BELOS",
+"tcmjuris": "SAO LUIS MONTES BELOS"
+}
 },
 {
 "ibge": "5220108",
@@ -5875,7 +7495,11 @@
 "outros_enderecos": [
 "saoluisdemontesbelos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO LUÍS DE MONTES BELOS",
+"tcmjuris": "SAO LUIS MONTES BELOS"
+}
 },
 {
 "ibge": "5220157",
@@ -5888,7 +7512,11 @@
 "outros_enderecos": [
 "saoluizdonorte.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO LUIZ DO NORTE",
+"tcmjuris": "SAO LUIZ NORTE"
+}
 },
 {
 "ibge": "5220157",
@@ -5901,7 +7529,11 @@
 "outros_enderecos": [
 "saoluizdonorte.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO LUIZ DO NORTE",
+"tcmjuris": "SAO LUIZ NORTE"
+}
 },
 {
 "ibge": "5220207",
@@ -5935,6 +7567,10 @@
 "detalhes": {
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "SÃO MIGUEL DO ARAGUAIA",
+"tcmjuris": "SAO MIGUEL ARAGUAIA"
 }
 },
 {
@@ -5971,6 +7607,10 @@
 "receitas_mes": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
+},
+"tcm": {
+"esiproc": "SÃO MIGUEL DO ARAGUAIA",
+"tcmjuris": "SAO MIGUEL ARAGUAIA"
 }
 },
 {
@@ -5985,7 +7625,11 @@
 "saomigueldopassaquatro.go.leg.br",
 "sapl.saomigueldopassaquatro.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO MIGUEL DO PASSA QUATRO",
+"tcmjuris": "SAO MIGUEL PASSA QUATRO"
+}
 },
 {
 "ibge": "5220264",
@@ -5998,7 +7642,11 @@
 "outros_enderecos": [
 "saomigueldopassaquatro.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO MIGUEL DO PASSA QUATRO",
+"tcmjuris": "SAO MIGUEL PASSA QUATRO"
+}
 },
 {
 "ibge": "5220280",
@@ -6012,7 +7660,11 @@
 "saopatricio.go.leg.br",
 "camarasaopatricio.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO PATRÍCIO",
+"tcmjuris": "SAO PATRICIO"
+}
 },
 {
 "ibge": "5220280",
@@ -6025,7 +7677,11 @@
 "outros_enderecos": [
 "saopatricio.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO PATRÍCIO",
+"tcmjuris": "SAO PATRICIO"
+}
 },
 {
 "ibge": "5220405",
@@ -6039,7 +7695,11 @@
 "saosimao.go.leg.br",
 "sapl.saosimao.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO SIMÃO",
+"tcmjuris": "SAO SIMAO"
+}
 },
 {
 "ibge": "5220405",
@@ -6052,7 +7712,11 @@
 "outros_enderecos": [
 "saosimao.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÃO SIMÃO",
+"tcmjuris": "SAO SIMAO"
+}
 },
 {
 "ibge": "5220454",
@@ -6065,7 +7729,11 @@
 "outros_enderecos": [
 "senadorcanedo.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SENADOR CANEDO",
+"tcmjuris": "SENADOR CANEDO"
+}
 },
 {
 "ibge": "5220454",
@@ -6078,7 +7746,11 @@
 "outros_enderecos": [
 "senadorcanedo.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SENADOR CANEDO",
+"tcmjuris": "SENADOR CANEDO"
+}
 },
 {
 "ibge": "5220504",
@@ -6093,7 +7765,11 @@
 "serranopolis.go.leg.br",
 "camaraserranopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SERRANÓPOLIS",
+"tcmjuris": "SERRANOPOLIS"
+}
 },
 {
 "ibge": "5220504",
@@ -6106,7 +7782,11 @@
 "outros_enderecos": [
 "serranopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SERRANÓPOLIS",
+"tcmjuris": "SERRANOPOLIS"
+}
 },
 {
 "ibge": "5220603",
@@ -6119,7 +7799,11 @@
 "outros_enderecos": [
 "silvania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SILVÂNIA",
+"tcmjuris": "SILVANIA"
+}
 },
 {
 "ibge": "5220603",
@@ -6132,7 +7816,11 @@
 "outros_enderecos": [
 "silvania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SILVÂNIA",
+"tcmjuris": "SILVANIA"
+}
 },
 {
 "ibge": "5220686",
@@ -6146,7 +7834,11 @@
 "acessoainformacao.simolandia.go.leg.br",
 "simolandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SIMOLÂNDIA",
+"tcmjuris": "SIMOLANDIA"
+}
 },
 {
 "ibge": "5220686",
@@ -6160,7 +7852,11 @@
 "simolandia.go.gov.br",
 "transparencia.simolandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SIMOLÂNDIA",
+"tcmjuris": "SIMOLANDIA"
+}
 },
 {
 "ibge": "5220702",
@@ -6173,7 +7869,11 @@
 "outros_enderecos": [
 "sitiodabadia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÍTIO D'ABADIA",
+"tcmjuris": "SITIO DABADIA"
+}
 },
 {
 "ibge": "5220702",
@@ -6186,7 +7886,11 @@
 "outros_enderecos": [
 "sitiodabadia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "SÍTIO D'ABADIA",
+"tcmjuris": "SITIO DABADIA"
+}
 },
 {
 "ibge": "5221007",
@@ -6197,7 +7901,11 @@
 "origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TAQUARAL DE GOIÁS",
+"tcmjuris": "TAQUARAL"
+}
 },
 {
 "ibge": "5221007",
@@ -6210,7 +7918,11 @@
 "outros_enderecos": [
 "taquaral.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TAQUARAL DE GOIÁS",
+"tcmjuris": "TAQUARAL"
+}
 },
 {
 "ibge": "5221080",
@@ -6223,7 +7935,11 @@
 "outros_enderecos": [
 "teresinadegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TERESINA DE GOIÁS",
+"tcmjuris": "TERESINA GOIAS"
+}
 },
 {
 "ibge": "5221080",
@@ -6236,7 +7952,11 @@
 "outros_enderecos": [
 "teresinadegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TERESINA DE GOIÁS",
+"tcmjuris": "TERESINA GOIAS"
+}
 },
 {
 "ibge": "5221197",
@@ -6249,7 +7969,11 @@
 "outros_enderecos": [
 "terezopolis.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TEREZÓPOLIS DE GOIÁS",
+"tcmjuris": "TEREZOPOLIS"
+}
 },
 {
 "ibge": "5221197",
@@ -6262,7 +7986,11 @@
 "outros_enderecos": [
 "terezopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TEREZÓPOLIS DE GOIÁS",
+"tcmjuris": "TEREZOPOLIS"
+}
 },
 {
 "ibge": "5221304",
@@ -6275,7 +8003,11 @@
 "outros_enderecos": [
 "tresranchos.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TRÊS RANCHOS",
+"tcmjuris": "TRES RANCHOS"
+}
 },
 {
 "ibge": "5221304",
@@ -6288,7 +8020,11 @@
 "outros_enderecos": [
 "tresranchos.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TRÊS RANCHOS",
+"tcmjuris": "TRES RANCHOS"
+}
 },
 {
 "ibge": "5221403",
@@ -6322,6 +8058,10 @@
 "detalhes": {
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "TRINDADE",
+"tcmjuris": "TRINDADE"
 }
 },
 {
@@ -6355,6 +8095,10 @@
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 7, 8, 10",
 "receitas_mes": "em https://acessoainformacao.trindade.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "TRINDADE",
+"tcmjuris": "TRINDADE"
 }
 },
 {
@@ -6368,7 +8112,11 @@
 "outros_enderecos": [
 "camaramunicipaldetrombas.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TROMBAS",
+"tcmjuris": "TROMBAS"
+}
 },
 {
 "ibge": "5221452",
@@ -6379,7 +8127,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TROMBAS",
+"tcmjuris": "TROMBAS"
+}
 },
 {
 "ibge": "5221502",
@@ -6392,7 +8144,11 @@
 "outros_enderecos": [
 "turvania.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TURVÂNIA",
+"tcmjuris": "TURVANIA"
+}
 },
 {
 "ibge": "5221502",
@@ -6405,7 +8161,11 @@
 "outros_enderecos": [
 "turvania.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TURVÂNIA",
+"tcmjuris": "TURVANIA"
+}
 },
 {
 "ibge": "5221551",
@@ -6418,7 +8178,11 @@
 "outros_enderecos": [
 "turvelandia.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TURVELÂNDIA",
+"tcmjuris": "TURVELANDIA"
+}
 },
 {
 "ibge": "5221551",
@@ -6431,7 +8195,11 @@
 "outros_enderecos": [
 "turvelandia.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "TURVELÂNDIA",
+"tcmjuris": "TURVELANDIA"
+}
 },
 {
 "ibge": "5221577",
@@ -6444,7 +8212,11 @@
 "outros_enderecos": [
 "uirapuru.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "UIRAPURU",
+"tcmjuris": "UIRAPURU"
+}
 },
 {
 "ibge": "5221577",
@@ -6457,7 +8229,11 @@
 "outros_enderecos": [
 "uirapuru.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "UIRAPURU",
+"tcmjuris": "UIRAPURU"
+}
 },
 {
 "ibge": "5221601",
@@ -6471,7 +8247,11 @@
 "transparencia.camarauruacu.go.gov.br",
 "sapl.camarauruacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "URUAÇU",
+"tcmjuris": "URUACU"
+}
 },
 {
 "ibge": "5221601",
@@ -6484,7 +8264,11 @@
 "outros_enderecos": [
 "uruacu.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "URUAÇU",
+"tcmjuris": "URUACU"
+}
 },
 {
 "ibge": "5221700",
@@ -6498,7 +8282,11 @@
 "uruana.go.gov.br",
 "uruana.megasofttransparencia.com.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "URUANA",
+"tcmjuris": "URUANA"
+}
 },
 {
 "ibge": "5221809",
@@ -6511,7 +8299,11 @@
 "outros_enderecos": [
 "urutai.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "URUTAÍ",
+"tcmjuris": "URUTAI"
+}
 },
 {
 "ibge": "5221809",
@@ -6524,7 +8316,11 @@
 "outros_enderecos": [
 "urutai.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "URUTAÍ",
+"tcmjuris": "URUTAI"
+}
 },
 {
 "ibge": "5221858",
@@ -6537,7 +8333,11 @@
 "outros_enderecos": [
 "camaravalparaiso.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VALPARAÍSO DE GOIÁS",
+"tcmjuris": "VALPARAISO GOIAS"
+}
 },
 {
 "ibge": "5221858",
@@ -6551,7 +8351,11 @@
 "valparaisodegoias.go.gov.br",
 "transparencia.valparaisodegoias.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VALPARAÍSO DE GOIÁS",
+"tcmjuris": "VALPARAISO GOIAS"
+}
 },
 {
 "ibge": "5221908",
@@ -6564,7 +8368,11 @@
 "outros_enderecos": [
 "varjao.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VARJÃO",
+"tcmjuris": "VARJAO"
+}
 },
 {
 "ibge": "5221908",
@@ -6577,7 +8385,11 @@
 "outros_enderecos": [
 "varjao.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VARJÃO",
+"tcmjuris": "VARJAO"
+}
 },
 {
 "ibge": "5222005",
@@ -6609,6 +8421,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
+},
+"tcm": {
+"esiproc": "VIANÓPOLIS",
+"tcmjuris": "VIANOPOLIS"
 }
 },
 {
@@ -6643,6 +8459,10 @@
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
+},
+"tcm": {
+"esiproc": "VIANÓPOLIS",
+"tcmjuris": "VIANOPOLIS"
 }
 },
 {
@@ -6654,7 +8474,11 @@
 "origem": null,
 "sufixos": {},
 "outros_enderecos": [],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VICENTINÓPOLIS",
+"tcmjuris": "VICENTINOPOLIS"
+}
 },
 {
 "ibge": "5222054",
@@ -6667,7 +8491,11 @@
 "outros_enderecos": [
 "vicentinopolis.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VICENTINÓPOLIS",
+"tcmjuris": "VICENTINOPOLIS"
+}
 },
 {
 "ibge": "5222203",
@@ -6680,7 +8508,11 @@
 "outros_enderecos": [
 "camaravilaboa.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VILA BOA",
+"tcmjuris": "VILA BOA"
+}
 },
 {
 "ibge": "5222203",
@@ -6693,7 +8525,11 @@
 "outros_enderecos": [
 "vilaboa.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VILA BOA",
+"tcmjuris": "VILA BOA"
+}
 },
 {
 "ibge": "5222302",
@@ -6706,7 +8542,11 @@
 "outros_enderecos": [
 "vilapropicio.go.leg.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VILA PROPÍCIO",
+"tcmjuris": "VILA PROPICIO"
+}
 },
 {
 "ibge": "5222302",
@@ -6719,6 +8559,10 @@
 "outros_enderecos": [
 "vilapropicio.go.gov.br"
 ],
-"conferencia": null
+"conferencia": null,
+"tcm": {
+"esiproc": "VILA PROPÍCIO",
+"tcmjuris": "VILA PROPICIO"
+}
 }
 ]

@@ -29,7 +29,7 @@ def test_linha_leve_guarda_identificacao_e_valores_e_descarta_o_resto():
         "cargo": "ASSESSOR ESPECIAL", "lotacao": "SECRETARIA MUNICIPAL DE SAÚDE",
         "vinculo": "03 - COMISSIONADO", "tipo_pagamento": "Folha Mensal",
         "data_admissao": "2021-01-04", "data_demissao": None, "carga_horaria": 40,
-        "bruto": "3.000,00", "descontos": "450,00", "liquido": "2.550,00",
+        "bruto": "3.000,00", "descontos": "450,00", "liquido": "2.550,00", "orgao": 1,
     }
 
 
@@ -101,3 +101,11 @@ def test_resumo_com_todos_os_tipos_separa_cada_tipo_e_nao_soma_13_ao_salario():
 def test_resumo_recusa_agrupamento_desconhecido_listando_as_opcoes():
     with pytest.raises(ValueError, match="cargo, lotacao ou vinculo"):
         resumir(_mes_de_exemplo(), "secretaria")
+
+
+def test_linha_leve_guarda_o_orgao_e_filtro_por_nome():
+    leve = linha_leve(_linha(orgao_id="003"))
+    assert leve["orgao"] == "003"
+    linhas = [linha_leve(_linha(nome="JOSÉ DA SILVA")), linha_leve(_linha(nome="MARIA SOUZA"))]
+    assert [x["nome"] for x in filtrar(linhas, nome="jose silva")] == []
+    assert [x["nome"] for x in filtrar(linhas, nome="jose da")] == ["JOSÉ DA SILVA"]

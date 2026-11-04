@@ -10,7 +10,7 @@ EXEMPLO = [
     {"ibge": "5218003", "municipio": "Posse", "orgao": "prefeitura", "portal": "https://acessoainformacao.posse.go.gov.br",
      "plataforma": "nucleogov", "sufixos": {"servidores": "cnt"}, "outros_enderecos": ["posse.go.gov.br"],
      "conferencia": {"data": "2026-11-04", "referencia": "06/2025",
-                     "filtros": {"folha_mes": "ok", "despesas_cnpj": "falhou"},
+                     "filtros": {"folha_mes": "ok", "folha_orgaos": "falhou", "despesas_cnpj": "falhou"},
                      "detalhes": {"despesas_cnpj": "buscou X, vieram também Y"}}},
     {"ibge": "5218003", "municipio": "Posse", "orgao": "camara", "portal": "https://acessoainformacao.posse.go.leg.br",
      "plataforma": "nucleogov", "sufixos": {}, "outros_enderecos": [], "conferencia": None},
@@ -80,3 +80,16 @@ def test_mcp_resposta_traz_a_situacao_do_portal_e_usa_os_sufixos_do_catalogo():
     r = servidor_mcp.consultar_folha(2025, 3, busca="FULANO", portal="https://acessoainformacao.posse.go.gov.br")
     assert "despesas_cnpj" in r["situacao_do_portal"]
     assert responses.calls[0].request.url.endswith("servidores_cnt/listar")
+
+
+
+@responses.activate
+def test_mcp_busca_por_nome_avisa_quando_o_portal_esconde_orgaos():
+    def callback(requisicao):
+        import urllib.parse
+        ident = next(iter(json.loads(urllib.parse.parse_qs(requisicao.body.decode())["params"][0])))
+        return 200, {}, json.dumps({ident: {"dados": [], "total": 0}})
+    responses.add_callback(responses.POST, "https://acessoainformacao.posse.go.gov.br/api/servidores_cnt/listar",
+                           callback=callback, content_type="application/json")
+    r = servidor_mcp.consultar_folha(2025, 3, busca="FULANO", portal="https://acessoainformacao.posse.go.gov.br")
+    assert "listar_folha" in r["aviso_orgaos"]

@@ -16,6 +16,7 @@ CAMPOS = {
     "cargo": "cargo", "lotacao": "lotacao", "vinculo": "vinculo", "tipo_pagamento": "tipo_folha",
     "data_admissao": "data_admissao", "data_demissao": "data_demissao", "carga_horaria": "carga_horaria",
     "bruto": "total_proventos", "descontos": "total_desconto", "liquido": "total_liquido",
+    "orgao": "orgao_id",
 }
 
 
@@ -35,10 +36,10 @@ def _comparavel(texto):
     return sem_acento.casefold()
 
 
-def filtrar(linhas, *, cargo=None, lotacao=None, vinculo=None, tipo_pagamento=None):
+def filtrar(linhas, *, cargo=None, lotacao=None, vinculo=None, tipo_pagamento=None, nome=None):
     """Linhas leves cujo campo contém o texto pedido, sem distinguir maiúscula nem acento. Filtros se somam."""
     pedidos = {c: _comparavel(v) for c, v in (("cargo", cargo), ("lotacao", lotacao), ("vinculo", vinculo),
-                                              ("tipo_pagamento", tipo_pagamento)) if v}
+                                              ("tipo_pagamento", tipo_pagamento), ("nome", nome)) if v}
     return [x for x in linhas if all(v in _comparavel(x.get(c)) for c, v in pedidos.items())]
 
 

@@ -78,8 +78,41 @@ def _ler_mes(portal, ano, mes, progresso=None):
     if len(r["registros"]) != r["total"]:
         raise ErroPortal(f"a leitura da folha de {quando} veio incompleta: {len(r['registros'])} de "
                          f"{r['total']} linhas. Nada foi guardado; tente de novo.")
-    _LEITURAS[chave] = [linha_leve(x) for x in r["registros"]]
+    linhas = r["registros"] + _orgaos_escondidos(portal, ano, mes, r, quando)
+    _LEITURAS[chave] = [linha_leve(x) for x in linhas]
     return _LEITURAS[chave]
+
+
+ORGAOS_SONDADOS = range(1, 16)
+
+
+def _orgaos_escondidos(portal, ano, mes, sem_filtro, quando):
+    """Linhas dos órgãos que a folha sem filtro não traz.
+
+    Em 6 de 10 prefeituras conferidas em 04/11/2026 a folha sem filtro trazia só um órgão (Trindade: o 3;
+    com filtro apareciam 5, 6, 7, 8 e 10). Sonda os códigos 1 a 15 que não vieram e lê os que têm linhas.
+    """
+    vistos = {str(x.get("orgao_id")) for x in sem_filtro["registros"] if x.get("orgao_id") is not None}
+    if not vistos:
+        return []
+    largura = len(next(iter(vistos)))
+    acao = f"servidores_{(portal.sufixos or {}).get('servidores', 'frl')}/listar"
+    extras = []
+    for n in ORGAOS_SONDADOS:
+        codigo = str(n).zfill(largura)
+        if codigo in vistos:
+            continue
+        filtros = {"ano": str(ano), "mes": str(int(mes)), "orgao": codigo}
+        total = portal.consultar(acao, filtros, maximo=1)["total"]
+        if total == sem_filtro["total"]:
+            return []  # o portal ignora o filtro de órgão: o que veio sem filtro é tudo o que há
+        if total:
+            r = portal.consultar(acao, filtros, maximo=sys.maxsize)
+            if len(r["registros"]) != r["total"]:
+                raise ErroPortal(f"a leitura do órgão {codigo} na folha de {quando} veio incompleta: "
+                                 f"{len(r['registros'])} de {r['total']} linhas. Nada foi guardado.")
+            extras += r["registros"]
+    return extras
 
 
 def _resposta(dados, portal=None):
@@ -124,9 +157,15 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     Para cargo, lotação ou vínculo use listar_folha; para contagens e custos, resumir_folha.
     """
     def consultar():
-        r = _portal(portal).folha(ano, _mes(mes), busca, maximo=maximo)
+        consultado = _portal(portal)
+        r = consultado.folha(ano, _mes(mes), busca, maximo=maximo)
         com_rubricas = len(r["registros"]) <= RUBRICAS_ATE
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
+        orgao = catalogo.por_portal(consultado.url) or {}
+        if ((orgao.get("conferencia") or {}).get("filtros") or {}).get("folha_orgaos") == "falhou":
+            saida["aviso_orgaos"] = ("neste portal a folha sem filtro esconde órgãos (conferência): a busca por nome "
+                                     "pode não achar quem está neles. Para não perder ninguém, use "
+                                     "listar_folha(ano, mes, nome=...), que lê o mês inteiro.")
         if not com_rubricas:
             saida["aviso_rubricas"] = (f"mais de {RUBRICAS_ATE} linhas: as rubricas não vieram. "
                                        "Refine a busca pelo nome para ver as rubricas de uma pessoa.")
@@ -136,19 +175,21 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
 
 @mcp.tool()
 async def listar_folha(ano: int, mes: int, cargo: str | None = None, lotacao: str | None = None,
-                       vinculo: str | None = None, tipo_pagamento: str | None = None,
+                       vinculo: str | None = None, tipo_pagamento: str | None = None, nome: str | None = None,
                        portal: str | None = None, maximo: int = 100, ctx: Context = None) -> dict:
     """Linhas da folha do mês filtradas por cargo, lotação, vínculo ou tipo de pagamento, com nomes.
 
     Ex.: quem são os comissionados da Secretaria de Saúde. Filtro "contém", sem distinguir maiúscula
-    nem acento (vinculo="comissionado" pega todas as variantes); filtros se somam. tipo_pagamento:
+    nem acento (vinculo="comissionado" pega todas as variantes); filtros se somam. `nome` também filtra,
+    alcançando órgãos que a busca rápida de consultar_folha pode não ver. tipo_pagamento:
     "mensal", "13" ou "rescis". Lê o mês inteiro do portal: na primeira vez pode levar ~10 minutos
     (avisa o progresso); depois o mesmo mês sai na hora. Até 300 linhas; `encontradas` diz quantas
     casaram. Dado de pessoa: use para apuração, não para montar dossiê.
     """
     try:
         linhas = await _ler_mes_avisando(ctx, _portal(portal), ano, _mes(mes))
-        achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo, tipo_pagamento=tipo_pagamento)
+        achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo, tipo_pagamento=tipo_pagamento,
+                          nome=nome)
         limite = max(1, min(maximo, LISTA_MAXIMA))
         saida = {"total_do_mes": len(linhas), "encontradas": len(achadas), "linhas": achadas[:limite]}
         if len(achadas) > limite:

@@ -112,3 +112,11 @@ def test_resumir_folha_recusa_agrupamento_invalido_antes_de_ler_o_mes():
     r, _ = _chamar("resumir_folha", ano=2025, mes=3, agrupar_por="secretaria")
     assert "cargo, lotacao ou vinculo" in r["erro"]
     assert len(responses.calls) == 0
+
+
+
+@responses.activate
+def test_listar_folha_filtra_pelo_nome_na_leitura_do_mes():
+    _portal_com([_linha(i) for i in range(30)])
+    r, _ = _chamar("listar_folha", ano=2025, mes=3, nome="pessoa 1")
+    assert sorted(x["nome"] for x in r["linhas"]) == ["PESSOA 1"] + [f"PESSOA 1{i}" for i in range(10)]

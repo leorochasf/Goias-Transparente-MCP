@@ -58,7 +58,7 @@ def test_erro_da_cli_sai_em_utf8_mesmo_com_terminal_em_outra_codificacao():
     env = {k: v for k, v in os.environ.items() if k not in ("PYTHONIOENCODING", "PYTHONUTF8")}
     env.update(PYTHONPATH=str(raiz), PYTHONIOENCODING="cp1252")
     r = subprocess.run([sys.executable, "-m", "transparencia_municipal.cli", "--portal",
-                        "http://127.0.0.1:9", "receitas", "--de", "2025-01", "--ate", "2025-02"],
+                        "http://127.0.0.1:9", "receitas", "--ano", "2025", "--mes", "1"],
                        capture_output=True, env=env, cwd=raiz, timeout=60)
     assert r.returncode == 1
     assert "não foi possível falar com" in r.stderr.decode("utf-8")

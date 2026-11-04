@@ -167,3 +167,14 @@ def test_consultar_despesas_avisa_quando_os_empenhos_misturam_orgaos(monkeypatch
 def test_consultar_folha_diz_que_na_megasoft_o_13_nao_vem_em_linha_propria():
     doc = servidor_mcp.consultar_folha.__doc__
     assert "13º" in doc and "Megasoft" in doc
+
+
+@responses.activate
+def test_sondagem_que_falhou_na_rede_nao_fica_lembrada(monkeypatch):
+    """Erro passageiro da API NucleoGov não pode virar "a API não serve o módulo" até o processo fechar."""
+    for acao in ("servidores_frl", "servidores_cnt"):
+        responses.add(responses.POST, f"{NUCLEOGOV}/api/{acao}/listar", status=500, body="erro")
+    _duble(monkeypatch, megasoft_embutida, "folha")
+    for _ in range(2):
+        Portal(NUCLEOGOV, pausa=0, sufixos={"servidores": "mg"}).folha(2025, 6, maximo=5)
+    assert len(responses.calls) == 4  # sondou de novo na segunda consulta

@@ -182,3 +182,11 @@ def test_listar_folha_por_vinculo_num_portal_com_folha_megasoft_embutida(monkeyp
     assert (r["total_do_mes"], r["encontradas"]) == (5, 3)
     assert [x["matricula"] for x in r["linhas"]] == ["1", "3", "5"]
     assert {x["fonte"] for x in r["linhas"]} == {"Megasoft"}
+
+
+@responses.activate
+def test_empenhos_com_codigo_nulo_nao_se_juntam_num_so():
+    """Sem a chave, repetido é o registro inteiro: dois empenhos diferentes com `codigo` nulo continuam dois."""
+    _portal_com_megasoft(empenhos=[_empenho(None, "10/01/2025"), _empenho(None, "11/01/2025")])
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert r["total"] == 2 and [x["data"] for x in r["registros"]] == ["10/01/2025", "11/01/2025"]

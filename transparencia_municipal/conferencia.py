@@ -6,6 +6,7 @@ nos dados que voltam. Resultado de cada filtro: ok, falhou, sem_dados ou erro.
 """
 from __future__ import annotations
 
+import calendar
 import re
 import time
 from collections import Counter
@@ -32,7 +33,10 @@ def _digitos(texto):
 def _mes_mais_recente_da_folha(p, ano_atual):
     """Sem `mes`, o portal devolve o mês mais recente do ano (docs/portal-nucleogov.md)."""
     for ano in (ano_atual, ano_atual - 1):
-        regs = p.folha(ano, maximo=1)["registros"]
+        try:
+            regs = p.folha(ano, maximo=1)["registros"]
+        except ValueError:  # a Megasoft embutida só lê a folha com o mês
+            return None
         if regs:
             return int(regs[0]["ano"]), int(regs[0]["mes"])
     return None
@@ -59,7 +63,7 @@ def _folha(p, ano, mes, contexto):
 def _folha_orgaos(p, ano, mes, contexto):
     ano, mes = contexto.get("folha_ref", (ano, mes))
     regs = contexto["folha"]["registros"] if "folha" in contexto else p.folha(ano, mes, maximo=100)["registros"]
-    outra = next((x["fonte"] for x in regs if x.get("fonte") not in (None, FONTE)), None)
+    outra = next((x["fonte"] for x in regs if x.get("fonte", FONTE) != FONTE), None)
     if outra:
         return "sem_dados", f"a folha vem da {outra}: a sondagem de órgãos escondidos é só do NucleoGov"
     ids = {x.get("orgao_id") for x in regs if x.get("orgao_id")}
@@ -92,13 +96,18 @@ def _folha_orgaos(p, ano, mes, contexto):
     return "ok", None
 
 
+def _mes_inteiro(ano, mes):
+    """O 1º e o último dia do mês. A Centi devolve o período inteiro numa resposta só: um mês por vez."""
+    return date(ano, mes, 1), date(ano, mes, calendar.monthrange(ano, mes)[1])
+
+
 def _despesas_periodo(p, ano, mes, contexto):
-    de, ate = date(ano, 1, 1), date(ano, 3, 31)
+    de, ate = _mes_inteiro(ano, mes)
     r = p.despesas(de.isoformat(), ate.isoformat(), maximo=20)
     contexto["despesas"] = r
     datas = [_data(x.get("data")) for x in r["registros"]]
     if not datas:
-        return "sem_dados", "nenhuma despesa no 1º trimestre"
+        return "sem_dados", f"nenhuma despesa em {mes:02d}/{ano}"
     fora = sorted({d.isoformat() for d in datas if d and not de <= d <= ate})
     return ("falhou", f"pediu {de}..{ate}, vieram {fora[:5]}") if fora else ("ok", None)
 
@@ -107,9 +116,10 @@ def _despesas_cnpj(p, ano, mes, contexto):
     regs = contexto["despesas"]["registros"] if "despesas" in contexto else []
     cnpjs = Counter(x.get("cpf_cnpj") for x in regs if len(_digitos(x.get("cpf_cnpj"))) == 14)
     if not cnpjs:
-        return "sem_dados", "nenhum CNPJ nas despesas do 1º trimestre"
+        return "sem_dados", f"nenhum CNPJ nas despesas de {mes:02d}/{ano}"
     cnpj = cnpjs.most_common(1)[0][0]
-    r = p.despesas(f"{ano}-01-01", f"{ano}-03-31", cnpj, maximo=20)
+    de, ate = _mes_inteiro(ano, mes)
+    r = p.despesas(de.isoformat(), ate.isoformat(), cnpj, maximo=20)
     outros = sorted({x.get("cpf_cnpj") for x in r["registros"] if _digitos(x.get("cpf_cnpj")) != _digitos(cnpj)})
     if not r["registros"]:
         return "falhou", f"a busca por {cnpj}, que aparece nas despesas, voltou vazia"

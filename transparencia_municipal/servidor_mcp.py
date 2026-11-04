@@ -93,7 +93,7 @@ def _orgaos_escondidos(portal, ano, mes, sem_filtro, quando):
     com filtro apareciam 5, 6, 7, 8 e 10). Sonda os códigos 1 a 15 que não vieram e lê os que têm linhas.
     Só no NucleoGov: linhas traduzidas de outro sistema trazem outra `fonte` e não são sondadas.
     """
-    if any(x.get("fonte") != FONTE for x in sem_filtro["registros"]):
+    if any(x.get("fonte", FONTE) != FONTE for x in sem_filtro["registros"]):
         return []
     vistos = {str(x.get("orgao_id")) for x in sem_filtro["registros"] if x.get("orgao_id") is not None}
     if not vistos:
@@ -163,7 +163,7 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     def consultar():
         consultado = _portal(portal)
         r = consultado.folha(ano, _mes(mes), busca, maximo=maximo)
-        de_outro_sistema = any(x.get("fonte") != FONTE for x in r["registros"])  # Megasoft: listagem sem rubricas
+        de_outro_sistema = any(x.get("fonte", FONTE) != FONTE for x in r["registros"])  # Megasoft: listagem sem rubricas
         com_rubricas = len(r["registros"]) <= RUBRICAS_ATE and not de_outro_sistema
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
         orgao = catalogo.por_portal(consultado.url) or {}

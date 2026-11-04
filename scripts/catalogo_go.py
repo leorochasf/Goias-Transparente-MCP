@@ -139,7 +139,7 @@ def conferir(args):
             continue
         if host in feitas:
             continue
-        portal = Portal(f"https://{host}", navegador=True)
+        portal = Portal(f"https://{host}", navegador=plataforma != "megasoft")  # a Megasoft aceita a ferramenta
         r = conferir_portal(portal, ano=args.ano, mes=args.mes)
         r["sufixos"] = portal.sufixos or {}
         feitas[host] = r

@@ -27,6 +27,8 @@ class PortalDeMentira:
         todas = [{"data": "15/01/2025", "cpf_cnpj": CNPJ_A}] * 5 + [{"data": "20/02/2025", "cpf_cnpj": CNPJ_B}] * 3
         if "despesas_periodo" in self.ignora:
             todas += [{"data": "10/10/2026", "cpf_cnpj": CNPJ_B}]
+        else:
+            todas = [x for x in todas if de <= "-".join(reversed(x["data"].split("/"))) <= ate]
         if busca and "despesas_cnpj" not in self.ignora:
             todas = [x for x in todas if x["cpf_cnpj"] == busca]
         return self._r(todas)
@@ -115,3 +117,27 @@ def test_folha_de_outro_sistema_nao_sonda_orgaos_e_sai_sem_dados_com_nota():
     r = conferir(Megasoft(), ano=2025, mes=1, hoje="x", pausa=0)
     assert r["filtros"]["folha_mes"] == "ok"
     assert r["filtros"]["folha_orgaos"] == "sem_dados" and "Megasoft" in r["detalhes"]["folha_orgaos"]
+
+
+def test_despesas_sao_conferidas_no_mes_de_referencia():
+    """A Centi devolve o período inteiro numa resposta só: a conferência pede um mês por vez."""
+    pedidos = []
+
+    class Registra(PortalDeMentira):
+        def despesas(self, de, ate, busca=None, *, maximo=200):
+            pedidos.append((de, ate))
+            return super().despesas(de, ate, busca, maximo=maximo)
+    r = conferir(Registra(), ano=2025, mes=2, hoje="x", pausa=0)
+    assert set(pedidos) == {("2025-02-01", "2025-02-28")}
+    assert r["filtros"]["despesas_periodo"] == "ok" and r["filtros"]["despesas_cnpj"] == "ok"
+
+
+def test_folha_vazia_num_sistema_que_exige_o_mes_sai_sem_dados_e_nao_erro():
+    """A Megasoft embutida recusa a folha sem mês (ValueError): sem o mês mais recente, não há o que conferir."""
+    class ExigeMes(PortalDeMentira):
+        def folha(self, ano, mes=None, busca=None, *, maximo=200):
+            if mes is None:
+                raise ValueError("informe o mês")
+            return self._r([])
+    r = conferir(ExigeMes(), ano=2025, mes=6, hoje="2026-11-05", pausa=0)
+    assert r["filtros"]["folha_mes"] == "sem_dados"

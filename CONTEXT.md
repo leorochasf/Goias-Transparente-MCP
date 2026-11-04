@@ -26,7 +26,7 @@ _Evitar_: entidade, ente
 
 **Fonte**:
 O sistema de onde veio um registro de folha ou de despesas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio) ou Centi.
-_Evitar_: origem, plataforma (quando se quer dizer a fonte do registro)
+_Evitar_: plataforma (quando se quer dizer a fonte do registro)
 
 **Catálogo de portais**:
 A lista dos órgãos de Goiás, cada um com o endereço do portal, a plataforma e a situação da conferência.

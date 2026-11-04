@@ -39,7 +39,7 @@ def _ler(portal, acao, filtros, *, maximo, campo_chave, progresso=None):
             acao, {**filtros, "pagina": pagina, "tamanhoDaPagina": tamanho, "ordenacao": {}}, 0)
         total = total_da_pagina if pagina == 1 else total
         for reg in lote:
-            chave = json.dumps(reg.get(campo_chave, reg), sort_keys=True, ensure_ascii=False)
+            chave = json.dumps(reg.get(campo_chave) or reg, sort_keys=True, ensure_ascii=False)
             if chave not in vistos:
                 vistos.add(chave)
                 registros.append(reg)
@@ -57,7 +57,7 @@ def _incompleta(o_que, lidos, total):
 
 
 def folha(portal, *, ano, mes, busca, maximo, progresso=None):
-    """Linhas da folha de `mes`/`ano` (int; `mes` None = o portal decide). `busca`: nome do servidor ou None.
+    """Linhas da folha de `mes`/`ano` (int; `mes` None é recusado). `busca`: nome do servidor ou None.
 
     `progresso(lidas, total)`, se dado, é chamado depois de cada página (a leitura do mês avisa o assistente).
     A busca por nome é feita aqui, sobre o mês inteiro.

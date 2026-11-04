@@ -172,15 +172,27 @@ class Portal:
         return reconhecer(r.text, self.url)["sufixos"] if r.status_code == 200 else {}
 
     def _api_serve(self, modulo):
-        """O sufixo com que a API NucleoGov traz algum registro do módulo, sem filtro; None se nenhum."""
+        """O sufixo com que a API NucleoGov traz algum registro do módulo, sem filtro; None se nenhum.
+
+        Lembrado por endereço enquanto o processo vive, se a API respondeu; erro em todos os sufixos não é lembrado.
+        """
+        chave = (self.url, modulo)
+        if chave in _API_SONDADA:
+            return _API_SONDADA[chave]
+        respondeu = False
         for sufixo in SUFIXOS:
             try:
-                if self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"] > 0:
-                    return sufixo
+                total = self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"]
             except PortalBloqueou:
                 raise
             except ErroPortal:
                 continue
+            respondeu = True
+            if total > 0:
+                _API_SONDADA[chave] = sufixo
+                return sufixo
+        if respondeu:
+            _API_SONDADA[chave] = None
         return None
 
     def _acesso(self, nome):
@@ -207,9 +219,7 @@ class Portal:
                 return None
             # o menu aponta outra plataforma, mas a API NucleoGov às vezes serve o módulo mesmo assim
             # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide, uma vez por endereço
-            if (self.url, modulo) not in _API_SONDADA:
-                _API_SONDADA[(self.url, modulo)] = self._api_serve(modulo)
-            sufixo = _API_SONDADA[(self.url, modulo)]
+            sufixo = self._api_serve(modulo)
             if sufixo:
                 self.sufixos[modulo] = sufixo
                 return None

@@ -251,3 +251,12 @@ def test_mcp_consultar_despesas_por_cnpj_num_portal_megasoft_proprio():
     assert r["total"] == 2 and [x["empenho"] for x in r["registros"]] == [10, 12]
     assert {(x["cpf_cnpj"], x["fonte"]) for x in r["registros"]} == {("25.107.525/0001-51", "Megasoft")}
     assert _consultas(EMPENHOS)[0]["dataFinal"] == "31/03/2025"
+
+
+@responses.activate
+def test_empenhos_sem_codigo_nao_se_juntam_num_so():
+    """Sem a chave, repetido é o registro inteiro: dois empenhos diferentes sem `codigo` continuam dois."""
+    _senhas("senha-1")
+    _listagem(EMPENHOS, [_empenho(None), _empenho(None, data="16/01/2025")])
+    r = Portal(URL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert r["total"] == 2 and [x["data"] for x in r["registros"]] == ["15/01/2025", "16/01/2025"]

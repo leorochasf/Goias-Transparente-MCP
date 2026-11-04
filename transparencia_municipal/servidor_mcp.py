@@ -31,7 +31,7 @@ def _endereco(url=None):
     return endereco
 
 
-def _portal(url=None, *, folha=False):
+def _portal(url=None):
     """Portal pronto para consulta. Recusa, sem chamar o portal, o que o catálogo diz não ser suportado."""
     endereco = _endereco(url)
     orgao = catalogo.por_portal(endereco)
@@ -39,9 +39,6 @@ def _portal(url=None, *, folha=False):
     if plataforma in ("megasoft", "ortrel"):
         raise ValueError(f"A {catalogo.nome_do_orgao(orgao)} usa a plataforma "
                          f"{catalogo.NOMES_PLATAFORMA[plataforma]}, ainda não suportada por este projeto.")
-    if plataforma == "nucleogov-megasoft" and folha:
-        raise ValueError(f"Na {catalogo.nome_do_orgao(orgao)} a folha vem da Megasoft embutida no NucleoGov, "
-                         "ainda não suportada. Despesas, contratos, licitações, receitas e legislação funcionam.")
     sufixos = dict(orgao["sufixos"]) if orgao and orgao.get("sufixos") else None
     return Portal(endereco, navegador=os.getenv("TRANSPARENCIA_NAVEGADOR") == "1", sufixos=sufixos)
 
@@ -127,7 +124,7 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     Para cargo, lotação ou vínculo use listar_folha; para contagens e custos, resumir_folha.
     """
     def consultar():
-        r = _portal(portal, folha=True).folha(ano, _mes(mes), busca, maximo=maximo)
+        r = _portal(portal).folha(ano, _mes(mes), busca, maximo=maximo)
         com_rubricas = len(r["registros"]) <= RUBRICAS_ATE
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
         if not com_rubricas:
@@ -150,7 +147,7 @@ async def listar_folha(ano: int, mes: int, cargo: str | None = None, lotacao: st
     casaram. Dado de pessoa: use para apuração, não para montar dossiê.
     """
     try:
-        linhas = await _ler_mes_avisando(ctx, _portal(portal, folha=True), ano, _mes(mes))
+        linhas = await _ler_mes_avisando(ctx, _portal(portal), ano, _mes(mes))
         achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo, tipo_pagamento=tipo_pagamento)
         limite = max(1, min(maximo, LISTA_MAXIMA))
         saida = {"total_do_mes": len(linhas), "encontradas": len(achadas), "linhas": achadas[:limite]}
@@ -178,7 +175,7 @@ async def resumir_folha(ano: int, mes: int, agrupar_por: str = "lotacao", cargo:
     try:
         if agrupar_por not in AGRUPAMENTOS:
             raise ValueError(f"agrupar_por: use cargo, lotacao ou vinculo (recebido: {agrupar_por!r})")
-        linhas = await _ler_mes_avisando(ctx, _portal(portal, folha=True), ano, _mes(mes))
+        linhas = await _ler_mes_avisando(ctx, _portal(portal), ano, _mes(mes))
         achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo)
         filtros = {k: v for k, v in (("cargo", cargo), ("lotacao", lotacao), ("vinculo", vinculo)) if v}
         return _resposta({"total_do_mes": len(linhas), "filtros": filtros,

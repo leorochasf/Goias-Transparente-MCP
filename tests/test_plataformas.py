@@ -27,9 +27,11 @@ def test_reconhece_nucleogov_e_o_sufixo_de_cada_modulo_da_pagina():
 
 
 def test_reconhece_a_variante_megasoft_dentro_do_nucleogov():
-    html = '<div class="nucleogov"><a href="/mgservidores">Servidores</a><a href="/despesas_cnt">D</a></div>'
-    assert reconhecer(html, "acessoainformacao.caldazinha.go.gov.br") == {
-        "plataforma": "nucleogov-megasoft", "sufixos": {"despesas": "cnt"}}
+    html = ('<div class="nucleogov"><a href="cidadao/transparencia/mgservidores">Rec. Humanos</a>'
+            '<a href="cidadao/transparencia/mgdespesas">D</a><a href="/contratos_cnt">C</a></div>')
+    assert reconhecer(html, "acessoainformacao.abadiadegoias.go.gov.br") == {
+        "plataforma": "nucleogov-megasoft",
+        "sufixos": {"servidores": "mg", "despesas": "mg", "contratos": "cnt"}}
 
 
 def test_reconhece_megasoft_pelo_dominio_e_ortrel_pela_pagina():

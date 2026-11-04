@@ -20,7 +20,8 @@ EXEMPLO = [
      "portal": "https://corumbaiba.megasofttransparencia.com.br", "plataforma": "megasoft", "sufixos": {},
      "outros_enderecos": [], "conferencia": None},
     {"ibge": "5204409", "municipio": "Caldazinha", "orgao": "prefeitura",
-     "portal": "https://acessoainformacao.caldazinha.go.gov.br", "plataforma": "nucleogov-megasoft", "sufixos": {},
+     "portal": "https://acessoainformacao.caldazinha.go.gov.br", "plataforma": "nucleogov-megasoft",
+     "sufixos": {"servidores": "mg", "despesas": "mg", "contratos": "cnt"},
      "outros_enderecos": [], "conferencia": None},
 ]
 
@@ -59,9 +60,10 @@ def test_mcp_recusa_portal_de_outra_plataforma_sem_chamar_o_portal():
     assert "Megasoft" in r["erro"] and "Corumbaíba" in r["erro"]
 
 
-def test_mcp_recusa_a_folha_da_variante_megasoft_embutida():
-    r = servidor_mcp.consultar_folha(2025, 3, portal="https://acessoainformacao.caldazinha.go.gov.br")
-    assert "folha" in r["erro"] and "Megasoft" in r["erro"]
+def test_mcp_recusa_os_modulos_da_megasoft_embutida_sem_chamar_o_portal():
+    caldazinha = "https://acessoainformacao.caldazinha.go.gov.br"
+    assert "Megasoft" in servidor_mcp.consultar_folha(2025, 3, portal=caldazinha)["erro"]
+    assert "Megasoft" in servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=caldazinha)["erro"]
 
 
 @responses.activate

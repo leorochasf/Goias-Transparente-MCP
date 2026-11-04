@@ -36,7 +36,7 @@ def _portal_com(linhas):
 
 @pytest.fixture(autouse=True)
 def sem_pausa(monkeypatch):
-    monkeypatch.setattr(servidor_mcp, "_portal", lambda url=None, **_: Portal(url or PORTAL, pausa=0))
+    monkeypatch.setattr(servidor_mcp, "_portal", lambda url=None: Portal(url or PORTAL, pausa=0))
     servidor_mcp._LEITURAS.clear()
     yield
     servidor_mcp._LEITURAS.clear()

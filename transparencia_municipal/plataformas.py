@@ -33,8 +33,12 @@ def reconhecer(html, endereco):
         sufixos = {}
         for modulo, sufixo in re.findall(rf"\b({'|'.join(MODULOS_NUCLEOGOV)})_(cnt|frl)\b", low):
             sufixos.setdefault(modulo, sufixo)
-        # `mgservidores`: a folha vem da Megasoft embutida no NucleoGov (ex.: Caldazinha); o resto é NucleoGov
-        return {"plataforma": "nucleogov-megasoft" if "mgservidores" in low else "nucleogov", "sufixos": sufixos}
+        # `mgservidores`, `mgdespesas`...: o módulo vem da Megasoft embutida no NucleoGov (ex.: Abadia de Goiás,
+        # 04/11/2026). Sufixo "mg" = módulo que a API NucleoGov não serve (responderia zero, sem erro).
+        megasoft = re.findall(rf"\bmg({'|'.join(MODULOS_NUCLEOGOV)})\b", low)
+        for modulo in megasoft:
+            sufixos.setdefault(modulo, "mg")
+        return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}
     return {"plataforma": None, "sufixos": {}}

@@ -9,7 +9,7 @@ import urllib.parse
 import pytest
 import responses
 
-from transparencia_municipal import Portal
+from transparencia_municipal import ErroPortal, Portal
 
 pytestmark = pytest.mark.descobre_sufixos
 PORTAL = "https://acessoainformacao.exemplo.go.gov.br"
@@ -62,3 +62,11 @@ def test_sufixos_informados_dispensam_a_pagina_inicial():
     _modulo("contratos_cnt/listar", 5)
     assert Portal(PORTAL, pausa=0, sufixos={"contratos": "cnt"}).contratos(2025)["total"] == 5
     assert all(c.request.method == "POST" for c in responses.calls)
+
+
+@responses.activate
+def test_modulo_da_megasoft_embutida_e_recusado_em_vez_de_devolver_zero():
+    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/mgdespesas">D</a></div>')
+    with pytest.raises(ErroPortal, match="Megasoft"):
+        Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert all(c.request.method == "GET" for c in responses.calls)

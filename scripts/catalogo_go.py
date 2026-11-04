@@ -79,6 +79,9 @@ def sondar(args):
     for o in orgaos:
         reconheciveis = [h for h in o["hosts"] if plataforma_pelo_endereco(h)]
         fila.update(reconheciveis or o["hosts"])
+    if args.refazer:  # sondar de novo os endereços que a sondagem anterior classificou assim
+        anteriores = _sondados()
+        feitos = {h for h in feitos if (anteriores.get(h) or {}).get("plataforma") != args.refazer}
     fila = sorted(fila - feitos)
     print(f"{len(fila)} endereços a sondar ({len(feitos)} já feitos)", flush=True)
     sessao = requests.Session()
@@ -140,6 +143,44 @@ def conferir(args):
         time.sleep(args.pausa)
 
 
+PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
+
+
+def montar(args):
+    """Um registro por órgão: o portal preferido, a plataforma, os sufixos e a conferência, se houver."""
+    sondados, conferencias = _sondados(), (json.loads(CONFERENCIAS.read_text(encoding="utf-8"))
+                                           if CONFERENCIAS.exists() else {})
+    catalogo = []
+    for o in json.loads(CANDIDATOS.read_text(encoding="utf-8")):
+        opcoes = []
+        for h in o["hosts"]:
+            s = sondados.get(h) or {}
+            plataforma = s.get("plataforma") or plataforma_pelo_endereco(h)
+            if plataforma:
+                confirmado = bool(s.get("plataforma"))  # a sondagem viu a marca da plataforma no ar
+                opcoes.append((not confirmado, PREFERENCIA.index(plataforma), h, plataforma, s))
+        if opcoes:
+            _, _, host, plataforma, s = min(opcoes)
+            origem = "sondagem" if s.get("plataforma") else "endereco"
+        else:
+            host, plataforma, s, origem = (o["hosts"] or [None])[0], None, sondados.get((o["hosts"] or [""])[0]) or {}, None
+        conferencia = conferencias.get(host)
+        # a página inicial (sondagem) manda; o que a conferência aprendeu completa
+        sufixos = {**((conferencia or {}).pop("sufixos", None) or {}), **(s.get("sufixos") or {})}
+        if plataforma == "nucleogov-megasoft" and "mg" not in sufixos.values():
+            sufixos = {}  # sondagem antiga, sem os módulos Megasoft: o cliente lê a página inicial na hora
+        catalogo.append({
+            "ibge": o["ibge"], "municipio": o["municipio"], "orgao": o["orgao"],
+            "portal": f"https://{host}" if host else None, "plataforma": plataforma, "origem": origem,
+            "sufixos": sufixos, "outros_enderecos": [h for h in o["hosts"] if h != host],
+            "conferencia": conferencia,
+        })
+    CATALOGO.write_text(json.dumps(catalogo, ensure_ascii=False, indent=0), encoding="utf-8")
+    contagem = collections.Counter(x["plataforma"] for x in catalogo)
+    print(f"{len(catalogo)} órgãos -> {CATALOGO.name}: {dict(contagem)}; "
+          f"conferidos: {sum(1 for x in catalogo if x['conferencia'])}")
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="passo", required=True)
@@ -148,13 +189,15 @@ def main():
     s = sub.add_parser("sondar")
     s.add_argument("--pausa", type=float, default=1.0)
     s.add_argument("--timeout", type=int, default=20)
+    s.add_argument("--refazer", help="plataforma cujos endereços devem ser sondados de novo")
     s = sub.add_parser("conferir")
     s.add_argument("--municipios", required=True, help="nomes separados por vírgula")
     s.add_argument("--ano", type=int, default=2025)
     s.add_argument("--mes", type=int, default=6)
     s.add_argument("--pausa", type=float, default=2.0)
+    sub.add_parser("montar")
     a = p.parse_args()
-    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir}[a.passo](a)
+    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir, "montar": montar}[a.passo](a)
 
 
 if __name__ == "__main__":

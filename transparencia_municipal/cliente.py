@@ -150,6 +150,9 @@ class Portal:
         modulo = MODULOS[nome]
         if self.sufixos is None:
             self.sufixos = self._descobrir_sufixos()
+        if self.sufixos.get(modulo) == "mg":
+            raise ErroPortal(f"em {self.url}, o módulo {modulo} vem da Megasoft embutida no NucleoGov, ainda não "
+                             "suportada: a API NucleoGov responderia zero registros, sem aviso.")
         if modulo in self.sufixos:
             return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
                                   progresso=progresso)

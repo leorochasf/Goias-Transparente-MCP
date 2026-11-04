@@ -30,7 +30,8 @@ def _gravar(registros, csv_saida, json_saida):
         with open(csv_saida, "w", encoding="utf-8-sig", newline="") as f:
             w = csv.DictWriter(f, fieldnames=colunas, extrasaction="ignore")
             w.writeheader()
-            w.writerows(registros)
+            w.writerows({c: json.dumps(v, ensure_ascii=False) if isinstance(v, (list, dict)) else v
+                         for c, v in r.items()} for r in registros)  # lista na célula: JSON, não texto do Python
         print(f"{len(registros)} registros em {csv_saida}")
 
 
@@ -125,7 +126,8 @@ def _main_tcm(a):
         r, avisos = _tcm(a)
     except (ErroPortal, ValueError) as e:
         raise SystemExit(f"ERRO: {e}")
-    for aviso in [tcm.AVISO_GERAL, *avisos] + [r[k] for k in ("aviso_total", "aviso_leitura") if r.get(k)]:
+    for aviso in [tcm.AVISO_GERAL, *avisos] + [r[k] for k in ("aviso_total", "aviso_leitura", "aviso_texto")
+                                                if r.get(k)]:
         print(f"AVISO: {aviso}")
     if a.modulo == "tcm-acordao" and not (a.csv or a.json):
         print(r["registros"][0]["texto"])

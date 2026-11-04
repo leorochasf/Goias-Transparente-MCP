@@ -106,11 +106,12 @@ def test_para_no_maximo_sem_ler_paginas_a_mais(cliente):
 
 
 @responses.activate
-def test_para_quando_a_fonte_nao_traz_mais_nada(cliente):
+def test_pagina_vazia_antes_do_total_para_e_marca_leitura_incompleta(cliente):
     responses.post(PESQUISAR, json=_resposta(range(1, 11), 25))
     responses.post(PESQUISAR, json=_resposta([], 25))
     r = cliente.processos("Nova Crixás")
     assert len(responses.calls) == 2 and len(r["registros"]) == 10
+    assert "antes do total" in r["incompleta"] and "vieram 10" in r["aviso_leitura"]
 
 
 @responses.activate
@@ -121,10 +122,49 @@ def test_total_gte_e_dito_como_piso(cliente):
     assert "10000 ou mais" in r["aviso_total"]
 
 
+def _lista_oficial(*nomes):
+    responses.post(f"{tcm.FONTES['esiproc']['base']}/listar-campo", json={
+        "took": 3, "timed_out": False, "_shards": {"total": 1, "successful": 1, "skipped": 0, "failed": 0},
+        "hits": {"total": {"value": 10000, "relation": "gte"}, "hits": []},
+        "aggregations": {"distinct": {"buckets": [{"key": n, "doc_count": 7} for n in nomes]}}})
+
+
 @responses.activate
-def test_sem_resultado_devolve_total_zero(cliente):
+def test_zero_com_o_nome_conferido_na_lista_oficial_de_agora_e_resposta_valida(cliente):
     responses.post(PESQUISAR, json=_resposta([], 0))
+    _lista_oficial("NOVA CRIXÁS", "POSSE")
     assert cliente.processos("Nova Crixás", ano=1990) == {"total": 0, "registros": [], "municipio_tcm": "NOVA CRIXÁS"}
+
+
+@responses.activate
+def test_zero_com_nome_que_mudou_na_fonte_repete_com_o_nome_oficial_de_agora(cliente):
+    # ao vivo, o eSiproc responde total 0, em silêncio, a uma grafia que não conhece ("NOVA CRIXAS" 0 x 126)
+    responses.post(PESQUISAR, json=_resposta([], 0))
+    _lista_oficial("NOVA  CRIXAS", "POSSE")
+    responses.post(PESQUISAR, json=_resposta([1, 2], 2))
+    r = cliente.processos("Nova Crixás")
+    assert r["total"] == 2 and r["municipio_tcm"] == "NOVA  CRIXAS"
+    assert _corpos()[-1]["filtros"]["municipio.keyword"] == "NOVA  CRIXAS"
+
+
+@responses.activate
+def test_zero_com_municipio_que_saiu_da_lista_oficial_e_recusa_nunca_ausencia(cliente):
+    responses.post(PESQUISAR, json=_resposta([], 0))
+    _lista_oficial("POSSE")
+    with pytest.raises(tcm.MunicipioNaoEncontrado):
+        cliente.processos("Nova Crixás")
+
+
+@responses.activate
+def test_zero_por_numero_sem_municipio_nao_consulta_a_lista(cliente):
+    responses.post(PESQUISAR, json=_resposta([], 0))
+    assert cliente.processos(numero="00131/19")["total"] == 0 and len(responses.calls) == 1
+
+
+@pytest.mark.parametrize("maximo", [0, -1])
+def test_maximo_menor_que_um_e_recusado_sem_consultar(cliente, maximo):
+    with pytest.raises(ValueError, match="maximo"):
+        cliente.processos("Nova Crixás", maximo=maximo)
 
 
 @pytest.mark.parametrize("resposta", [_resposta([1], 1, timed_out=True), _resposta([1], 1, falhas=1)],
@@ -151,6 +191,13 @@ def test_teto_de_chamadas_devolve_o_lido_e_marca_leitura_incompleta(cliente):
     r = cliente.processos("Nova Crixás")
     assert len(r["registros"]) == 20 and r["total"] == 30
     assert "teto" in r["incompleta"] and "incompleta" in r["aviso_leitura"]
+
+
+@responses.activate
+def test_teto_antes_do_primeiro_registro_e_erro_nunca_zero(cliente):
+    cliente.teto = 0
+    with pytest.raises(tcm.TetoAtingido):
+        cliente.processos("Nova Crixás")
 
 
 @responses.activate

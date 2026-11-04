@@ -161,23 +161,51 @@ def test_html_com_200_vira_erro(cliente):
         cliente.acordaos("Caldazinha")
 
 
+def _filtros(*municipios):
+    responses.get(f"{TCMJURIS}/v1/acordao/jurisprudencia/filtros", json={
+        "success": True, "data": {"municipios": [{"nome": n, "valor": v} for n, v in municipios]}})
+
+
 @responses.activate
-def test_zero_com_nome_que_saiu_da_lista_oficial_e_erro_e_nao_ausencia(cliente):
+def test_zero_com_nome_que_mudou_na_fonte_repete_com_o_valor_oficial_de_agora(cliente):
     # ao vivo, um `municipio` que o TCMJuris não conhece dá 200 com total 0, em silêncio
     responses.get(BUSCAR, json=_pagina([], page=1, page_size=100, total=0))
-    responses.get(f"{TCMJURIS}/v1/acordao/jurisprudencia/filtros", json={
-        "success": True, "data": {"municipios": [{"nome": "Caldazinha", "valor": "CALDAZINHA NOVA"}]}})
-    with pytest.raises(ErroTCM, match="CALDAZINHA.*lista oficial"):
+    _filtros(("Caldazinha", "CALDAZINHA NOVA"))
+    responses.get(BUSCAR, json=_pagina([_item(1)], page=1, page_size=100, total=1))
+    r = cliente.acordaos("Caldazinha")
+    assert r["total"] == 1 and r["municipio_tcm"] == "CALDAZINHA NOVA"
+    assert _pedidos()[-1]["municipio"] == "CALDAZINHA NOVA"
+
+
+@responses.activate
+def test_zero_com_municipio_que_saiu_da_lista_oficial_e_recusa_nunca_ausencia(cliente):
+    responses.get(BUSCAR, json=_pagina([], page=1, page_size=100, total=0))
+    _filtros(("Posse", "POSSE"))
+    with pytest.raises(tcm.MunicipioNaoEncontrado):
         cliente.acordaos("Caldazinha")
 
 
 @responses.activate
 def test_zero_com_nome_conferido_na_lista_oficial_e_resposta_valida(cliente):
     responses.get(BUSCAR, json=_pagina([], page=1, page_size=100, total=0))
-    responses.get(f"{TCMJURIS}/v1/acordao/jurisprudencia/filtros", json={
-        "success": True, "data": {"municipios": [{"nome": "Caldazinha", "valor": "CALDAZINHA"}]}})
+    _filtros(("Caldazinha", "CALDAZINHA"))
     r = cliente.acordaos("Caldazinha", ano=2020)
-    assert r["total"] == 0 and r["registros"] == []
+    assert r["total"] == 0 and r["registros"] == [] and len(responses.calls) == 2
+
+
+@responses.activate
+def test_fonte_que_para_antes_do_total_marca_leitura_incompleta(cliente):
+    responses.get(BUSCAR, json={**_pagina([_item(1)], page=1, page_size=100, total=5),
+                                "pagination": {"page": 1, "page_size": 100, "total_items": 5, "total_pages": 1,
+                                               "has_next": False, "has_prev": False}})
+    r = cliente.acordaos("Caldazinha")
+    assert len(r["registros"]) == 1 and "antes do total" in r["incompleta"]
+
+
+@pytest.mark.parametrize("maximo", [0, -5])
+def test_maximo_menor_que_um_e_recusado_sem_consultar(cliente, maximo):
+    with pytest.raises(ValueError, match="maximo"):
+        cliente.acordaos("Caldazinha", maximo=maximo)
 
 
 # --- leitura do PDF --------------------------------------------------------------------------------------------------

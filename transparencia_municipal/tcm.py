@@ -191,19 +191,32 @@ class ClienteTCM:
         from . import esiproc
         if not municipio and not numero:
             raise ValueError("informe o municipio (ou o numero do processo, NNNNN/AA)")
-        self.nova_consulta()
-        nome = self.municipio("esiproc", municipio) if municipio else None
-        r = esiproc.processos(self, municipio=nome, tipo=tipo, ano=ano, finalizado=finalizado, relator=relator,
-                              numero=numero, maximo=maximo)
-        return _com_avisos(r, nome)
+        return self._consultar("esiproc", municipio, maximo, lambda nome: esiproc.processos(
+            self, municipio=nome, tipo=tipo, ano=ano, finalizado=finalizado, relator=relator, numero=numero,
+            maximo=maximo))
 
     def acordaos(self, municipio=None, *, texto=None, assunto=None, ano=None, relator=None, maximo=100) -> dict:
         """Acórdãos do TCMJuris (julgados desde 2020). Sem `municipio`, de todos os municípios."""
         from . import tcmjuris
+        return self._consultar("tcmjuris", municipio, maximo, lambda nome: tcmjuris.acordaos(
+            self, municipio=nome, texto=texto, assunto=assunto, ano=ano, relator=relator, maximo=maximo))
+
+    def _consultar(self, fonte, municipio, maximo, consulta):
+        """Resolve o município, consulta e desconfia do zero: as duas fontes respondem total 0, em silêncio, a um
+        nome que não conhecem. Com zero, relê a lista oficial de agora; o nome mudou, repete com o novo; o município
+        saiu da lista, `MunicipioNaoEncontrado`."""
+        if maximo < 1:
+            raise ValueError("maximo precisa ser 1 ou mais")
         self.nova_consulta()
-        nome = self.municipio("tcmjuris", municipio) if municipio else None
-        r = tcmjuris.acordaos(self, municipio=nome, texto=texto, assunto=assunto, ano=ano, relator=relator,
-                              maximo=maximo)
+        nome = self.municipio(fonte, municipio) if municipio else None
+        r = consulta(nome)
+        if nome and r["total"] == 0:
+            _LISTAS.pop(fonte, None)
+            oficial = self.municipio(fonte, municipio, na_hora=True)
+            if oficial != nome:
+                nome, r = oficial, consulta(oficial)
+        if not (r.get("total_e_piso") or r.get("incompleta")) and len(r["registros"]) < min(maximo, r["total"]):
+            r = {**r, "incompleta": f"a fonte parou de entregar antes do total ({r['total']})"}
         return _com_avisos(r, nome)
 
     def ler_acordao(self, document_id) -> dict:

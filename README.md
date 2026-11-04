@@ -10,7 +10,8 @@ Cobre a plataforma **NucleoGov**, usada pela maioria dos municípios de Goiás e
 outros estados. São os portais no padrão `acessoainformacao.<municipio>.go.gov.br`. Folha e despesas
 também saem da **Megasoft** (embutida no NucleoGov ou no domínio próprio `<municipio>.megasofttransparencia.com.br`)
 e da contabilidade **Centi** (veja **Megasoft e Centi**). Para Goiás há um catálogo dos portais de prefeituras e
-câmaras (veja **Municípios de Goiás**).
+câmaras (veja **Municípios de Goiás**) e os processos e acórdãos do Tribunal de Contas dos Municípios
+(veja **TCM-GO**).
 
 > Dado público, lido na hora, sem cadastro e sem senha (Lei 12.527/2011). Nada é armazenado.
 > **Confira no portal antes de usar em peça, denúncia ou matéria:** o portal pode estar
@@ -28,6 +29,10 @@ câmaras (veja **Municípios de Goiás**).
 | **Licitações e dispensas** | *Liste as dispensas de licitação do município.* |
 | **Receitas** | *Quanto o município arrecadou de IPTU em março de 2025?* (um mês por vez) |
 | **Legislação** | *Qual decreto criou o cargo de assessor especial?* |
+| **Processos no TCM-GO** | *Que processos de contas a Prefeitura de Posse tem no TCM, e em que fase estão?* |
+| **Processo pelo número** | *Em que pé está o processo 00131/19 do TCM?* |
+| **Acórdãos do TCM-GO** | *Há acórdão com imputação de débito para Trindade desde 2020?* |
+| **Texto de um acórdão** | *O que esse acórdão decidiu? Cite o trecho.* (lê o PDF original) |
 
 ## Instalação
 
@@ -226,6 +231,73 @@ O que vale saber antes de confiar num número:
 - **Em várias prefeituras a folha sem filtro esconde órgãos** (fundos, autarquias). As listas e o resumo da
   folha buscam esses órgãos um a um. A busca rápida por nome avisa quando o portal faz isso.
 - **Muitos portais só publicam a folha dos meses recentes.** Um mês antigo pode vir vazio.
+
+## TCM-GO
+
+O assistente também consulta o **Tribunal de Contas dos Municípios de Goiás**, em duas fontes públicas, sem login:
+o **eSiproc** (processos eletrônicos) e o **TCMJuris** (acórdãos julgados desde 2020, com o PDF). O município é
+indicado pelo nome comum ("Posse", "Nova Crixás"): o projeto usa o nome oficial de cada fonte, gravado no catálogo, e
+**recusa com os nomes mais parecidos** quando o nome não casa, em vez de responder "zero processos".
+
+| Ferramenta (MCP) | Comando | Exemplo de pergunta |
+|---|---|---|
+| `processos_tcm` | `tcm-processos` | *Quais processos de 2023 de Nova Crixás ainda não foram finalizados?* |
+| `acordaos_tcm` | `tcm-acordaos` | *Há acórdão de Caldazinha sobre "tomada de contas especial"?* |
+| `ler_acordao_tcm` | `tcm-acordao` | *Leia o acórdão e diga o que foi decidido.* |
+
+```bash
+python -m transparencia_municipal.cli --csv processos.csv tcm-processos --municipio "Nova Crixás" --ano 2023 --nao-finalizado
+
+python -m transparencia_municipal.cli tcm-processos --numero 00131/19
+
+python -m transparencia_municipal.cli --json acordaos.json tcm-acordaos --municipio Caldazinha --texto '"tomada de contas especial"'
+
+python -m transparencia_municipal.cli tcm-acordao DOCUMENT_ID_DO_ACORDAO
+```
+
+- `tcm-processos` filtra por `--tipo` (tipo de protocolo), `--ano` (competência), `--relator`, `--finalizado` ou
+  `--nao-finalizado` e `--numero` (NNNNN/AA). Os `tcm-*` não usam `--portal`. No CSV, decisões e envolvidos saem em
+  JSON dentro da célula.
+- `tcm-acordaos` filtra por `--texto` (entre aspas para a expressão exata: sem aspas, as palavras são buscadas
+  soltas; em 04/11/2026, "tomada de contas especial" deu 6.176 acórdãos sem aspas e 1.815 com aspas), `--assunto`, `--ano` (do julgamento) e `--relator`. O `document_id` de cada acórdão é o que o
+  `tcm-acordao` lê.
+- Biblioteca: `from transparencia_municipal import ClienteTCM`, com `processos`, `acordaos` e `ler_acordao`, no
+  formato `{"total", "registros"}` das outras consultas.
+
+**Ler o PDF do acórdão** é opcional na instalação:
+
+```bash
+pip install -e ".[pdf]"
+```
+
+Sem ela, `ler_acordao_tcm` diz como instalar e devolve o link do PDF original.
+
+**Os avisos que acompanham toda resposta:**
+
+- **Ausência não é prova.** O índice de processos do TCM não é histórico: exercícios antigos, processos físicos e de
+  cobrança podem faltar.
+- **Os acórdãos começam em 2020.** Não achar um acórdão não prova que não houve julgamento antes.
+- **A ementa é escrita por IA**, não pelo tribunal: vem no campo `ementa_ia`. Para citar, leia o PDF
+  (`ler_acordao_tcm`).
+- **Envolvidos** aparecem como o TCM os mostra, porque são dado público do processo: use para apuração, não para
+  montar dossiê de pessoas.
+- Quando o TCM informa "10 mil ou mais", a resposta diz que o total é um piso; quando a leitura para no teto de
+  chamadas ou a fonte para de entregar antes do total, diz que veio incompleta. Resposta incompleta ou fora do ar
+  do TCM é erro, nunca lista vazia.
+- **Desconfiar do zero.** As duas fontes respondem "zero", sem aviso, a um nome de município que não conhecem. Diante
+  de um zero, o projeto relê a lista oficial da fonte: se o nome mudou, repete com o nome novo; se o município saiu da
+  lista, recusa.
+
+**Limites do TCM-GO:**
+
+- Só processos eletrônicos; as peças das decisões (os documentos) não são baixadas.
+- Só acórdãos julgados, desde 2020. Filtros do TCMJuris como resultado, tipo de processo e número do acórdão ainda
+  não estão nas ferramentas.
+- PDF digitalizado, sem texto, sai com aviso e o link.
+- Uma consulta por vez, com pausa de 1 s e teto de 60 chamadas por consulta.
+
+Em 04/11/2026 os nomes das 16 cidades da amostra (veja **Municípios de Goiás**) resolveram nas duas fontes, com os
+processos e os acórdãos do município certo.
 
 ## Limites conhecidos
 

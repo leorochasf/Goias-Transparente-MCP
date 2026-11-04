@@ -4,7 +4,8 @@
 - Antes de mexer numa consulta do `cliente.py`, leia `docs/portal-nucleogov.md`: o portal ignora
   filtro desconhecido em silêncio, e os testes offline não percebem.
 - Depois de mudar uma consulta e antes de cada versão, rode `TRANSPARENCIA_AO_VIVO=1 pytest -m ao_vivo`
-  (portais reais NucleoGov, Megasoft e Centi, 10 testes com pausa). Nomes de servidores da folha ficam fora da tela e dos arquivos.
+  (os testes ao vivo, `-m ao_vivo`: portais reais NucleoGov, Megasoft e Centi e as duas fontes do TCM-GO, com pausa).
+  Nomes de servidores da folha e de pessoas do TCM (envolvidos, relatores) ficam fora da tela e dos arquivos.
 
 ## Agent skills
 

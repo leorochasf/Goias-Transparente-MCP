@@ -83,7 +83,7 @@ def test_folha_traduzida_com_fonte_e_senha_obtida_uma_vez_por_portal():
     pedido = _consultas(FOLHA)[0]
     assert (pedido["ano"], pedido["mes"], pedido["pagina"]) == ("2025", "09", "1")
     cabecalhos = responses.calls[0].request.headers
-    assert "mcp-transparencia-municipal" in cabecalhos["User-Agent"]  # identificação honesta do projeto
+    assert "Goias-Transparente-MCP" in cabecalhos["User-Agent"]  # identificação honesta do projeto
 
 
 @responses.activate

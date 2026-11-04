@@ -16,7 +16,7 @@ from . import catalogo
 from .cliente import FONTE, ErroPortal, Portal
 from .folha_leve import AGRUPAMENTOS, filtrar, linha_leve, resumir
 
-mcp = MCPServer("transparencia-municipal",
+mcp = MCPServer("goias-transparente",
                 instructions="Consulta dados públicos do Portal da Transparência de municípios brasileiros na plataforma NucleoGov: folha de pagamento, empenhos, contratos, licitações, receitas e legislação. Folha e empenhos também da Megasoft e da contabilidade Centi.")
 
 AVISO = ("Dado público do Portal da Transparência do município (Lei 12.527/2011), lido na hora. "

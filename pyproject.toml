@@ -1,5 +1,5 @@
 [project]
-name = "mcp-transparencia-municipal"
+name = "goias-transparente-mcp"
 version = "0.4.0"
 description = "Consulta o Portal da Transparência de municípios (plataforma NucleoGov) por MCP, linha de comando ou biblioteca."
 readme = "README.md"
@@ -13,8 +13,8 @@ mcp = ["mcp>=2.0"]
 dev = ["pytest>=8", "responses>=0.25", "ruff>=0.6"]
 
 [project.scripts]
-transparencia-municipal = "transparencia_municipal.cli:main"
-transparencia-municipal-mcp = "transparencia_municipal.servidor_mcp:main"
+goias-transparente = "transparencia_municipal.cli:main"
+goias-transparente-mcp = "transparencia_municipal.servidor_mcp:main"
 
 [build-system]
 requires = ["setuptools>=68"]

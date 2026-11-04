@@ -72,3 +72,33 @@ def test_modulo_que_quebra_vira_erro_e_os_outros_seguem():
     r = conferir(Quebrado(), ano=2025, mes=1, hoje="2026-11-05", pausa=0)
     assert r["filtros"]["receitas_mes"] == "erro" and "fora do ar" in r["detalhes"]["receitas_mes"]
     assert r["filtros"]["folha_mes"] == "ok"
+
+
+def test_folha_vazia_no_mes_pedido_e_conferida_no_mes_mais_recente_publicado():
+    class SoMesCorrente(PortalDeMentira):
+        def folha(self, ano, mes=None, busca=None, *, maximo=200):
+            if mes not in (None, 10) or ano != 2026:
+                return self._r([])
+            return self._r([{"ano": "2026", "mes": "10", "orgao_id": o} for o in ("001",) * 30 + ("002",) * 10])
+    r = conferir(SoMesCorrente(), ano=2025, mes=6, hoje="2026-11-05", pausa=0)
+    assert r["filtros"]["folha_mes"] == "ok" and r["filtros"]["folha_orgaos"] == "ok"
+    assert "10/2026" in r["detalhes"]["folha_mes"]
+
+
+def test_legislacao_sem_campo_ano_usa_a_data_de_publicacao():
+    class SemAno(PortalDeMentira):
+        def legislacao(self, tipo="DECRETO", busca=None, *, ano=None, maximo=200):
+            codigo = {"DECRETO": "1", "PORTARIA": "2"}[tipo]
+            atos = [{"tipo": codigo, "data_publicacao": d} for d in ("2024-05-02", "2025-07-29", "2025-08-01")]
+            return self._r([x for x in atos if not ano or x["data_publicacao"].startswith(str(ano))])
+    assert conferir(SemAno(), ano=2025, mes=1, hoje="x", pausa=0)["filtros"]["legislacao_ano"] == "ok"
+
+
+def test_modulo_de_outra_plataforma_sai_como_nao_suportado():
+    from transparencia_municipal.cliente import ModuloNaoSuportado
+
+    class ComCenti(PortalDeMentira):
+        def receitas(self, *a, **k):
+            raise ModuloNaoSuportado("o módulo receitas vem da contabilidade Centi")
+    r = conferir(ComCenti(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["receitas_mes"] == "nao_suportado" and "Centi" in r["detalhes"]["receitas_mes"]

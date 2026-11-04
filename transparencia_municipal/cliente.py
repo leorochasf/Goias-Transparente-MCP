@@ -36,6 +36,8 @@ MODULOS = {
     "receitas": "receitas",
 }
 SUFIXOS = ("frl", "cnt")
+#: "sufixos" de módulos que a página do portal mostra, mas que a API NucleoGov não serve
+EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov"}
 
 
 #: tipo de ato → código no módulo `atos` (conferido em Senador Canedo, 04/11/2026)
@@ -55,6 +57,10 @@ def _tipo_ato(tipo):
 
 class ErroPortal(RuntimeError):
     """Falha ao falar com o portal. A mensagem sempre diz o que aconteceu."""
+
+
+class ModuloNaoSuportado(ErroPortal):
+    """O portal mostra o módulo, mas ele vem de outra plataforma que a API NucleoGov não serve."""
 
 
 class PortalBloqueou(ErroPortal):
@@ -150,20 +156,28 @@ class Portal:
         modulo = MODULOS[nome]
         if self.sufixos is None:
             self.sufixos = self._descobrir_sufixos()
-        if self.sufixos.get(modulo) == "mg":
-            raise ErroPortal(f"em {self.url}, o módulo {modulo} vem da Megasoft embutida no NucleoGov, ainda não "
+        if self.sufixos.get(modulo) in EXTERNOS:
+            raise ModuloNaoSuportado(f"em {self.url}, o módulo {modulo} vem {EXTERNOS[self.sufixos[modulo]]}, ainda não "
                              "suportada: a API NucleoGov responderia zero registros, sem aviso.")
         if modulo in self.sufixos:
             return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
                                   progresso=progresso)
-        primeiro = None
+        zeros, erro = [], None
         for sufixo in SUFIXOS:
-            r = self.consultar(f"{modulo}_{sufixo}/listar", filtros, maximo=maximo, progresso=progresso)
+            try:
+                r = self.consultar(f"{modulo}_{sufixo}/listar", filtros, maximo=maximo, progresso=progresso)
+            except PortalBloqueou:
+                raise
+            except ErroPortal as e:  # sufixo inexistente responde `[]` (Alexânia, 04/11/2026)
+                erro = erro or e
+                continue
             if r["total"] > 0:
                 self.sufixos[modulo] = sufixo
                 return r
-            primeiro = primeiro or r
-        return primeiro
+            zeros.append(r)
+        if zeros:
+            return zeros[0]
+        raise erro
 
     def consultar(self, acao, filtros=None, *, maximo=200, progresso=None):
         """Pagina até `maximo` registros. Devolve {"total", "registros"}.

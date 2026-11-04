@@ -11,6 +11,8 @@ import time
 from collections import Counter
 from datetime import date, datetime
 
+from .cliente import ModuloNaoSuportado
+
 ORGAOS_SONDADOS = range(1, 11)
 
 
@@ -27,17 +29,35 @@ def _digitos(texto):
     return re.sub(r"\D", "", str(texto or ""))
 
 
+def _mes_mais_recente_da_folha(p, ano_atual):
+    """Sem `mes`, o portal devolve o mês mais recente do ano (docs/portal-nucleogov.md)."""
+    for ano in (ano_atual, ano_atual - 1):
+        regs = p.folha(ano, maximo=1)["registros"]
+        if regs:
+            return int(regs[0]["ano"]), int(regs[0]["mes"])
+    return None
+
+
 def _folha(p, ano, mes, contexto):
-    base = p.folha(ano, mes, maximo=100)
-    contexto["folha"] = base
+    base, nota = p.folha(ano, mes, maximo=100), None
+    if not base["registros"]:  # muitos portais só publicam os meses recentes da folha
+        recente = _mes_mais_recente_da_folha(p, contexto["ano_atual"])
+        if not recente:
+            return "sem_dados", f"folha de {mes:02d}/{ano} vazia, e nenhuma folha recente"
+        nota = (f"a folha de {mes:02d}/{ano} está vazia; conferida em {recente[1]:02d}/{recente[0]}, "
+                "o mês mais recente publicado")
+        ano, mes = recente
+        base = p.folha(ano, mes, maximo=100)
+    contexto["folha"], contexto["folha_ref"] = base, (ano, mes)
     regs = base["registros"]
     if not regs:
         return "sem_dados", f"folha de {mes:02d}/{ano} vazia"
     fora = [(x.get("ano"), x.get("mes")) for x in regs if (int(x.get("ano") or 0), int(x.get("mes") or 0)) != (ano, mes)]
-    return ("falhou", f"pediu {mes:02d}/{ano}, vieram {sorted(set(fora))}") if fora else ("ok", None)
+    return ("falhou", f"pediu {mes:02d}/{ano}, vieram {sorted(set(fora))}") if fora else ("ok", nota)
 
 
 def _folha_orgaos(p, ano, mes, contexto):
+    ano, mes = contexto.get("folha_ref", (ano, mes))
     regs = contexto["folha"]["registros"] if "folha" in contexto else p.folha(ano, mes, maximo=100)["registros"]
     ids = {x.get("orgao_id") for x in regs if x.get("orgao_id")}
     if not ids:
@@ -111,15 +131,23 @@ def _legislacao_tipo(p, ano, mes, contexto):
     return ("ok", None) if ok else ("falhou", f"decretos com tipo {sorted(tipos[0])}, portarias com {sorted(tipos[1])}")
 
 
+def _ano_do_ato(x):
+    """O campo `ano`; sem ele (6 portais em 04/11/2026), o ano da data de publicação."""
+    if x.get("ano"):
+        return str(x["ano"])
+    data = _data(x.get("data_publicacao") or x.get("data"))
+    return str(data.year) if data else None
+
+
 def _legislacao_ano(p, ano, mes, contexto):
     todos = contexto.get("decretos") or p.legislacao("DECRETO", maximo=20)
     do_ano = p.legislacao("DECRETO", ano=ano, maximo=20)
     if not do_ano["registros"]:
         return "sem_dados", f"nenhum decreto de {ano}"
-    fora = sorted({x.get("ano") for x in do_ano["registros"] if str(x.get("ano")) != str(ano)})
+    fora = sorted({_ano_do_ato(x) for x in do_ano["registros"] if _ano_do_ato(x) != str(ano)}, key=str)
     if fora:
         return "falhou", f"pediu {ano}, vieram {fora}"
-    if do_ano["total"] >= todos["total"] and {str(x.get("ano")) for x in todos["registros"]} != {str(ano)}:
+    if do_ano["total"] >= todos["total"] and {_ano_do_ato(x) for x in todos["registros"]} != {str(ano)}:
         return "falhou", f"o total com ano ({do_ano['total']}) não é menor que sem ano ({todos['total']})"
     return "ok", None
 
@@ -136,15 +164,19 @@ def conferir(portal, *, ano, mes, hoje=None, pausa=1.0):
 
     `pausa`: segundos entre as verificações (são umas 9 consultas por portal).
     """
-    filtros, detalhes, contexto = {}, {}, {}
+    hoje = hoje or date.today().isoformat()
+    ano_atual = int(hoje[:4]) if hoje[:4].isdigit() else date.today().year
+    filtros, detalhes, contexto = {}, {}, {"ano_atual": ano_atual}
     for i, (nome, verificar) in enumerate(VERIFICACOES.items()):
         if i:
             time.sleep(pausa)
         try:
             filtros[nome], detalhe = verificar(portal, ano, mes, contexto)
+        except ModuloNaoSuportado as e:
+            filtros[nome], detalhe = "nao_suportado", str(e)
         except Exception as e:  # noqa: BLE001 - o portal pode falhar de qualquer jeito; registra e segue
             filtros[nome], detalhe = "erro", f"{type(e).__name__}: {e}"
         if detalhe:
             detalhes[nome] = detalhe
-    return {"data": hoje or date.today().isoformat(), "referencia": f"{mes:02d}/{ano}",
+    return {"data": hoje, "referencia": f"{mes:02d}/{ano}",
             "filtros": filtros, "detalhes": detalhes}

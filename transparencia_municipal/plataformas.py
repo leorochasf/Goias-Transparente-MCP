@@ -38,6 +38,10 @@ def reconhecer(html, endereco):
         megasoft = re.findall(rf"\bmg({'|'.join(MODULOS_NUCLEOGOV)})\b", low)
         for modulo in megasoft:
             sufixos.setdefault(modulo, "mg")
+        # `cntdespesas`, `cntreceitas`: o módulo vem da contabilidade Centi integrada ao NucleoGov (Posse, 04/11/2026);
+        # a API NucleoGov não o serve. Não confundir com `servidores_cnt`, que é módulo NucleoGov comum.
+        for modulo in re.findall(rf"\bcnt({'|'.join(MODULOS_NUCLEOGOV)})\b", low):
+            sufixos.setdefault(modulo, "centi")
         return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}

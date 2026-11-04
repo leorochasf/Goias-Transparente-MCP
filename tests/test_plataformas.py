@@ -42,3 +42,10 @@ def test_reconhece_megasoft_pelo_dominio_e_ortrel_pela_pagina():
 
 def test_pagina_sem_marca_conhecida_fica_sem_plataforma():
     assert reconhecer("<html>Prefeitura</html>", "posse.go.gov.br") == {"plataforma": None, "sufixos": {}}
+
+
+def test_menu_cntdespesas_e_modulo_da_centi_mas_servidores_cnt_e_nucleogov():
+    html = ('<div class="nucleogov"><a href="cidadao/transparencia/servidores_cnt">F</a>'
+            '<a href="cidadao/transparencia/cntdespesas">D</a><a href="cidadao/transparencia/cntreceitas">R</a></div>')
+    assert reconhecer(html, "acessoainformacao.posse.go.gov.br")["sufixos"] == {
+        "servidores": "cnt", "despesas": "centi", "receitas": "centi"}

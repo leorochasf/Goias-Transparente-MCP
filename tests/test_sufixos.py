@@ -70,3 +70,18 @@ def test_modulo_da_megasoft_embutida_e_recusado_em_vez_de_devolver_zero():
     with pytest.raises(ErroPortal, match="Megasoft"):
         Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
     assert all(c.request.method == "GET" for c in responses.calls)
+
+
+@responses.activate
+def test_modulo_da_centi_e_recusado_em_vez_de_devolver_zero():
+    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/cntreceitas">R</a></div>')
+    with pytest.raises(ErroPortal, match="Centi"):
+        Portal(PORTAL, pausa=0).receitas(2025, 3)
+
+
+@responses.activate
+def test_cnt_inexistente_responde_lista_vazia_e_fica_valendo_o_zero_do_frl():
+    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"></div>')
+    _modulo("despesas_frl/listar", 0)
+    responses.add(responses.POST, f"{PORTAL}/api/despesas_cnt/listar", body="[]")  # medido em Alexânia, 04/11/2026
+    assert Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")["total"] == 0

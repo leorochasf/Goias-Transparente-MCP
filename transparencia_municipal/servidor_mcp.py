@@ -12,12 +12,14 @@ import sys
 import anyio
 from mcp.server.mcpserver import Context, MCPServer
 
-from . import catalogo
+from . import catalogo, tcm
 from .cliente import FONTE, ErroPortal, Portal
 from .folha_leve import AGRUPAMENTOS, filtrar, linha_leve, resumir
+from .tcm import ClienteTCM
 
 mcp = MCPServer("goias-transparente",
-                instructions="Consulta dados públicos do Portal da Transparência de municípios brasileiros na plataforma NucleoGov: folha de pagamento, empenhos, contratos, licitações, receitas e legislação. Folha e empenhos também da Megasoft e da contabilidade Centi.")
+                instructions="Consulta dados públicos do Portal da Transparência de municípios brasileiros na plataforma NucleoGov: folha de pagamento, empenhos, contratos, licitações, receitas e legislação. Folha e empenhos também da Megasoft e da contabilidade Centi. "
+                             "Do TCM-GO, os processos de contas (eSiproc) e os acórdãos desde 2020 (TCMJuris).")
 
 AVISO = ("Dado público do Portal da Transparência do município (Lei 12.527/2011), lido na hora. "
          "Confira no portal antes de usar em peça, denúncia ou matéria.")
@@ -302,6 +304,57 @@ def encontrar_portal(municipio: str, orgao: str | None = None) -> dict:
     return {"orgaos": [{"orgao": catalogo.nome_do_orgao(x), "portal": x["portal"],
                         "plataforma": catalogo.NOMES_PLATAFORMA.get(x["plataforma"], x["plataforma"] or "desconhecida"),
                         "situacao": catalogo.situacao(x)} for x in achados]}
+
+
+def _tcm():
+    return ClienteTCM()
+
+
+def _executar_tcm(funcao, *avisos):
+    """Consulta ao TCM-GO. Toda resposta, inclusive a de erro, traz os avisos fixos da fonte."""
+    fixos = {"aviso": tcm.AVISO_GERAL, "aviso_fonte": avisos[0],
+             **({"aviso_envolvidos": avisos[1]} if len(avisos) > 1 else {})}
+    try:
+        return {**funcao(), **fixos}
+    except (ErroPortal, ValueError) as e:
+        return {"erro": str(e), **fixos}
+
+
+@mcp.tool()
+def processos_tcm(municipio: str | None = None, tipo: str | None = None, ano: int | None = None,
+                  finalizado: bool | None = None, relator: str | None = None, numero: str | None = None,
+                  maximo: int = 100) -> dict:
+    """Processos eletrônicos de um município no TCM-GO (eSiproc): tipo, competência, fase, relator, datas,
+    decisões e envolvidos.
+
+    `municipio` pelo nome comum ("Posse"); o projeto usa o nome oficial do TCM e recusa se não casar.
+    `tipo`: tipo de protocolo (ex.: "Contas de Gestão"); `ano`: ano de competência; `finalizado`: True/False;
+    `numero`: NNNNN/AA, para achar um processo citado nos autos. Ex.: que processos de contas a Prefeitura de
+    Posse tem no TCM. O índice não é histórico: não achar não prova que não existe.
+    """
+    return _executar_tcm(lambda: _tcm().processos(municipio, tipo=tipo, ano=ano, finalizado=finalizado,
+                                                  relator=relator, numero=numero, maximo=maximo),
+                         tcm.AVISO_PROCESSOS, tcm.AVISO_ENVOLVIDOS)
+
+
+@mcp.tool()
+def acordaos_tcm(municipio: str | None = None, texto: str | None = None, assunto: str | None = None,
+                 ano: int | None = None, relator: str | None = None, maximo: int = 100) -> dict:
+    """Acórdãos do TCM-GO julgados desde 2020 (TCMJuris): número, data, assunto, resultado, relator.
+
+    `texto`: palavras (aspas para expressão exata); `ano`: ano do julgamento. Ex.: há acórdão com imputação de
+    débito para Trindade? A ementa (`ementa_ia`) é resumo gerado por IA: para citar, leia o acórdão com
+    ler_acordao_tcm(id=document_id).
+    """
+    return _executar_tcm(lambda: _tcm().acordaos(municipio, texto=texto, assunto=assunto, ano=ano, relator=relator,
+                                                 maximo=maximo),
+                         tcm.AVISO_ACORDAOS)
+
+
+@mcp.tool()
+def ler_acordao_tcm(id: str) -> dict:
+    """O texto do PDF original de um acórdão do TCM-GO, para leitura e citação. `id`: o document_id de acordaos_tcm."""
+    return _executar_tcm(lambda: _tcm().ler_acordao(id), tcm.AVISO_ACORDAOS)
 
 
 def main():

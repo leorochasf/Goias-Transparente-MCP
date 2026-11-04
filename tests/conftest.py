@@ -1,6 +1,6 @@
 import pytest
 
-from transparencia_municipal import cliente
+from transparencia_municipal import cliente, tcm
 from transparencia_municipal.cliente import MODULOS, Portal
 
 
@@ -12,6 +12,7 @@ def _sufixo_frl_nos_testes_offline(request, monkeypatch):
     """
     cliente._SUFIXOS_APRENDIDOS.clear()  # o que um teste aprendeu não vaza para o próximo
     cliente._API_SONDADA.clear()
+    tcm._LISTAS.clear()
     if "descobre_sufixos" in request.keywords or "ao_vivo" in request.keywords:
         return
     monkeypatch.setattr(Portal, "_descobrir_sufixos", lambda self: dict.fromkeys(MODULOS.values(), "frl"))

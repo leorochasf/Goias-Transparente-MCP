@@ -164,7 +164,7 @@ def test_despesas_do_periodo_traduzidas_com_fonte_ate_o_maximo():
     assert r["registros"] == [{"empenho": 10, "data": "15/01/2025", "cpf_cnpj": "25.107.525/0001-51",
                                "fornecedor": "EMPRESA A LTDA", "valor_empenhado": "1.000,00",
                                "valor_liquidado": "800,00", "valor_pago": "500,00", "historico": "MATERIAL",
-                               "fonte": "Megasoft"}]
+                               "orgao": None, "fonte": "Megasoft"}]
     pedido = _consultas(EMPENHOS)[0]
     assert (pedido["dataInicial"], pedido["dataFinal"]) == ("01/01/2025", "31/01/2025")
 
@@ -226,7 +226,7 @@ def test_mcp_resumir_folha_de_um_portal_megasoft_proprio():
     assert "erro" not in r, r
     assert r["total_do_mes"] == 3
     (tipo, resumo), = r["por_tipo_de_pagamento"].items()
-    assert "não separa 13º nem rescisão" in tipo
+    assert "não traz 13º" in tipo
     assert (resumo["linhas"], resumo["matriculas"], resumo["bruto"], resumo["liquido"]) == (3, 3, 9024.8, 7800.5)
     assert [(g["grupo"], g["linhas"], g["bruto"]) for g in resumo["grupos"]] == [
         ("SECRETARIA DE SAÚDE", 2, 7024.8), ("SECRETARIA DE EDUCAÇÃO", 1, 2000.0)]
@@ -251,3 +251,12 @@ def test_mcp_consultar_despesas_por_cnpj_num_portal_megasoft_proprio():
     assert r["total"] == 2 and [x["empenho"] for x in r["registros"]] == [10, 12]
     assert {(x["cpf_cnpj"], x["fonte"]) for x in r["registros"]} == {("25.107.525/0001-51", "Megasoft")}
     assert _consultas(EMPENHOS)[0]["dataFinal"] == "31/03/2025"
+
+
+@responses.activate
+def test_empenhos_sem_codigo_nao_se_juntam_num_so():
+    """Sem a chave, repetido é o registro inteiro: dois empenhos diferentes sem `codigo` continuam dois."""
+    _senhas("senha-1")
+    _listagem(EMPENHOS, [_empenho(None), _empenho(None, data="16/01/2025")])
+    r = Portal(URL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert r["total"] == 2 and [x["data"] for x in r["registros"]] == ["15/01/2025", "16/01/2025"]

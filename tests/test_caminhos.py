@@ -124,3 +124,57 @@ def test_consultar_folha_de_outro_sistema_avisa_que_nao_ha_rubricas(monkeypatch)
     r = servidor_mcp.consultar_folha(2025, 6, busca="PESSOA", portal=PROPRIA)
     assert "rubricas" not in r["linhas"][0] and r["linhas"][0]["fonte"] == "Megasoft"
     assert "não traz rubricas" in r["aviso_rubricas"]
+
+
+@responses.activate
+def test_sondagem_da_api_nucleogov_num_modulo_mg_fica_lembrada_por_endereco(monkeypatch):
+    """O servidor MCP cria um Portal por consulta; a API NucleoGov é sondada uma vez só por endereço e módulo."""
+    _sem_dados("servidores_frl", "servidores_cnt")
+    chamadas = _duble(monkeypatch, megasoft_embutida, "folha")
+    for _ in range(3):
+        Portal(NUCLEOGOV, pausa=0, sufixos={"servidores": "mg"}).folha(2025, 6, maximo=5)
+    assert len(chamadas) == 3
+    assert len(responses.calls) == 2  # servidores_frl e servidores_cnt, só na primeira consulta
+
+
+@responses.activate
+def test_registros_da_api_nucleogov_dizem_a_fonte():
+    def callback(requisicao):
+        ident = next(iter(json.loads(urllib.parse.parse_qs(requisicao.body.decode())["params"][0])))
+        return 200, {}, json.dumps({ident: {"dados": [{"nome": "PESSOA 1"}], "total": 1}})
+    for acao in ("servidores_frl", "despesas_frl"):
+        responses.add_callback(responses.POST, f"{NUCLEOGOV}/api/{acao}/listar", callback=callback,
+                               content_type="application/json")
+    portal = Portal(NUCLEOGOV, pausa=0, sufixos={"servidores": "frl", "despesas": "frl"})
+    assert portal.folha(2025, 6)["registros"] == [{"nome": "PESSOA 1", "fonte": "NucleoGov"}]
+    assert portal.despesas("2025-01-01", "2025-01-31")["registros"][0]["fonte"] == "NucleoGov"
+
+
+def test_consultar_despesas_avisa_quando_os_empenhos_misturam_orgaos(monkeypatch):
+    """Centi com `id_orgao=0` (Posse) e Megasoft (Aruanã) trazem a Câmara e os fundos junto com a Prefeitura."""
+    from transparencia_municipal import catalogo
+    monkeypatch.setattr(catalogo, "carregar", lambda: [])
+    misturados = [{"empenho": 1, "orgao": "PODER EXECUTIVO", "fonte": "Megasoft"},
+                  {"empenho": 2, "orgao": "PODER LEGISLATIVO", "fonte": "Megasoft"}]
+    monkeypatch.setattr(megasoft_propria, "despesas", lambda portal, **_: {"total": 2, "registros": misturados})
+    r = servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=PROPRIA)
+    assert "mais de um órgão" in r["aviso_orgaos"] and "orgao" in r["aviso_orgaos"]
+    monkeypatch.setattr(megasoft_propria, "despesas",
+                        lambda portal, **_: {"total": 1, "registros": misturados[:1]})
+    assert "aviso_orgaos" not in servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=PROPRIA)
+
+
+def test_consultar_folha_diz_que_na_megasoft_o_13_nao_vem_em_linha_propria():
+    doc = servidor_mcp.consultar_folha.__doc__
+    assert "13º" in doc and "Megasoft" in doc
+
+
+@responses.activate
+def test_sondagem_que_falhou_na_rede_nao_fica_lembrada(monkeypatch):
+    """Erro passageiro da API NucleoGov não pode virar "a API não serve o módulo" até o processo fechar."""
+    for acao in ("servidores_frl", "servidores_cnt"):
+        responses.add(responses.POST, f"{NUCLEOGOV}/api/{acao}/listar", status=500, body="erro")
+    _duble(monkeypatch, megasoft_embutida, "folha")
+    for _ in range(2):
+        Portal(NUCLEOGOV, pausa=0, sufixos={"servidores": "mg"}).folha(2025, 6, maximo=5)
+    assert len(responses.calls) == 4  # sondou de novo na segunda consulta

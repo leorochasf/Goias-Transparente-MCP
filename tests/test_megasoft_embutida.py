@@ -133,7 +133,7 @@ def test_despesas_mg_vem_traduzidas_e_sem_filtro_pedem_so_o_maximo():
     assert r["registros"][0] == {"empenho": 1, "data": "01/01/2025", "cpf_cnpj": "25.107.525/0001-51",
                                  "fornecedor": "EMPRESA EXEMPLO LTDA", "valor_empenhado": "100,00",
                                  "valor_liquidado": "100,00", "valor_pago": "100,00", "historico": "MATERIAL",
-                                 "fonte": "Megasoft"}
+                                 "orgao": None, "fonte": "Megasoft"}
     assert [(p["dataInicial"], p["dataFinal"], p["pagina"], p["tamanhoDaPagina"]) for p in pedidos] == [
         ("01/01/2025", "31/03/2025", 1, 3)]
 
@@ -182,3 +182,11 @@ def test_listar_folha_por_vinculo_num_portal_com_folha_megasoft_embutida(monkeyp
     assert (r["total_do_mes"], r["encontradas"]) == (5, 3)
     assert [x["matricula"] for x in r["linhas"]] == ["1", "3", "5"]
     assert {x["fonte"] for x in r["linhas"]} == {"Megasoft"}
+
+
+@responses.activate
+def test_empenhos_com_codigo_nulo_nao_se_juntam_num_so():
+    """Sem a chave, repetido é o registro inteiro: dois empenhos diferentes com `codigo` nulo continuam dois."""
+    _portal_com_megasoft(empenhos=[_empenho(None, "10/01/2025"), _empenho(None, "11/01/2025")])
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert r["total"] == 2 and [x["data"] for x in r["registros"]] == ["10/01/2025", "11/01/2025"]

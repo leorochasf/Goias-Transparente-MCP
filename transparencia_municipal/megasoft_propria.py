@@ -3,7 +3,8 @@
 O `Portal` manda para cá o portal inteiro, só pelo endereço; aqui se leem folha e despesas.
 Contrato dos encaixes (o mesmo em megasoft_embutida.py e centi.py):
 - devolve {"total": <total anunciado pelo sistema>, "registros": [<até `maximo` registros traduzidos>]};
-- registros traduzidos pela `traducao_megasoft` (folha: `linha_da_folha`; despesas: `despesa`), cada um com `fonte`;
+- registros traduzidos (Megasoft: `traducao_megasoft.linha_da_folha` e `despesa`; Centi: `centi.despesa`, com as
+  mesmas chaves), cada um com `fonte`;
 - leitura que não fecha (registros lidos ≠ total, com `maximo` suficiente) devolve o que leu e o total anunciado:
   quem lê o mês declara "incompleta"; nunca devolver total 0 para esconder falha;
 - `cnpj` (já 00.000.000/0000-00) é filtrado aqui sobre os registros do período, mesmo se o sistema filtrar;
@@ -87,14 +88,15 @@ def _pagina(portal, caminho, filtros, pagina, tamanho):
 
 
 def _ler(portal, caminho, filtros, *, chave, ate, progresso=None):
-    """Lê página a página até ter `ate` registros distintos (pela `chave`) ou acabar. Devolve (distintos, total)."""
+    """Lê página a página até ter `ate` registros distintos (pela `chave`; sem ela, pelo registro inteiro) ou acabar.
+    Devolve (distintos, total)."""
     distintos, total, pagina = {}, 0, 1
     tamanho = min(TAMANHO, max(ate, 1))
     while True:
         lote, total_da_pagina = _pagina(portal, caminho, filtros, pagina, tamanho)
         total = total_da_pagina if pagina == 1 else total  # vale o total anunciado na 1ª página
         for reg in lote:
-            distintos.setdefault(chave(reg), reg)
+            distintos.setdefault(chave(reg) or json.dumps(reg, sort_keys=True), reg)
         if progresso:
             progresso(len(distintos), total)
         if len(lote) < tamanho or len(distintos) >= min(total, ate) or pagina * tamanho >= total:

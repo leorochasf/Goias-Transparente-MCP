@@ -13,10 +13,11 @@ from .cliente import _cnpj
 
 FONTE = "Megasoft"
 
-#: Aruanã, 12/2025 (04/11/2026): a listagem da folha não tem campo de tipo de pagamento, e nenhuma matrícula veio
-#: duas vezes no mês. `situacao` é a situação funcional; `situacaoPagamento`, PAGO/NÃO PAGO. O rótulo leva "mensal"
-#: para o resumo contar a linha, e diz que 13º e rescisão não vêm separados.
-TIPO_PAGAMENTO = "Mensal (a Megasoft não separa 13º nem rescisão)"
+#: Aruanã, 11 e 12/2025 (04/11/2026): a listagem da folha não tem campo de tipo de pagamento, nenhuma matrícula veio
+#: duas vezes no mês e o 13º não está nela, nem somado nos proventos de dezembro (mediana 12/11 por matrícula: 1,00).
+#: `situacao` é a situação funcional; `situacaoPagamento`, PAGO/NÃO PAGO. O rótulo leva "mensal" para o resumo contar
+#: a linha, e diz o que falta.
+TIPO_PAGAMENTO = "Mensal (a listagem da Megasoft não traz 13º; rescisão não vem separada)"
 
 
 def _br(valor):
@@ -56,7 +57,8 @@ _DOCUMENTO = re.compile(r"\s*(\d{2}\.?\d{3}\.?\d{3}/?\d{4}-?\d{2}|[\dX*]{3}\.?[\
 def despesa(reg):
     """Um empenho da listagem `empenho/paginado` (própria) ou `megasoft/empenhos` (embutida).
 
-    Os valores são os totais (`valorTotalDo...`), que a Megasoft dá ao lado do valor e da anulação.
+    Os valores são os totais (`valorTotalDo...`), que a Megasoft dá ao lado do valor e da anulação. `orgao`: a listagem
+    traz o Município, a Câmara e os fundos juntos (Aruanã: 9 entidades).
     """
     composto = str(reg.get("cnpjENomeDoFornecedor") or "")
     m = _DOCUMENTO.match(composto)
@@ -68,5 +70,5 @@ def despesa(reg):
         "valor_empenhado": _br(reg.get("valorTotalDoEmpenho")),
         "valor_liquidado": _br(reg.get("valorTotalDaLiquidacao")),
         "valor_pago": _br(reg.get("valorTotalDoPagamento")),
-        "historico": reg.get("historico"), "fonte": FONTE,
+        "historico": reg.get("historico"), "orgao": reg.get("codigoENomeDoOrgao") or None, "fonte": FONTE,
     }

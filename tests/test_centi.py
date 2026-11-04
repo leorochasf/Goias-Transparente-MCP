@@ -61,7 +61,7 @@ def test_despesas_da_centi_vem_no_formato_do_projeto_com_a_fonte():
     assert r == {"total": 1, "registros": [{
         "empenho": "188810", "data": "15/01/2025", "cpf_cnpj": CNPJ, "fornecedor": "EMPRESA EXEMPLO LTDA",
         "valor_empenhado": "10.000,50", "valor_liquidado": "8.000,00", "valor_pago": "7.500,00",
-        "historico": "AQUISIÇÃO DE MATERIAL DE EXPEDIENTE", "fonte": "Centi"}]}
+        "historico": "AQUISIÇÃO DE MATERIAL DE EXPEDIENTE", "orgao": "PODER EXECUTIVO", "fonte": "Centi"}]}
     enviado = _enviado()  # id_orgao 0 = todas as entidades (Câmara e fundos incluídos)
     assert {k: enviado[k] for k in ("acao", "id_orgao", "data_inicio", "data_fim")} == {
         "acao": "empenhos", "id_orgao": "0", "data_inicio": "01/01/2025", "data_fim": "31/01/2025"}

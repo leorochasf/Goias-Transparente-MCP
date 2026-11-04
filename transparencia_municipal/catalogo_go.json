@@ -74,15 +74,13 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"despesas_periodo": "em https://acessoainformacao.camaraitapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -212,19 +210,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.alexania.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.alexania.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.alexania.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
 "legislacao_ano": "nenhum decreto de 2025"
 }
@@ -328,7 +323,25 @@
 "acessoainformacao.altoparaisodegoias.go.leg.br",
 "altoparaisodegoias.go.leg.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
+"legislacao_ano": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
+}
+}
 },
 {
 "ibge": "5200605",
@@ -341,7 +354,25 @@
 "outros_enderecos": [
 "altoparaiso.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
+"legislacao_ano": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
+}
+}
 },
 {
 "ibge": "5200803",
@@ -738,19 +769,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.aruana.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.aruana.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.aruana.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -774,19 +802,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.aruana.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.aruana.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -1704,7 +1729,25 @@
 "outros_enderecos": [
 "camaracocalzinho.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
+"legislacao_ano": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
+}
+}
 },
 {
 "ibge": "5205513",
@@ -1725,19 +1768,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
@@ -1839,19 +1879,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -1867,7 +1904,25 @@
 "outros_enderecos": [
 "corumbaiba.go.gov.br"
 ],
-"conferencia": null
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
+"legislacao_ano": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
+}
+}
 },
 {
 "ibge": "5206206",
@@ -1887,19 +1942,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.cristalina.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.cristalina.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.cristalina.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -1927,16 +1979,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "em https://acessoainformacao.cristalina.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "em https://acessoainformacao.cristalina.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -2421,19 +2471,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -2457,19 +2504,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
@@ -2710,15 +2754,13 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"despesas_periodo": "em https://acessoainformacao.guapo.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -2746,16 +2788,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 8",
-"despesas_periodo": "em https://acessoainformacao.guapo.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 8",
 "receitas_mes": "em https://acessoainformacao.guapo.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -3273,15 +3313,13 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"despesas_periodo": "em https://acessoainformacao.camaraitapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -3309,16 +3347,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 8",
-"despesas_periodo": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -4252,16 +4288,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "em https://acessoainformacao.camaranovacrixas.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -4287,7 +4321,7 @@
 "filtros": {
 "folha_mes": "erro",
 "folha_orgaos": "erro",
-"despesas_periodo": "nao_suportado",
+"despesas_periodo": "erro",
 "despesas_cnpj": "sem_dados",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "erro",
@@ -4296,8 +4330,8 @@
 "detalhes": {
 "folha_mes": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "folha_orgaos": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
-"despesas_periodo": "em https://novacrixas.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"despesas_periodo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 na Centi: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "em https://novacrixas.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_tipo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
@@ -4495,7 +4529,7 @@
 "filtros": {
 "folha_mes": "erro",
 "folha_orgaos": "erro",
-"despesas_periodo": "nao_suportado",
+"despesas_periodo": "erro",
 "despesas_cnpj": "sem_dados",
 "receitas_mes": "erro",
 "legislacao_tipo": "erro",
@@ -4504,8 +4538,8 @@
 "detalhes": {
 "folha_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "folha_orgaos": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
-"despesas_periodo": "em https://camaradeorizona.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"despesas_periodo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 na Centi: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em receitas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_tipo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
@@ -4533,16 +4567,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "a folha de 06/2025 está vazia; conferida em 10/2026, o mês mais recente publicado",
-"despesas_periodo": "em https://acessoainformacao.orizona.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_mes": "a folha de 06/2025 está vazia; conferida em 09/2026, o mês mais recente publicado",
 "receitas_mes": "em https://acessoainformacao.orizona.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -4935,8 +4967,8 @@
 "detalhes": {
 "folha_mes": "folha de 06/2025 vazia, e nenhuma folha recente",
 "folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "nenhuma despesa no 1º trimestre",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"despesas_periodo": "nenhuma despesa em 06/2025",
+"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -4964,16 +4996,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 7",
-"despesas_periodo": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 7",
 "receitas_mes": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -5156,16 +5186,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"despesas_periodo": "em https://acessoainformacao.posse.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -5193,16 +5221,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5",
-"despesas_periodo": "em https://acessoainformacao.posse.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "em https://acessoainformacao.posse.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -5900,15 +5926,13 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"despesas_periodo": "em https://acessoainformacao.saomigueldoaraguaia.go.leg.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -5936,16 +5960,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 1; com filtro aparecem 3, 4",
-"despesas_periodo": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "legislacao_ano": "nenhum decreto de 2025"
 }
@@ -6291,15 +6313,13 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"despesas_periodo": "em https://acessoainformacao.camaratrindade.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -6325,16 +6345,14 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "falhou",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 7, 8, 10",
-"despesas_periodo": "em https://acessoainformacao.trindade.go.gov.br, o módulo despesas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
 "receitas_mes": "em https://acessoainformacao.trindade.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }
@@ -6579,19 +6597,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias"
 }
 }
@@ -6616,19 +6631,16 @@
 "data": "2026-11-04",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "nao_suportado",
-"despesas_cnpj": "sem_dados",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "nao_suportado",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo servidores vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo despesas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_cnpj": "nenhum CNPJ nas despesas do 1º trimestre",
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 }

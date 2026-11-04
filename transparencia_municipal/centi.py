@@ -47,7 +47,8 @@ def despesa(reg):
     """Um empenho da Centi no formato de despesas do projeto.
 
     `valor_empenhado` é o empenhado menos a anulação, como no relatório da própria página (e como o total da
-    Megasoft). Liquidado e pago saem como a Centi os dá.
+    Megasoft). Liquidado e pago saem como a Centi os dá. `orgao` é o `OrgaoGestor`: com `id_orgao=0` vêm a Câmara e
+    os fundos junto com a Prefeitura.
     """
     empenhado, anulado = _decimal(reg.get("ValorEmpenhado")), _decimal(reg.get("ValorAnulacao"))
     documento = reg.get("CpfCnpjCredor") or None
@@ -58,7 +59,7 @@ def despesa(reg):
         "valor_empenhado": _br(None if empenhado is None else empenhado - (anulado or 0)),
         "valor_liquidado": _br(_decimal(reg.get("ValorLiquidado"))),
         "valor_pago": _br(_decimal(reg.get("ValorPago"))),
-        "historico": reg.get("Historico"), "fonte": FONTE,
+        "historico": reg.get("Historico"), "orgao": reg.get("OrgaoGestor") or None, "fonte": FONTE,
     }
 
 

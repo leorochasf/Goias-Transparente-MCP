@@ -79,13 +79,13 @@ def consultar_receitas(de: str, ate: str, portal: str | None = None, maximo: int
 
 
 @mcp.tool()
-def consultar_legislacao(municipio: str, tipo: str | None = None, busca: str | None = None,
+def consultar_legislacao(tipo: str = "DECRETO", busca: str | None = None, ano: int | None = None,
                          portal: str | None = None, maximo: int = 100) -> dict:
-    """Leis, decretos e portarias. `municipio` é o apelido do portal (ex.: senador_canedo).
+    """Decretos, portarias ou resoluções. `tipo`: DECRETO (padrão), PORTARIA ou RESOLUCAO.
 
-    Como descobrir o apelido: README, seção "Legislação".
+    `busca` procura palavra na ementa. Ex.: qual decreto criou o cargo de assessor especial.
     """
-    return _executar(lambda: _portal(portal).legislacao(municipio, tipo, busca, maximo=maximo))
+    return _executar(lambda: _portal(portal).legislacao(tipo, busca, ano=ano, maximo=maximo))
 
 
 def main():

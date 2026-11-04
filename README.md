@@ -101,11 +101,27 @@ público tem dever de transparência ativa, e o pedido costuma ser mais rápido 
 - **Este projeto não contorna captcha, não usa certificado digital e não faz login.** Só lê o que
   o portal já mostra a qualquer visitante.
 
-## Legislação: o apelido do município
+## Legislação
 
-A consulta de leis e decretos usa um apelido interno do portal. Para descobrir o seu: abra
-`{portal}/cidadao/legislacao/decretos_psc` no navegador, veja as chamadas de rede da página e leia
-o campo `acao` — o apelido é o trecho depois de `atos_pf_` (ex.: `atos_pf_senador_canedo`).
+A consulta lê o módulo `atos` do portal e não precisa mais de apelido do município:
+
+```bash
+python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
+    --navegador legislacao --tipo DECRETO --busca cargo
+```
+
+- `--tipo`: `DECRETO` (padrão), `PORTARIA` ou `RESOLUCAO` — ou o código numérico do portal
+  (1, 2 e 3, respectivamente).
+- `--busca` procura a palavra na ementa. `--ano` restringe o ano (filtro da própria tela do
+  portal; ainda não conferido ao vivo).
+
+Por que mudou: em Senador Canedo (04/11/2026) o caminho antigo, `atos_pf_senador_canedo/listar`,
+voltava **vazio** — inclusive na tela "Decretos" do próprio site —, enquanto o módulo `atos`
+trazia 3.905 decretos e 1.051 portarias. Se em outro portal o resultado vier zerado, o caminho
+antigo continua acessível pela biblioteca: `Portal.consultar("atos_pf_<apelido>/listar", {"tipo": "DECRETO"})`.
+
+**Leis** ficam em outro módulo, `leis/listar`, e não entram nesta consulta; leia com
+`Portal.consultar("leis/listar")`.
 
 ## Limites conhecidos
 

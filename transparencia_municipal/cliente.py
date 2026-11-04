@@ -54,6 +54,17 @@ def _data_br(valor, *, campo):
     return f"{dia}/{mes}/{ano}"
 
 
+def _cnpj(texto):
+    """Se o texto é só um CNPJ (14 dígitos, com ou sem pontuação), devolve 00.000.000/0000-00."""
+    v = str(texto).strip()
+    if not re.fullmatch(r"[\d./-]+", v):
+        return None
+    d = re.sub(r"\D", "", v)
+    if len(d) != 14:
+        return None
+    return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
+
+
 @dataclass
 class Portal:
     """Um portal municipal. Ex.: Portal("https://acessoainformacao.cidade.go.gov.br")."""
@@ -133,9 +144,16 @@ class Portal:
         return self.consultar(MODULOS["folha"], f, maximo=maximo)
 
     def despesas(self, de, ate, busca=None, *, maximo=200):
-        """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor."""
+        """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor.
+
+        CNPJ (14 dígitos, com ou sem pontuação) vai no filtro próprio do portal, já no
+        formato 00.000.000/0000-00: a busca livre não acha CNPJ. Outro texto vai na busca livre.
+        """
         f = {"datamin": _data_br(de, campo="de"), "datamax": _data_br(ate, campo="ate")}
-        if busca:
+        cnpj = _cnpj(busca) if busca else None
+        if cnpj:
+            f["cpf_cnpj"] = cnpj
+        elif busca:
             f["txtbusca"] = busca
         return self.consultar(MODULOS["despesas"], f, maximo=maximo)
 

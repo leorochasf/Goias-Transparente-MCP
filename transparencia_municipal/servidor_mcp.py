@@ -53,6 +53,8 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
                        portal: str | None = None, maximo: int = 100) -> dict:
     """Empenhos e pagamentos no período (datas AAAA-MM-DD). `busca` aceita nome ou CNPJ do fornecedor.
 
+    CNPJ (com ou sem pontuação) traz só os empenhos daquele CNPJ; outro texto vai na busca livre.
+
     Ex.: quanto o município pagou à empresa tal em 2025.
     """
     return _executar(lambda: _portal(portal).despesas(de, ate, busca, maximo=maximo))

@@ -37,6 +37,10 @@ cd Goias-Transparente-MCP
 pip install -e .
 ```
 
+A instalação cria dois comandos: `goias-transparente`, a linha de comando, e `goias-transparente-mcp`, o servidor
+para o assistente de IA. Eles fazem o mesmo que `python -m transparencia_municipal.cli` e
+`python -m transparencia_municipal.servidor_mcp`, usados nos exemplos abaixo.
+
 Python 3.10 ou mais novo.
 
 ### Como assistente de IA (MCP)

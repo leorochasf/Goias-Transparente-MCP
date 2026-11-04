@@ -28,4 +28,7 @@ select = ["E4", "E7", "E9", "F"]  # fixo: versões novas do ruff ligam outras re
 ignore = ["E702"]  # a CLI declara argumentos aos pares, numa linha só, de propósito
 
 [tool.pytest.ini_options]
-markers = ["ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1"]
+markers = [
+    "ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1",
+    "descobre_sufixos: o Portal aprende os sufixos na página inicial (simulada)",
+]

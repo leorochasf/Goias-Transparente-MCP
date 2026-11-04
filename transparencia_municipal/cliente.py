@@ -19,19 +19,23 @@ from dataclasses import dataclass, field
 
 import requests
 
+from .plataformas import reconhecer
+
 UA_FERRAMENTA = ("mcp-transparencia-municipal/0.2 "
                  "(+https://github.com/leorochasf/mcp-transparencia-municipal)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 
-#: nome amigável → (ação da API, campo de busca livre)
+#: nome amigável → módulo da API. A ação é `<modulo>_<sufixo>/listar`, e o sufixo (`frl` ou `cnt`) varia
+#: por portal e por módulo. Com o sufixo errado o portal responde total 0, sem erro (medido em 04/11/2026).
 MODULOS = {
-    "folha": "servidores_frl/listar",
-    "despesas": "despesas_frl/listar",
-    "contratos": "contratos_frl/listar",
-    "licitacoes": "licitacoes_frl/listar",
-    "receitas": "receitas_frl/listar",
+    "folha": "servidores",
+    "despesas": "despesas",
+    "contratos": "contratos",
+    "licitacoes": "licitacoes",
+    "receitas": "receitas",
 }
+SUFIXOS = ("frl", "cnt")
 
 
 #: tipo de ato → código no módulo `atos` (conferido em Senador Canedo, 04/11/2026)
@@ -89,6 +93,7 @@ class Portal:
     pausa: float = 1.0            # segundos entre requisições — não sobrecarregue o portal
     por_pagina: int = 100
     timeout: int = 60
+    sufixos: dict | None = None   # módulo → "frl"/"cnt"; None = aprender na página inicial
     sessao: requests.Session = field(default_factory=requests.Session, repr=False)
 
     def __post_init__(self):
@@ -132,6 +137,31 @@ class Portal:
         registros = bruto.get("dados") or bruto.get("registros") or []
         return registros, int(bruto.get("total") or 0)
 
+    def _descobrir_sufixos(self):
+        """Sufixos que a página inicial do portal anuncia (`servidores_cnt` etc.). Sem página: nenhum."""
+        try:
+            r = self.sessao.get(f"{self.url}/", timeout=self.timeout, headers={"User-Agent": self.user_agent})
+        except requests.RequestException:
+            return {}
+        return reconhecer(r.text, self.url)["sufixos"] if r.status_code == 200 else {}
+
+    def _consultar_modulo(self, nome, filtros, *, maximo, progresso=None):
+        """Consulta um módulo com o sufixo deste portal. Sufixo desconhecido: `frl`; se der zero, `cnt`."""
+        modulo = MODULOS[nome]
+        if self.sufixos is None:
+            self.sufixos = self._descobrir_sufixos()
+        if modulo in self.sufixos:
+            return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
+                                  progresso=progresso)
+        primeiro = None
+        for sufixo in SUFIXOS:
+            r = self.consultar(f"{modulo}_{sufixo}/listar", filtros, maximo=maximo, progresso=progresso)
+            if r["total"] > 0:
+                self.sufixos[modulo] = sufixo
+                return r
+            primeiro = primeiro or r
+        return primeiro
+
     def consultar(self, acao, filtros=None, *, maximo=200, progresso=None):
         """Pagina até `maximo` registros. Devolve {"total", "registros"}.
 
@@ -161,7 +191,7 @@ class Portal:
             f["mes"] = str(int(mes))
         if busca:
             f["txtbusca"] = busca
-        return self.consultar(MODULOS["folha"], f, maximo=maximo, progresso=progresso)
+        return self._consultar_modulo("folha", f, maximo=maximo, progresso=progresso)
 
     def despesas(self, de, ate, busca=None, *, maximo=200):
         """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor.
@@ -175,7 +205,7 @@ class Portal:
             f["cpf_cnpj"] = cnpj
         elif busca:
             f["txtbusca"] = busca
-        return self.consultar(MODULOS["despesas"], f, maximo=maximo)
+        return self._consultar_modulo("despesas", f, maximo=maximo)
 
     def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
         """Contratos (tipo="contrato") ou aditivos (tipo="aditivo")."""
@@ -184,14 +214,14 @@ class Portal:
             f["anobase"] = str(ano)
         if busca:
             f["txtbusca"] = busca
-        return self.consultar(MODULOS["contratos"], f, maximo=maximo)
+        return self._consultar_modulo("contratos", f, maximo=maximo)
 
     def licitacoes(self, busca=None, *, dispensas=False, maximo=200):
         """Licitações; dispensas=True traz dispensas e inexigibilidades."""
         f = {"dispensas": 1 if dispensas else 0, "fracassadas_desertas": 0}
         if busca:
             f["txtbusca"] = busca
-        return self.consultar(MODULOS["licitacoes"], f, maximo=maximo)
+        return self._consultar_modulo("licitacoes", f, maximo=maximo)
 
     def receitas(self, ano, mes, *, maximo=200):
         """Receitas de um mês. Para um período, chame uma vez por mês.
@@ -202,7 +232,7 @@ class Portal:
         v = str(mes).strip()
         if not v.isdigit() or not 1 <= int(v) <= 12:
             raise ValueError(f"mes: use um número de 1 a 12 (recebido: {mes!r})")
-        return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(int(v))},
+        return self._consultar_modulo("receitas", {"ano": str(ano), "mes": str(int(v))},
                               maximo=maximo)
 
     def legislacao(self, tipo="DECRETO", busca=None, *, ano=None, maximo=200):

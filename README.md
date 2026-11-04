@@ -114,6 +114,8 @@ o campo `acao` — o apelido é o trecho depois de `atos_pf_` (ex.: `atos_pf_sen
 - Sem paginação infinita: use `--maximo` para pedir mais que os 200 registros padrão.
 - A busca livre (`--busca`) é a mesma caixinha do portal. **Na folha ela procura só por nome**:
   para filtrar por cargo ou lotação, traga o mês inteiro e filtre a planilha depois.
+  **Nas despesas, um CNPJ** (com ou sem pontuação) não vai para a caixinha, que não o encontra:
+  vai para o filtro de CNPJ do portal e traz só os empenhos daquele fornecedor.
 
 ## Licença
 

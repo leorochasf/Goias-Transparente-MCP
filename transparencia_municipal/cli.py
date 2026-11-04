@@ -12,10 +12,11 @@ import sys
 
 from .cliente import ErroPortal, Portal
 
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-except Exception:
-    pass
+for _saida in (sys.stdout, sys.stderr):  # stderr: o erro sai por SystemExit
+    try:
+        _saida.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
 
 
 def _gravar(registros, csv_saida, json_saida):

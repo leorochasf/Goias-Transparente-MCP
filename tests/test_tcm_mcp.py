@@ -34,9 +34,23 @@ def test_as_tres_ferramentas_existem_com_os_parametros_da_spec():
     assert e["ler_acordao_tcm"]["required"] == ["id"]
 
 
-def test_processos_com_a_fonte_vazia_responde_ainda_nao_disponivel_com_os_avisos_fixos():  # ticket 02 substitui
-    r = _chamar("processos_tcm", municipio="nova crixas", ano=2024)
-    assert "ainda não disponível" in r["erro"]
+def test_processos_de_ponta_a_ponta_pelo_esiproc_simulado_com_os_avisos_fixos():  # ticket 02
+    import responses  # local: as linhas de import do arquivo não são deste ticket
+    fonte = {"numero": "00000131.2023.001.4.14838.0223", "municipio": "NOVA CRIXÁS", "codigo_ibge": "14838",
+             "tipo_protocolo": "Contas de Gestão", "ano_competencia": 2023, "finalizado": "SIM",
+             "decisoes": [], "envolvidos": [{"nome": "FULANO FICTÍCIO", "tipo_envolvimento": "Gestor",
+                                             "tipo_pessoa": "FÍSICA"}]}
+    with responses.RequestsMock() as simulado:
+        simulado.post(f"{tcm.FONTES['esiproc']['base']}/pesquisar", json={
+            "timed_out": False, "_shards": {"total": 1, "successful": 1, "failed": 0},
+            "hits": {"total": {"value": 1, "relation": "eq"}, "hits": [{"_source": fonte}]}})
+        r = _chamar("processos_tcm", municipio="nova crixas", tipo="Contas de Gestão", ano=2023)
+        filtros = json.loads(simulado.calls[0].request.body)["filtros"]
+    assert filtros["municipio.keyword"] == "NOVA CRIXÁS" and filtros["ano_competencia"] == 2023
+    assert filtros["tipo_protocolo.keyword"] == "Contas de Gestão"
+    assert r["total"] == 1 and r["municipio_tcm"] == "NOVA CRIXÁS" and "erro" not in r
+    assert r["registros"][0]["numero"] == fonte["numero"] and r["registros"][0]["finalizado"] is True
+    assert r["registros"][0]["fonte"] == "TCM-GO eSiproc"
     assert r["aviso_fonte"] == tcm.AVISO_PROCESSOS and r["aviso_envolvidos"] == tcm.AVISO_ENVOLVIDOS
     assert r["aviso"] == tcm.AVISO_GERAL
 

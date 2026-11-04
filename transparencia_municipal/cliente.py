@@ -34,6 +34,21 @@ MODULOS = {
 }
 
 
+#: tipo de ato → código no módulo `atos` (conferido em Senador Canedo, 04/11/2026)
+TIPOS_ATO = {"DECRETO": 1, "PORTARIA": 2, "RESOLUCAO": 3}
+
+
+def _tipo_ato(tipo):
+    """Aceita nome (decreto, Resolução...) ou código numérico e devolve o código."""
+    v = str(tipo).strip()
+    if v.isdigit():
+        return int(v)
+    chave = v.upper().replace("Ç", "C").replace("Ã", "A").replace("Õ", "O")
+    if chave not in TIPOS_ATO:
+        raise ValueError(f"tipo: use {', '.join(TIPOS_ATO)} ou o código numérico (recebido: {tipo!r})")
+    return TIPOS_ATO[chave]
+
+
 class ErroPortal(RuntimeError):
     """Falha ao falar com o portal. A mensagem sempre diz o que aconteceu."""
 
@@ -185,15 +200,15 @@ class Portal:
         return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(mes)},
                               maximo=maximo)
 
-    def legislacao(self, municipio, tipo=None, busca=None, *, maximo=200):
-        """Leis, decretos e portarias. `municipio` é o apelido do portal (ex.: senador_canedo).
+    def legislacao(self, tipo="DECRETO", busca=None, *, ano=None, maximo=200):
+        """Decretos, portarias ou resoluções. `tipo`: DECRETO, PORTARIA, RESOLUCAO ou o código.
 
-        Como descobrir: abra {portal}/cidadao/legislacao/decretos_psc no navegador, veja a
-        chamada de rede da página e leia o `acao` — o trecho depois de `atos_pf_`.
+        `busca` procura palavra na ementa. Lê o módulo `atos` do portal: em Senador Canedo
+        (04/11/2026) o antigo `atos_pf_<apelido>` estava vazio, inclusive na tela do site.
         """
-        f = {}
-        if tipo:
-            f["tipo"] = tipo.upper()
+        f = {"tipo": _tipo_ato(tipo)}
         if busca:
-            f["txtbusca"] = busca
-        return self.consultar(f"atos_pf_{municipio}/listar", f, maximo=maximo)
+            f["search"] = busca
+        if ano:
+            f["ano"] = str(ano)
+        return self.consultar("atos/buscaAvancada", f, maximo=maximo)

@@ -29,8 +29,11 @@ toda consulta nova precisa de uma chamada ao vivo que mostre o total mudando e o
 - Despesas: `data` vem como `dd/mm/aaaa`; `cpf_cnpj` vem formatado.
 - Receitas: `mes` sem zero (`"3"`); `valor_total_arrecadado_mes` vem como texto em reais (`"183.487,22"`).
 - Folha: `mes` com zero (`"03"`); CPF mascarado. Linhas de 13º e de rescisão vêm junto no mesmo
-  mês, com a matrícula repetida. Existe um campo `tipo_folha`, mas ainda não foi conferido se é
-  ele que as distingue.
+  mês, com a matrícula repetida. O campo `tipo_folha` as distingue: `Folha Mensal`, `Fechamento 13º Salário`
+  ou `Rescisão`.
+- Folha, rubricas: `lista_proventos` + `lista_descontos` somam exatamente `total_proventos` e
+  `total_desconto`. Há também `eventos` (39% do peso da linha),
+  com as rubricas em outro formato numérico; não conferido se bate. A folha leve não o usa.
 - Legislação: `tipo` vem como texto (`"1"`), e `ano` também.
 
 ## Tamanho

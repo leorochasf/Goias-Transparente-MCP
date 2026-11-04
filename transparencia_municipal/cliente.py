@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 
 import requests
 
-UA_FERRAMENTA = ("mcp-transparencia-municipal/0.1 "
+UA_FERRAMENTA = ("mcp-transparencia-municipal/0.2 "
                  "(+https://github.com/leorochasf/mcp-transparencia-municipal)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -132,12 +132,17 @@ class Portal:
         registros = bruto.get("dados") or bruto.get("registros") or []
         return registros, int(bruto.get("total") or 0)
 
-    def consultar(self, acao, filtros=None, *, maximo=200):
-        """Pagina até `maximo` registros. Devolve {"total", "registros"}."""
+    def consultar(self, acao, filtros=None, *, maximo=200, progresso=None):
+        """Pagina até `maximo` registros. Devolve {"total", "registros"}.
+
+        `progresso(lidos, total)`, se dado, é chamado depois de cada página.
+        """
         registros, total, offset = [], 0, 0
         while len(registros) < maximo:
             lote, total = self._pagina(acao, filtros, offset)
             registros += lote
+            if progresso:
+                progresso(len(registros), total)
             offset += self.por_pagina
             if len(lote) < self.por_pagina or offset >= total:
                 break
@@ -145,7 +150,7 @@ class Portal:
         return {"total": total, "registros": registros[:maximo]}
 
     # ── atalhos por módulo ────────────────────────────────────────────────
-    def folha(self, ano, mes=None, busca=None, *, maximo=200):
+    def folha(self, ano, mes=None, busca=None, *, maximo=200, progresso=None):
         """Servidores e remuneração de um mês. `busca` filtra pelo NOME do servidor.
 
         Verificado em portal real: a caixa de busca da folha não encontra por cargo
@@ -156,7 +161,7 @@ class Portal:
             f["mes"] = str(int(mes))
         if busca:
             f["txtbusca"] = busca
-        return self.consultar(MODULOS["folha"], f, maximo=maximo)
+        return self.consultar(MODULOS["folha"], f, maximo=maximo, progresso=progresso)
 
     def despesas(self, de, ate, busca=None, *, maximo=200):
         """Empenhos e pagamentos no período. `busca` aceita nome ou CNPJ do fornecedor.

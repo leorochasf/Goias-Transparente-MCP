@@ -17,7 +17,9 @@ outros estados — os portais no padrão `acessoainformacao.<municipio>.go.gov.b
 
 | Consulta | Exemplo de pergunta |
 |---|---|
-| **Folha de pagamento** | *Quanto ganhou o servidor Fulano de Tal em março de 2025?* (a busca é por nome) |
+| **Folha de pagamento** | *Quanto ganhou o servidor Fulano de Tal em março de 2025, e de quê?* (a busca é por nome) |
+| **Folha: listas** | *Quem são os comissionados da Secretaria de Saúde em março de 2025?* |
+| **Folha: contagens e custos** | *Quantos comissionados há por secretaria, e quanto custam por mês?* |
 | **Despesas (empenhos)** | *Quanto o município pagou para o CNPJ 00.000.000/0001-00 no ano passado?* |
 | **Contratos e aditivos** | *Quais contratos foram assinados em 2025 com a palavra "locação"?* |
 | **Licitações e dispensas** | *Liste as dispensas de licitação do município.* |
@@ -125,6 +127,22 @@ antigo continua acessível pela biblioteca: `Portal.consultar("atos_pf_<apelido>
 
 **Leis** ficam em outro módulo, `leis/listar`, e não entram nesta consulta; leia com
 `Portal.consultar("leis/listar")`.
+
+## Folha no assistente de IA
+
+Um mês de folha tem milhares de linhas, e cada uma traz o detalhe das rubricas. Inteira, a folha não
+cabe na memória de um assistente. Por isso o servidor MCP entrega a folha **leve** em três ferramentas:
+
+- `consultar_folha`: busca pelo nome, rápida. Com até 10 linhas, traz as rubricas (proventos e descontos).
+- `listar_folha`: filtra o mês por cargo, lotação, vínculo ou tipo de pagamento. Devolve até 300 linhas
+  e sempre diz quantas casaram com o filtro.
+- `resumir_folha`: por cargo, lotação ou vínculo, conta linhas e matrículas e soma bruto e líquido, sem nomes.
+
+Listar e resumir leem o **mês inteiro** do portal, com pausa entre as páginas. Em Senador Canedo, isso dá
+uns 9 minutos na primeira pergunta (medido em 04/11/2026). A leitura fica guardada **só na memória**, enquanto o servidor estiver
+aberto, e as perguntas seguintes sobre o mesmo mês saem na hora. **13º e rescisão nunca são somados ao
+salário do mês.** O resumo separa por tipo de pagamento. A linha de comando e a biblioteca continuam
+devolvendo a folha completa.
 
 ## Limites conhecidos
 

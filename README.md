@@ -115,8 +115,8 @@ python -m transparencia_municipal.cli --portal https://acessoainformacao.senador
 
 - `--tipo`: `DECRETO` (padrão), `PORTARIA` ou `RESOLUCAO` — ou o código numérico do portal
   (1, 2 e 3, respectivamente).
-- `--busca` procura a palavra na ementa. `--ano` restringe o ano (filtro da própria tela do
-  portal; ainda não conferido ao vivo).
+- `--busca` procura a palavra na ementa. `--ano` restringe o ano (em Senador Canedo, 04/11/2026:
+  1.201 decretos de 2025, de 3.905 no total).
 
 Por que mudou: em Senador Canedo (04/11/2026) o caminho antigo, `atos_pf_senador_canedo/listar`,
 voltava **vazio** — inclusive na tela "Decretos" do próprio site —, enquanto o módulo `atos`

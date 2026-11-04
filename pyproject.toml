@@ -25,3 +25,6 @@ include = ["transparencia_municipal*"]
 
 [tool.ruff.lint]
 ignore = ["E702"]  # a CLI declara argumentos aos pares, numa linha só, de propósito
+
+[tool.pytest.ini_options]
+markers = ["ao_vivo: consulta o portal real; roda só com TRANSPARENCIA_AO_VIVO=1"]

@@ -49,7 +49,7 @@ def test_receitas_mes_vai_sem_zero_a_esquerda():
     assert _corpo_enviado(responses.calls[0].request)["mes"] == "3"
 
 
-@pytest.mark.parametrize("mes", [0, 13])
+@pytest.mark.parametrize("mes", [0, 13, 3.9, "3.9"])
 def test_receitas_mes_fora_de_1_a_12_e_valueerror_legivel(mes):
     with pytest.raises(ValueError, match="1 a 12"):
         Portal(PORTAL).receitas(2025, mes)

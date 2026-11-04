@@ -72,7 +72,7 @@ def _data_br(valor, *, campo):
 def _cnpj(texto):
     """Se o texto é só um CNPJ (14 dígitos, com ou sem pontuação), devolve 00.000.000/0000-00."""
     v = str(texto).strip()
-    if not re.fullmatch(r"[\d./-]+", v):
+    if not re.fullmatch(r"[\d./\- ]+", v):
         return None
     d = re.sub(r"\D", "", v)
     if len(d) != 14:
@@ -194,10 +194,10 @@ class Portal:
         Verificado em portal real: o filtro por datas (datamin/datamax) é ignorado
         e devolve sempre o mês corrente; só ano + mês são respeitados.
         """
-        mes = int(mes)
-        if not 1 <= mes <= 12:
-            raise ValueError(f"mes: use um número de 1 a 12 (recebido: {mes})")
-        return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(mes)},
+        v = str(mes).strip()
+        if not v.isdigit() or not 1 <= int(v) <= 12:
+            raise ValueError(f"mes: use um número de 1 a 12 (recebido: {mes!r})")
+        return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(int(v))},
                               maximo=maximo)
 
     def legislacao(self, tipo="DECRETO", busca=None, *, ano=None, maximo=200):

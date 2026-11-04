@@ -28,7 +28,8 @@ def _resposta(registros, total):
     return callback
 
 
-@pytest.mark.parametrize("busca", ["25.107.525/0001-51", "25107525000151", " 25.107.525/0001-51 "])
+@pytest.mark.parametrize("busca", ["25.107.525/0001-51", "25107525000151", " 25.107.525/0001-51 ",
+                                   "25.107.525 /0001-51", "25 107 525 0001 51"])
 @responses.activate
 def test_cnpj_vai_no_filtro_cpf_cnpj_formatado_e_nao_na_busca_livre(busca):
     registro = {"fornecedor": "EMPRESA X", "cpf_cnpj": "25.107.525/0001-51"}

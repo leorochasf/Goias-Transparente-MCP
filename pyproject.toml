@@ -5,12 +5,14 @@ description = "Consulta o Portal da Transparência de municípios (plataforma Nu
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-keywords = ["mcp", "transparencia", "portal-da-transparencia", "nucleogov", "dados-abertos", "lai", "municipios"]
+keywords = ["mcp", "transparencia", "portal-da-transparencia", "nucleogov", "dados-abertos", "lai", "municipios",
+            "tcm-go"]
 dependencies = ["requests>=2.31"]
 
 [project.optional-dependencies]
 mcp = ["mcp>=2.0"]
-dev = ["pytest>=8", "responses>=0.25", "ruff>=0.6"]
+pdf = ["pypdf>=4"]  # ler_acordao_tcm: texto do PDF do acórdão
+dev = ["pytest>=8", "responses>=0.25", "ruff>=0.6", "pypdf>=4"]
 
 [project.scripts]
 goias-transparente = "transparencia_municipal.cli:main"

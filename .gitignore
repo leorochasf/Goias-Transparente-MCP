@@ -7,3 +7,4 @@ dist/
 *.csv
 *.json
 !tests/**/*.json
+scripts/_catalogo/

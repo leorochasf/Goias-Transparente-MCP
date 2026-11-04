@@ -53,4 +53,4 @@ manda o assistente "trazer o mês inteiro e contar", o que é impossível: seria
   o portal de novo; a falha não fica guardada; as ferramentas, por um cliente MCP em processo, incluindo os
   avisos de progresso.
 - Ao vivo, no teste de fumaça: numa amostra, as rubricas somam o bruto.
-- Uma leitura do mês inteiro, rodada uma vez à mão pelo Claude, para ver se a espera aguenta. Feita em 04/11/2026 por cliente MCP stdio: 548 s, 86 avisos, leitura completa; a espera de cada assistente (Claude Desktop, Claude Code) não foi conferida.
+- Uma leitura do mês inteiro, rodada uma vez à mão pelo Claude, para ver se a espera aguenta. Feita em 04/11/2026 por cliente MCP stdio: 548 s, 86 avisos, leitura completa; e pelo Claude Code 2.1.318 (sem ajuste de tempo limite): esperou 7 min 38 s e trouxe o resumo, com os mesmos números. O Claude Desktop não foi conferido.

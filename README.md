@@ -58,11 +58,14 @@ Sobre o `TRANSPARENCIA_NAVEGADOR`, leia a seção **O 403** abaixo antes de liga
 
 ```bash
 python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
-    --navegador folha --ano 2025 --mes 3 --csv folha-marco.csv
+    --navegador --csv folha-marco.csv folha --ano 2025 --mes 3
 
 python -m transparencia_municipal.cli --portal https://acessoainformacao.senadorcanedo.go.gov.br \
-    --navegador despesas --de 2025-01-01 --ate 2025-12-31 --busca "23.910.014/0001-48" --csv empenhos.csv
+    --navegador --csv empenhos.csv despesas --de 2025-01-01 --ate 2025-12-31 --busca "23.910.014/0001-48"
 ```
+
+As opções `--navegador`, `--csv`, `--json`, `--maximo` e `--pausa` valem para qualquer consulta e
+vêm **antes** do nome da consulta (`folha`, `despesas`...).
 
 ### Como biblioteca
 

@@ -32,11 +32,11 @@ def _endereco(url=None):
 
 
 def _portal(url=None):
-    """Portal pronto para consulta. Recusa, sem chamar o portal, o que o catálogo diz não ser suportado."""
+    """Portal pronto para consulta. Recusa, sem chamar o portal, o Ortrel; o caminho da Megasoft o Portal decide."""
     endereco = _endereco(url)
     orgao = catalogo.por_portal(endereco)
     plataforma = (orgao or {}).get("plataforma")
-    if plataforma in ("megasoft", "ortrel"):
+    if plataforma == "ortrel":
         raise ValueError(f"A {catalogo.nome_do_orgao(orgao)} usa a plataforma "
                          f"{catalogo.NOMES_PLATAFORMA[plataforma]}, ainda não suportada por este projeto.")
     sufixos = dict(orgao["sufixos"]) if orgao and orgao.get("sufixos") else None
@@ -91,7 +91,10 @@ def _orgaos_escondidos(portal, ano, mes, sem_filtro, quando):
 
     Em 6 de 10 prefeituras conferidas em 04/11/2026 a folha sem filtro trazia só um órgão (Trindade: o 3;
     com filtro apareciam 5, 6, 7, 8 e 10). Sonda os códigos 1 a 15 que não vieram e lê os que têm linhas.
+    Só no NucleoGov: linhas traduzidas de outro sistema trazem `fonte` e não são sondadas.
     """
+    if any(x.get("fonte") for x in sem_filtro["registros"]):
+        return []
     vistos = {str(x.get("orgao_id")) for x in sem_filtro["registros"] if x.get("orgao_id") is not None}
     if not vistos:
         return []
@@ -159,14 +162,18 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     def consultar():
         consultado = _portal(portal)
         r = consultado.folha(ano, _mes(mes), busca, maximo=maximo)
-        com_rubricas = len(r["registros"]) <= RUBRICAS_ATE
+        de_outro_sistema = any(x.get("fonte") for x in r["registros"])  # Megasoft: listagem sem rubricas
+        com_rubricas = len(r["registros"]) <= RUBRICAS_ATE and not de_outro_sistema
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
         orgao = catalogo.por_portal(consultado.url) or {}
         if ((orgao.get("conferencia") or {}).get("filtros") or {}).get("folha_orgaos") == "falhou":
             saida["aviso_orgaos"] = ("neste portal a folha sem filtro esconde órgãos (conferência): a busca por nome "
                                      "pode não achar quem está neles. Para não perder ninguém, use "
                                      "listar_folha(ano, mes, nome=...), que lê o mês inteiro.")
-        if not com_rubricas:
+        if de_outro_sistema:
+            saida["aviso_rubricas"] = (f"a folha deste portal vem da {r['registros'][0]['fonte']}, cuja listagem não traz "
+                                       "rubricas: só bruto, descontos e líquido de cada linha.")
+        elif not com_rubricas:
             saida["aviso_rubricas"] = (f"mais de {RUBRICAS_ATE} linhas: as rubricas não vieram. "
                                        "Refine a busca pelo nome para ver as rubricas de uma pessoa.")
         return saida

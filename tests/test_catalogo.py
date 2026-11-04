@@ -55,9 +55,20 @@ def test_mcp_encontrar_portal():
     assert "não conferido" in r["orgaos"][0]["situacao"]
 
 
-def test_mcp_recusa_portal_de_outra_plataforma_sem_chamar_o_portal():
+@responses.activate
+def test_mcp_recusa_portal_megasoft_proprio_sem_chamar_o_portal():
+    """Quem recusa agora é o encaixe da Megasoft de domínio próprio, no Portal (ainda sem acesso)."""
     r = servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal="https://corumbaiba.megasofttransparencia.com.br")
-    assert "Megasoft" in r["erro"] and "Corumbaíba" in r["erro"]
+    assert "Megasoft" in r["erro"] and "corumbaiba" in r["erro"]
+    assert len(responses.calls) == 0
+
+
+def test_mcp_recusa_portal_ortrel_sem_chamar_o_portal(monkeypatch):
+    ortrel = {"municipio": "Exemplo", "orgao": "camara", "portal": "https://exemplo.go.leg.br", "plataforma": "ortrel",
+              "sufixos": {}, "outros_enderecos": [], "conferencia": None}
+    monkeypatch.setattr(catalogo, "carregar", lambda: [ortrel])
+    r = servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal="https://exemplo.go.leg.br")
+    assert "Ortrel" in r["erro"] and "Câmara de Exemplo" in r["erro"]
 
 
 @responses.activate

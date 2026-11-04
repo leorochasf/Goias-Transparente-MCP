@@ -164,7 +164,7 @@ def test_despesas_do_periodo_traduzidas_com_fonte_ate_o_maximo():
     assert r["registros"] == [{"empenho": 10, "data": "15/01/2025", "cpf_cnpj": "25.107.525/0001-51",
                                "fornecedor": "EMPRESA A LTDA", "valor_empenhado": "1.000,00",
                                "valor_liquidado": "800,00", "valor_pago": "500,00", "historico": "MATERIAL",
-                               "fonte": "Megasoft"}]
+                               "orgao": None, "fonte": "Megasoft"}]
     pedido = _consultas(EMPENHOS)[0]
     assert (pedido["dataInicial"], pedido["dataFinal"]) == ("01/01/2025", "31/01/2025")
 
@@ -226,7 +226,7 @@ def test_mcp_resumir_folha_de_um_portal_megasoft_proprio():
     assert "erro" not in r, r
     assert r["total_do_mes"] == 3
     (tipo, resumo), = r["por_tipo_de_pagamento"].items()
-    assert "não separa 13º nem rescisão" in tipo
+    assert "não traz 13º" in tipo
     assert (resumo["linhas"], resumo["matriculas"], resumo["bruto"], resumo["liquido"]) == (3, 3, 9024.8, 7800.5)
     assert [(g["grupo"], g["linhas"], g["bruto"]) for g in resumo["grupos"]] == [
         ("SECRETARIA DE SAÚDE", 2, 7024.8), ("SECRETARIA DE EDUCAÇÃO", 1, 2000.0)]

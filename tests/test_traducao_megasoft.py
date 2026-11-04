@@ -23,7 +23,8 @@ def _empenho(**campos):
             "valorDoEmpenho": 12000.5, "valorDaAnulacaoDoEmpenho": 0, "valorTotalDoEmpenho": 12000.5,
             "valorDaLiquidacao": 8000, "valorDaAnulacaoDaLiquidacao": 0, "valorTotalDaLiquidacao": 8000,
             "valorDoPagamento": 8000, "valorAnulacaoDoPagamento": 0, "valorTotalDoPagamento": 8000,
-            "tipoDoEmpenho": "Ordinário", "faseDoEmpenho": "Pago", **campos}
+            "tipoDoEmpenho": "Ordinário", "faseDoEmpenho": "Pago",
+            "codigoENomeDoOrgao": "02 - FUNDO MUNICIPAL DE SAÚDE", **campos}
 
 
 def test_folha_vira_linha_leve_com_os_campos_do_projeto_e_a_fonte():
@@ -41,8 +42,10 @@ def test_folha_guarda_ano_mes_e_a_situacao_do_pagamento():
 
 
 def test_13_e_rescisao_nao_vem_separados_e_o_tipo_diz_isso():
-    """Medido: dezembro sem linha repetida por matrícula. A exoneração aparece só como data de demissão."""
-    assert "mensal" in TIPO_PAGAMENTO.lower() and "13" in TIPO_PAGAMENTO and "rescis" in TIPO_PAGAMENTO.lower()
+    """Medido (Aruanã, 11 e 12/2025): a listagem não traz o 13º, nem somado em dezembro, e a rescisão não vem
+    separada. A exoneração aparece só como data de demissão."""
+    assert "mensal" in TIPO_PAGAMENTO.lower() and "rescis" in TIPO_PAGAMENTO.lower()
+    assert "não traz 13º" in TIPO_PAGAMENTO
     exonerado = linha_leve(linha_da_folha(_servidor(matricula=77, dataExoneracao="15/12/2025")))
     assert exonerado["data_demissao"] == "15/12/2025" and exonerado["tipo_pagamento"] == TIPO_PAGAMENTO
 
@@ -67,7 +70,8 @@ def test_despesa_vira_cnpj_formatado_fornecedor_data_valores_e_fonte():
     assert despesa(_empenho()) == {
         "empenho": 1500, "data": "15/01/2025", "cpf_cnpj": "25.107.525/0001-51", "fornecedor": "EMPRESA EXEMPLO LTDA",
         "valor_empenhado": "12.000,50", "valor_liquidado": "8.000,00", "valor_pago": "8.000,00",
-        "historico": "AQUISIÇÃO DE MATERIAL DE EXPEDIENTE", "fonte": "Megasoft"}
+        "historico": "AQUISIÇÃO DE MATERIAL DE EXPEDIENTE", "orgao": "02 - FUNDO MUNICIPAL DE SAÚDE",
+        "fonte": "Megasoft"}
 
 
 def test_despesa_formata_o_cnpj_sem_pontuacao_e_acha_o_fornecedor_no_campo_composto():

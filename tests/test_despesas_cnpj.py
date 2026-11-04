@@ -36,7 +36,7 @@ def test_cnpj_vai_no_filtro_cpf_cnpj_formatado_e_nao_na_busca_livre(busca):
     responses.add_callback(responses.POST, ACAO, callback=_resposta([registro], 1),
                            content_type="application/json")
     r = Portal(PORTAL).despesas("2025-01-01", "2025-01-31", busca=busca)
-    assert r == {"total": 1, "registros": [registro]}
+    assert r == {"total": 1, "registros": [{**registro, "fonte": "NucleoGov"}]}
     enviado = _corpo_enviado(responses.calls[0].request)
     assert enviado["cpf_cnpj"] == "25.107.525/0001-51"
     assert "txtbusca" not in enviado

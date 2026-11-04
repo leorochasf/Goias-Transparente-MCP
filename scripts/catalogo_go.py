@@ -110,13 +110,19 @@ def _sondados():
     return {x["host"]: x for x in map(json.loads, SONDAGEM.read_text(encoding="utf-8").splitlines()) if x}
 
 
-def _portal_nucleogov(orgao, sondados):
-    """O endereço NucleoGov do órgão: o reconhecido pelo endereço ou o que a sondagem confirmou."""
-    for h in orgao["hosts"]:
+#: plataformas que o `Portal` lê (a Megasoft embutida e a Centi entram pelo portal NucleoGov)
+CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft")
+
+
+def _portal_conferivel(orgao, sondados):
+    """O endereço que o `Portal` lê: NucleoGov (o reconhecido pelo endereço ou o que a sondagem confirmou) ou, sem
+    ele, o da Megasoft de domínio próprio."""
+    achados = []
+    for i, h in enumerate(orgao["hosts"]):
         plataforma = (sondados.get(h) or {}).get("plataforma") or plataforma_pelo_endereco(h)
-        if plataforma in ("nucleogov", "nucleogov-megasoft"):
-            return h, plataforma
-    return None, None
+        if plataforma in CONFERIVEIS:
+            achados.append((plataforma == "megasoft", i, h, plataforma))
+    return min(achados)[2:] if achados else (None, None)
 
 
 def conferir(args):
@@ -126,10 +132,10 @@ def conferir(args):
     sondados = _sondados()
     feitas = json.loads(CONFERENCIAS.read_text(encoding="utf-8")) if CONFERENCIAS.exists() else {}
     for o in orgaos:
-        host, plataforma = _portal_nucleogov(o, sondados)
+        host, plataforma = _portal_conferivel(o, sondados)
         rotulo = f"{o['municipio']} ({o['orgao']})"
         if not host:
-            print(f"{rotulo}: sem portal NucleoGov conhecido; fica de fora", flush=True)
+            print(f"{rotulo}: sem portal NucleoGov nem Megasoft conhecido; fica de fora", flush=True)
             continue
         if host in feitas:
             continue

@@ -133,7 +133,7 @@ def test_despesas_mg_vem_traduzidas_e_sem_filtro_pedem_so_o_maximo():
     assert r["registros"][0] == {"empenho": 1, "data": "01/01/2025", "cpf_cnpj": "25.107.525/0001-51",
                                  "fornecedor": "EMPRESA EXEMPLO LTDA", "valor_empenhado": "100,00",
                                  "valor_liquidado": "100,00", "valor_pago": "100,00", "historico": "MATERIAL",
-                                 "fonte": "Megasoft"}
+                                 "orgao": None, "fonte": "Megasoft"}
     assert [(p["dataInicial"], p["dataFinal"], p["pagina"], p["tamanhoDaPagina"]) for p in pedidos] == [
         ("01/01/2025", "31/03/2025", 1, 3)]
 

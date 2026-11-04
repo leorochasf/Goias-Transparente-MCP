@@ -1,4 +1,4 @@
-"""Conferência: mede ao vivo se um portal NucleoGov respeita cada filtro que o cliente manda.
+"""Conferência: mede ao vivo se um portal respeita cada filtro que o cliente manda (NucleoGov, Megasoft, Centi).
 
 Os exemplos saem do próprio portal: o CNPJ é um fornecedor das despesas dele, os órgãos são os da folha dele.
 O portal ignora filtro desconhecido em silêncio (docs/portal-nucleogov.md), e por isso cada filtro é conferido
@@ -11,7 +11,7 @@ import time
 from collections import Counter
 from datetime import date, datetime
 
-from .cliente import ModuloNaoSuportado
+from .cliente import FONTE, ModuloNaoSuportado
 
 ORGAOS_SONDADOS = range(1, 11)
 
@@ -59,6 +59,9 @@ def _folha(p, ano, mes, contexto):
 def _folha_orgaos(p, ano, mes, contexto):
     ano, mes = contexto.get("folha_ref", (ano, mes))
     regs = contexto["folha"]["registros"] if "folha" in contexto else p.folha(ano, mes, maximo=100)["registros"]
+    outra = next((x["fonte"] for x in regs if x.get("fonte") not in (None, FONTE)), None)
+    if outra:
+        return "sem_dados", f"a folha vem da {outra}: a sondagem de órgãos escondidos é só do NucleoGov"
     ids = {x.get("orgao_id") for x in regs if x.get("orgao_id")}
     if not ids:
         return "sem_dados", "a folha não traz orgao_id"

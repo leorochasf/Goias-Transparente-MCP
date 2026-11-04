@@ -38,6 +38,10 @@ MODULOS = {
 SUFIXOS = ("frl", "cnt")
 #: o que cada portal ensinou nesta execução (endereço → sufixos); evita reler a página inicial a cada consulta
 _SUFIXOS_APRENDIDOS: dict[str, dict] = {}
+#: (endereço, módulo) → sufixo com que a API NucleoGov serve um módulo `mg`/`centi`, ou None; evita sondar a cada consulta
+_API_SONDADA: dict[tuple[str, str], str | None] = {}
+#: `fonte` dos registros que vêm da API NucleoGov; os traduzidos de outro sistema trazem a sua
+FONTE = "NucleoGov"
 #: "sufixos" de módulos que a página do portal mostra, mas que a API NucleoGov não serve
 EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov"}
 #: origem do portal `*.megasofttransparencia.com.br`, que vai inteiro pela Megasoft de domínio próprio
@@ -202,8 +206,10 @@ class Portal:
             if externo not in EXTERNOS:
                 return None
             # o menu aponta outra plataforma, mas a API NucleoGov às vezes serve o módulo mesmo assim
-            # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide
-            sufixo = self._api_serve(modulo)
+            # (Alexânia sim, Posse não, em 04/11/2026): uma consulta sem filtro decide, uma vez por endereço
+            if (self.url, modulo) not in _API_SONDADA:
+                _API_SONDADA[(self.url, modulo)] = self._api_serve(modulo)
+            sufixo = _API_SONDADA[(self.url, modulo)]
             if sufixo:
                 self.sufixos[modulo] = sufixo
                 return None
@@ -222,7 +228,13 @@ class Portal:
         ler = self._acesso(nome)
         if ler:
             return ler(self, **(pedido or {}), maximo=maximo)
-        modulo = MODULOS[nome]
+        r = self._consultar_api(MODULOS[nome], filtros, maximo=maximo, progresso=progresso)
+        if nome in LIDOS_POR_ACESSO:  # folha e despesas podem vir de outro sistema: todo registro diz de onde veio
+            for x in r["registros"]:
+                x.setdefault("fonte", FONTE)
+        return r
+
+    def _consultar_api(self, modulo, filtros, *, maximo, progresso):
         if modulo in self.sufixos:
             return self.consultar(f"{modulo}_{self.sufixos[modulo]}/listar", filtros, maximo=maximo,
                                   progresso=progresso)

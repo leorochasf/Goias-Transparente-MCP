@@ -13,7 +13,7 @@ import anyio
 from mcp.server.mcpserver import Context, MCPServer
 
 from . import catalogo
-from .cliente import ErroPortal, Portal
+from .cliente import FONTE, ErroPortal, Portal
 from .folha_leve import AGRUPAMENTOS, filtrar, linha_leve, resumir
 
 mcp = MCPServer("transparencia-municipal",
@@ -91,9 +91,9 @@ def _orgaos_escondidos(portal, ano, mes, sem_filtro, quando):
 
     Em 6 de 10 prefeituras conferidas em 04/11/2026 a folha sem filtro trazia só um órgão (Trindade: o 3;
     com filtro apareciam 5, 6, 7, 8 e 10). Sonda os códigos 1 a 15 que não vieram e lê os que têm linhas.
-    Só no NucleoGov: linhas traduzidas de outro sistema trazem `fonte` e não são sondadas.
+    Só no NucleoGov: linhas traduzidas de outro sistema trazem outra `fonte` e não são sondadas.
     """
-    if any(x.get("fonte") for x in sem_filtro["registros"]):
+    if any(x.get("fonte") != FONTE for x in sem_filtro["registros"]):
         return []
     vistos = {str(x.get("orgao_id")) for x in sem_filtro["registros"] if x.get("orgao_id") is not None}
     if not vistos:
@@ -114,7 +114,7 @@ def _orgaos_escondidos(portal, ano, mes, sem_filtro, quando):
             if len(r["registros"]) != r["total"]:
                 raise ErroPortal(f"a leitura do órgão {codigo} na folha de {quando} veio incompleta: "
                                  f"{len(r['registros'])} de {r['total']} linhas. Nada foi guardado.")
-            extras += r["registros"]
+            extras += [{**x, "fonte": FONTE} for x in r["registros"]]
     return extras
 
 
@@ -156,13 +156,14 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     """Linhas da folha de um mês, buscando pelo NOME do servidor (a busca do portal não acha cargo).
 
     Rápida. Ex.: quanto ganhou Fulano de Tal em março e de quê. Com até 10 linhas, cada uma traz as
-    rubricas (proventos e descontos). Quem recebe salário e 13º no mesmo mês tem duas linhas.
+    rubricas (proventos e descontos). Quem recebe salário e 13º no mesmo mês tem duas linhas; na folha da
+    Megasoft (linhas com fonte "Megasoft"), não: a listagem não traz o 13º e vem sem rubricas.
     Para cargo, lotação ou vínculo use listar_folha; para contagens e custos, resumir_folha.
     """
     def consultar():
         consultado = _portal(portal)
         r = consultado.folha(ano, _mes(mes), busca, maximo=maximo)
-        de_outro_sistema = any(x.get("fonte") for x in r["registros"])  # Megasoft: listagem sem rubricas
+        de_outro_sistema = any(x.get("fonte") != FONTE for x in r["registros"])  # Megasoft: listagem sem rubricas
         com_rubricas = len(r["registros"]) <= RUBRICAS_ATE and not de_outro_sistema
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
         orgao = catalogo.por_portal(consultado.url) or {}
@@ -239,9 +240,17 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
 
     CNPJ (com ou sem pontuação) traz só os empenhos daquele CNPJ; outro texto vai na busca livre.
 
-    Ex.: quanto o município pagou à empresa tal em 2025.
+    Ex.: quanto o município pagou à empresa tal em 2025. Em alguns portais (Megasoft, Centi) os empenhos da
+    Prefeitura trazem também os da Câmara e dos fundos: o campo `orgao` diz de qual órgão é cada um.
     """
-    return _executar(lambda: _portal(portal).despesas(de, ate, busca, maximo=maximo), portal)
+    def consultar():
+        r = _portal(portal).despesas(de, ate, busca, maximo=maximo)
+        orgaos = {x.get("orgao") for x in r["registros"] if x.get("orgao")}
+        if len(orgaos) > 1:
+            r["aviso_orgaos"] = (f"os empenhos incluem mais de um órgão ({len(orgaos)}: por exemplo, Câmara e "
+                                 "fundos junto com a Prefeitura); confira o campo orgao de cada um")
+        return r
+    return _executar(consultar, portal)
 
 
 @mcp.tool()

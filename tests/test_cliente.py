@@ -30,7 +30,7 @@ def test_folha_monta_o_pedido_e_devolve_registros():
     responses.add_callback(responses.POST, f"{PORTAL}/api/servidores_frl/listar",
                            callback=_resposta([{"nome": "FULANO"}], 1), content_type="application/json")
     r = Portal(PORTAL).folha(2025, 3, busca="saude")
-    assert r == {"total": 1, "registros": [{"nome": "FULANO"}]}
+    assert r == {"total": 1, "registros": [{"nome": "FULANO", "fonte": "NucleoGov"}]}
     enviado = _corpo_enviado(responses.calls[0].request)
     assert enviado["acao"] == "servidores_frl/listar"
     assert enviado["ano"] == "2025" and enviado["mes"] == "3" and enviado["txtbusca"] == "saude"

@@ -102,3 +102,16 @@ def test_modulo_de_outra_plataforma_sai_como_nao_suportado():
             raise ModuloNaoSuportado("o módulo receitas vem da contabilidade Centi")
     r = conferir(ComCenti(), ano=2025, mes=1, hoje="x", pausa=0)
     assert r["filtros"]["receitas_mes"] == "nao_suportado" and "Centi" in r["detalhes"]["receitas_mes"]
+
+
+def test_folha_de_outro_sistema_nao_sonda_orgaos_e_sai_sem_dados_com_nota():
+    """A Megasoft não tem `orgao_id`: a sondagem de órgãos escondidos é do NucleoGov e não pode sair `falhou`."""
+    class Megasoft(PortalDeMentira):
+        def folha(self, ano, mes=None, busca=None, *, maximo=200):
+            return self._r([{"ano": ano, "mes": f"{mes:02d}", "fonte": "Megasoft"}] * 5)
+
+        def consultar(self, *a, **k):
+            raise AssertionError("não sonda a API NucleoGov")
+    r = conferir(Megasoft(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["folha_mes"] == "ok"
+    assert r["filtros"]["folha_orgaos"] == "sem_dados" and "Megasoft" in r["detalhes"]["folha_orgaos"]

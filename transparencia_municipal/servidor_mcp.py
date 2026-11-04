@@ -12,6 +12,7 @@ import sys
 import anyio
 from mcp.server.mcpserver import Context, MCPServer
 
+from . import catalogo
 from .cliente import ErroPortal, Portal
 from .folha_leve import AGRUPAMENTOS, filtrar, linha_leve, resumir
 
@@ -22,12 +23,35 @@ AVISO = ("Dado público do Portal da Transparência do município (Lei 12.527/20
          "Confira no portal antes de usar em peça, denúncia ou matéria.")
 
 
-def _portal(url=None):
+def _endereco(url=None):
     endereco = url or os.getenv("TRANSPARENCIA_PORTAL")
     if not endereco:
-        raise ValueError("Informe o portal (ex.: https://acessoainformacao.cidade.go.gov.br) "
-                         "ou defina TRANSPARENCIA_PORTAL.")
-    return Portal(endereco, navegador=os.getenv("TRANSPARENCIA_NAVEGADOR") == "1")
+        raise ValueError("Informe o portal (ex.: https://acessoainformacao.cidade.go.gov.br; use encontrar_portal "
+                         "para achá-lo pelo município) ou defina TRANSPARENCIA_PORTAL.")
+    return endereco
+
+
+def _portal(url=None, *, folha=False):
+    """Portal pronto para consulta. Recusa, sem chamar o portal, o que o catálogo diz não ser suportado."""
+    endereco = _endereco(url)
+    orgao = catalogo.por_portal(endereco)
+    plataforma = (orgao or {}).get("plataforma")
+    if plataforma in ("megasoft", "ortrel"):
+        raise ValueError(f"A {catalogo.nome_do_orgao(orgao)} usa a plataforma "
+                         f"{catalogo.NOMES_PLATAFORMA[plataforma]}, ainda não suportada por este projeto.")
+    if plataforma == "nucleogov-megasoft" and folha:
+        raise ValueError(f"Na {catalogo.nome_do_orgao(orgao)} a folha vem da Megasoft embutida no NucleoGov, "
+                         "ainda não suportada. Despesas, contratos, licitações, receitas e legislação funcionam.")
+    sufixos = dict(orgao["sufixos"]) if orgao and orgao.get("sufixos") else None
+    return Portal(endereco, navegador=os.getenv("TRANSPARENCIA_NAVEGADOR") == "1", sufixos=sufixos)
+
+
+def _situacao(url=None):
+    try:
+        orgao = catalogo.por_portal(_endereco(url))
+    except ValueError:
+        return None
+    return catalogo.situacao(orgao) if orgao else "portal fora do catálogo de Goiás: não conferido"
 
 
 #: leitura do mês: (portal, ano, mês) → linhas leves. Só na memória, enquanto o servidor estiver aberto.
@@ -61,13 +85,14 @@ def _ler_mes(portal, ano, mes, progresso=None):
     return _LEITURAS[chave]
 
 
-def _resposta(dados):
-    return {**dados, "aviso": AVISO}
+def _resposta(dados, portal=None):
+    situacao = _situacao(portal)
+    return {**dados, "aviso": AVISO, **({"situacao_do_portal": situacao} if situacao else {})}
 
 
-def _executar(funcao):
+def _executar(funcao, portal=None):
     try:
-        return _resposta(funcao())
+        return _resposta(funcao(), portal)
     except (ErroPortal, ValueError) as e:
         return {"erro": str(e)}
 
@@ -102,14 +127,14 @@ def consultar_folha(ano: int, mes: int, busca: str | None = None,
     Para cargo, lotação ou vínculo use listar_folha; para contagens e custos, resumir_folha.
     """
     def consultar():
-        r = _portal(portal).folha(ano, _mes(mes), busca, maximo=maximo)
+        r = _portal(portal, folha=True).folha(ano, _mes(mes), busca, maximo=maximo)
         com_rubricas = len(r["registros"]) <= RUBRICAS_ATE
         saida = {"total": r["total"], "linhas": [linha_leve(x, rubricas=com_rubricas) for x in r["registros"]]}
         if not com_rubricas:
             saida["aviso_rubricas"] = (f"mais de {RUBRICAS_ATE} linhas: as rubricas não vieram. "
                                        "Refine a busca pelo nome para ver as rubricas de uma pessoa.")
         return saida
-    return _executar(consultar)
+    return _executar(consultar, portal)
 
 
 @mcp.tool()
@@ -125,14 +150,14 @@ async def listar_folha(ano: int, mes: int, cargo: str | None = None, lotacao: st
     casaram. Dado de pessoa: use para apuração, não para montar dossiê.
     """
     try:
-        linhas = await _ler_mes_avisando(ctx, _portal(portal), ano, _mes(mes))
+        linhas = await _ler_mes_avisando(ctx, _portal(portal, folha=True), ano, _mes(mes))
         achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo, tipo_pagamento=tipo_pagamento)
         limite = max(1, min(maximo, LISTA_MAXIMA))
         saida = {"total_do_mes": len(linhas), "encontradas": len(achadas), "linhas": achadas[:limite]}
         if len(achadas) > limite:
             saida["aviso_corte"] = (f"mostrando {limite} de {len(achadas)} linhas; refine o filtro "
                                     "ou use resumir_folha para contagens e somas")
-        return _resposta(saida)
+        return _resposta(saida, portal)
     except (ErroPortal, ValueError) as e:
         return {"erro": str(e)}
 
@@ -153,11 +178,11 @@ async def resumir_folha(ano: int, mes: int, agrupar_por: str = "lotacao", cargo:
     try:
         if agrupar_por not in AGRUPAMENTOS:
             raise ValueError(f"agrupar_por: use cargo, lotacao ou vinculo (recebido: {agrupar_por!r})")
-        linhas = await _ler_mes_avisando(ctx, _portal(portal), ano, _mes(mes))
+        linhas = await _ler_mes_avisando(ctx, _portal(portal, folha=True), ano, _mes(mes))
         achadas = filtrar(linhas, cargo=cargo, lotacao=lotacao, vinculo=vinculo)
         filtros = {k: v for k, v in (("cargo", cargo), ("lotacao", lotacao), ("vinculo", vinculo)) if v}
         return _resposta({"total_do_mes": len(linhas), "filtros": filtros,
-                          **resumir(achadas, agrupar_por, todos_os_tipos=todos_os_tipos)})
+                          **resumir(achadas, agrupar_por, todos_os_tipos=todos_os_tipos)}, portal)
     except (ErroPortal, ValueError) as e:
         return {"erro": str(e)}
 
@@ -171,21 +196,21 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
 
     Ex.: quanto o município pagou à empresa tal em 2025.
     """
-    return _executar(lambda: _portal(portal).despesas(de, ate, busca, maximo=maximo))
+    return _executar(lambda: _portal(portal).despesas(de, ate, busca, maximo=maximo), portal)
 
 
 @mcp.tool()
 def consultar_contratos(ano: int | None = None, tipo: str = "contrato", busca: str | None = None,
                         portal: str | None = None, maximo: int = 100) -> dict:
     """Contratos (tipo="contrato") ou aditivos (tipo="aditivo") do município."""
-    return _executar(lambda: _portal(portal).contratos(ano, tipo, busca, maximo=maximo))
+    return _executar(lambda: _portal(portal).contratos(ano, tipo, busca, maximo=maximo), portal)
 
 
 @mcp.tool()
 def consultar_licitacoes(busca: str | None = None, dispensas: bool = False,
                          portal: str | None = None, maximo: int = 100) -> dict:
     """Licitações do município; dispensas=True traz dispensas e inexigibilidades."""
-    return _executar(lambda: _portal(portal).licitacoes(busca, dispensas=dispensas, maximo=maximo))
+    return _executar(lambda: _portal(portal).licitacoes(busca, dispensas=dispensas, maximo=maximo), portal)
 
 
 @mcp.tool()
@@ -194,7 +219,7 @@ def consultar_receitas(ano: int, mes: int, portal: str | None = None, maximo: in
 
     Para um período (ex.: IPTU no primeiro trimestre), chame uma vez por mês.
     """
-    return _executar(lambda: _portal(portal).receitas(ano, mes, maximo=maximo))
+    return _executar(lambda: _portal(portal).receitas(ano, mes, maximo=maximo), portal)
 
 
 @mcp.tool()
@@ -204,7 +229,24 @@ def consultar_legislacao(tipo: str = "DECRETO", busca: str | None = None, ano: i
 
     `busca` procura palavra na ementa. Ex.: qual decreto criou o cargo de assessor especial.
     """
-    return _executar(lambda: _portal(portal).legislacao(tipo, busca, ano=ano, maximo=maximo))
+    return _executar(lambda: _portal(portal).legislacao(tipo, busca, ano=ano, maximo=maximo), portal)
+
+
+@mcp.tool()
+def encontrar_portal(municipio: str, orgao: str | None = None) -> dict:
+    """O portal da transparência de um órgão de Goiás pelo nome do município.
+
+    `orgao`: "prefeitura" ou "camara" (vazio traz os dois). Devolve o endereço, a plataforma (só NucleoGov é
+    consultável por enquanto) e a situação da conferência (se os filtros daquele portal foram medidos).
+    Ex.: qual o portal da Câmara de Posse. Use o endereço no parâmetro `portal` das outras ferramentas.
+    """
+    achados = catalogo.encontrar(municipio, orgao)
+    if not achados:
+        return {"erro": f"{municipio!r} não está no catálogo de Goiás (dados do Radar da Transparência Pública, "
+                        "ciclo 2025). Informe o endereço do portal diretamente."}
+    return {"orgaos": [{"orgao": catalogo.nome_do_orgao(x), "portal": x["portal"],
+                        "plataforma": catalogo.NOMES_PLATAFORMA.get(x["plataforma"], x["plataforma"] or "desconhecida"),
+                        "situacao": catalogo.situacao(x)} for x in achados]}
 
 
 def main():

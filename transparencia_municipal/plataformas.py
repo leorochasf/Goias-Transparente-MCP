@@ -30,12 +30,11 @@ def reconhecer(html, endereco):
         return {"plataforma": "megasoft", "sufixos": {}}
     low = (html or "").lower()
     if "nucleogov" in low:
-        if "mgservidores" in low:
-            return {"plataforma": "nucleogov-megasoft", "sufixos": {}}
         sufixos = {}
         for modulo, sufixo in re.findall(rf"\b({'|'.join(MODULOS_NUCLEOGOV)})_(cnt|frl)\b", low):
             sufixos.setdefault(modulo, sufixo)
-        return {"plataforma": "nucleogov", "sufixos": sufixos}
+        # `mgservidores`: a folha vem da Megasoft embutida no NucleoGov (ex.: Caldazinha); o resto é NucleoGov
+        return {"plataforma": "nucleogov-megasoft" if "mgservidores" in low else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}
     return {"plataforma": None, "sufixos": {}}

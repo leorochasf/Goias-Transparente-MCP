@@ -175,8 +175,10 @@ responder "zero".
   entidades do município (Poder Executivo, Poder Legislativo, fundos de saúde, educação, assistência e
   previdência). A despesa Megasoft faz o mesmo. Cada empenho traz o campo `orgao`, e o assistente avisa quando a
   resposta mistura órgãos: some só os do órgão que interessa.
-- **Busca por CNPJ ou nome do fornecedor** é conferida pelo projeto, empenho por empenho: o filtro da Centi não
-  funciona, e o da Megasoft embutida não foi medido. Por isso a busca lê o período inteiro, e pode demorar mais.
+- **Busca por CNPJ ou nome do fornecedor** é conferida pelo projeto, empenho por empenho. O filtro de CNPJ da
+  Centi não funciona; o da Megasoft de domínio próprio funciona e, mesmo assim, cada empenho é conferido; o da
+  Megasoft embutida não foi medido. Por isso a busca lê o período inteiro (na Megasoft embutida, mês a mês) e pode
+  demorar mais.
 - **Leitura que não fecha não vira "zero".** A Megasoft pula registros quando a leitura vai em páginas pequenas; o
   projeto pede páginas grandes, tira os repetidos e confere o total. Se ainda faltar registro, a leitura sai como
   incompleta.
@@ -231,7 +233,8 @@ O que vale saber antes de confiar num número:
 - A busca livre (`--busca`) é a mesma caixinha do portal. **Na folha ela procura só por nome**:
   para filtrar por cargo ou lotação, traga o mês inteiro e filtre a planilha depois.
   **Nas despesas, um CNPJ** (com ou sem pontuação) não vai para a caixinha, que não o encontra:
-  vai para o filtro de CNPJ do portal e traz só os empenhos daquele fornecedor.
+  no NucleoGov ele vai para o filtro de CNPJ do portal; na Megasoft e na Centi o projeto lê o período e
+  separa os empenhos daquele fornecedor. Nos dois casos, só vêm os empenhos daquele CNPJ.
 
 ## Licença
 

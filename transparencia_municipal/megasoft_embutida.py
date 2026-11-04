@@ -7,7 +7,7 @@ módulo. O contrato dos encaixes está em megasoft_propria.py.
 Vai pela própria API NucleoGov do portal, no envelope `multi_request`, com `acao = megasoft/servidores` ou
 `megasoft/empenhos`; paginação por `pagina` (a partir de 1), `tamanhoDaPagina` e `ordenacao: {}`. Medido em Aruanã
 (04/11/2026): o `limit` que o envelope NucleoGov acrescenta é ignorado; 5.000 por página foram aceitos; o período
-das despesas é respeitado; o filtro de fornecedor não filtra no servidor (AJE), por isso CNPJ e nome são filtrados
+das despesas é respeitado; o filtro de fornecedor não filtra no servidor (medição anterior), por isso CNPJ e nome são filtrados
 aqui; e a fronteira de página repete um empenho e perde outro (ano de 2025 em 2 páginas: 7.481 lidos, 7.480
 distintos; fev/2025 em páginas de 100: 567 linhas, 534 códigos). Com filtro, a leitura vai mês a mês, cada mês
 numa página só.
@@ -30,7 +30,7 @@ def _ler(portal, acao, filtros, *, maximo, campo_chave, progresso=None):
     """Páginas de `acao` até o total anunciado ou `maximo`. Devolve (total anunciado, registros sem repetidos).
 
     Repetido é o registro com o mesmo `campo_chave` (`codigo` no empenho, `chave` na folha); sem ele, o registro
-    inteiro. O total anunciado conta chaves distintas (AJE).
+    inteiro. O total anunciado conta chaves distintas (medição anterior).
     """
     tamanho = min(maximo, POR_PAGINA)
     registros, vistos, total, pagina = [], set(), 0, 1

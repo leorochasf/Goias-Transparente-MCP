@@ -2,7 +2,7 @@
 
 O portal simulado segue o medido em Aruanã (04/11/2026): `POST /api/megasoft/<acao>` no envelope `multi_request`,
 paginação por `pagina` (a partir de 1) e `tamanhoDaPagina`, resposta `{total, registros, paginaAtual}`; o filtro de
-fornecedor não filtra no servidor (AJE); a fronteira de página pode repetir um registro e perder outro.
+fornecedor não filtra no servidor (medição anterior); a fronteira de página pode repetir um registro e perder outro.
 """
 import json
 import urllib.parse

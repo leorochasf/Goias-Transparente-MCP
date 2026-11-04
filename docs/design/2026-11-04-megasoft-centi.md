@@ -25,7 +25,7 @@ A conferência de 04/11/2026 mostrou que, em Goiás, folha e despesas raramente 
 5. **Senha da Megasoft própria: automática**, documentada no README. Ela sai de um endereço público, sem login; é o
    que o navegador de qualquer visitante faz. O portal aceita a identificação honesta do projeto.
 6. A mesma **conferência** na amostra das 16 cidades, incluindo os órgãos Megasoft e Centi.
-7. Do AJE, só o conhecimento das APIs; o código é escrito aqui.
+7. De medições anteriores do autor, só o conhecimento das APIs; o código é escrito aqui.
 
 ## Fatos medidos (04/11/2026)
 

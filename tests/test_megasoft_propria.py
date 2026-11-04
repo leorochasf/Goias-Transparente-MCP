@@ -182,7 +182,7 @@ def test_despesas_por_cnpj_trazem_so_esse_cnpj_mesmo_se_o_servidor_nao_filtrar()
 
 @responses.activate
 def test_despesas_por_nome_do_fornecedor_sao_filtradas_pelo_projeto():
-    """AJE: `nomeFornecedor` não filtra no servidor."""
+    """Medição anterior: `nomeFornecedor` não filtra no servidor."""
     _senhas("senha-1")
     _listagem(EMPENHOS, [_empenho(10), _empenho(11, "11.222.333/0001-81", "OUTRA SA")])
     r = Portal(URL, pausa=0).despesas("2025-01-01", "2025-03-31", "outra", maximo=100)

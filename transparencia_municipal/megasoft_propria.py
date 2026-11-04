@@ -13,7 +13,7 @@ Contrato dos encaixes (o mesmo em megasoft_embutida.py e centi.py):
 
 Medido em Corumbaíba (04/11/2026):
 - a senha pública (`tokenPortal`, JWT) sai de `/api/configuracao/carregamento-inicial`, sem login, e vale cerca de
-  24 h; senha vencida dá 401 (AJE) e senha ilegível, 500 "Token inválido";
+  24 h; senha vencida dá 401 (medição anterior) e senha ilegível, 500 "Token inválido";
 - a busca por nome (`nome`, `filtro`) não filtra no servidor: o nome é filtrado aqui;
 - `cnpjDoFornecedor` filtra no servidor (597 de 4.314 no 1º trimestre de 2025), e o projeto confere mesmo assim;
 - em páginas de 100 os empenhos repetem e perdem registros na fronteira (fevereiro/2025: 1.555 lidos, 1.319 códigos

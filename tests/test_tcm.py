@@ -217,6 +217,31 @@ def test_cli_tcm_acordao_mostra_o_texto(monkeypatch, capsys):
     assert "ACÓRDÃO Nº 1" in capsys.readouterr().out
 
 
+def test_cli_tcm_acordao_sem_texto_mostra_o_aviso_do_pdf(monkeypatch, capsys):
+    from transparencia_municipal import cli
+    monkeypatch.setattr(tcmjuris, "ler_acordao", lambda c, document_id: {
+        "total": 1, "registros": [{"document_id": document_id, "pdf": "https://x/pdf", "texto": ""}],
+        "aviso_texto": "o PDF não tem texto extraível (provavelmente digitalizado): leia pelo link https://x/pdf"})
+    cli.main(["tcm-acordao", "abc"])
+    assert "AVISO: o PDF não tem texto extraível" in capsys.readouterr().out
+
+
+def test_cli_tcm_processos_em_csv_grava_decisoes_e_envolvidos_como_json(monkeypatch, tmp_path):
+    import csv
+
+    from transparencia_municipal import cli
+    decisoes = [{"nome": "Acórdão", "data": "2024-03-01T10:00Z"}]
+    envolvidos = [{"nome": "Órgão X", "tipo_envolvimento": "Gestor", "tipo_pessoa": "Jurídica"}]
+    monkeypatch.setattr(esiproc, "processos", lambda c, **pedido: {
+        "total": 1, "registros": [{"numero": "1", "decisoes": decisoes, "envolvidos": envolvidos}]})
+    saida = tmp_path / "p.csv"
+    cli.main(["--csv", str(saida), "tcm-processos", "--municipio", "Nova Crixás"])
+    with open(saida, encoding="utf-8-sig", newline="") as f:
+        linha = next(csv.DictReader(f))
+    assert json.loads(linha["decisoes"]) == decisoes and json.loads(linha["envolvidos"]) == envolvidos
+    assert "Órgão X" in linha["envolvidos"]  # legível: sem \u escapado
+
+
 def test_cli_do_portal_continua_exigindo_o_portal():
     from transparencia_municipal import cli
     with pytest.raises(SystemExit, match="--portal"):

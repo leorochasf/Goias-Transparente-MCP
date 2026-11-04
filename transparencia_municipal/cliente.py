@@ -155,10 +155,16 @@ class Portal:
             f["txtbusca"] = busca
         return self.consultar(MODULOS["licitacoes"], f, maximo=maximo)
 
-    def receitas(self, de, ate, *, maximo=200):
-        """Receitas arrecadadas no período."""
-        return self.consultar(MODULOS["receitas"],
-                              {"datamin": _data_br(de, campo="de"), "datamax": _data_br(ate, campo="ate")},
+    def receitas(self, ano, mes, *, maximo=200):
+        """Receitas de um mês. Para um período, chame uma vez por mês.
+
+        Verificado em portal real: o filtro por datas (datamin/datamax) é ignorado
+        e devolve sempre o mês corrente; só ano + mês são respeitados.
+        """
+        mes = int(mes)
+        if not 1 <= mes <= 12:
+            raise ValueError(f"mes: use um número de 1 a 12 (recebido: {mes})")
+        return self.consultar(MODULOS["receitas"], {"ano": str(ano), "mes": str(mes)},
                               maximo=maximo)
 
     def legislacao(self, municipio, tipo=None, busca=None, *, maximo=200):

@@ -73,9 +73,12 @@ def consultar_licitacoes(busca: str | None = None, dispensas: bool = False,
 
 
 @mcp.tool()
-def consultar_receitas(de: str, ate: str, portal: str | None = None, maximo: int = 100) -> dict:
-    """Receitas arrecadadas no período (datas AAAA-MM-DD)."""
-    return _executar(lambda: _portal(portal).receitas(de, ate, maximo=maximo))
+def consultar_receitas(ano: int, mes: int, portal: str | None = None, maximo: int = 100) -> dict:
+    """Receitas de um mês (mes de 1 a 12). O portal responde um mês por vez.
+
+    Para um período (ex.: IPTU no primeiro trimestre), chame uma vez por mês.
+    """
+    return _executar(lambda: _portal(portal).receitas(ano, mes, maximo=maximo))
 
 
 @mcp.tool()

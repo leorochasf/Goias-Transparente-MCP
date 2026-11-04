@@ -21,7 +21,7 @@ outros estados — os portais no padrão `acessoainformacao.<municipio>.go.gov.b
 | **Despesas (empenhos)** | *Quanto o município pagou para o CNPJ 00.000.000/0001-00 no ano passado?* |
 | **Contratos e aditivos** | *Quais contratos foram assinados em 2025 com a palavra "locação"?* |
 | **Licitações e dispensas** | *Liste as dispensas de licitação do município.* |
-| **Receitas** | *Quanto o município arrecadou de IPTU no primeiro trimestre?* |
+| **Receitas** | *Quanto o município arrecadou de IPTU em março de 2025?* (um mês por vez) |
 | **Legislação** | *Qual decreto criou o cargo de assessor especial?* |
 
 ## Instalação

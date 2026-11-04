@@ -151,11 +151,6 @@ def test_identifica_o_projeto_com_honestidade(cliente):
 
 # --- encaixes: o cliente resolve o nome e chama o módulo da fonte ---------------------------------------------------
 
-def test_processos_responde_ainda_nao_disponivel_enquanto_o_esiproc_esta_vazio(cliente):  # ticket 02 substitui
-    with pytest.raises(NaoDisponivel, match="ainda não disponível"):
-        cliente.processos("Posse", ano=2024)
-
-
 def test_processos_entrega_ao_encaixe_o_nome_oficial_do_eSiproc(cliente, monkeypatch):
     recebido = {}
 

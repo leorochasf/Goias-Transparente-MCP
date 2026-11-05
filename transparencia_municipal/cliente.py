@@ -22,7 +22,7 @@ import requests
 
 from .plataformas import plataforma_pelo_endereco, reconhecer
 
-UA_FERRAMENTA = ("Goias-Transparente-MCP/0.5 "
+UA_FERRAMENTA = ("Goias-Transparente-MCP/0.6 "
                  "(+https://github.com/leorochasf/Goias-Transparente-MCP)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")

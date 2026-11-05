@@ -49,3 +49,13 @@ def test_menu_cntdespesas_e_modulo_da_centi_mas_servidores_cnt_e_nucleogov():
             '<a href="cidadao/transparencia/cntdespesas">D</a><a href="cidadao/transparencia/cntreceitas">R</a></div>')
     assert reconhecer(html, "acessoainformacao.posse.go.gov.br")["sufixos"] == {
         "servidores": "cnt", "despesas": "centi", "receitas": "centi"}
+
+
+def test_menus_dos_modulos_extras_contratos_mg_sgdiarias_e_diarias_com_sufixo():
+    """Aruanã (contratos_mg, licitacoes_mg, sgdiarias) e Posse (diarias_cnt), medidos em 04/11/2026."""
+    aruana = ('<div class="nucleogov"><a href="x/mgservidores">F</a><a href="x/contratos_mg">C</a>'
+              '<a href="x/licitacoes_mg">L</a><a href="x/sgdiarias">D</a></div>')
+    assert reconhecer(aruana, "acessoainformacao.aruana.go.gov.br")["sufixos"] == {
+        "servidores": "mg", "contratos": "mg", "licitacoes": "mg", "diarias": "sg"}
+    posse = '<div class="nucleogov"><a href="x/diarias_cnt">D</a></div>'
+    assert reconhecer(posse, "acessoainformacao.posse.go.gov.br")["sufixos"] == {"diarias": "cnt"}

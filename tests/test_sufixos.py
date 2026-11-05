@@ -9,7 +9,7 @@ import urllib.parse
 import pytest
 import responses
 
-from transparencia_municipal import ErroPortal, Portal
+from transparencia_municipal import Portal
 
 pytestmark = pytest.mark.descobre_sufixos
 PORTAL = "https://acessoainformacao.exemplo.go.gov.br"
@@ -64,21 +64,8 @@ def test_sufixos_informados_dispensam_a_pagina_inicial():
     assert all(c.request.method == "POST" for c in responses.calls)
 
 
-@responses.activate
-def test_modulo_da_megasoft_embutida_que_o_encaixe_nao_le_e_recusado_em_vez_de_devolver_zero():
-    """Receitas da Megasoft embutida não são lidas por esta frente (só folha e despesas): continuam recusadas."""
-    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/mgreceitas">R</a></div>')
-    _modulo("receitas_frl/listar", 0)
-    _modulo("receitas_cnt/listar", 0)
-    with pytest.raises(ErroPortal, match="Megasoft"):
-        Portal(PORTAL, pausa=0).receitas(2025, 3)
-
-
-@responses.activate
-def test_modulo_da_centi_e_recusado_em_vez_de_devolver_zero():
-    responses.add(responses.GET, f"{PORTAL}/", body='<div class="nucleogov"><a href="x/cntreceitas">R</a></div>')
-    with pytest.raises(ErroPortal, match="Centi"):
-        Portal(PORTAL, pausa=0).receitas(2025, 3)
+# As receitas da Megasoft embutida e da Centi (antes recusadas aqui) passaram para tests/test_encaixes.py,
+# nos blocos dos tickets 03 e 04 dos módulos extras.
 
 
 @responses.activate

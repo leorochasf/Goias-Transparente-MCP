@@ -29,7 +29,7 @@ import unicodedata
 import requests
 
 from . import traducao_megasoft
-from .cliente import ErroPortal, PortalBloqueou
+from .cliente import PROPRIA, ErroPortal, PortalBloqueou, ainda_nao_disponivel
 
 #: senha pública por portal, só na memória enquanto o processo estiver aberto
 _SENHAS: dict[str, str] = {}
@@ -151,3 +151,31 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
         empenhos = _filtrado(empenhos, total, casa, f"despesas de {portal.url}")
         total = len(empenhos)
     return {"total": total, "registros": empenhos[:maximo]}
+
+
+# ── módulos extras (ticket 02): nascem respondendo "ainda não disponível"; interface no ticket 01, `## Comments` ──
+
+def receitas(portal, *, ano, mes, maximo):
+    """Receitas de `mes`/`ano` (int), com os nomes comuns de receitas. Use a consulta detalhada por natureza, que
+    respeita ano e mês; `receita/paginado` ignora o período (descoberta A)."""
+    raise ainda_nao_disponivel(portal, "receitas", PROPRIA)
+
+
+def diarias(portal, *, de, ate, busca, maximo):
+    """Diárias com saída de `de` a `ate` (`datetime.date`), com os nomes comuns de diárias. `busca`: texto ou None."""
+    raise ainda_nao_disponivel(portal, "diárias", PROPRIA)
+
+
+def contratos(portal, *, ano, tipo, busca, maximo):
+    """Contratos do `ano` (int ou None); `tipo`: "contrato" ou "aditivo"; `busca`: texto ou None."""
+    raise ainda_nao_disponivel(portal, "contratos", PROPRIA)
+
+
+def licitacoes(portal, *, busca, dispensas, ano, maximo):
+    """Licitações (`dispensas` False) ou dispensas e inexigibilidades (True); `ano` (int ou None); `busca`: texto."""
+    raise ainda_nao_disponivel(portal, "licitações", PROPRIA)
+
+
+def detalhe_servidor(portal, *, matricula, ano, mes):
+    """O detalhe de uma matrícula (texto) em `mes`/`ano` (int): cargo, vínculo, decreto e data, licenças, movimentos."""
+    raise ainda_nao_disponivel(portal, "detalhe do servidor", PROPRIA)

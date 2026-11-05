@@ -19,7 +19,7 @@ import json
 import time
 from datetime import date, datetime, timedelta
 
-from .cliente import ErroPortal
+from .cliente import EXTERNOS, ErroPortal, ainda_nao_disponivel
 from .folha_leve import _comparavel
 from .traducao_megasoft import despesa, linha_da_folha
 
@@ -106,3 +106,25 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
             if (x["cpf_cnpj"] == cnpj) if cnpj else _comparavel(busca) in _comparavel(x["fornecedor"]):
                 achados.append(x)
     return {"total": len(achados), "registros": achados[:maximo]}
+
+
+# ── módulos extras (ticket 03): nascem respondendo "ainda não disponível"; interface no ticket 01, `## Comments` ──
+
+def receitas(portal, *, ano, mes, maximo):
+    """Receitas de `mes`/`ano` (int), com os nomes comuns de receitas (`acao = megasoft/receitas`)."""
+    raise ainda_nao_disponivel(portal, "receitas", EXTERNOS["mg"])
+
+
+def diarias(portal, *, de, ate, busca, maximo):
+    """Diárias com saída de `de` a `ate` (`datetime.date`), com os nomes comuns de diárias (`acao = sgdiarias/listar`)."""
+    raise ainda_nao_disponivel(portal, "diárias", EXTERNOS["mg"])
+
+
+def contratos(portal, *, ano, tipo, busca, maximo):
+    """Contratos do `ano` (int ou None); `tipo`: "contrato" ou "aditivo" (`acao = contratos_mg/listar`)."""
+    raise ainda_nao_disponivel(portal, "contratos", EXTERNOS["mg"])
+
+
+def licitacoes(portal, *, busca, dispensas, ano, maximo):
+    """Licitações ou dispensas do `ano` (int ou None) (`acao = licitacoes_mg/listarCidadao`)."""
+    raise ainda_nao_disponivel(portal, "licitações", EXTERNOS["mg"])

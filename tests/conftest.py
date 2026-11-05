@@ -15,7 +15,8 @@ def _sufixo_frl_nos_testes_offline(request, monkeypatch):
     tcm._LISTAS.clear()
     if "descobre_sufixos" in request.keywords or "ao_vivo" in request.keywords:
         return
-    monkeypatch.setattr(Portal, "_descobrir_sufixos", lambda self: dict.fromkeys(MODULOS.values(), "frl"))
+    monkeypatch.setattr(Portal, "_descobrir",
+                        lambda self: {"plataforma": None, "sufixos": dict.fromkeys(MODULOS.values(), "frl")})
 
 
 @pytest.fixture(autouse=True)

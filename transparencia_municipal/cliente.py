@@ -419,7 +419,7 @@ class Portal:
         """Contratos (tipo="contrato") ou aditivos (tipo="aditivo")."""
         f = {"tipo": tipo}
         if ano:
-            f["anobase"] = str(ano)
+            f["ano"] = str(ano)  # `anobase` é ignorado (Alexânia, 04/11/2026)
         if busca:
             f["txtbusca"] = busca
         pedido = {"ano": int(ano) if ano else None, "tipo": tipo, "busca": busca}

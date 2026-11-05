@@ -122,3 +122,18 @@ def test_licitacoes_do_ortrel_com_os_nomes_do_nucleogov():
                           "data_publicacao": "2025-03-01"})
     assert LICITACAO_NUCLEOGOV <= set(x) and not set(x) & ANTIGOS_LICITACAO
     assert (x["id"], x["numero"], x["label"], x["descricao"]) == (4, "24", "24/2025", "obra")
+
+
+@responses.activate
+def test_ano_dos_contratos_no_nucleogov_vai_no_filtro_ano_e_nao_no_anobase():
+    """Medido em Alexânia (04/11/2026): `anobase` é ignorado (6.989 contratos de todos os anos); `ano` filtra (798)."""
+    pedidos = []
+
+    def callback(requisicao):
+        campos = urllib.parse.parse_qs(requisicao.body.decode("utf-8"))
+        ident, corpo = next(iter(json.loads(campos["params"][0]).items()))
+        pedidos.append(corpo)
+        return 200, {}, json.dumps({ident: {"dados": [{"ano": 2025}], "total": 1}})
+    responses.add_callback(responses.POST, f"{PORTAL}/api/contratos_frl/listar", callback=callback)
+    Portal(PORTAL, sufixos={"contratos": "frl"}, plataforma="nucleogov").contratos(2025)
+    assert pedidos[0]["ano"] == "2025" and "anobase" not in pedidos[0]

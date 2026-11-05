@@ -469,6 +469,14 @@ vale este.
   `diarias_mg/listar`, que responde `[]` (a conferência deu `erro`). Agora a API NucleoGov é sondada uma vez; sem ela,
   as diárias são recusadas com aviso, porque o `mgdiarias` não foi medido.
 
+- **Centi, lista de órgãos com `id` nulo:** em Orizona o fundo de previdência veio com `id` nulo em
+  `sgcenti/listarOrgaos` (Pirenópolis: a mesma recusa na conferência), e o encaixe recusava todas as receitas. Agora
+  os órgãos com `id` são lidos, e uma ressalva diz qual ficou de fora.
+- **Câmara de Pirenópolis, `sgdiarias`:** uma só diária (saída em 01/01/2021), devolvida também quando se pede
+  06/2025: o filtro de período é ignorado ali. O encaixe recusa a resposta (`falhou` na conferência).
+- **Vazio passageiro nos contratos (Posse):** a consulta sem ano voltou com total 0 numa resposta e 837 na seguinte;
+  com `ano=2025`, 114. A conferência marca isso como `erro` do portal, não como filtro que falhou.
+
 ### Nomes unificados de contratos e licitações
 
 Os nomes do NucleoGov valem para todo sistema (a API NucleoGov devolve os campos dela, sem tradução):

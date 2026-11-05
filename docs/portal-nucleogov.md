@@ -75,6 +75,22 @@ passou pelos caminhos da Megasoft (embutida e própria) e da Centi:
 As despesas são conferidas no mês de referência (a Centi devolve o período inteiro numa resposta só). Dez órgãos
 NucleoGov e Megasoft embutida foram medidos antes dessa mudança, no 1º trimestre.
 
+**5ª rodada (04/11/2026, módulos novos):** os 32 órgãos e as 4 câmaras Ortrel, com referência 06/2025, ganharam
+`diarias_periodo`, `contratos_ano` e `licitacoes_ano`, e as receitas passaram a ser lidas na Megasoft e na Centi.
+- **Contratos (ano):** `ok` em 33; `erro` em Nova Crixás e na Câmara de Orizona (sem API); `sem_dados` na Câmara de
+  Pirenópolis. Antes da correção, o projeto mandava `anobase`, que o portal ignora (Alexânia `falhou`); com `ano`,
+  passa.
+- **Diárias (período):** `ok` em 20; `nao_suportado` em 8 portais com Megasoft embutida cujo menu é `mgdiarias`
+  (não medido); `sem_dados` em 5; `falhou` na Câmara de Pirenópolis, cujo `sgdiarias` devolve a única diária (2021)
+  também quando se pede 06/2025.
+- **Receitas (mês):** `ok` em 16 (entre elas Megasoft própria, embutida e Centi); `sem_dados` em 13 (câmaras, em
+  geral); `nao_suportado` nas 4 Ortrel; `erro` em Nova Crixás e na Câmara de Orizona (sem API) e na Prefeitura de
+  Orizona, onde a Centi responde "Erro inesperado no servidor" para um dos órgãos.
+- **Licitações (ano):** `ok` em 13 (Megasoft, Ortrel); `nao_suportado` em 18 portais NucleoGov (o ano não foi
+  medido); `sem_dados` em 5.
+- No Ortrel, contratos, licitações e diárias vêm inteiros e o recorte é do projeto: ali o `ok` confere o código, não
+  um filtro do portal.
+
 - **Sufixo do módulo por portal.** A ação é `<modulo>_frl/listar` ou `<modulo>_cnt/listar`. **Com o sufixo errado o
   portal responde total 0, sem erro.** Chapadão do Céu: `servidores_frl` dá 0 e `servidores_cnt` dá 224. Um sufixo
   que não existe responde `[]`. O cliente aprende o sufixo na página inicial; quando não acha, tenta `frl` e depois `cnt`.

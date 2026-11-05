@@ -285,7 +285,7 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 | NucleoGov | 188 |
 | NucleoGov com folha Megasoft (Megasoft embutida) | 219 |
 | Megasoft de domínio próprio | 30 |
-| Ortrel (recusado) | 4 |
+| Ortrel | 4 |
 | Sem portal reconhecido | 20 |
 
 Toda resposta diz a **situação do portal**:
@@ -296,15 +296,17 @@ Toda resposta diz a **situação do portal**:
 
 Em 04/11/2026 foram conferidos os 32 órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
 São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
-Goianápolis, Pirenópolis, Corumbaíba e Guapó. A conferência passa pelos mesmos caminhos das consultas: inclui os quatro
-órgãos da Megasoft de domínio próprio da amostra e os que leem folha e despesas pela Megasoft embutida ou pela Centi.
-Folha e despesas saíram conferidas em 29 deles. O resultado está em `docs/portal-nucleogov.md`.
+Goianápolis, Pirenópolis, Corumbaíba e Guapó, e as 4 câmaras Ortrel. A conferência passa pelos mesmos caminhos das
+consultas (NucleoGov, Megasoft embutida e própria, Centi, Ortrel) e mede folha, despesas, receitas, diárias,
+contratos, licitações e legislação. Contratos com o ano respeitado em 33 órgãos; diárias com o período respeitado em
+20; receitas do mês em 16; licitações por ano em 13 (nos portais NucleoGov o ano das licitações não é usado). O
+resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:
 
 - **Muitos portais NucleoGov puxam módulos de outros sistemas.** Despesas e receitas podem vir da
-  contabilidade Centi, e folha, despesas e receitas podem vir da Megasoft embutida. Folha e despesas desses
-  sistemas são lidas (veja **Megasoft e Centi**); os outros módulos são **recusados com aviso**, em vez de
+  contabilidade Centi, e folha, despesas, receitas, diárias, contratos e licitações podem vir da Megasoft embutida.
+  O projeto lê esses sistemas (veja **Megasoft e Centi**); o que não lê é **recusado com aviso**, em vez de
   responder "zero". Na amostra, as despesas só vieram pela API NucleoGov na Prefeitura de Alexânia.
 - **Em várias prefeituras a folha sem filtro esconde órgãos** (fundos, autarquias). As listas e o resumo da
   folha buscam esses órgãos um a um. A busca rápida por nome avisa quando o portal faz isso.

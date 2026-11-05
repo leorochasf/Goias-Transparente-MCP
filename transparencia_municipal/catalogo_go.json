@@ -78,6 +78,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "despesas": "centi"
 },
 "outros_enderecos": [
@@ -94,10 +95,14 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -253,7 +258,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"licitacoes": "mg",
+"contratos": "mg",
+"diarias": "sg"
 },
 "outros_enderecos": [
 "alexania.go.leg.br"
@@ -268,7 +276,10 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "sem_dados"
+"legislacao_ano": "sem_dados",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
@@ -292,6 +303,7 @@
 "servidores": "frl",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "frl",
 "despesas": "frl"
 },
@@ -309,9 +321,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
-"detalhes": {}
+"detalhes": {
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
+}
 },
 "tcm": {
 "esiproc": "ALEXÂNIA",
@@ -407,15 +425,18 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "nao_suportado",
-"legislacao_ano": "nao_suportado"
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
 "legislacao_tipo": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
-"legislacao_ano": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
+"legislacao_ano": "https://camaraaltoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -442,13 +463,15 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "nao_suportado",
-"legislacao_ano": "nao_suportado"
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
 "legislacao_tipo": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://altoparaisodegoias.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
@@ -954,7 +977,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "aruana.go.leg.br",
@@ -971,11 +997,16 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.aruana.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -993,7 +1024,10 @@
 "sufixos": {
 "receitas": "mg",
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"licitacoes": "mg",
+"contratos": "mg",
+"diarias": "sg"
 },
 "outros_enderecos": [
 "aruana.go.gov.br"
@@ -1006,13 +1040,15 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "em https://acessoainformacao.aruana.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -2173,7 +2209,29 @@
 "cidadeocidental.go.leg.br",
 "api.transparencia.cidadeocidental.go.leg.br"
 ],
-"conferencia": null,
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "sem_dados",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Ortrel: a sondagem de órgãos escondidos é só do NucleoGov",
+"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
+"receitas_mes": "https://transparencia.cidadeocidental.go.leg.br é portal do sistema Ortrel: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO').",
+"legislacao_ano": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO')."
+}
+},
 "tcm": {
 "esiproc": "CIDADE OCIDENTAL",
 "tcmjuris": "CIDADE OCIDENTAL"
@@ -2217,13 +2275,15 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "nao_suportado",
-"legislacao_ano": "nao_suportado"
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
 "legislacao_tipo": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://camaracocalzinho.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
@@ -2243,7 +2303,10 @@
 "sufixos": {
 "receitas": "mg",
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "cocalzinho.go.gov.br"
@@ -2256,14 +2319,17 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "sem_dados"
+"legislacao_ano": "sem_dados",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"legislacao_ano": "nenhum decreto de 2025"
+"legislacao_ano": "nenhum decreto de 2025",
+"diarias_periodo": "em https://acessoainformacao.cocalzinho.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {
@@ -2382,7 +2448,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "corumbaiba.go.leg.br"
@@ -2397,11 +2466,16 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.corumbaiba.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -2428,13 +2502,15 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "nao_suportado",
-"legislacao_ano": "nao_suportado"
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo receitas ainda não é suportado por este projeto.",
 "legislacao_tipo": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto.",
 "legislacao_ano": "https://corumbaiba.megasofttransparencia.com.br é portal da Megasoft de domínio próprio: o módulo legislacao ainda não é suportado por este projeto."
 }
@@ -2453,7 +2529,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "cristalina.go.leg.br"
@@ -2468,11 +2547,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.cristalina.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {
@@ -2491,6 +2574,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -2505,13 +2589,16 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"receitas_mes": "em https://acessoainformacao.cristalina.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -3134,7 +3221,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "goianapolis.go.leg.br"
@@ -3149,11 +3239,16 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.goianapolis.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -3171,7 +3266,10 @@
 "sufixos": {
 "receitas": "mg",
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "goianapolis.go.gov.br"
@@ -3184,14 +3282,17 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "sem_dados"
+"legislacao_ano": "sem_dados",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"legislacao_ano": "nenhum decreto de 2025"
+"legislacao_ano": "nenhum decreto de 2025",
+"diarias_periodo": "em https://acessoainformacao.goianapolis.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {
@@ -3478,6 +3579,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "despesas": "centi"
 },
 "outros_enderecos": [
@@ -3494,10 +3596,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -3516,6 +3623,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -3530,13 +3638,17 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 8",
-"receitas_mes": "em https://acessoainformacao.guapo.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -4213,10 +4325,14 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -4235,6 +4351,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -4249,13 +4366,16 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6, 8",
-"receitas_mes": "em https://acessoainformacao.itapuranga.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 6",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -4679,7 +4799,28 @@
 "outros_enderecos": [
 "luziania.go.leg.br"
 ],
-"conferencia": null,
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Ortrel: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://transparencia.luziania.go.leg.br é portal do sistema Ortrel: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO').",
+"legislacao_ano": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO')."
+}
+},
 "tcm": {
 "esiproc": "LUZIÂNIA",
 "tcmjuris": "LUZIANIA"
@@ -5461,6 +5602,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "despesas": "centi"
 },
 "outros_enderecos": [
@@ -5476,11 +5618,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -5498,6 +5644,7 @@
 "sufixos": {
 "contratos": "cnt",
 "servidores": "cnt",
+"diarias": "cnt",
 "licitacoes": "cnt",
 "receitas": "centi",
 "despesas": "centi"
@@ -5511,18 +5658,24 @@
 "folha_orgaos": "erro",
 "despesas_periodo": "erro",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "erro",
 "legislacao_tipo": "erro",
-"legislacao_ano": "erro"
+"legislacao_ano": "erro",
+"diarias_periodo": "erro",
+"contratos_ano": "erro",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_mes": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "folha_orgaos": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "despesas_periodo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 na Centi: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "em https://novacrixas.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"receitas_mes": "ErroPortal: https://novacrixas.go.gov.br não deu a lista de órgãos da Centi (HTTP 404, começa com '<!DOCTYPE html>\\n<html lang=\"pt-BR\">\\n<head>\\n\\t<meta charset=\"UTF-8\" />\\n\\t<meta name'); as receitas são lidas por órgão e não há como lê-las sem ela.",
 "legislacao_tipo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
-"legislacao_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
+"legislacao_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"diarias_periodo": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em diarias_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"contratos_ano": "ErroPortal: https://novacrixas.go.gov.br respondeu HTTP 404 em contratos_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -5763,6 +5916,7 @@
 "sufixos": {
 "contratos": "cnt",
 "servidores": "cnt",
+"diarias": "cnt",
 "licitacoes": "cnt",
 "despesas": "centi"
 },
@@ -5777,7 +5931,10 @@
 "despesas_cnpj": "sem_dados",
 "receitas_mes": "erro",
 "legislacao_tipo": "erro",
-"legislacao_ano": "erro"
+"legislacao_ano": "erro",
+"diarias_periodo": "erro",
+"contratos_ano": "erro",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em servidores_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
@@ -5786,7 +5943,10 @@
 "despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em receitas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
 "legislacao_tipo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
-"legislacao_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim"
+"legislacao_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"diarias_periodo": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em diarias_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"contratos_ano": "ErroPortal: https://camaradeorizona.go.gov.br respondeu HTTP 404 em contratos_cnt/listar: <!DOCTYPE html>\n<html lang=\"pt-BR\">\n<head>\n\t<meta charset=\"UTF-8\" />\n\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n<script type='text/javascript'>\n                    var tim",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -5803,8 +5963,10 @@
 "origem": "sondagem",
 "sufixos": {
 "servidores": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
-"despesas": "centi"
+"despesas": "centi",
+"contratos": "cnt"
 },
 "outros_enderecos": [
 "orizona.go.gov.br"
@@ -5817,13 +5979,17 @@
 "folha_orgaos": "ok",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "erro",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_mes": "a folha de 06/2025 está vazia; conferida em 09/2026, o mês mais recente publicado",
-"receitas_mes": "em https://acessoainformacao.orizona.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "ErroPortal: https://acessoainformacao.orizona.go.gov.br: a Centi recusou as receitas do órgão 18: {\"error\":true,\"message\":\"One or more errors occurred. (Erro inesperado no servidor.)\"}",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -6312,7 +6478,9 @@
 "portal": "https://acessoainformacao.pirenopolis.go.leg.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"diarias": "sg"
+},
 "outros_enderecos": [
 "pirenopolis.go.leg.br"
 ],
@@ -6326,14 +6494,20 @@
 "despesas_cnpj": "sem_dados",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "falhou",
+"contratos_ano": "sem_dados",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_mes": "folha de 06/2025 vazia, e nenhuma folha recente",
 "folha_orgaos": "a folha não traz orgao_id",
 "despesas_periodo": "nenhuma despesa em 06/2025",
 "despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "https://acessoainformacao.pirenopolis.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
+"contratos_ano": "nenhum(a) contrato de 2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -6352,6 +6526,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -6366,13 +6541,17 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 4, 5, 6, 7",
-"receitas_mes": "em https://acessoainformacao.pirenopolis.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -6595,7 +6774,9 @@
 "origem": "sondagem",
 "sufixos": {
 "servidores": "cnt",
-"despesas": "centi"
+"diarias": "cnt",
+"despesas": "centi",
+"contratos": "cnt"
 },
 "outros_enderecos": [
 "posse.go.leg.br"
@@ -6610,11 +6791,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "a folha não traz orgao_id",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -6633,6 +6818,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -6647,13 +6833,16 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5",
-"receitas_mes": "em https://acessoainformacao.posse.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -7409,7 +7598,28 @@
 "outros_enderecos": [
 "saojoaodalianca.go.leg.br"
 ],
-"conferencia": null,
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Ortrel: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://transparencia.saojoaodalianca.go.leg.br é portal do sistema Ortrel: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO').",
+"legislacao_ano": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO')."
+}
+},
 "tcm": {
 "esiproc": "SÃO JOÃO D'ALIANÇA",
 "tcmjuris": "SAO JOAO DALIANCA"
@@ -7546,6 +7756,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "despesas": "centi"
 },
 "outros_enderecos": [
@@ -7562,10 +7773,14 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -7584,6 +7799,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi"
 },
@@ -7598,14 +7814,17 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "sem_dados"
+"legislacao_ano": "sem_dados",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 1; com filtro aparecem 3, 4",
-"receitas_mes": "em https://acessoainformacao.saomigueldoaraguaia.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"legislacao_ano": "nenhum decreto de 2025"
+"legislacao_ano": "nenhum decreto de 2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -8037,6 +8256,7 @@
 "servidores": "cnt",
 "licitacoes": "cnt",
 "contratos": "cnt",
+"diarias": "cnt",
 "despesas": "centi"
 },
 "outros_enderecos": [
@@ -8053,10 +8273,15 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -8073,8 +8298,10 @@
 "origem": "sondagem",
 "sufixos": {
 "servidores": "cnt",
+"diarias": "cnt",
 "receitas": "centi",
-"despesas": "centi"
+"despesas": "centi",
+"contratos": "cnt"
 },
 "outros_enderecos": [
 "trindade.go.gov.br"
@@ -8087,13 +8314,16 @@
 "folha_orgaos": "falhou",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 7, 8, 10",
-"receitas_mes": "em https://acessoainformacao.trindade.go.gov.br, o módulo receitas vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
 "tcm": {
@@ -8333,7 +8563,28 @@
 "outros_enderecos": [
 "camaravalparaiso.go.gov.br"
 ],
-"conferencia": null,
+"conferencia": {
+"data": "2026-11-04",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "nao_suportado",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da Ortrel: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "https://transparencia.camaravalparaiso.go.gov.br é portal do sistema Ortrel: o módulo receitas ainda não é suportado por este projeto.",
+"legislacao_tipo": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO').",
+"legislacao_ano": "as câmaras Ortrel publicam só leis: use tipo=\"LEI\" (recebido: 'DECRETO')."
+}
+},
 "tcm": {
 "esiproc": "VALPARAÍSO DE GOIÁS",
 "tcmjuris": "VALPARAISO GOIAS"
@@ -8400,7 +8651,10 @@
 "origem": "sondagem",
 "sufixos": {
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "camaravianopolis.go.gov.br"
@@ -8415,11 +8669,16 @@
 "despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias"
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.camaravianopolis.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -8437,7 +8696,10 @@
 "sufixos": {
 "receitas": "mg",
 "despesas": "mg",
-"servidores": "mg"
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
 },
 "outros_enderecos": [
 "vianopolis.go.gov.br",
@@ -8451,13 +8713,16 @@
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
 "despesas_cnpj": "ok",
-"receitas_mes": "nao_suportado",
+"receitas_mes": "ok",
 "legislacao_tipo": "ok",
-"legislacao_ano": "ok"
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo receitas vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "em https://acessoainformacao.vianopolis.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {

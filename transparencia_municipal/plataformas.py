@@ -48,6 +48,10 @@ def reconhecer(html, endereco):
             sufixos.setdefault(modulo, "mg")
         if re.search(r"\bsgdiarias\b", low) and sufixos.get("diarias") in (None, "mg"):
             sufixos["diarias"] = "sg"  # o `sgdiarias` foi medido; o `mgdiarias`, não
+        # `sgservidores`, `sgdespesas`...: o sistema de gestão integrado ao NucleoGov (Anápolis, 05/11/2026); a API
+        # NucleoGov comum (`servidores_frl`...) responde zero, sem erro, nesses portais
+        for modulo in re.findall(r"\bsg(servidores|despesas|receitas|contratos|licitacoes)\b", low):
+            sufixos.setdefault(modulo, "sg")
         return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}

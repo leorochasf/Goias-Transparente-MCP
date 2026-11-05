@@ -59,3 +59,13 @@ def test_menus_dos_modulos_extras_contratos_mg_sgdiarias_e_diarias_com_sufixo():
         "servidores": "mg", "contratos": "mg", "licitacoes": "mg", "diarias": "sg"}
     posse = '<div class="nucleogov"><a href="x/diarias_cnt">D</a></div>'
     assert reconhecer(posse, "acessoainformacao.posse.go.gov.br")["sufixos"] == {"diarias": "cnt"}
+
+
+def test_menus_sg_sao_o_sistema_de_gestao_integrado_ao_nucleogov():
+    """Anápolis (05/11/2026): `sgservidores`, `sgdespesas`, `sgreceitas`, `sgcontratos`, `sglicitacoes`."""
+    html = ('<div class="nucleogov"><a href="cidadao/transparencia/sgservidores">F</a>'
+            '<a href="cidadao/transparencia/sgdespesas">D</a><a href="cidadao/transparencia/sgreceitas">R</a>'
+            '<a href="cidadao/informacao/sgcontratos">C</a><a href="cidadao/informacao/sglicitacoes">L</a></div>')
+    assert reconhecer(html, "acessoainformacao.anapolis.go.gov.br") == {
+        "plataforma": "nucleogov",
+        "sufixos": {"servidores": "sg", "despesas": "sg", "receitas": "sg", "contratos": "sg", "licitacoes": "sg"}}

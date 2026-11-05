@@ -46,7 +46,8 @@ _API_SONDADA: dict[tuple[str, str], str | None] = {}
 #: `fonte` dos registros que vêm da API NucleoGov; os traduzidos de outro sistema trazem a sua
 FONTE = "NucleoGov"
 #: "sufixos" de módulos que a página do portal mostra, mas que a API NucleoGov não serve
-EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov"}
+EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidade Centi integrada ao NucleoGov",
+            "sg": "do sistema de gestão (SG) integrado ao NucleoGov"}
 #: origem do portal `*.megasofttransparencia.com.br`, que vai inteiro pela Megasoft de domínio próprio
 PROPRIA = "da Megasoft de domínio próprio"
 #: origem das câmaras Ortrel (página inicial com `/src/main.jsx`), que vão inteiras pelo encaixe Ortrel
@@ -215,6 +216,9 @@ class Portal:
         except (ValueError, KeyError, TypeError) as e:
             raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao} "
                              f"({len(r.content)} bytes, começa com {r.text[:80]!r})") from e
+        if not isinstance(bruto, dict):  # site que não é portal NucleoGov (saude.goiania.go.gov.br, 05/11/2026)
+            raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao}: "
+                             f"{type(bruto).__name__} no lugar de {{dados, total}} ({str(bruto)[:80]!r})")
         for campo in ("erro", "error"):  # `error`: a Megasoft embutida, com total 0 (licitações com período)
             motivo = bruto.get(campo) if isinstance(bruto, dict) else None
             if isinstance(motivo, str) and motivo.strip() and motivo.strip() != "null":
@@ -286,12 +290,13 @@ class Portal:
 
         None: API NucleoGov. Senão, a função do encaixe que lê o módulo:
         - Megasoft de domínio próprio (o endereço basta) e Ortrel (catálogo ou página inicial): o portal inteiro;
-        - Megasoft embutida (menus `mg*`, `*_mg`; diárias em `sgdiarias`) e Centi (menus `cnt*`), módulo a módulo;
+        - Megasoft embutida (menus `mg*`, `*_mg`; diárias em `sgdiarias`), Centi (menus `cnt*`) e o sistema de gestão
+          (menus `sgservidores`, `sgdespesas`, `sgreceitas`...), módulo a módulo;
         - diárias de qualquer outro portal NucleoGov: o encaixe de diárias do NucleoGov.
         Módulo que o encaixe não lê é recusado (`ModuloNaoSuportado`).
         """
         # importados aqui: os encaixes importam do cliente
-        from . import centi, diarias_nucleogov, megasoft_embutida, megasoft_propria, ortrel
+        from . import centi, diarias_nucleogov, megasoft_embutida, megasoft_propria, ortrel, sg
         plataforma = self._plataforma()
         if plataforma in ("megasoft", "ortrel"):
             acesso, origem = {"megasoft": (megasoft_propria, PROPRIA), "ortrel": (ortrel, ORTREL)}[plataforma]
@@ -300,7 +305,7 @@ class Portal:
             if modulo is None:
                 return None
             externo = self._sufixo(modulo)
-            if nome == "diarias" and externo not in EXTERNOS:
+            if nome == "diarias" and (externo == "sg" or externo not in EXTERNOS):
                 # sem leitura genérica: os campos das diárias mudam de portal para portal
                 acesso, origem = ((megasoft_embutida, EXTERNOS["mg"]) if externo == "sg"
                                   else (diarias_nucleogov, NUCLEOGOV))
@@ -313,7 +318,7 @@ class Portal:
                 if sufixo:
                     self.sufixos[modulo] = sufixo
                     return diarias_nucleogov.diarias if nome == "diarias" else None
-                acesso, origem = {"mg": megasoft_embutida, "centi": centi}[externo], EXTERNOS[externo]
+                acesso, origem = {"mg": megasoft_embutida, "centi": centi, "sg": sg}[externo], EXTERNOS[externo]
                 if nome == "diarias":  # `mgdiarias` (câmaras de Aruanã, Corumbaíba, Cristalina): não medido
                     raise recusa(self, nome, origem)
         ler = getattr(acesso, nome, None) if nome in LIDOS_POR_ACESSO else None

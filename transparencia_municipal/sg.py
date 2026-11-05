@@ -1,8 +1,8 @@
 """Acesso ao sistema de gestão (SG) integrado ao portal NucleoGov (menus `sgservidores`, `sgdespesas`, `sgreceitas`).
 
-O `Portal` manda para cá a folha, as despesas e as receitas quando o menu aponta o SG: nesses portais a API NucleoGov
-comum (`servidores_frl`...) responde zero, sem erro. Contratos e licitações do SG (`sgcontratos`, `sglicitacoes`)
-ainda não foram medidos e são recusados. As diárias `sgdiarias` seguem no encaixe da Megasoft embutida.
+O `Portal` manda para cá a folha, as despesas, as receitas, os contratos e as licitações quando o menu aponta o SG
+(`sgservidores`, `sgdespesas`, `sgreceitas`, `sgcontratos`, `sglicitacoes`): nesses portais a API NucleoGov comum
+(`servidores_frl`...) responde zero, sem erro. As diárias `sgdiarias` seguem no encaixe da Megasoft embutida.
 
 Vai pela própria API NucleoGov do portal, no envelope `multi_request`, com `acao = sg<modulo>/listar`, paginado pelo
 `limit` do envelope. Medido em Anápolis (05/11/2026; desenho em docs/design/2026-11-05-nucleogov-sg.md):
@@ -19,8 +19,10 @@ Vai pela própria API NucleoGov do portal, no envelope `multi_request`, com `aca
 from __future__ import annotations
 
 import calendar
+import json
 import time
 from datetime import date, datetime, timedelta
+from decimal import Decimal, InvalidOperation
 
 from .cliente import ErroPortal
 from .folha_leve import _comparavel
@@ -169,25 +171,75 @@ def despesa(reg):
     }
 
 
+RESSALVA_SOMAS = ("somas_do_periodo são as somas do próprio portal para o período pedido, pelos movimentos: o "
+                  "liquidado e o pago incluem liquidações e pagamentos do período de empenhos anteriores a ele")
+#: movimentos que entram no liquidado e no pago de um empenho
+MOVIMENTOS = {"Empenho": None, "Liquidação": "liquidado", "Pagamento": "pago"}
+
+
+def _numero(texto):
+    """'1.234,56' → Decimal; vazio ou ilegível → None."""
+    try:
+        return Decimal(str(texto).replace(".", "").replace(",", ".")) if texto not in (None, "") else None
+    except InvalidOperation:
+        return None
+
+
+def _somas(portal, filtros):
+    """As somas do período (`relatorioTotais`), com os mesmos filtros da listagem, sem o tipo."""
+    return portal._envelope("sgdespesas/relatorioTotais", {k: v for k, v in filtros.items() if k != "tipo"})
+
+
+def _ate_hoje(portal, empenhos, inicio, documento):
+    """Liquidado e pago de cada empenho (registro do portal), somando as liquidações e os pagamentos do fornecedor
+    de `inicio` até hoje. Devolve (chave_empenho → (liquidado, pago) ou None, número de empenhos com movimento
+    desconhecido)."""
+    hoje = date.today()
+    filtros = {"ano": str(inicio.year), "datamin": inicio.isoformat(), "datamax": hoje.isoformat(),
+               "cpf_cnpj": documento}
+    total, movimentos = _ler(portal, "sgdespesas/listar", filtros, maximo=TUDO)
+    if len(movimentos) != total:
+        raise _incompleta(f"dos movimentos do fornecedor até {hoje:%d/%m/%Y}", len(movimentos), total)
+    chaves = {r.get("chave_empenho") for r in empenhos}
+    somas = {c: {"liquidado": Decimal(0), "pago": Decimal(0)} for c in chaves}
+    estranhos = set()
+    for m in movimentos:
+        chave = m.get("chave_empenho")
+        if chave not in chaves:
+            continue
+        campo = MOVIMENTOS.get(m.get("movimento"), "?")
+        valor = _numero(m.get("valor_mov"))
+        if campo == "?" or (campo and valor is None):
+            estranhos.add(chave)
+        elif campo:
+            somas[chave][campo] += valor
+    return {c: None if c in estranhos else (s["liquidado"], s["pago"]) for c, s in somas.items()}, len(estranhos)
+
+
 def despesas(portal, *, de, ate, cnpj, busca, maximo):
-    """Empenhos emitidos de `de` a `ate` (dd/mm/aaaa), mês a mês. `cnpj` formatado ou None (filtro do portal,
-    conferido aqui); `busca`: nome do fornecedor, filtrado aqui sobre o período inteiro."""
+    """Empenhos emitidos de `de` a `ate` (dd/mm/aaaa), mês a mês, e as somas do período. `cnpj` formatado ou None
+    (filtro do portal, conferido aqui); com ele, cada empenho traz o liquidado e o pago até hoje. `busca`: nome do
+    fornecedor, filtrado aqui sobre o período inteiro (sem somas: o portal não filtra pelo nome)."""
     inicio, fim = _dia(de), _dia(ate)
     achados, total = [], 0
+    documento = cnpj
+    somas = {"empenhado": Decimal(0), "liquidado": Decimal(0), "pago": Decimal(0)}
     for i, (a, b) in enumerate(_meses(inicio, fim)):
         if i:
             time.sleep(portal.pausa)
         filtros = {"ano": str(a.year), "datamin": a.isoformat(), "datamax": b.isoformat(), "tipo": "0"}
-        if cnpj:
-            filtros["cpf_cnpj"] = cnpj
+        if documento:
+            filtros["cpf_cnpj"] = documento
         resta = TUDO if busca else max(maximo - len(achados), 1)
         total_mes, registros = _ler(portal, "sgdespesas/listar", filtros, maximo=resta)
-        if cnpj and not registros and cnpj.startswith("0"):
+        if cnpj and not registros and documento == cnpj and cnpj.startswith("0"):
             # Caldas Novas (05/11/2026): o portal guarda o CNPJ só com dígitos e sem os zeros à esquerda; com
             # pontuação o filtro dá zero, e sem os zeros traz os empenhos (em Anápolis, com pontuação funciona)
             time.sleep(portal.pausa)
             filtros["cpf_cnpj"] = _digitos(cnpj).lstrip("0")
             total_mes, registros = _ler(portal, "sgdespesas/listar", filtros, maximo=resta)
+            if registros:
+                documento = filtros["cpf_cnpj"]
         fora = [r for r in registros if r.get("tipo") != "0" or not (d := _dia(r.get("data"))) or not a <= d <= b]
         if fora:
             raise ErroPortal(f"{portal.url} devolveu {len(fora)} movimento(s) fora do período ou que não são empenho "
@@ -200,9 +252,38 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
                 raise _incompleta(f"dos empenhos de {a:%d/%m/%Y} a {b:%d/%m/%Y}", len(registros), total_mes)
             registros = [r for r in registros if _comparavel(busca) in _comparavel(r.get("fornecedor"))]
             total_mes = len(registros)
+        elif somas is not None:
+            time.sleep(portal.pausa)
+            do_mes = _somas(portal, filtros)
+            for nosso, do_portal in (("empenhado", "total_empenhado"), ("liquidado", "total_liquidado"),
+                                     ("pago", "total_pago")):
+                valor = _numero(do_mes.get(do_portal)) if isinstance(do_mes, dict) else None
+                if valor is None:
+                    somas = None
+                    break
+                somas[nosso] += valor
         total += total_mes
-        achados += [despesa(r) for r in registros]
-    return {"total": total, "registros": achados[:maximo], "ressalvas": [RESSALVA_MOVIMENTOS]}
+        achados += registros
+    achados = achados[:maximo]
+    saida = {"total": total, "registros": [despesa(r) for r in achados], "ressalvas": []}
+    if cnpj and achados:
+        time.sleep(portal.pausa)
+        valores, estranhos = _ate_hoje(portal, achados, inicio, documento)
+        for x, r in zip(saida["registros"], achados):
+            v = valores.get(r.get("chave_empenho"))
+            if v:
+                x["valor_liquidado"], x["valor_pago"] = _br(v[0]), _br(v[1])
+        saida["ressalvas"].append(f"valor_liquidado e valor_pago somam as liquidações e os pagamentos de cada empenho "
+                                  f"até {date.today():%d/%m/%Y}, também os feitos depois do período pedido")
+        if estranhos:
+            saida["ressalvas"].append(f"{estranhos} empenho(s) com movimento que não é liquidação nem pagamento (ex.: "
+                                      "anulação): liquidado e pago ficam vazios neles; confira no portal")
+    else:
+        saida["ressalvas"].append(RESSALVA_MOVIMENTOS)
+    if not busca and somas is not None:
+        saida["somas_do_periodo"] = {k: _br(v) for k, v in somas.items()}
+        saida["ressalvas"].append(RESSALVA_SOMAS)
+    return saida
 
 
 # ── receitas ──────────────────────────────────────────────────────────────
@@ -230,3 +311,95 @@ def receitas(portal, *, ano, mes, maximo):
             "ressalvas": ["as receitas deste portal trazem todos os órgãos juntos (Prefeitura, fundos, previdência): "
                           "o campo orgao diz de qual órgão é cada linha; some por órgão",
                           "conta sem movimento no mês vem com a arrecadação do mês zerada"]}
+
+
+# ── contratos e licitações ────────────────────────────────────────────────
+#
+# Medido em Anápolis (05/11/2026): `sgcontratos/listar` com `ano` (360 em 2025; 597 em 2024; sem ano, 12.584);
+# contratos e aditivos vêm juntos (`tabela` "contratos"/"aditivos"); `tipo` filtra ("Contrato" 138, "Aditivo" 87;
+# há ainda "Convênio", "Registro de Preço", "Contrato de Comodato" e "Distrato"); `objeto` filtra; os contratados
+# vêm numa lista JSON (`contratados`). `sglicitacoes/listar` com `ano` (o da licitação, 80 em 2025); com
+# `onlyDispensas`, as dispensas e inexigibilidades (129 em 2025); `descricao` filtra (44 de 44).
+
+def _contratados(reg):
+    try:
+        lista = json.loads(reg.get("contratados") or "[]")
+    except (TypeError, ValueError):
+        return None, None
+    nomes = "; ".join(x.get("nome") or "" for x in lista if isinstance(x, dict)) or None
+    docs = "; ".join(_documento(x.get("cpf_cnpj")) or "" for x in lista if isinstance(x, dict)) or None
+    return nomes, docs
+
+
+def _contrato(reg):
+    nomes, docs = _contratados(reg)
+    return {
+        "numero": reg.get("numero") or None, "ano": reg.get("ano"), "tipo": reg.get("tipo") or None,
+        "orgao_nome": reg.get("orgao") or None, "situacao": reg.get("situacao") or None,
+        "objeto": reg.get("objeto") or None, "fornecedor_nome": nomes, "fornecedor_cpfcnpj": docs,
+        "valor": _br(reg.get("valor")), "data_publicacao": _data(reg.get("data_publicacao")) or None,
+        "data_firmatura": _data(reg.get("data_firmatura")) or None,
+        "inicio_vigencia": _data(reg.get("inicio_vigencia")) or None,
+        "fim_vigencia": _data(reg.get("fim_vigencia")) or None, "fiscal_contrato": reg.get("fiscal_contrato") or None,
+        "fonte": FONTE,
+    }
+
+
+def _do_ano(registros, ano, portal, o_que):
+    fora = [r for r in registros if ano and str(r.get("ano")) != str(ano)]
+    if fora:
+        raise ErroPortal(f"{portal.url} devolveu {len(fora)} {o_que} de outro ano ao pedir {ano} "
+                         f"(ex.: {fora[0].get('ano')}); a resposta misturaria anos.")
+
+
+def contratos(portal, *, ano, tipo, busca, maximo):
+    """Contratos (tipo="contrato": todos os tipos menos os aditivos) ou aditivos do `ano` (int ou None).
+    `busca` procura no objeto."""
+    filtros = {"ano": str(ano)} if ano else {}
+    ressalvas = []
+    if tipo == "aditivo":
+        filtros["tipo"] = "Aditivo"
+    elif tipo != "contrato":
+        raise ValueError(f"tipo={tipo!r}: use 'contrato' ou 'aditivo'")
+    if busca:
+        filtros["objeto"] = busca
+        ressalvas.append("a busca dos contratos deste portal procura só no objeto do contrato (não no fornecedor nem "
+                         "no número)")
+    if tipo == "aditivo":
+        total, registros = _ler(portal, "sgcontratos/listar", filtros, maximo=maximo)
+    else:  # o portal não tem filtro "tudo menos aditivo": lê tudo e tira os aditivos aqui
+        total, registros = _ler(portal, "sgcontratos/listar", filtros, maximo=TUDO)
+        if len(registros) != total:
+            raise _incompleta("dos contratos", len(registros), total)
+        registros = [r for r in registros if r.get("tabela") != "aditivos" and r.get("tipo") != "Aditivo"]
+        total = len(registros)
+        ressalvas.append("os contratos deste portal incluem convênios, atas de registro de preço, comodatos e "
+                         "distratos: o campo tipo diz qual é cada um")
+    _do_ano(registros, ano, portal, "contrato(s)")
+    return {"total": total, "registros": [_contrato(r) for r in registros[:maximo]], "ressalvas": ressalvas}
+
+
+def _licitacao(reg):
+    return {
+        "numero": reg.get("numero") or None, "label": reg.get("label") or None, "ano": reg.get("ano"),
+        "modalidade": reg.get("modalidade") or None, "situacao": reg.get("situacao") or None,
+        "orgao": reg.get("orgao") or None, "descricao": (reg.get("descricao") or "").strip() or None,
+        "processo": reg.get("numero_processo") or None, "data_publicacao": _data(reg.get("data_publicacao")) or None,
+        "data_abertura": _data(reg.get("data_abertura")) or None,
+        "data_homologacao": _data(reg.get("data_homologacao")) or None,
+        "valor_estimado": _br(reg.get("valor_estimado")), "fonte": FONTE,
+    }
+
+
+def licitacoes(portal, *, busca, dispensas, ano, maximo):
+    """Licitações ou dispensas e inexigibilidades do `ano` (int ou None). `busca` procura na descrição."""
+    filtros = {"ano": str(ano)} if ano else {}
+    if dispensas:
+        filtros["onlyDispensas"] = True
+    if busca:
+        filtros["descricao"] = busca
+    total, registros = _ler(portal, "sglicitacoes/listar", filtros, maximo=maximo)
+    _do_ano(registros, ano, portal, "licitação(ões)")
+    return {"total": total, "registros": [_licitacao(r) for r in registros],
+            "ressalvas": ["o ano das licitações deste portal é o ano da licitação (o do número), não o da publicação "
+                          "(algumas foram publicadas no ano seguinte)"]}

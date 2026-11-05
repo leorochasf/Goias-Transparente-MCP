@@ -189,7 +189,7 @@ pelo menu do portal, e entrega os registros no mesmo formato. Cada registro dos 
 | Megasoft embutida | menus `mg*`, `*_mg`, `sgdiarias` de um portal NucleoGov | sim | sim | sim | sim (`sgdiarias`; `mgdiarias` é recusado) | sim | sim, por ano | não tem |
 | Megasoft de domínio próprio | `<municipio>.megasofttransparencia.com.br` | sim | sim | sim | sim | sim | sim | sim |
 | Centi | menus `cntdespesas`, `cntreceitas` de um portal NucleoGov | não tem | sim | sim, por órgão | não tem | não tem | não tem | não tem |
-| Sistema de gestão (SG) do NucleoGov | menus `sgservidores`, `sgdespesas`, `sgreceitas` de um portal NucleoGov | sim | sim, os empenhos (sem liquidado e pago) | sim, todos os órgãos juntos | `sgdiarias`, como na Megasoft embutida | recusado (não medido) | recusado (não medido) | não tem |
+| Sistema de gestão (SG) do NucleoGov | menus `sgservidores`, `sgdespesas`, `sgreceitas`, `sgcontratos`, `sglicitacoes` de um portal NucleoGov | sim | sim, os empenhos, com as somas do período; por CNPJ, liquidado e pago até hoje | sim, todos os órgãos juntos | `sgdiarias`, como na Megasoft embutida | sim, por ano (contratos e aditivos) | sim, por ano, e dispensas | não tem |
 
 O que o sistema não tem ou o projeto não lê (legislação da Megasoft, aditivos fora do NucleoGov) é **recusado com
 aviso**, em vez de responder "zero". Contratos e licitações saem com os **nomes de campo do NucleoGov** em todo

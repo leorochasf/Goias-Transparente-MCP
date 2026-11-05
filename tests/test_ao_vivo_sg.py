@@ -50,3 +50,22 @@ def test_receitas_de_um_mes_trazem_os_orgaos_e_o_mes(portal):
     assert r["total"] == len(r["registros"]) > 0
     assert {(x["fonte"], x["ano"], x["mes"]) for x in r["registros"]} == {(FONTE, 2025, 6)}
     assert len({x["orgao"] for x in r["registros"]}) > 1
+
+
+def test_contratos_e_aditivos_do_ano_e_dispensas(portal):
+    c = portal.contratos(2025, maximo=50)
+    assert c["total"] > 0 and {(x["fonte"], x["ano"]) for x in c["registros"]} == {(FONTE, "2025")}
+    assert "Aditivo" not in {x["tipo"] for x in c["registros"]}
+    a = portal.contratos(2025, tipo="aditivo", maximo=20)
+    assert a["total"] > 0 and {x["tipo"] for x in a["registros"]} == {"Aditivo"}
+    d = portal.licitacoes(dispensas=True, ano=2025, maximo=20)
+    assert d["total"] > 0 and {x["ano"] for x in d["registros"]} == {"2025"}
+
+
+def test_somas_do_periodo_e_liquidado_pago_por_cnpj(portal):
+    r = portal.despesas("2025-06-01", "2025-06-10", maximo=200)
+    assert set(r["somas_do_periodo"]) == {"empenhado", "liquidado", "pago"}
+    cnpj = next(x["cpf_cnpj"] for x in r["registros"]
+                if re.fullmatch(r"\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}", x["cpf_cnpj"] or ""))
+    so = portal.despesas("2025-06-01", "2025-06-10", cnpj, maximo=50)
+    assert all(x["valor_liquidado"] is not None and x["valor_pago"] is not None for x in so["registros"])

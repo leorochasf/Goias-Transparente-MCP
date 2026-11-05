@@ -141,10 +141,17 @@ o teste ao vivo `tests/test_ao_vivo_sg.py` reconfere.
 | Folha | `acao = sgservidores/listar`, `ano`, `mes`, página pelo `limit` | mês e `orgao` respeitados; páginas de 1.000 sem repetir | tipo "Folha Normal"; o órgão principal vem com `orgao` vazio |
 | Despesas | `acao = sgdespesas/listar`, `ano`, `datamin`/`datamax` (aaaa-mm-dd), `tipo` 0, `cpf_cnpj` | período, tipo e CNPJ respeitados | uma linha por movimento (empenho, liquidação, pagamento); **só com `ano`, vem o mês mais recente**; `periodo_inicial`/`periodo_final` dão zero; o CPF de pessoa física vem completo |
 | Receitas | `acao = sgreceitas/listar`, `ano`, `mes` | mês e `orgao` respeitados; todos os órgãos juntos | conta sem movimento no mês vem com `mes` nulo |
+| Somas das despesas | `acao = sgdespesas/relatorioTotais`, os filtros da listagem | empenhado, liquidado e pago do período; aceita `cpf_cnpj` | são pelos movimentos: o pago inclui pagamentos de empenhos anteriores |
+| Contratos | `acao = sgcontratos/listar`, `ano`, `tipo`, `objeto` | ano; `tipo` "Contrato"/"Aditivo"; `objeto` | contratos e aditivos juntos sem `tipo`; há convênios, atas, comodatos e distratos; contratados numa lista JSON |
+| Licitações | `acao = sglicitacoes/listar`, `ano`, `onlyDispensas`, `descricao` | ano (o da licitação); dispensas e inexigibilidades com `onlyDispensas` | publicação pode ser no ano seguinte |
 
-O projeto lista nas despesas os **empenhos emitidos no período**, com o valor empenhado. Liquidado e pago ficam
-vazios, com ressalva: no SG eles são movimentos separados, e os valores da linha são os do momento do movimento.
-Contratos e licitações do SG ainda não foram medidos e são recusados com aviso.
+O projeto lista nas despesas os **empenhos emitidos no período**, com o valor empenhado, e as **somas do período**
+do próprio portal. Na busca por CNPJ, cada empenho traz o **liquidado e o pago até hoje**, somando as liquidações e
+os pagamentos do fornecedor até a data da consulta (uma leitura só de 2025 até hoje trouxe exatamente a soma das
+leituras ano a ano, em Anápolis). Sem CNPJ, liquidado e pago ficam vazios em cada empenho: somar os movimentos de um
+mês inteiro custaria uma consulta por empenho. O CNPJ vem formatado (Anápolis) ou só com dígitos e sem os zeros à
+esquerda (Águas Lindas, Caldas Novas): o projeto formata pelo dígito verificador e, se a busca com pontuação der
+zero num CNPJ que começa com zero, repete sem os zeros.
 
 ## Megasoft e Centi (04/11/2026)
 

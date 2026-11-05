@@ -1,6 +1,6 @@
 [project]
 name = "goias-transparente-mcp"
-version = "0.7.0"
+version = "0.8.0"
 description = "Consulta o Portal da Transparência de municípios (plataforma NucleoGov) por MCP, linha de comando ou biblioteca."
 readme = "README.md"
 requires-python = ">=3.10"

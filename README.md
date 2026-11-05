@@ -283,11 +283,11 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 
 | Plataforma no catálogo | Órgãos |
 |---|---|
-| NucleoGov | 186 |
-| NucleoGov com folha Megasoft (Megasoft embutida) | 221 |
+| NucleoGov | 181 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 225 |
 | Megasoft de domínio próprio | 30 |
 | Ortrel | 4 |
-| Sem portal reconhecido | 20 |
+| Sem portal reconhecido | 21 |
 
 Toda resposta diz a **situação do portal**:
 
@@ -295,12 +295,13 @@ Toda resposta diz a **situação do portal**:
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 441 órgãos com plataforma reconhecida**. A conferência
+Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 440 órgãos com plataforma reconhecida**. A conferência
 passa pelos mesmos caminhos das consultas (NucleoGov, sistema de gestão do NucleoGov, Megasoft embutida e própria,
 Centi, Ortrel) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação. Folha do mês respeitada
-em 408 órgãos; despesas do período em 413; busca por CNPJ em 407; legislação em 368; contratos por ano em 342;
-receitas do mês em 236 (as câmaras quase não arrecadam); diárias em 173; licitações por ano em 164 (nos portais
-NucleoGov o ano das licitações não é usado). 12 órgãos têm portal que não responde direito. O
+em 416 órgãos; despesas do período em 421; busca por CNPJ em 416; contratos por ano em 377; legislação em 376;
+receitas do mês em 237 (as câmaras quase não arrecadam); licitações por ano em 192; diárias em 175. 2 órgãos têm
+portal que não responde (Câmara de Goianésia, Prefeitura de Terezópolis); a Prefeitura de Goiânia usa sistema
+próprio, que o projeto não lê. O
 resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:

@@ -2530,13 +2530,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "falhou",
+"contratos_ano": "ok",
 "licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "https://acessoainformacao.bomjesusdegoias.go.leg.br devolveu 1 contrato(s) de outro ano ao pedir 2025 (ex.: 2022); a resposta misturaria anos."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -3645,13 +3644,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "falhou",
+"contratos_ano": "ok",
 "licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "https://acessoainformacao.caldasnovas.go.leg.br devolveu 1 contrato(s) de outro ano ao pedir 2025 (ex.: 2024); a resposta misturaria anos."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -3683,7 +3681,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "erro",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados",
@@ -3693,7 +3691,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "ErroPortal: não foi possível falar com https://acessoainformacao.caldasnovas.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.caldasnovas.go.gov.br', port=443): Read timed out. (read timeout=60)",
 "legislacao_ano": "nenhum decreto de 2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }

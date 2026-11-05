@@ -8,7 +8,8 @@ Vai pela própria API NucleoGov do portal, no envelope `multi_request`, com `aca
 `limit` do envelope. Medido em Anápolis (05/11/2026; desenho em docs/design/2026-11-05-nucleogov-sg.md):
 - folha: `ano` + `mes` respeitados; 06/2025 deu 7.604 linhas, uma por servidor, lidas em páginas de 1.000 sem
   repetir; `orgao` filtra (o nome do órgão vem na linha; vazio no órgão principal);
-- despesas: uma linha por movimento (Empenho, Liquidação, Pagamento; 4.698 em 06/2025, de 2.001 empenhos); `tipo` 0
+- despesas: o documento pode vir formatado (Anápolis) ou só com dígitos e sem zeros à esquerda (Águas Lindas);
+  uma linha por movimento (Empenho, Liquidação, Pagamento; 4.698 em 06/2025, de 2.001 empenhos); `tipo` 0
   traz só os empenhos; `ano` + `datamin`/`datamax` (aaaa-mm-dd) recortam pela data; **só com `ano`, o portal devolve o
   mês mais recente**; `cpf_cnpj` filtra (45 de 45); os valores da linha são os do momento do movimento (o empenho
   traz liquidado e pago zerados);
@@ -115,10 +116,27 @@ def _dia(texto):
         return None
 
 
+def _digitos(texto):
+    return "".join(c for c in str(texto or "") if c.isdigit())
+
+
+def _documento(texto):
+    """CPF ou CNPJ formatado. Em Águas Lindas (05/11/2026) o documento vem só com dígitos e sem os zeros à esquerda:
+    12 ou 13 dígitos só podem ser CNPJ (o CPF tem 11). Outro formato fica como veio."""
+    d = _digitos(texto)
+    if 12 <= len(d) <= 14 and len(d) == len(str(texto).strip()):
+        d = d.zfill(14)
+        return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
+    if 9 <= len(d) <= 11 and len(d) == len(str(texto).strip()):
+        d = d.zfill(11)
+        return f"{d[:3]}.{d[3:6]}.{d[6:9]}-{d[9:]}"
+    return texto or None
+
+
 def despesa(reg):
     return {
         "empenho": reg.get("numero") or reg.get("empenho"), "data": reg.get("data"),
-        "cpf_cnpj": reg.get("cpf_cnpj") or None, "fornecedor": reg.get("fornecedor") or None,
+        "cpf_cnpj": _documento(reg.get("cpf_cnpj")), "fornecedor": reg.get("fornecedor") or None,
         "valor_empenhado": reg.get("valor_empenho") or reg.get("valor") or None,
         "valor_liquidado": None, "valor_pago": None, "historico": reg.get("descricao") or None,
         "orgao": reg.get("orgao") or None, "fonte": FONTE,
@@ -143,7 +161,7 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
             raise ErroPortal(f"{portal.url} devolveu {len(fora)} movimento(s) fora do período ou que não são empenho "
                              f"ao pedir {a:%d/%m/%Y} a {b:%d/%m/%Y} (ex.: {fora[0].get('movimento')} de "
                              f"{fora[0].get('data')}): o filtro não foi respeitado e nada foi devolvido.")
-        if cnpj and any(r.get("cpf_cnpj") != cnpj for r in registros):
+        if cnpj and any(_digitos(r.get("cpf_cnpj")).zfill(14) != _digitos(cnpj) for r in registros):
             raise ErroPortal(f"{portal.url} ignorou o filtro de CNPJ nas despesas: nada foi devolvido.")
         if busca:
             if len(registros) != total_mes:

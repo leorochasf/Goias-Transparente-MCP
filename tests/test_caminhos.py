@@ -162,4 +162,4 @@ def test_sondagem_que_falhou_na_rede_nao_fica_lembrada(monkeypatch):
     _duble(monkeypatch, megasoft_embutida, "folha")
     for _ in range(2):
         Portal(NUCLEOGOV, pausa=0, sufixos={"servidores": "mg"}).folha(2025, 6, maximo=5)
-    assert len(responses.calls) == 4  # sondou de novo na segunda consulta
+    assert len(responses.calls) == 8  # 2 sufixos, cada um tentado 2 vezes; e sondou de novo na segunda consulta

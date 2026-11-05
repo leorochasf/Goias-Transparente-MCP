@@ -57,7 +57,7 @@ def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=Fals
 
     def dos_movimentos(corpo):
         sel = [m for m in movimentos if corpo.get("tipo") in (None, m["tipo"])
-               and corpo.get("cpf_cnpj") in (None, m["cpf_cnpj"])]
+               and (corpo.get("cpf_cnpj") is None or _digitos(corpo["cpf_cnpj"]) == _digitos(m["cpf_cnpj"]))]
         if ignora_periodo:
             return sel
         de, ate = (date.fromisoformat(corpo[c]) for c in ("datamin", "datamax"))
@@ -71,6 +71,11 @@ def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=Fals
         responses.add_callback(responses.POST, f"{PORTAL}/api/{acao}/listar", callback=sg(selecionar),
                                content_type="application/json")
     return pedidos
+
+
+def _digitos(documento):
+    """O portal compara o CNPJ pelos dígitos (o filtro vai formatado; a resposta pode vir só com dígitos)."""
+    return "".join(c for c in documento if c.isdigit()).zfill(14)
 
 
 def _servidor(i, **campos):
@@ -222,3 +227,33 @@ def test_resumir_folha_num_portal_sg(monkeypatch):
     assert "erro" not in r, r
     texto = json.dumps(r, ensure_ascii=False)
     assert "Agente de Endemias" in texto and "PESSOA" not in texto
+
+
+@responses.activate
+def test_despesas_sg_formatam_o_documento_que_vem_so_com_numeros_e_sem_os_zeros_a_esquerda():
+    """Águas Lindas (05/11/2026): `cpf_cnpj` só com dígitos, e o zero à esquerda perdido (13 dígitos num CNPJ)."""
+    movimentos = [_movimento(1, "10/01/2025", cpf_cnpj="25107525000151"),
+                  _movimento(2, "11/01/2025", cpf_cnpj="1067081000100"),
+                  _movimento(3, "12/01/2025", cpf_cnpj="1234567890")]
+    pedidos = _portal_sg(movimentos=movimentos)
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31")
+    assert [x["cpf_cnpj"] for x in r["registros"]] == ["25.107.525/0001-51", "01.067.081/0001-00", "012.345.678-90"]
+
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31", "25.107.525/0001-51")
+    assert r["total"] == 1 and r["registros"][0]["cpf_cnpj"] == "25.107.525/0001-51"
+    assert pedidos[-1]["cpf_cnpj"] == "25.107.525/0001-51"
+
+
+@responses.activate
+def test_erro_passageiro_na_sondagem_da_api_e_repetido_antes_de_recusar():
+    """Portelândia (05/11/2026): menu `sgcontratos`, mas `contratos_cnt` serve 473. Uma falha passageira do `cnt`,
+    com o `frl` respondendo zero, fazia o módulo ser recusado: a consulta que falha é repetida uma vez."""
+    _portal_sg()
+    responses.replace(responses.POST, f"{PORTAL}/api/contratos_cnt/listar", status=500, body="erro")
+
+    def com_contratos(requisicao):
+        ident, _ = _pedido(requisicao)
+        return 200, {}, json.dumps({ident: {"total": 1, "dados": [{"numero": "1", "ano": "2025"}]}})
+    responses.add_callback(responses.POST, f"{PORTAL}/api/contratos_cnt/listar", callback=com_contratos,
+                           content_type="application/json")
+    assert Portal(PORTAL, pausa=0).contratos(2025)["total"] == 1

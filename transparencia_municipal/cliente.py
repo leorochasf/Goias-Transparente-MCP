@@ -271,11 +271,18 @@ class Portal:
             return _API_SONDADA[chave]
         respondeu = False
         for sufixo in SUFIXOS:
-            try:
-                total = self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"]
-            except PortalBloqueou:
-                raise
-            except ErroPortal:
+            # a consulta que falha é repetida uma vez: uma falha passageira do sufixo certo, com o outro respondendo
+            # zero, recusava o módulo (Portelândia, contratos, 05/11/2026)
+            for tentativa in (1, 2):
+                try:
+                    total = self.consultar(f"{modulo}_{sufixo}/listar", {}, maximo=1)["total"]
+                    break
+                except PortalBloqueou:
+                    raise
+                except ErroPortal:
+                    if tentativa == 1:
+                        time.sleep(self.pausa * 2)
+            else:
                 continue
             respondeu = True
             if total > 0:

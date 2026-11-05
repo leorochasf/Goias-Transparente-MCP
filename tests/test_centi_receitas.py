@@ -249,3 +249,13 @@ def test_assistente_consulta_receitas_num_portal_centi(monkeypatch):
     assert {x["fonte"] for x in r["registros"]} == {"Centi"}
     assert [s["valor_arrecadado_mes"] for s in r["somas_por_orgao"]] == ["1.400,00", "300,00"]
     assert "aviso_orgaos" in r and any("analitica" in x for x in r["ressalvas"])
+
+
+@responses.activate
+def test_orgao_sem_id_na_lista_fica_de_fora_com_ressalva_e_os_outros_sao_lidos():
+    """Orizona, 04/11/2026: o fundo de previdência veio com `id` nulo na lista de órgãos; o resto tinha id."""
+    orgaos = LISTA_ORGAOS + [{"id": None, "valor": "FUNDO DE PREVIDÊNCIA MUNICIPAL", "principal": "0"}]
+    _centi({"3": _resposta(_executivo()), "6": _resposta(_saude())}, orgaos=orgaos)
+    r = _ler()
+    assert r["total"] == 7 and [x["orgao"] for x in _enviados()] == ["3", "6"]
+    assert any("FUNDO DE PREVIDÊNCIA MUNICIPAL" in x and "sem identificador" in x for x in r["ressalvas"])

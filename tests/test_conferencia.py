@@ -267,3 +267,12 @@ def test_mes_ilegivel_na_receita_e_falhou_e_nao_nao_suportado():
         def receitas(self, ano, mes, *, maximo=200):
             return self._r([{"ano": "2025", "mes": "Setembro"}])
     assert conferir(Torto(), ano=2025, mes=1, hoje="x", pausa=0)["filtros"]["receitas_mes"] == "falhou"
+
+
+def test_consulta_sem_ano_vazia_com_a_do_ano_cheia_e_erro_do_portal_e_nao_falhou():
+    """Posse, 04/11/2026: sem ano veio total 0 numa resposta e 837 na seguinte; com ano, 114. Não é o filtro."""
+    class Passageiro(PortalDeMentira):
+        def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
+            return self._r([{"ano": 2025}] * 3 if ano else [])
+    r = conferir(Passageiro(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["contratos_ano"] == "erro" and "vazia" in r["detalhes"]["contratos_ano"]

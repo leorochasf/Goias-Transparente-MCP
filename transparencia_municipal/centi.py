@@ -158,7 +158,8 @@ RAIZ = re.compile(r"\d+(\.0+)+")  # 1.0.0.0.00.0.0, 91.0.0.0.00.0.0: as contas d
 
 
 def _orgaos(portal):
-    """Os órgãos da Centi (`sgcenti/listarOrgaos`, envelope `multi_request`), o principal primeiro: [(id, nome)].
+    """Os órgãos da Centi (`sgcenti/listarOrgaos`, envelope `multi_request`), o principal primeiro: [(id, nome)], e
+    os nomes dos que vieram sem `id` (não há como pedi-los; Orizona, 04/11/2026: o fundo de previdência).
 
     Posse, 04/11/2026: a resposta é a lista crua `[{id, valor, principal}]`, sem `dados` (o `_pagina` não serve).
     """
@@ -179,11 +180,14 @@ def _orgaos(portal):
         lista = r.json()[ident] if r.status_code == 200 else None
     except (ValueError, KeyError, TypeError):
         lista = None
-    if not isinstance(lista, list) or not lista or not all(isinstance(o, dict) and o.get("id") for o in lista):
+    if isinstance(lista, list) and all(isinstance(o, dict) for o in lista):
+        sem_id = [str(o.get("valor") or "sem nome") for o in lista if not o.get("id")]
+        lista = [o for o in lista if o.get("id")]
+    if not isinstance(lista, list) or not lista or not all(isinstance(o, dict) for o in lista):
         raise ErroPortal(f"{portal.url} não deu a lista de órgãos da Centi (HTTP {r.status_code}, começa com "
                          f"{r.text[:80]!r}); as receitas são lidas por órgão e não há como lê-las sem ela.")
     lista = sorted(lista, key=lambda o: str(o.get("principal")) != "1")
-    return [(str(o["id"]), o.get("valor") or str(o["id"])) for o in lista]
+    return [(str(o["id"]), o.get("valor") or str(o["id"])) for o in lista], sem_id
 
 
 def _receitas_do_orgao(portal, ano, mes, orgao):
@@ -250,7 +254,11 @@ def receitas(portal, *, ano, mes, maximo):
     """
     registros, somas, ressalvas, vazios, faltas, vistos = [], [], [], [], [], {}
     total = sem_marca = 0
-    for orgao, nome_da_lista in _orgaos(portal):
+    orgaos, sem_id = _orgaos(portal)
+    if sem_id:
+        ressalvas.append(f"a lista de órgãos da Centi trouxe {len(sem_id)} órgão(s) sem identificador ("
+                         f"{', '.join(sem_id)}): as receitas deles não podem ser pedidas e não estão aqui.")
+    for orgao, nome_da_lista in orgaos:
         time.sleep(portal.pausa)
         linhas = _receitas_do_orgao(portal, ano, mes, orgao)
         for fator in (2, 5):

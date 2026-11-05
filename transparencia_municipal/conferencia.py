@@ -195,6 +195,8 @@ def _ano_respeitado(do_ano, todos, ano, ano_de, nome):
     if fora:
         return "falhou", f"pediu {ano}, vieram {fora[:5]}"
     amostra = todos()
+    if not amostra["total"]:  # vazio passageiro (Posse, 04/11/2026): a do ano trouxe registros, a sem ano não
+        return "erro", "a consulta sem ano voltou vazia, e a do ano não: resposta falha do portal; repita a conferência"
     # total igual com e sem ano só passa se a amostra sem ano é o portal inteiro e é toda daquele ano
     inteiro = len(amostra["registros"]) >= amostra["total"]
     if do_ano["total"] >= amostra["total"] and not (inteiro and {ano_de(x) for x in amostra["registros"]} == {ano}):

@@ -283,8 +283,8 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 
 | Plataforma no catálogo | Órgãos |
 |---|---|
-| NucleoGov | 188 |
-| NucleoGov com folha Megasoft (Megasoft embutida) | 219 |
+| NucleoGov | 186 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 221 |
 | Megasoft de domínio próprio | 30 |
 | Ortrel | 4 |
 | Sem portal reconhecido | 20 |
@@ -295,12 +295,12 @@ Toda resposta diz a **situação do portal**:
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04/11/2026 foram conferidos os 32 órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
-São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
-Goianápolis, Pirenópolis, Corumbaíba e Guapó, e as 4 câmaras Ortrel. A conferência passa pelos mesmos caminhos das
-consultas (NucleoGov, Megasoft embutida e própria, Centi, Ortrel) e mede folha, despesas, receitas, diárias,
-contratos, licitações e legislação. Contratos com o ano respeitado em 33 órgãos; diárias com o período respeitado em
-20; receitas do mês em 16; licitações por ano em 13 (nos portais NucleoGov o ano das licitações não é usado). O
+Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 441 órgãos com plataforma reconhecida**. A conferência
+passa pelos mesmos caminhos das consultas (NucleoGov, sistema de gestão do NucleoGov, Megasoft embutida e própria,
+Centi, Ortrel) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação. Folha do mês respeitada
+em 408 órgãos; despesas do período em 413; busca por CNPJ em 407; legislação em 368; contratos por ano em 342;
+receitas do mês em 236 (as câmaras quase não arrecadam); diárias em 173; licitações por ano em 164 (nos portais
+NucleoGov o ano das licitações não é usado). 12 órgãos têm portal que não responde direito. O
 resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:

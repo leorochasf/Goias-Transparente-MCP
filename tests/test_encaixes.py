@@ -266,15 +266,6 @@ def test_detalhe_do_servidor_num_portal_com_a_centi_e_recusado():
         Portal(NUCLEOGOV, pausa=0).detalhe_servidor("1", 2025, 1)
 
 
-# ── ticket 05: diárias do NucleoGov ainda não disponíveis ────────────────────────────────────────────────────────
-
-@responses.activate
-def test_diarias_do_nucleogov_ainda_nao_disponiveis():  # ticket 05
-    responses.add(responses.GET, f"{NUCLEOGOV}/", body='<div class="nucleogov"><a href="x/diarias_cnt">D</a></div>')
-    with pytest.raises(ModuloNaoSuportado, match="ainda não está disponível"):
-        Portal(NUCLEOGOV, pausa=0).diarias("2025-01-01", "2025-03-31")
-
-
 # ── permanente: o detalhe do servidor no Ortrel é recusado (decreto e data vêm na folha) ─────────────────────────
 
 @responses.activate

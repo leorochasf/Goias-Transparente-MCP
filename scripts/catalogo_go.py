@@ -3,6 +3,8 @@
   python scripts/catalogo_go.py candidatos --respostas respostas_GO.csv   # endereços por órgão (offline)
   python scripts/catalogo_go.py sondar                                    # uma visita por endereço, 1 s de pausa
   python scripts/catalogo_go.py conferir --municipios "Posse,Trindade"     # conferência ao vivo da amostra
+  python scripts/catalogo_go.py conferir --plataformas nucleogov --fatia 1/2 --saida conferencias-frente2.json
+  python scripts/catalogo_go.py juntar conferencias-frente1.json conferencias-frente2.json  # no conferencias.json
   python scripts/catalogo_go.py tcm                                       # listas de municípios do TCM-GO (2 consultas)
   python scripts/catalogo_go.py montar                                    # grava transparencia_municipal/catalogo_go.json
 
@@ -133,28 +135,100 @@ def _portal_escolhido(orgao, sondados):
     return primeiro, None, sondados.get(primeiro or "") or {}
 
 
-def conferir(args):
+def _selecionar(orgaos, sondados, *, municipios=None, todos=False, plataformas=None, fatia=None):
+    """Os órgãos a conferir, como (órgão, host, plataforma), em ordem alfabética de município.
+
+    `municipios`: só esses; `todos` ou `plataformas` sem `municipios`: todos os órgãos com plataforma.
+    `fatia` (k, n): a k-ésima de n partes contíguas da lista já filtrada; as n partes cobrem a lista sem repetir.
+    """
     from transparencia_municipal.folha_leve import _comparavel
-    alvo = {_comparavel(m) for m in args.municipios.split(",")}
-    orgaos = [o for o in json.loads(CANDIDATOS.read_text(encoding="utf-8")) if _comparavel(o["municipio"]) in alvo]
-    sondados = _sondados()
-    feitas = json.loads(CONFERENCIAS.read_text(encoding="utf-8")) if CONFERENCIAS.exists() else {}
+    alvo = {_comparavel(m) for m in municipios} if municipios else None
+    selecao = []
     for o in orgaos:
+        if alvo is not None and _comparavel(o["municipio"]) not in alvo:
+            continue
         host, plataforma, _ = _portal_escolhido(o, sondados)  # o mesmo que o `montar` grava
+        if alvo is None and not plataforma:
+            continue
+        if plataformas and plataforma not in plataformas:
+            continue
+        selecao.append((o, host, plataforma))
+    selecao.sort(key=lambda x: (_comparavel(x[0]["municipio"]), x[0]["orgao"], x[1] or ""))
+    if fatia:
+        k, n = fatia
+        selecao = selecao[(k - 1) * len(selecao) // n:k * len(selecao) // n]
+    return selecao
+
+
+def _fatia(texto):
+    """'1/2' → (1, 2)."""
+    try:
+        k, n = map(int, texto.split("/"))
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"fatia {texto!r}: use k/n, por exemplo 1/2") from None
+    if not 1 <= k <= n:
+        raise argparse.ArgumentTypeError(f"fatia {texto!r}: k vai de 1 a n")
+    return k, n
+
+
+def _plataformas(texto):
+    nomes = [p.strip() for p in texto.split(",") if p.strip()]
+    desconhecidas = [p for p in nomes if p not in PREFERENCIA]
+    if desconhecidas or not nomes:
+        raise argparse.ArgumentTypeError(f"plataforma desconhecida {desconhecidas}; use {', '.join(PREFERENCIA)}")
+    return nomes
+
+
+def _no_trabalho(nome):
+    """Arquivo de saída: nome relativo fica em scripts/_catalogo/; caminho absoluto fica onde está."""
+    return TRABALHO / nome
+
+
+def conferir(args):
+    selecao = _selecionar(json.loads(CANDIDATOS.read_text(encoding="utf-8")), _sondados(),
+                          municipios=args.municipios, todos=args.todos, plataformas=args.plataformas, fatia=args.fatia)
+    saida = _no_trabalho(args.saida)
+    feitas = json.loads(saida.read_text(encoding="utf-8")) if saida.exists() else {}
+    print(f"{len(selecao)} órgãos selecionados; {sum(1 for _, h, _ in selecao if h in feitas)} já conferidos "
+          f"em {saida.name}", flush=True)
+    for o, host, plataforma in selecao:
         rotulo = f"{o['municipio']} ({o['orgao']})"
         if plataforma not in CONFERIVEIS:
-            print(f"{rotulo}: sem portal NucleoGov nem Megasoft conhecido; fica de fora", flush=True)
+            print(f"{rotulo}: plataforma {plataforma or 'desconhecida'}, que a conferência não lê; fica de fora",
+                  flush=True)
             continue
-        if host in feitas:
+        if host in feitas:  # retomada
             continue
         portal = Portal(f"https://{host}", navegador=plataforma != "megasoft")  # a Megasoft aceita a ferramenta
         r = conferir_portal(portal, ano=args.ano, mes=args.mes)
         r["sufixos"] = portal.sufixos or {}
         feitas[host] = r
-        CONFERENCIAS.write_text(json.dumps(feitas, ensure_ascii=False, indent=1), encoding="utf-8")
+        saida.parent.mkdir(parents=True, exist_ok=True)
+        saida.write_text(json.dumps(feitas, ensure_ascii=False, indent=1), encoding="utf-8")
         ruins = {k: v for k, v in r["filtros"].items() if v != "ok"}
         print(f"{rotulo} {host} [{plataforma}]: {'tudo ok' if not ruins else ruins}", flush=True)
         time.sleep(args.pausa)
+
+
+def juntar(args):
+    """Junta as saídas das frentes no conferencias.json. Endereço repetido: fica a conferência mais recente; na mesma
+    data (sem hora), a do arquivo juntado, que é a rodada posterior."""
+    junto = json.loads(CONFERENCIAS.read_text(encoding="utf-8")) if CONFERENCIAS.exists() else {}
+    novas = substituidas = mantidas = 0
+    for nome in args.arquivos:
+        for host, r in json.loads(_no_trabalho(nome).read_text(encoding="utf-8")).items():
+            antiga = junto.get(host)
+            if antiga is None:
+                novas += 1
+            elif r["data"] >= antiga["data"]:
+                substituidas += 1
+            else:
+                mantidas += 1
+                continue
+            junto[host] = r
+    CONFERENCIAS.write_text(json.dumps(junto, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{novas} novas, {substituidas} atualizadas, {mantidas} mantidas (a antiga era mais recente); "
+          f"{len(junto)} endereços -> {CONFERENCIAS}")
 
 
 def tcm(args):
@@ -224,15 +298,24 @@ def main():
     s.add_argument("--timeout", type=int, default=20)
     s.add_argument("--refazer", help="plataforma cujos endereços devem ser sondados de novo")
     s = sub.add_parser("conferir")
-    s.add_argument("--municipios", required=True, help="nomes separados por vírgula")
+    s.add_argument("--municipios", type=lambda t: t.split(","), help="nomes separados por vírgula")
+    s.add_argument("--todos", action="store_true", help="todos os órgãos do catálogo com plataforma")
+    s.add_argument("--plataformas", type=_plataformas, help=f"separadas por vírgula, entre {', '.join(PREFERENCIA)}")
+    s.add_argument("--fatia", type=_fatia, help="k/n: a k-ésima de n partes, em ordem alfabética de município")
+    s.add_argument("--saida", default=CONFERENCIAS.name, help="arquivo desta frente, em scripts/_catalogo/")
     s.add_argument("--ano", type=int, default=2025)
     s.add_argument("--mes", type=int, default=6)
     s.add_argument("--pausa", type=float, default=2.0)
+    s = sub.add_parser("juntar")
+    s.add_argument("arquivos", nargs="+", help="saídas das frentes, em scripts/_catalogo/")
     s = sub.add_parser("tcm")
     s.add_argument("--pausa", type=float, default=1.0)
     sub.add_parser("montar")
     a = p.parse_args()
-    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir, "tcm": tcm, "montar": montar}[a.passo](a)
+    if a.passo == "conferir" and not (a.municipios or a.todos or a.plataformas):
+        p.error("conferir: diga --municipios, --todos ou --plataformas")
+    {"candidatos": candidatos, "sondar": sondar, "conferir": conferir, "juntar": juntar, "tcm": tcm,
+     "montar": montar}[a.passo](a)
 
 
 if __name__ == "__main__":

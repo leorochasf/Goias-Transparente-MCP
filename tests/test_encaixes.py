@@ -246,16 +246,6 @@ def test_receitas_do_ortrel_sao_recusadas():
     assert len(responses.calls) == 0
 
 
-# ── ticket 04: receitas da Centi ainda não disponíveis ───────────────────────────────────────────────────────────
-
-@responses.activate
-def test_receitas_da_centi_ainda_nao_disponiveis():  # ticket 04
-    responses.add(responses.GET, f"{NUCLEOGOV}/", body='<div class="nucleogov"><a href="x/cntreceitas">R</a></div>')
-    _sem_dados("receitas_frl", "receitas_cnt")
-    with pytest.raises(ModuloNaoSuportado, match="Centi"):
-        Portal(NUCLEOGOV, pausa=0).receitas(2025, 3)
-
-
 # ── permanente: o detalhe do servidor não existe num portal NucleoGov com a Centi ───────────────────────────────
 
 @responses.activate

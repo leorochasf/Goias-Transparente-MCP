@@ -492,7 +492,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -502,7 +502,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 05.568.854/0001-92, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -530,7 +529,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -540,7 +539,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 05.568.854/0001-92, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -1395,7 +1393,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -1405,7 +1403,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 01.203.223/0001-19, que aparece nas despesas, voltou vazia",
 "receitas_mes": "receitas de 06/2025 vazias",
 "diarias_periodo": "https://acessoainformacao.aparecidadegoiania.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
 "contratos_ano": "em https://acessoainformacao.aparecidadegoiania.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
@@ -2145,7 +2142,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -2155,7 +2152,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 02.320.364/0001-84, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.aurilandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.aurilandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -2539,7 +2535,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -2549,7 +2545,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 02.668.317/0001-26, que aparece nas despesas, voltou vazia",
 "receitas_mes": "receitas de 06/2025 vazias",
 "contratos_ano": "em https://acessoainformacao.bomjesusdegoias.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.bomjesusdegoias.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
@@ -2585,7 +2580,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -2595,7 +2590,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 04.854.367/0001-23, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.bomjesus.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.bomjesus.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -3703,7 +3697,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados",
@@ -3713,7 +3707,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 05.593.119/0001-39, que aparece nas despesas, voltou vazia",
 "legislacao_ano": "nenhum decreto de 2025",
 "contratos_ano": "em https://acessoainformacao.caldasnovas.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
@@ -4452,7 +4445,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -4462,7 +4455,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 02.306.033/0001-90, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.carmodorioverde.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.carmodorioverde.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -4779,7 +4771,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -4789,7 +4781,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 00.663.808/0001-59, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.ceres.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.ceres.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -7622,7 +7613,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -7632,7 +7623,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 07.793.624/0001-52, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.goiatuba.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.goiatuba.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -11127,7 +11117,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "sem_dados",
 "legislacao_ano": "sem_dados",
@@ -11137,7 +11127,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 04.237.537/0001-20, que aparece nas despesas, voltou vazia",
 "receitas_mes": "receitas de 06/2025 vazias",
 "legislacao_tipo": "nenhum decreto",
 "legislacao_ano": "nenhum decreto de 2025",
@@ -12221,7 +12210,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -12231,7 +12220,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 02.261.858/0001-35, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.niquelandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.niquelandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -14784,7 +14772,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -14794,7 +14782,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 01.617.413/0001-82, que aparece nas despesas, voltou vazia",
 "contratos_ano": "nenhum(a) contrato de 2025",
 "licitacoes_ano": "em https://acessoainformacao.porteirao.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
@@ -15607,7 +15594,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -15617,7 +15604,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 01.703.568/0001-31, que aparece nas despesas, voltou vazia",
 "receitas_mes": "receitas de 06/2025 vazias",
 "diarias_periodo": "https://acessoainformacao.sanclerlandia.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
 "contratos_ano": "em https://acessoainformacao.sanclerlandia.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
@@ -15654,7 +15640,7 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "falhou",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -15664,7 +15650,6 @@
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "a busca por 02.164.804/0001-51, que aparece nas despesas, voltou vazia",
 "contratos_ano": "em https://acessoainformacao.sanclerlandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "em https://acessoainformacao.sanclerlandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }

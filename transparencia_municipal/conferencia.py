@@ -214,12 +214,9 @@ def _ano_da_licitacao(x):
 
 
 def _licitacoes(p, ano, mes, contexto):
-    try:
-        do_ano = p.licitacoes(ano=ano, maximo=AMOSTRA)
-    except ValueError as e:  # a API NucleoGov recusa o ano: o filtro não foi medido
-        return "nao_suportado", str(e)
-    return _ano_respeitado(do_ano, cache(lambda: p.licitacoes(maximo=AMOSTRA)), ano, _ano_da_licitacao,
-                           "licitação")
+    """Na API NucleoGov o `ano` é recusado (ValueError, filtro não medido): sai nao_suportado."""
+    return _ano_respeitado(p.licitacoes(ano=ano, maximo=AMOSTRA), cache(lambda: p.licitacoes(maximo=AMOSTRA)), ano,
+                           _ano_da_licitacao, "licitação")
 
 
 VERIFICACOES = {
@@ -243,7 +240,7 @@ def conferir(portal, *, ano, mes, hoje=None, pausa=1.0):
             time.sleep(pausa)
         try:
             filtros[nome], detalhe = verificar(portal, ano, mes, contexto)
-        except ModuloNaoSuportado as e:
+        except (ModuloNaoSuportado, ValueError) as e:  # ValueError: o projeto recusa o parâmetro (Ortrel só tem leis)
             filtros[nome], detalhe = "nao_suportado", str(e)
         except ErroPortal as e:  # o encaixe recusou a resposta porque o filtro foi ignorado
             ignorado = FILTRO_IGNORADO.search(str(e))

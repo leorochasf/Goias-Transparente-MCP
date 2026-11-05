@@ -232,3 +232,13 @@ def test_contratos_com_total_igual_ao_sem_ano_e_anos_misturados_falham():
             return {"total": 25, "registros": todos[:maximo] if ano else todos[-maximo:]}
     r = conferir(Ignora(), ano=2025, mes=1, hoje="x", pausa=0)
     assert r["filtros"]["contratos_ano"] == "falhou" and "não é menor" in r["detalhes"]["contratos_ano"]
+
+
+def test_parametro_que_o_projeto_recusa_sai_nao_suportado():
+    """O Ortrel só publica leis: o projeto recusa DECRETO (ValueError) antes de consultar; não é erro do portal."""
+    class Ortrel(PortalDeMentira):
+        def legislacao(self, *a, **k):
+            raise ValueError("as câmaras Ortrel publicam só leis")
+    r = conferir(Ortrel(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["legislacao_tipo"] == r["filtros"]["legislacao_ano"] == "nao_suportado"
+    assert r["detalhes"]["legislacao_tipo"] == "as câmaras Ortrel publicam só leis"

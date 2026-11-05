@@ -120,17 +120,43 @@ def _digitos(texto):
     return "".join(c for c in str(texto or "") if c.isdigit())
 
 
+def _cpf_valido(d):
+    if len(d) != 11 or len(set(d)) == 1:
+        return False
+    for n in (9, 10):
+        soma = sum(int(d[i]) * (n + 1 - i) for i in range(n))
+        if (soma * 10 % 11) % 10 != int(d[n]):
+            return False
+    return True
+
+
+def _cnpj_valido(d):
+    if len(d) != 14 or len(set(d)) == 1:
+        return False
+    for n, pesos in ((12, [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]), (13, [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2])):
+        resto = sum(int(d[i]) * pesos[i] for i in range(n)) % 11
+        if (0 if resto < 2 else 11 - resto) != int(d[n]):
+            return False
+    return True
+
+
 def _documento(texto):
-    """CPF ou CNPJ formatado. Em Águas Lindas (05/11/2026) o documento vem só com dígitos e sem os zeros à esquerda:
-    12 ou 13 dígitos só podem ser CNPJ (o CPF tem 11). Outro formato fica como veio."""
-    d = _digitos(texto)
-    if 12 <= len(d) <= 14 and len(d) == len(str(texto).strip()):
-        d = d.zfill(14)
-        return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
-    if 9 <= len(d) <= 11 and len(d) == len(str(texto).strip()):
-        d = d.zfill(11)
+    """CPF ou CNPJ formatado. Em Águas Lindas e Caldas Novas (05/11/2026) o documento vem só com dígitos e sem os
+    zeros à esquerda (o CNPJ do Banco do Brasil vira "191"): os dígitos verificadores dizem se é CPF ou CNPJ. Já
+    formatado, ou sem verificador que feche, fica como veio."""
+    bruto = str(texto or "").strip()
+    if not bruto.isdigit() or len(bruto) > 14:
+        return texto or None
+    cpf, cnpj = len(bruto) <= 11 and _cpf_valido(bruto.zfill(11)), _cnpj_valido(bruto.zfill(14))
+    if cpf and cnpj:  # "191" fecha nos dois: com 8 dígitos ou menos, um CPF teria 3 zeros ou mais à frente
+        cpf = len(bruto) > 8
+    if cpf:
+        d = bruto.zfill(11)
         return f"{d[:3]}.{d[3:6]}.{d[6:9]}-{d[9:]}"
-    return texto or None
+    if cnpj:
+        d = bruto.zfill(14)
+        return f"{d[:2]}.{d[2:5]}.{d[5:8]}/{d[8:12]}-{d[12:]}"
+    return texto
 
 
 def despesa(reg):
@@ -156,6 +182,12 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
             filtros["cpf_cnpj"] = cnpj
         resta = TUDO if busca else max(maximo - len(achados), 1)
         total_mes, registros = _ler(portal, "sgdespesas/listar", filtros, maximo=resta)
+        if cnpj and not registros and cnpj.startswith("0"):
+            # Caldas Novas (05/11/2026): o portal guarda o CNPJ só com dígitos e sem os zeros à esquerda; com
+            # pontuação o filtro dá zero, e sem os zeros traz os empenhos (em Anápolis, com pontuação funciona)
+            time.sleep(portal.pausa)
+            filtros["cpf_cnpj"] = _digitos(cnpj).lstrip("0")
+            total_mes, registros = _ler(portal, "sgdespesas/listar", filtros, maximo=resta)
         fora = [r for r in registros if r.get("tipo") != "0" or not (d := _dia(r.get("data"))) or not a <= d <= b]
         if fora:
             raise ErroPortal(f"{portal.url} devolveu {len(fora)} movimento(s) fora do período ou que não são empenho "

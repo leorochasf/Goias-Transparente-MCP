@@ -57,7 +57,7 @@ def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=Fals
 
     def dos_movimentos(corpo):
         sel = [m for m in movimentos if corpo.get("tipo") in (None, m["tipo"])
-               and (corpo.get("cpf_cnpj") is None or _digitos(corpo["cpf_cnpj"]) == _digitos(m["cpf_cnpj"]))]
+               and (corpo.get("cpf_cnpj") is None or _casa_documento(corpo["cpf_cnpj"], m["cpf_cnpj"]))]
         if ignora_periodo:
             return sel
         de, ate = (date.fromisoformat(corpo[c]) for c in ("datamin", "datamax"))
@@ -76,6 +76,14 @@ def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=Fals
 def _digitos(documento):
     """O portal compara o CNPJ pelos dígitos (o filtro vai formatado; a resposta pode vir só com dígitos)."""
     return "".join(c for c in documento if c.isdigit()).zfill(14)
+
+
+def _casa_documento(pedido, guardado):
+    """Como o filtro real (05/11/2026): documento guardado só com dígitos e sem os zeros à esquerda (13 dígitos em
+    Caldas Novas) só casa com o pedido escrito igual; o resto casa pelos dígitos (formatado ou não)."""
+    if guardado.isdigit() and len(guardado) < 14:
+        return pedido == guardado
+    return _digitos(pedido) == _digitos(guardado)
 
 
 def _servidor(i, **campos):
@@ -257,3 +265,14 @@ def test_erro_passageiro_na_sondagem_da_api_e_repetido_antes_de_recusar():
     responses.add_callback(responses.POST, f"{PORTAL}/api/contratos_cnt/listar", callback=com_contratos,
                            content_type="application/json")
     assert Portal(PORTAL, pausa=0).contratos(2025)["total"] == 1
+
+
+@responses.activate
+def test_despesas_sg_por_cnpj_que_comeca_com_zero_repetem_a_busca_sem_os_zeros():
+    """Caldas Novas (05/11/2026): o portal guarda o CNPJ sem os zeros à esquerda; com pontuação ou com 14 dígitos o
+    filtro dá zero, e sem os zeros traz os 106 empenhos."""
+    movimentos = [_movimento(1, "10/01/2025", cpf_cnpj="191"), _movimento(2, "11/01/2025")]
+    pedidos = _portal_sg(movimentos=movimentos)
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31", "00.000.000/0001-91")
+    assert r["total"] == 1 and r["registros"][0]["cpf_cnpj"] == "00.000.000/0001-91"
+    assert [p["cpf_cnpj"] for p in pedidos] == ["00.000.000/0001-91", "191"]

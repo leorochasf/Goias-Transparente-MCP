@@ -178,6 +178,10 @@ def diarias(portal, *, de, ate, busca, maximo):
         filtros["txtbusca"] = busca
     r = portal.consultar("sgdiarias/listar", filtros, maximo=maximo)
     linhas = [_diaria(x) for x in r["registros"]]
+    fora = sum(1 for x in linhas if (d := _dia_br(x["data_saida"])) and not de <= d <= ate)
+    if fora:
+        raise ErroPortal(f"{portal.url} devolveu {fora} diária(s) com saída fora do período pedido: o filtro de datas "
+                         "não foi respeitado e nada foi devolvido.")
     saida = {"total": r["total"], "registros": linhas}
     estranhas = sum(1 for x in linhas if not str(x["quantidade"] or "").isdigit()
                     or int(x["quantidade"]) > DIARIAS_PLAUSIVEIS)
@@ -186,6 +190,14 @@ def diarias(portal, *, de, ate, busca, maximo):
                               f"(mais de {DIARIAS_PLAUSIVEIS} numa linha), como o portal publicou: conte pelas linhas "
                               "e use o valor, que é o total da linha"]
     return saida
+
+
+def _dia_br(texto):
+    """'10/01/2025' → date; vazio ou ilegível → None."""
+    try:
+        return datetime.strptime(str(texto or ""), "%d/%m/%Y").date()
+    except ValueError:
+        return None
 
 
 def _diaria(reg):
@@ -224,12 +236,13 @@ def _contrato(reg):
     return {
         "numero": reg.get("numero") or None, "ano": reg.get("ano"),
         "orgao": None if orgao in (None, "") else str(orgao), "situacao": reg.get("situacao") or None,
-        "objeto": reg.get("objeto") or None, "fornecedor": reg.get("fornecedor_nome") or None,
-        "cpf_cnpj": reg.get("fornecedor_cpfcnpj") or None, "valor": reg.get("valor") or None,
+        "objeto": reg.get("objeto") or None, "fornecedor_nome": reg.get("fornecedor_nome") or None,
+        "fornecedor_cpfcnpj": reg.get("fornecedor_cpfcnpj") or None, "valor": reg.get("valor") or None,
         "valor_executado": reg.get("valor_executado") or None, "saldo": reg.get("saldo") or None,
-        "data_publicacao": reg.get("data_publicacao") or None, "data_assinatura": reg.get("data_firmatura") or None,
+        "data_publicacao": reg.get("data_publicacao") or None, "data_firmatura": reg.get("data_firmatura") or None,
         "inicio_vigencia": reg.get("inicio_vigencia") or None, "fim_vigencia": reg.get("fim_vigencia") or None,
-        "licitacao": reg.get("licitacao_label") or None, "fiscal": reg.get("fiscal_contrato") or None, "fonte": FONTE,
+        "licitacao": reg.get("licitacao_label") or None, "fiscal_contrato": reg.get("fiscal_contrato") or None,
+        "fonte": FONTE,
     }
 
 
@@ -253,9 +266,9 @@ def licitacoes(portal, *, busca, dispensas, ano, maximo):
 
 def _licitacao(reg):
     return {
-        "numero": reg.get("label") or reg.get("numero") or None, "ano": reg.get("ano"),
+        "numero": reg.get("numero") or None, "label": reg.get("label") or None, "ano": reg.get("ano"),
         "modalidade": reg.get("modalidade") or None, "situacao": reg.get("situacao") or None,
-        "orgao": reg.get("orgao") or None, "objeto": reg.get("descricao") or None,
+        "orgao": reg.get("orgao") or None, "descricao": reg.get("descricao") or None,
         "data_publicacao": reg.get("data_publicacao") or None, "data_abertura": reg.get("data_abertura") or None,
         "data_julgamento": reg.get("data_julgamento") or None, "data_homologacao": reg.get("data_homologacao") or None,
         "valor_vencedor": reg.get("valor_vencedor_total") or None, "fonte": FONTE,

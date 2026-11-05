@@ -1,7 +1,7 @@
 """Teste de fumaça contra o portal REAL: o portal respeita cada filtro que mandamos?
 
 Os testes offline simulam o portal como achamos que ele é; só este confere se ele ainda é assim.
-Fica desligado por padrão. Rode antes de cada versão (7 consultas, 1 s de pausa entre elas):
+Fica desligado por padrão. Rode antes de cada versão (9 consultas, 1 s de pausa entre elas):
 
     TRANSPARENCIA_AO_VIVO=1 pytest -m ao_vivo
 
@@ -88,3 +88,10 @@ def test_legislacao_filtra_por_tipo_ano_e_palavra(portal):
     com_cargo = portal.legislacao("DECRETO", "cargo", maximo=AMOSTRA)
     assert 0 < com_cargo["total"] < decretos["total"]
     assert all("cargo" in (x["ementa"] or "").lower() for x in com_cargo["registros"])
+
+
+def test_contratos_de_um_ano_sao_desse_ano_e_menos_que_todos(portal):
+    """O filtro é `ano`; o antigo `anobase` era ignorado (Alexânia e Posse, 04/11/2026)."""
+    do_ano, todos = portal.contratos(2025, maximo=AMOSTRA), portal.contratos(maximo=1)
+    assert 0 < do_ano["total"] < todos["total"]
+    assert {int(x["ano"]) for x in do_ano["registros"]} == {2025}

@@ -150,8 +150,15 @@ def _executar(funcao, portal=None, *, maximo=None, avisos=None):
 
 
 def _aviso_orgaos(r, quais):
-    """Megasoft e Centi trazem a Câmara e os fundos junto com a Prefeitura: o campo `orgao` diz de quem é cada um."""
-    orgaos = {x.get("orgao") for x in r["registros"] if x.get("orgao")}
+    """Megasoft e Centi trazem a Câmara e os fundos junto com a Prefeitura: o campo `orgao` diz de quem é cada um.
+
+    Os contratos dão o nome em `orgao_nome` (`orgao` é o código). `somas_por_orgao` (Centi) conta os órgãos com
+    linhas no mês inteiro, não só nos registros cortados por `maximo`.
+    """
+    if r.get("somas_por_orgao"):
+        orgaos = {s.get("orgao") for s in r["somas_por_orgao"] if s.get("linhas")}
+    else:
+        orgaos = {x.get("orgao_nome") or x.get("orgao") for x in r["registros"]} - {None, ""}
     if len(orgaos) > 1:
         r["aviso_orgaos"] = (f"{quais} incluem mais de um órgão ({len(orgaos)}: por exemplo, Câmara e fundos junto "
                              "com a Prefeitura); confira o campo orgao de cada um")
@@ -285,7 +292,14 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
 @mcp.tool()
 def consultar_contratos(ano: int | None = None, tipo: str = "contrato", busca: str | None = None,
                         portal: str | None = None, maximo: int = 100) -> dict:
-    """Contratos (tipo="contrato") ou aditivos (tipo="aditivo") do município."""
+    """Contratos (tipo="contrato") ou aditivos (tipo="aditivo") do município. `ano`: o ano (exercício) do contrato.
+
+    Os campos têm os nomes do NucleoGov em todo sistema (numero, ano, orgao_nome, objeto, fornecedor_nome,
+    fornecedor_cpfcnpj, valor, data_firmatura, fim_vigencia, fiscal_contrato). Aditivos: só nos portais NucleoGov;
+    na Megasoft e nas câmaras Ortrel tipo="aditivo" é recusado (lá o aditivo vem dentro do contrato; no Ortrel, em
+    valor_aditado e nos anexos). Na Megasoft embutida, a `busca` procura só no objeto e `orgao` é o código do órgão.
+    Ex.: os contratos de 2025 da empresa tal (busca = nome ou CNPJ).
+    """
     return _executar(lambda: _aviso_orgaos(_portal(portal).contratos(ano, tipo, busca, maximo=maximo), "os contratos"),
                      portal, maximo=maximo)
 
@@ -296,6 +310,8 @@ def consultar_licitacoes(busca: str | None = None, dispensas: bool = False, ano:
     """Licitações do município; dispensas=True traz dispensas e inexigibilidades.
 
     `ano`: só nos portais da Megasoft e nas câmaras Ortrel; nos portais NucleoGov é recusado (filtro não medido).
+    Os campos têm os nomes do NucleoGov em todo sistema (numero, label = número/ano, modalidade, situacao, orgao,
+    descricao, data_publicacao).
     """
     return _executar(lambda: _portal(portal).licitacoes(busca, dispensas=dispensas, ano=ano, maximo=maximo),
                      portal, maximo=maximo)
@@ -307,6 +323,10 @@ def consultar_receitas(ano: int, mes: int, portal: str | None = None, maximo: in
 
     Para um período (ex.: IPTU no primeiro trimestre), chame uma vez por mês. Na Megasoft e na Centi as receitas da
     Prefeitura trazem também as da Câmara e dos fundos: o campo `orgao` diz de qual órgão é cada linha.
+
+    Centi: vêm as contas analíticas e as sintéticas, marcadas em `analitica` (true: pode somar; false: agrega
+    outras, e somar conta em dobro). `somas_por_orgao` traz, para cada órgão, a soma das analíticas no mês inteiro
+    (não só nos registros devolvidos); os órgãos não são somados entre si. A Câmara não vem nas receitas da Centi.
     """
     return _executar(lambda: _aviso_orgaos(_portal(portal).receitas(ano, mes, maximo=maximo), "as receitas"),
                      portal, maximo=maximo)

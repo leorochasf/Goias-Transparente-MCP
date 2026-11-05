@@ -158,7 +158,8 @@ RAIZ = re.compile(r"\d+(\.0+)+")  # 1.0.0.0.00.0.0, 91.0.0.0.00.0.0: as contas d
 
 
 def _orgaos(portal):
-    """Os órgãos da Centi (`sgcenti/listarOrgaos`, envelope `multi_request`), o principal primeiro: [(id, nome)].
+    """Os órgãos da Centi (`sgcenti/listarOrgaos`, envelope `multi_request`), o principal primeiro: [(id, nome)], e
+    os nomes dos que vieram sem `id` (não há como pedi-los; Orizona, 04/11/2026: o fundo de previdência).
 
     Posse, 04/11/2026: a resposta é a lista crua `[{id, valor, principal}]`, sem `dados` (o `_pagina` não serve).
     """
@@ -179,11 +180,14 @@ def _orgaos(portal):
         lista = r.json()[ident] if r.status_code == 200 else None
     except (ValueError, KeyError, TypeError):
         lista = None
-    if not isinstance(lista, list) or not lista or not all(isinstance(o, dict) and o.get("id") for o in lista):
+    if isinstance(lista, list) and all(isinstance(o, dict) for o in lista):
+        sem_id = [str(o.get("valor") or "sem nome") for o in lista if not o.get("id")]
+        lista = [o for o in lista if o.get("id")]
+    if not isinstance(lista, list) or not lista or not all(isinstance(o, dict) for o in lista):
         raise ErroPortal(f"{portal.url} não deu a lista de órgãos da Centi (HTTP {r.status_code}, começa com "
                          f"{r.text[:80]!r}); as receitas são lidas por órgão e não há como lê-las sem ela.")
     lista = sorted(lista, key=lambda o: str(o.get("principal")) != "1")
-    return [(str(o["id"]), o.get("valor") or str(o["id"])) for o in lista]
+    return [(str(o["id"]), o.get("valor") or str(o["id"])) for o in lista], sem_id
 
 
 def _receitas_do_orgao(portal, ano, mes, orgao):
@@ -214,7 +218,9 @@ def receita(reg, ano, mes):
 
 
 def _soma(linhas, campo):
-    return sum((_decimal(x.get(campo)) or Decimal(0) for x in linhas), Decimal(0))
+    """A soma dos valores legíveis; nenhum legível → None (vazio não é zero)."""
+    valores = [v for v in (_decimal(x.get(campo)) for x in linhas) if v is not None]
+    return sum(valores, Decimal(0)) if valores else None
 
 
 def _conferir_raizes(nome, linhas):
@@ -230,7 +236,7 @@ def _conferir_raizes(nome, linhas):
     ressalvas = []
     for campo, quando in (("ValoReceitaAcumuladoMes", "no mês"), ("ValoReceitaAcumulado", "no acumulado do ano")):
         a, b = _soma(analiticas, campo), _soma(raizes, campo)
-        if a != b:
+        if None not in (a, b) and a != b:
             ressalvas.append(f"em {nome}, {quando}, a soma das contas analíticas (R$ {_br(a)}) difere da soma das "
                              f"contas do topo (R$ {_br(b)}) em R$ {_br(a - b)}; a diferença não tem explicação "
                              "conhecida: confira no portal antes de usar esse valor.")
@@ -248,7 +254,11 @@ def receitas(portal, *, ano, mes, maximo):
     """
     registros, somas, ressalvas, vazios, faltas, vistos = [], [], [], [], [], {}
     total = sem_marca = 0
-    for orgao, nome_da_lista in _orgaos(portal):
+    orgaos, sem_id = _orgaos(portal)
+    if sem_id:
+        ressalvas.append(f"a lista de órgãos da Centi trouxe {len(sem_id)} órgão(s) sem identificador ("
+                         f"{', '.join(sem_id)}): as receitas deles não podem ser pedidas e não estão aqui.")
+    for orgao, nome_da_lista in orgaos:
         time.sleep(portal.pausa)
         linhas = _receitas_do_orgao(portal, ano, mes, orgao)
         for fator in (2, 5):
@@ -293,7 +303,7 @@ def receitas(portal, *, ano, mes, maximo):
         "órgãos.",
         "vêm todas as contas, analíticas e sintéticas, cada uma marcada no campo analitica: só as linhas com "
         "analitica = true podem ser somadas (as sintéticas, false, agregam as outras, e somá-las conta em dobro); "
-        "a soma das analíticas de cada órgão, sobre o mês inteiro, está em somas_por_orgao (na resposta do MCP)."]
+        "a soma das analíticas de cada órgão, sobre o mês inteiro, está em somas_por_orgao (no MCP; a linha de comando a imprime)."]
     if sem_marca:
         ressalvas.append(f"{sem_marca} linha(s) sem dizer se é analítica ou sintética (analitica = null): fora das "
                          "somas.")

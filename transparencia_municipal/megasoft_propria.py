@@ -251,13 +251,13 @@ def contratos(portal, *, ano, tipo, busca, maximo):
                        ate=sys.maxsize if busca else maximo, metodo="POST")
     linhas = [traducao_megasoft.contrato(x) for x in regs]
     if ano:
-        fora = sum(1 for x in linhas if str(x["exercicio"]) != str(ano))
+        fora = sum(1 for x in linhas if str(x["ano"]) != str(ano))
         if fora:
             raise ErroPortal(f"{portal.url} devolveu {fora} contratos de outro ano ao pedir {ano}: o filtro de ano "
                              "não foi respeitado e nada foi devolvido.")
     if busca:
-        linhas = _busca(linhas, total, busca, ("objeto", "fornecedor", "cpf_cnpj", "numero", "licitacao",
-                                                "modalidade", "orgao", "finalidade"), f"contratos de {portal.url}")
+        linhas = _busca(linhas, total, busca, ("objeto", "fornecedor_nome", "fornecedor_cpfcnpj", "numero",
+                                                "licitacao", "modalidade", "orgao_nome", "finalidade"), f"contratos de {portal.url}")
         total = len(linhas)
     return {"total": total, "registros": linhas[:maximo]}
 
@@ -285,7 +285,7 @@ def licitacoes(portal, *, busca, dispensas, ano, maximo):
     elif publicacoes.count(None):
         ressalvas.append(f"{publicacoes.count(None)} licitações vieram sem data de publicação")
     if busca:
-        linhas = _busca(linhas, total, busca, ("objeto", "numero", "modalidade", "orgao", "situacao"),
+        linhas = _busca(linhas, total, busca, ("descricao", "label", "modalidade", "orgao", "situacao"),
                         f"licitações de {portal.url}")
         total = len(linhas)
     return {"total": total, "registros": linhas[:maximo], "ressalvas": ressalvas}

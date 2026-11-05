@@ -117,8 +117,11 @@ def _dia(valor):
 
 
 def _decimal(texto):
+    """'14452.33' → 14452.33; vazio ou ilegível → None (nunca zero)."""
+    if texto in (None, ""):
+        return None
     try:
-        return round(float(texto or 0), 2)
+        return round(float(texto), 2)
     except (TypeError, ValueError):
         return None
 
@@ -269,13 +272,13 @@ def contrato(reg):
     return {
         "id": None if reg.get("id") is None else str(reg["id"]), "numero": reg.get("numero_contrato"),
         "modalidade": reg.get("modalidade"), "licitacao": reg.get("numero_e_ano_licitacao"),
-        "processo": reg.get("numero_processo"), "data_assinatura": _data(reg.get("data_assinatura")),
-        "vigencia_fim": _data(reg.get("data_vigencia_fim")), "data_publicacao": _data(reg.get("data_publicacao")),
-        "cpf_cnpj": reg.get("cnpj_fornecedor"), "fornecedor": reg.get("nome_fornecedor"), "objeto": reg.get("objeto"),
+        "processo": reg.get("numero_processo"), "data_firmatura": _data(reg.get("data_assinatura")),
+        "fim_vigencia": _data(reg.get("data_vigencia_fim")), "data_publicacao": _data(reg.get("data_publicacao")),
+        "fornecedor_cpfcnpj": reg.get("cnpj_fornecedor"), "fornecedor_nome": reg.get("nome_fornecedor"), "objeto": reg.get("objeto"),
         "valor": _br(reg.get("valor_contratado")), "valor_aditado": _br(reg.get("valor_aditado")),
         "valor_total": _br(reg.get("valor_total")), "valor_executado": _br(reg.get("valor_executado")),
-        "saldo": _br(reg.get("saldo")), "fiscal": reg.get("nome_fiscal"), "situacao": reg.get("situacao"),
-        "ano": reg.get("exercicio_ano"), "orgao": reg.get("nome_orgao"), "anexos": reg.get("anexos"), "fonte": FONTE,
+        "saldo": _br(reg.get("saldo")), "fiscal_contrato": reg.get("nome_fiscal"), "situacao": reg.get("situacao"),
+        "ano": reg.get("exercicio_ano"), "orgao_nome": reg.get("nome_orgao"), "anexos": reg.get("anexos"), "fonte": FONTE,
     }
 
 
@@ -299,14 +302,16 @@ def _ano_da_licitacao(reg):
 
 
 def licitacao(reg):
-    """Uma licitação de `/api/dados/licitacoes`."""
+    """Uma licitação de `/api/dados/licitacoes`. `label` = número/ano; `numero`, a parte antes da barra (NucleoGov)."""
+    label = reg.get("numero_ano")
     try:
         vencedores = json.loads(reg.get("itens_vencedores") or "[]")
     except (TypeError, ValueError):
         vencedores = reg.get("itens_vencedores")
     return {
-        "id": reg.get("id_licitacao"), "numero": reg.get("numero_ano"), "protocolo": reg.get("numero_protocolo"),
-        "modalidade": reg.get("modalidade"), "situacao": reg.get("situacao"), "objeto": reg.get("descricao"),
+        "chave": reg.get("id_licitacao"), "numero": label.split("/")[0] if label else None, "label": label,
+        "protocolo": reg.get("numero_protocolo"),
+        "modalidade": reg.get("modalidade"), "situacao": reg.get("situacao"), "descricao": reg.get("descricao"),
         "data_protocolo": _data(reg.get("data_protocolo")), "data_abertura": _data(reg.get("data_abertura")),
         "data_homologacao": _data(reg.get("data_homologacao")), "data_publicacao": _data(reg.get("data_publicacao")),
         "valor_estimado": _br(reg.get("valor_estimado")), "valor_vencedor": _br(reg.get("valor_vencedor")),

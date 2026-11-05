@@ -130,10 +130,22 @@ def main(argv=None):
     for aviso in avisos + list(r.get("ressalvas") or []) + list(marcas_em_texto(r, a.maximo).values()):
         print(f"AVISO: {aviso}")
     print(f"{r['total']} registros no portal; {len(r['registros'])} trazidos.")
+    _somas_por_orgao(r.get("somas_por_orgao"))
     if not (a.csv or a.json):
         print(json.dumps(r["registros"][:5], ensure_ascii=False, indent=1))
         print("(mostrando até 5; use --csv ou --json para salvar tudo)")
     _gravar(r["registros"], a.csv, a.json)
+
+
+def _somas_por_orgao(somas):
+    """As somas das contas analíticas de cada órgão (receitas da Centi), sobre o mês inteiro."""
+    if not somas:
+        return
+    print("Somas das contas analíticas por órgão (mês inteiro; os órgãos não são somados entre si):")
+    for s in somas:
+        print(f"  {s.get('orgao')}: {s.get('linhas')} linhas ({s.get('linhas_analiticas')} analíticas); "
+              f"arrecadado no mês {s.get('valor_arrecadado_mes') or '-'}; "
+              f"até o mês {s.get('valor_arrecadado_ate_mes') or '-'}")
 
 
 def _main_tcm(a):

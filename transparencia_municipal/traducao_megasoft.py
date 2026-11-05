@@ -138,24 +138,31 @@ def contrato(reg):
     """Um contrato de `contrato/paginado` (POST)."""
     documento = reg.get("cpfOuCnpjDoFornecedor") or None
     return {
-        "codigo": reg.get("codigo"), "numero": _texto(reg.get("numero")), "modalidade": reg.get("modalidade") or None,
-        "licitacao": _licitacao_do_contrato(reg.get("numeroEAnoDaLicitacao")), "data": _data(reg.get("data")) or None,
-        "vigencia": _data(reg.get("vigencia")) or None, "orgao": reg.get("nomeDoOrgao") or None,
-        "cpf_cnpj": (_cnpj(documento) or documento) if documento else None,
-        "fornecedor": reg.get("nomeDoFornecedor") or None, "objeto": reg.get("objeto") or None,
-        "valor": _br(reg.get("valor")), "fiscal": reg.get("nomeDoFiscalDoContrato") or None,
-        "exercicio": reg.get("exercicioAno"), "situacao": reg.get("situacao") or None,
+        "id": reg.get("codigo"), "numero": _texto(reg.get("numero")), "modalidade": reg.get("modalidade") or None,
+        "licitacao": _licitacao_do_contrato(reg.get("numeroEAnoDaLicitacao")),
+        "data_firmatura": _data(reg.get("data")) or None, "fim_vigencia": _data(reg.get("vigencia")) or None,
+        "orgao_nome": reg.get("nomeDoOrgao") or None,
+        "fornecedor_cpfcnpj": (_cnpj(documento) or documento) if documento else None,
+        "fornecedor_nome": reg.get("nomeDoFornecedor") or None, "objeto": reg.get("objeto") or None,
+        "valor": _br(reg.get("valor")), "fiscal_contrato": reg.get("nomeDoFiscalDoContrato") or None,
+        "ano": reg.get("exercicioAno"), "situacao": reg.get("situacao") or None,
         "finalidade": reg.get("finalidade") or None, "fonte": FONTE,
     }
 
 
 def licitacao(reg):
-    """Uma licitação, dispensa ou inexigibilidade de `procedimento-licitatorio/paginado` (POST)."""
+    """Uma licitação, dispensa ou inexigibilidade de `procedimento-licitatorio/paginado` (POST).
+
+    `label` é o número com o ano ("24/2025") e `numero`, a parte antes da barra, como no NucleoGov.
+    """
+    label = _texto(reg.get("numeroAno"))
     return {
-        "codigo": reg.get("codigo"), "numero": _texto(reg.get("numeroAno")), "modalidade": reg.get("modalidade") or None,
+        "chave": reg.get("codigo"), "numero": label.split("/")[0] if label else None, "label": label,
+        "modalidade": reg.get("modalidade") or None,
         "situacao": reg.get("situacao") or None, "data_publicacao": _data(reg.get("dataDePublicacao")) or None,
-        "data_julgamento": _data(reg.get("dataDeJulgamento")) or None, "valor": _br(reg.get("valorVencedorTotal")),
-        "objeto": reg.get("historico") or None, "orgao": reg.get("orgao") or None, "fonte": FONTE,
+        "data_julgamento": _data(reg.get("dataDeJulgamento")) or None,
+        "valor_vencedor": _br(reg.get("valorVencedorTotal")),
+        "descricao": reg.get("historico") or None, "orgao": reg.get("orgao") or None, "fonte": FONTE,
     }
 
 

@@ -414,3 +414,97 @@ Ressalvas da tabela:
 - **TCMJuris (fora da tabela, porque não tem esses módulos):** acórdão por número achado e conferido. Os dois filtros
   funcionam com o número completo (`10175/23`) ou com parte dele. A parte sem ano devolve todos os anos, e a
   ferramenta precisa conferir número e ano.
+
+## O que a implementação mediu (ondas 1 e 2)
+
+Medido ao vivo em 04/11/2026, com pausa de 1 s e sem gravar nomes de pessoas. Onde o fato contradiz a descoberta,
+vale este.
+
+### Correções à descoberta
+
+- **Ortrel, despesas: o CNPJ vem completo.** A descoberta registrou o documento como mascarado. Só o **CPF de pessoa
+  física** vem mascarado (`999******99`); o CNPJ de empresa vem inteiro (`00.000.000/0000-00`), e a busca por CNPJ
+  funciona (Cidade Ocidental, 03/2025: 17 empenhos do CNPJ medido, todos dele).
+- **Ortrel, legislação: os 217 "repetidos" são, quase todos, leis diferentes.** A numeração recomeçou ao longo dos
+  anos (ex.: Lei 011/1993, Lei 011/1995 e Emenda à Lei Orgânica 011/2025). Repetição de verdade (mesmo número e
+  mesmo ano no nome do ato): **1**. Outros 7 pares têm o mesmo número e a mesma ementa em anos diferentes; podem ser
+  recadastro, mas não dá para afirmar, e a resposta os mantém com ressalva.
+- **Diárias: Senador Canedo tem 6 órgãos** no 1º trimestre de 2025, não 4. A Megasoft embutida de Aruanã
+  (`sgdiarias`) também: 6 órgãos, não 4.
+- **O `txtbusca` das diárias não funciona no NucleoGov:** em Posse e Senador Canedo respondeu total 0 com palavras
+  presentes em 39 e 96 linhas do trimestre. O projeto filtra a busca ele mesmo. Na Megasoft embutida (`sgdiarias`)
+  ele funciona ("GOIANIA": 408 de 646, todas casando, sem acento casa com acento).
+- **Posse, diárias: o filtro `orgao` é respeitado** (3 → 64; 1, 4 e 5 → 0). No trimestre medido não havia diárias
+  escondidas de outros órgãos.
+- **Acórdão por número:** `7286` sem ano deu 10 resultados em 7 anos, não 5, porque o projeto busca nos dois filtros
+  (processo e acórdão); os outros 5 são processos 7286/AA.
+
+### Achados novos, por sistema
+
+- **Megasoft própria (Corumbaíba):**
+  - diárias: `valorDaDiaria` é um só valor por viagem e parece o total (4 diárias, R$ 350,00); vai em `valor`, com
+    ressalva;
+  - detalhe do servidor: o portal ignora `tamanhoDaPagina` e devolve as listas internas de 5 em 5; matrícula
+    inexistente responde **HTTP 406** "Valor de chave não existe" (o projeto devolve total 0);
+  - contratos: 3.005 sem ano, numa página de 5.000; aditivos só dentro do detalhe de cada contrato.
+- **Megasoft embutida (Aruanã):**
+  - contratos: **`txtbusca` zera a resposta**; `objeto` filtra; sem `ano`, vêm todos os anos; `orgao` só como código;
+  - licitações: `error` "Houve um problema com a requisição" (total 0) no filtro de período. O cliente agora trata
+    `error` como recusa, não como zero;
+  - receitas: a mesma receita vem uma vez por fonte de recurso, com o mesmo código;
+  - diárias: `valor` é o total da linha; 3 linhas com `quantidade` 657437.
+- **Centi (Posse):** `listarOrgaos` devolve lista crua (13 órgãos, **sem a Câmara**); o filtro de órgão das receitas
+  vale; um órgão veio vazio e, minutos depois, com 16 linhas (vazio passageiro, como nas despesas). No mês, a soma
+  das analíticas do Poder Executivo bate ao centavo com a conta do topo; no acumulado, fica R$ 334.029,19 acima.
+- **Ortrel (Cidade Ocidental):** a folha **não tem linha de 13º** (o 13º, as férias e a rescisão são rubricas da
+  linha do mês); `situacao_pagamento` e `nivel` vêm sempre "Não Informado"; despesas por `ano`+`mes` respeitados.
+- **NucleoGov, contratos: o ano ia num filtro ignorado.** O projeto mandava `anobase`, que o portal ignora:
+  `contratos(2025)` trouxe contratos de 2026 em Posse, e a conferência (`contratos_ano`) marcou `falhou` em Alexânia.
+  O filtro certo é `ano`. Alexânia: em `contratos_frl`, 147 sem filtro, 147 com `anobase` (de 2023 a 2025) e 34 com
+  `ano`, todos de 2025; em `contratos_cnt` (o do catálogo), 6.989 sem filtro e 798 com `ano`, todos de 2025.
+  Corrigido no fechamento, com teste ao vivo em Senador Canedo.
+
+- **NucleoGov com Megasoft, diárias por `mgdiarias`:** as câmaras de Aruanã, Corumbaíba e Cristalina anunciam
+  `mgdiarias` (a prefeitura de Aruanã anuncia `sgdiarias`). O projeto mandava a consulta à ação inexistente
+  `diarias_mg/listar`, que responde `[]` (a conferência deu `erro`). Agora a API NucleoGov é sondada uma vez; sem ela,
+  as diárias são recusadas com aviso, porque o `mgdiarias` não foi medido.
+
+- **Centi, lista de órgãos com `id` nulo:** em Orizona o fundo de previdência veio com `id` nulo em
+  `sgcenti/listarOrgaos` (Pirenópolis: a mesma recusa na conferência), e o encaixe recusava todas as receitas. Agora
+  os órgãos com `id` são lidos, e uma ressalva diz qual ficou de fora.
+- **Câmara de Pirenópolis, `sgdiarias`:** uma só diária (saída em 01/01/2021), devolvida também quando se pede
+  06/2025: o filtro de período é ignorado ali. O encaixe recusa a resposta (`falhou` na conferência).
+- **Vazio passageiro nos contratos (Posse):** a consulta sem ano voltou com total 0 numa resposta e 837 na seguinte;
+  com `ano=2025`, 114. A conferência marca isso como `erro` do portal, não como filtro que falhou.
+
+### Nomes unificados de contratos e licitações
+
+Os nomes do NucleoGov valem para todo sistema (a API NucleoGov devolve os campos dela, sem tradução):
+
+| Conceito | Contratos | Licitações |
+|---|---|---|
+| identificador interno | `id` | `chave` (a embutida também dá `chave`, crua, fora da tradução) |
+| número | `numero` | `numero` (sem o ano) e `label` (número/ano) |
+| ano | `ano` | `ano` onde o sistema dá (NucleoGov, embutida) |
+| órgão | `orgao` = código, `orgao_nome` = nome | `orgao` = nome |
+| objeto | `objeto` | `descricao` |
+| fornecedor | `fornecedor_nome`, `fornecedor_cpfcnpj` | — |
+| datas | `data_publicacao`, `data_firmatura`, `inicio_vigencia`, `fim_vigencia` | `data_publicacao`, `data_abertura` |
+| valor | `valor` | `valor_estimado`, `valor_vencedor` |
+| fiscal | `fiscal_contrato` | — |
+
+Ficam com nome próprio, porque o NucleoGov não tem o conceito: `licitacao`, `modalidade`, `processo`, `finalidade`,
+`valor_executado`, `saldo`, `valor_aditado`, `valor_total`, `anexos` (contratos); `data_julgamento`,
+`data_homologacao`, `data_protocolo`, `protocolo`, `itens_vencedores` (licitações).
+
+### Conferência dos módulos novos
+
+`conferencia.py` ganhou `diarias_periodo` (saídas no mês de referência), `contratos_ano` e `licitacoes_ano` (cada
+registro do ano pedido e o total com ano menor que sem ano). Quando o encaixe recusa uma resposta que ignorou o filtro
+("fora do período", "de outro ano"), a conferência marca `falhou`; parâmetro que o projeto recusa (o ano das
+licitações no NucleoGov, decreto no Ortrel) marca `nao_suportado`. O passo `conferir` do catálogo passou a ler o
+Ortrel. Diárias sem nenhuma data de saída legível saem `sem_dados`, nunca `ok`; total com ano igual ao sem ano só
+passa se a amostra sem ano for o portal inteiro e toda daquele ano.
+
+Limite: no Ortrel, contratos, licitações e diárias vêm inteiros e o recorte por ano ou período é do projeto. Ali o
+`ok` dessas três verificações confere o código do projeto, não um filtro do portal.

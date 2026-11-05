@@ -115,7 +115,9 @@ def _sondados():
 
 
 #: plataformas que o `Portal` lê (a Megasoft embutida e a Centi entram pelo portal NucleoGov)
-CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft")
+CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft", "ortrel")
+#: as que aceitam a identificação da ferramenta (os portais NucleoGov respondem 403 a ela)
+SEM_NAVEGADOR = ("megasoft", "ortrel")
 PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
 
 
@@ -199,7 +201,9 @@ def conferir(args):
             continue
         if host in feitas:  # retomada
             continue
-        portal = Portal(f"https://{host}", navegador=plataforma != "megasoft")  # a Megasoft aceita a ferramenta
+        # a câmara Ortrel é reconhecida pelo catálogo, como no MCP; a Megasoft, pelo endereço
+        portal = Portal(f"https://{host}", navegador=plataforma not in SEM_NAVEGADOR,
+                        plataforma="ortrel" if plataforma == "ortrel" else None)
         r = conferir_portal(portal, ano=args.ano, mes=args.mes)
         r["sufixos"] = portal.sufixos or {}
         feitas[host] = r

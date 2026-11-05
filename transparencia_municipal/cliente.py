@@ -127,11 +127,6 @@ def marcas_em_texto(r, maximo):
     return avisos
 
 
-def ainda_nao_disponivel(portal, modulo, origem):
-    """O que um encaixe responde enquanto o ticket dele não chega. `modulo`: o nome legível ("receitas")."""
-    return ModuloNaoSuportado(f"em {portal.url}, o módulo {modulo} {origem} ainda não está disponível neste projeto.")
-
-
 def _data_br(valor, *, campo):
     """Aceita 2025-03-01, 01/03/2025 ou 2025-03 (vira o 1º dia) e devolve dd/mm/aaaa."""
     v = str(valor).strip()
@@ -220,8 +215,10 @@ class Portal:
         except (ValueError, KeyError, TypeError) as e:
             raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao} "
                              f"({len(r.content)} bytes, começa com {r.text[:80]!r})") from e
-        if isinstance(bruto, dict) and isinstance(bruto.get("erro"), str) and bruto["erro"]:
-            raise ErroPortal(f"{self.url} recusou {acao}: {bruto['erro']}")
+        for campo in ("erro", "error"):  # `error`: a Megasoft embutida, com total 0 (licitações com período)
+            motivo = bruto.get(campo) if isinstance(bruto, dict) else None
+            if isinstance(motivo, str) and motivo.strip() and motivo.strip() != "null":
+                raise ErroPortal(f"{self.url} recusou {acao}: {motivo}")
         registros = bruto.get("dados") or bruto.get("registros") or []
         return registros, int(bruto.get("total") or 0)
 
@@ -303,7 +300,8 @@ class Portal:
             if modulo is None:
                 return None
             externo = self._sufixo(modulo)
-            if nome == "diarias":  # sem leitura genérica: os campos das diárias mudam de portal para portal
+            if nome == "diarias" and externo not in EXTERNOS:
+                # sem leitura genérica: os campos das diárias mudam de portal para portal
                 acesso, origem = ((megasoft_embutida, EXTERNOS["mg"]) if externo == "sg"
                                   else (diarias_nucleogov, NUCLEOGOV))
             elif externo not in EXTERNOS:
@@ -314,8 +312,10 @@ class Portal:
                 sufixo = self._api_serve(modulo)
                 if sufixo:
                     self.sufixos[modulo] = sufixo
-                    return None
+                    return diarias_nucleogov.diarias if nome == "diarias" else None
                 acesso, origem = {"mg": megasoft_embutida, "centi": centi}[externo], EXTERNOS[externo]
+                if nome == "diarias":  # `mgdiarias` (câmaras de Aruanã, Corumbaíba, Cristalina): não medido
+                    raise recusa(self, nome, origem)
         ler = getattr(acesso, nome, None) if nome in LIDOS_POR_ACESSO else None
         if ler is None:
             raise recusa(self, nome, origem)
@@ -417,7 +417,7 @@ class Portal:
         """Contratos (tipo="contrato") ou aditivos (tipo="aditivo")."""
         f = {"tipo": tipo}
         if ano:
-            f["anobase"] = str(ano)
+            f["ano"] = str(ano)  # `anobase` é ignorado (Alexânia, 04/11/2026)
         if busca:
             f["txtbusca"] = busca
         pedido = {"ano": int(ano) if ano else None, "tipo": tipo, "busca": busca}

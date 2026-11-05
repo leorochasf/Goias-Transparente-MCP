@@ -470,7 +470,7 @@ Os nomes do NucleoGov valem para todo sistema (a API NucleoGov devolve os campos
 
 | Conceito | Contratos | Licitações |
 |---|---|---|
-| identificador interno | `id` | `id` (o NucleoGov dá `chave`) |
+| identificador interno | `id` | `chave` (a embutida também dá `chave`, crua, fora da tradução) |
 | número | `numero` | `numero` (sem o ano) e `label` (número/ano) |
 | ano | `ano` | `ano` onde o sistema dá (NucleoGov, embutida) |
 | órgão | `orgao` = código, `orgao_nome` = nome | `orgao` = nome |
@@ -490,4 +490,8 @@ Ficam com nome próprio, porque o NucleoGov não tem o conceito: `licitacao`, `m
 registro do ano pedido e o total com ano menor que sem ano). Quando o encaixe recusa uma resposta que ignorou o filtro
 ("fora do período", "de outro ano"), a conferência marca `falhou`; parâmetro que o projeto recusa (o ano das
 licitações no NucleoGov, decreto no Ortrel) marca `nao_suportado`. O passo `conferir` do catálogo passou a ler o
-Ortrel.
+Ortrel. Diárias sem nenhuma data de saída legível saem `sem_dados`, nunca `ok`; total com ano igual ao sem ano só
+passa se a amostra sem ano for o portal inteiro e toda daquele ano.
+
+Limite: no Ortrel, contratos, licitações e diárias vêm inteiros e o recorte por ano ou período é do projeto. Ali o
+`ok` dessas três verificações confere o código do projeto, não um filtro do portal.

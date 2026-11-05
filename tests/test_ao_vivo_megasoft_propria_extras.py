@@ -63,7 +63,7 @@ def test_dispensas_de_um_ano_vem_inteiras_e_so_publicadas_nesse_ano(portal):
     time.sleep(1)
     r = portal.licitacoes(dispensas=True, ano=ANO, maximo=sys.maxsize)
     assert r["total"] > 0 and len(r["registros"]) == r["total"]
-    assert len({x["id"] for x in r["registros"]}) == r["total"]
+    assert len({x["chave"] for x in r["registros"]}) == r["total"]
     assert {_dia(x["data_publicacao"]).year for x in r["registros"]} == {ANO}
 
 

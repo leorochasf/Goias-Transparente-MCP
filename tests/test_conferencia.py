@@ -242,3 +242,28 @@ def test_parametro_que_o_projeto_recusa_sai_nao_suportado():
     r = conferir(Ortrel(), ano=2025, mes=1, hoje="x", pausa=0)
     assert r["filtros"]["legislacao_tipo"] == r["filtros"]["legislacao_ano"] == "nao_suportado"
     assert r["detalhes"]["legislacao_tipo"] == "as câmaras Ortrel publicam só leis"
+
+
+def test_diarias_sem_nenhuma_data_legivel_nao_saem_ok():
+    class SemData(PortalDeMentira):
+        def diarias(self, de, ate, busca=None, *, maximo=200):
+            return self._r([{"data_saida": None}, {"data_saida": "sem data"}])
+    r = conferir(SemData(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["diarias_periodo"] == "sem_dados" and "legível" in r["detalhes"]["diarias_periodo"]
+
+
+def test_total_com_ano_igual_ao_sem_ano_so_passa_se_a_amostra_sem_ano_e_o_portal_inteiro():
+    """Portal que ignora o ano e cujas 20 primeiras linhas são todas do ano pedido: não dá para dizer que filtrou."""
+    class Ignora(PortalDeMentira):
+        def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
+            todos = [{"ano": 2025}] * 30 + [{"ano": 2024}] * 5
+            return {"total": 35, "registros": todos[:maximo]}
+    r = conferir(Ignora(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["contratos_ano"] == "falhou"
+
+
+def test_mes_ilegivel_na_receita_e_falhou_e_nao_nao_suportado():
+    class Torto(PortalDeMentira):
+        def receitas(self, ano, mes, *, maximo=200):
+            return self._r([{"ano": "2025", "mes": "Setembro"}])
+    assert conferir(Torto(), ano=2025, mes=1, hoje="x", pausa=0)["filtros"]["receitas_mes"] == "falhou"

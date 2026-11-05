@@ -270,11 +270,11 @@ def test_licitacoes_separam_dispensas_filtram_ano_e_avisam_das_sem_data():
     responses.add(responses.GET, LICITACOES, json={"dados": regs, "dadosPaginados": regs, "totalPages": 1})
     p = _portal()
     licitacoes = p.licitacoes(ano=2025)
-    assert [x["id"] for x in licitacoes["registros"]] == ["1", "4"]
+    assert [x["chave"] for x in licitacoes["registros"]] == ["1", "4"]
     assert licitacoes["registros"][0]["data_publicacao"] == "02/05/2025"
     assert any("1 licitação" in frase and "protocolo" in frase for frase in licitacoes["ressalvas"])
     dispensas = p.licitacoes(dispensas=True)
-    assert [x["id"] for x in dispensas["registros"]] == ["2", "3"]
+    assert [x["chave"] for x in dispensas["registros"]] == ["2", "3"]
 
 
 # ── diárias ─────────────────────────────────────────────────────────────────────────────────────────────────────────

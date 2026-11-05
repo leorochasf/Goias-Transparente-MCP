@@ -46,7 +46,8 @@ def _mes_mais_recente_da_folha(p, ano_atual):
         except ValueError:  # a Megasoft embutida só lê a folha com o mês
             return None
         if regs:
-            return int(regs[0]["ano"]), int(regs[0]["mes"])
+            ref = _ano_inteiro(regs[0].get("ano")), _ano_inteiro(regs[0].get("mes"))
+            return ref if None not in ref else None
     return None
 
 
@@ -64,7 +65,7 @@ def _folha(p, ano, mes, contexto):
     regs = base["registros"]
     if not regs:
         return "sem_dados", f"folha de {mes:02d}/{ano} vazia"
-    fora = [(x.get("ano"), x.get("mes")) for x in regs if (int(x.get("ano") or 0), int(x.get("mes") or 0)) != (ano, mes)]
+    fora = [(x.get("ano"), x.get("mes")) for x in regs if (_ano_inteiro(x.get("ano")), _ano_inteiro(x.get("mes"))) != (ano, mes)]
     return ("falhou", f"pediu {mes:02d}/{ano}, vieram {sorted(set(fora))}") if fora else ("ok", nota)
 
 
@@ -138,7 +139,7 @@ def _receitas(p, ano, mes, contexto):
     regs = p.receitas(ano, mes, maximo=AMOSTRA)["registros"]
     if not regs:
         return "sem_dados", f"receitas de {mes:02d}/{ano} vazias"
-    fora = sorted({(x.get("ano"), x.get("mes")) for x in regs if (int(x.get("ano") or 0), int(x.get("mes") or 0)) != (ano, mes)})
+    fora = sorted({(x.get("ano"), x.get("mes")) for x in regs if (_ano_inteiro(x.get("ano")), _ano_inteiro(x.get("mes"))) != (ano, mes)}, key=str)
     return ("falhou", f"pediu {mes:02d}/{ano}, vieram {fora[:5]}") if fora else ("ok", None)
 
 
@@ -176,10 +177,12 @@ def _legislacao_ano(p, ano, mes, contexto):
 def _diarias(p, ano, mes, contexto):
     de, ate = _mes_inteiro(ano, mes)
     regs = p.diarias(de.isoformat(), ate.isoformat(), maximo=AMOSTRA)["registros"]
-    datas = [_data(x.get("data_saida")) for x in regs]
-    if not datas:
+    if not regs:
         return "sem_dados", f"nenhuma diária com saída em {mes:02d}/{ano}"
-    fora = sorted({d.isoformat() for d in datas if d and not de <= d <= ate})
+    datas = [d for d in (_data(x.get("data_saida")) for x in regs) if d]
+    if not datas:
+        return "sem_dados", f"nenhuma das {len(regs)} diárias de {mes:02d}/{ano} tem data de saída legível"
+    fora = sorted({d.isoformat() for d in datas if not de <= d <= ate})
     return ("falhou", f"pediu {de}..{ate}, vieram saídas em {fora[:5]}") if fora else ("ok", None)
 
 
@@ -191,8 +194,11 @@ def _ano_respeitado(do_ano, todos, ano, ano_de, nome):
     fora = sorted({str(ano_de(x)) for x in do_ano["registros"] if ano_de(x) != ano})
     if fora:
         return "falhou", f"pediu {ano}, vieram {fora[:5]}"
-    if do_ano["total"] >= todos()["total"] and {ano_de(x) for x in todos()["registros"]} != {ano}:
-        return "falhou", f"o total com ano ({do_ano['total']}) não é menor que sem ano ({todos()['total']})"
+    amostra = todos()
+    # total igual com e sem ano só passa se a amostra sem ano é o portal inteiro e é toda daquele ano
+    inteiro = len(amostra["registros"]) >= amostra["total"]
+    if do_ano["total"] >= amostra["total"] and not (inteiro and {ano_de(x) for x in amostra["registros"]} == {ano}):
+        return "falhou", f"o total com ano ({do_ano['total']}) não é menor que sem ano ({amostra['total']})"
     return "ok", None
 
 

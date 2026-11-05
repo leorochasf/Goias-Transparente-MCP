@@ -178,6 +178,10 @@ def diarias(portal, *, de, ate, busca, maximo):
         filtros["txtbusca"] = busca
     r = portal.consultar("sgdiarias/listar", filtros, maximo=maximo)
     linhas = [_diaria(x) for x in r["registros"]]
+    fora = sum(1 for x in linhas if (d := _dia_br(x["data_saida"])) and not de <= d <= ate)
+    if fora:
+        raise ErroPortal(f"{portal.url} devolveu {fora} diária(s) com saída fora do período pedido: o filtro de datas "
+                         "não foi respeitado e nada foi devolvido.")
     saida = {"total": r["total"], "registros": linhas}
     estranhas = sum(1 for x in linhas if not str(x["quantidade"] or "").isdigit()
                     or int(x["quantidade"]) > DIARIAS_PLAUSIVEIS)
@@ -186,6 +190,14 @@ def diarias(portal, *, de, ate, busca, maximo):
                               f"(mais de {DIARIAS_PLAUSIVEIS} numa linha), como o portal publicou: conte pelas linhas "
                               "e use o valor, que é o total da linha"]
     return saida
+
+
+def _dia_br(texto):
+    """'10/01/2025' → date; vazio ou ilegível → None."""
+    try:
+        return datetime.strptime(str(texto or ""), "%d/%m/%Y").date()
+    except ValueError:
+        return None
 
 
 def _diaria(reg):

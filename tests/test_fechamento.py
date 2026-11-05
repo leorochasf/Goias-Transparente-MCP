@@ -71,7 +71,7 @@ CONTRATO_NUCLEOGOV = {"id", "numero", "ano", "orgao_nome", "situacao", "objeto",
 ANTIGOS_CONTRATO = {"codigo", "exercicio", "fornecedor", "cpf_cnpj", "data_assinatura", "vigencia", "vigencia_fim",
                     "fiscal", "data"}
 LICITACAO_NUCLEOGOV = {"numero", "label", "modalidade", "situacao", "orgao", "descricao", "data_publicacao"}
-ANTIGOS_LICITACAO = {"codigo", "objeto", "valor"}
+ANTIGOS_LICITACAO = {"codigo", "objeto", "valor", "id"}
 
 
 def test_contratos_da_megasoft_propria_com_os_nomes_do_nucleogov():
@@ -106,7 +106,7 @@ def test_licitacoes_da_megasoft_propria_com_os_nomes_do_nucleogov():
     x = traducao_megasoft.licitacao({"codigo": 4, "numeroAno": "24/2025", "historico": "obra",
                                      "valorVencedorTotal": 10, "dataDePublicacao": "2025-03-01", "orgao": "PREF"})
     assert LICITACAO_NUCLEOGOV <= set(x) and not set(x) & ANTIGOS_LICITACAO
-    assert (x["id"], x["numero"], x["label"], x["descricao"], x["valor_vencedor"]) == (4, "24", "24/2025", "obra",
+    assert (x["chave"], x["numero"], x["label"], x["descricao"], x["valor_vencedor"]) == (4, "24", "24/2025", "obra",
                                                                                       "10,00")
 
 
@@ -121,7 +121,7 @@ def test_licitacoes_do_ortrel_com_os_nomes_do_nucleogov():
     x = ortrel.licitacao({"id_licitacao": 4, "numero_ano": "24/2025", "descricao": "obra", "orgao": "CÂMARA",
                           "data_publicacao": "2025-03-01"})
     assert LICITACAO_NUCLEOGOV <= set(x) and not set(x) & ANTIGOS_LICITACAO
-    assert (x["id"], x["numero"], x["label"], x["descricao"]) == (4, "24", "24/2025", "obra")
+    assert (x["chave"], x["numero"], x["label"], x["descricao"]) == (4, "24", "24/2025", "obra")
 
 
 @responses.activate
@@ -137,3 +137,24 @@ def test_ano_dos_contratos_no_nucleogov_vai_no_filtro_ano_e_nao_no_anobase():
     responses.add_callback(responses.POST, f"{PORTAL}/api/contratos_frl/listar", callback=callback)
     Portal(PORTAL, sufixos={"contratos": "frl"}, plataforma="nucleogov").contratos(2025)
     assert pedidos[0]["ano"] == "2025" and "anobase" not in pedidos[0]
+
+
+def test_diarias_da_embutida_com_saida_fora_do_periodo_sao_erro_e_nao_resultado(monkeypatch):
+    fora = {"data_inicio": "2025-05-02", "quantidade": "1", "valor": "10.00"}
+    dentro = {"data_inicio": "2025-01-10", "quantidade": "1", "valor": "10.00"}
+    monkeypatch.setattr(Portal, "consultar", lambda self, acao, filtros, maximo: {"total": 2, "registros": [dentro, fora]})
+    from datetime import date
+    with pytest.raises(ErroPortal, match="fora do período"):
+        megasoft_embutida.diarias(Portal(PORTAL), de=date(2025, 1, 1), ate=date(2025, 3, 31), busca=None, maximo=10)
+
+
+def test_somas_da_centi_sem_valor_em_nenhuma_analitica_saem_vazias_e_nao_zero():
+    from transparencia_municipal import centi
+    linhas = [{"TipoConta": 1, "ValoReceitaAcumuladoMes": ""}, {"TipoConta": 1, "ValoReceitaAcumuladoMes": None}]
+    assert centi._soma(linhas, "ValoReceitaAcumuladoMes") is None
+    assert str(centi._soma([{"ValoReceitaAcumuladoMes": "1,50"}, {"ValoReceitaAcumuladoMes": ""}],
+                           "ValoReceitaAcumuladoMes")) == "1.50"
+
+
+def test_valor_vazio_do_ortrel_e_none_e_nao_zero():
+    assert ortrel._decimal("") is None and ortrel._decimal(None) is None and ortrel._decimal("12.5") == 12.5

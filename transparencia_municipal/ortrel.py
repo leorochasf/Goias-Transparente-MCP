@@ -117,8 +117,11 @@ def _dia(valor):
 
 
 def _decimal(texto):
+    """'14452.33' → 14452.33; vazio ou ilegível → None (nunca zero)."""
+    if texto in (None, ""):
+        return None
     try:
-        return round(float(texto or 0), 2)
+        return round(float(texto), 2)
     except (TypeError, ValueError):
         return None
 
@@ -306,7 +309,7 @@ def licitacao(reg):
     except (TypeError, ValueError):
         vencedores = reg.get("itens_vencedores")
     return {
-        "id": reg.get("id_licitacao"), "numero": label.split("/")[0] if label else None, "label": label,
+        "chave": reg.get("id_licitacao"), "numero": label.split("/")[0] if label else None, "label": label,
         "protocolo": reg.get("numero_protocolo"),
         "modalidade": reg.get("modalidade"), "situacao": reg.get("situacao"), "descricao": reg.get("descricao"),
         "data_protocolo": _data(reg.get("data_protocolo")), "data_abertura": _data(reg.get("data_abertura")),

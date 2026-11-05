@@ -214,7 +214,9 @@ def receita(reg, ano, mes):
 
 
 def _soma(linhas, campo):
-    return sum((_decimal(x.get(campo)) or Decimal(0) for x in linhas), Decimal(0))
+    """A soma dos valores legíveis; nenhum legível → None (vazio não é zero)."""
+    valores = [v for v in (_decimal(x.get(campo)) for x in linhas) if v is not None]
+    return sum(valores, Decimal(0)) if valores else None
 
 
 def _conferir_raizes(nome, linhas):
@@ -230,7 +232,7 @@ def _conferir_raizes(nome, linhas):
     ressalvas = []
     for campo, quando in (("ValoReceitaAcumuladoMes", "no mês"), ("ValoReceitaAcumulado", "no acumulado do ano")):
         a, b = _soma(analiticas, campo), _soma(raizes, campo)
-        if a != b:
+        if None not in (a, b) and a != b:
             ressalvas.append(f"em {nome}, {quando}, a soma das contas analíticas (R$ {_br(a)}) difere da soma das "
                              f"contas do topo (R$ {_br(b)}) em R$ {_br(a - b)}; a diferença não tem explicação "
                              "conhecida: confira no portal antes de usar esse valor.")

@@ -216,7 +216,7 @@ def test_licitacoes_e_dispensas_pelo_tipo_de_consulta_e_ano_pela_data_de_publica
     assert (licitacoes["dataDePublicacaoInicial"], licitacoes["dataDePublicacaoFinal"]) == ("01/01/2025", "31/12/2025")
     assert "dataDePublicacaoInicial" not in dispensas
     assert r["registros"][0] == {
-        "id": 1, "numero": "1", "label": "1/2025", "modalidade": "PREGÃO ELETRÔNICO", "situacao": "Homologada",
+        "chave": 1, "numero": "1", "label": "1/2025", "modalidade": "PREGÃO ELETRÔNICO", "situacao": "Homologada",
         "data_publicacao": "15/03/2025", "data_julgamento": "20/03/2025", "valor_vencedor": "49.860,00",
         "descricao": "AQUISIÇÃO DE MEDICAMENTOS", "orgao": "FUNDO MUNICIPAL DE SAÚDE", "fonte": "Megasoft"}
     assert portal.licitacoes("medicamentos", dispensas=True)["total"] == 1

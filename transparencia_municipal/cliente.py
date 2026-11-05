@@ -127,11 +127,6 @@ def marcas_em_texto(r, maximo):
     return avisos
 
 
-def ainda_nao_disponivel(portal, modulo, origem):
-    """O que um encaixe responde enquanto o ticket dele não chega. `modulo`: o nome legível ("receitas")."""
-    return ModuloNaoSuportado(f"em {portal.url}, o módulo {modulo} {origem} ainda não está disponível neste projeto.")
-
-
 def _data_br(valor, *, campo):
     """Aceita 2025-03-01, 01/03/2025 ou 2025-03 (vira o 1º dia) e devolve dd/mm/aaaa."""
     v = str(valor).strip()

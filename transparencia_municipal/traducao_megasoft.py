@@ -157,7 +157,7 @@ def licitacao(reg):
     """
     label = _texto(reg.get("numeroAno"))
     return {
-        "id": reg.get("codigo"), "numero": label.split("/")[0] if label else None, "label": label,
+        "chave": reg.get("codigo"), "numero": label.split("/")[0] if label else None, "label": label,
         "modalidade": reg.get("modalidade") or None,
         "situacao": reg.get("situacao") or None, "data_publicacao": _data(reg.get("dataDePublicacao")) or None,
         "data_julgamento": _data(reg.get("dataDeJulgamento")) or None,

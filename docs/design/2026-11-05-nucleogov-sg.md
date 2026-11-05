@@ -57,3 +57,20 @@ A conferência geral de Goiás (04 e 05/11/2026) achou duas classes de "zero sil
 - Contratos, licitações, detalhe do servidor e rubricas no SG.
 - Liquidações e pagamentos por empenho no SG (exigiria ler os movimentos depois do período).
 - Goiânia: a prefeitura não está em portal NucleoGov; o catálogo continua sem portal certo para ela.
+
+## Segunda parte (05/11/2026): contratos, licitações, liquidado e pago, endereços conferidos
+
+- **Medido em Anápolis:** `sgcontratos/listar` (ano 360 em 2025, 597 em 2024; `tipo` "Contrato" 138, "Aditivo" 87;
+  `objeto` filtra); `sglicitacoes/listar` (ano 80 em 2025; `onlyDispensas` 129; `descricao` 44 de 44);
+  `sgdespesas/relatorioTotais` (somas do período, aceita `cpf_cnpj`); movimentos de um fornecedor de 2025 até hoje
+  numa leitura só = soma das leituras de 2025 e 2026 (1.962 + 1.341 = 3.303). O número do empenho recomeça a cada
+  ano: os movimentos são agrupados pela `chave_empenho`.
+- **Decisões (aprovadas pelo usuário):** contratos = todos os tipos menos aditivo (lidos inteiros e filtrados aqui);
+  aditivos pelo filtro do portal; somas do período em toda consulta de despesas sem busca por nome; liquidado e pago
+  até hoje só na busca por CNPJ (sem CNPJ seriam ~1.400 consultas num mês); movimento que não é empenho, liquidação
+  nem pagamento deixa o empenho sem liquidado e pago, com ressalva.
+- **Endereços conferidos à mão** no script do catálogo (`ENDERECOS_CONFERIDOS`): 7 câmaras migradas para `.go.leg.br`
+  (Ceres, Formoso, Leopoldo de Bulhões, Petrolina, Piracanjuba, Taquaral, Vila Boa), a prefeitura de Morro Agudo
+  (`acessoainformacao.morroagudo.go.gov.br`), a Câmara de Goiânia (`camaragoiania.nucleogov.com.br`) e a Prefeitura
+  de Goiânia sem portal lido (sistema próprio `transweb`, fora). Câmara de Goianésia e Prefeitura de Terezópolis:
+  nenhum endereço respondeu.

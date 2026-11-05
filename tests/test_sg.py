@@ -17,7 +17,7 @@ import responses
 from mcp import Client
 
 from transparencia_municipal import Portal, servidor_mcp, sg
-from transparencia_municipal.cliente import ErroPortal, ModuloNaoSuportado
+from transparencia_municipal.cliente import ErroPortal
 
 pytestmark = pytest.mark.descobre_sufixos
 PORTAL = "https://acessoainformacao.exemplo.go.gov.br"
@@ -27,17 +27,17 @@ def _pedido(requisicao):
     return next(iter(json.loads(urllib.parse.parse_qs(requisicao.body.decode())["params"][0]).items()))
 
 
-def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=False):
+def _portal_sg(*, servidores=(), movimentos=(), receitas=(), contratos=(), licitacoes=(), ignora_periodo=False):
     """Página inicial com os menus `sg*`, API NucleoGov comum vazia e o SG respondendo. Devolve os pedidos ao SG."""
     responses.add(responses.GET, f"{PORTAL}/", body=(
         '<div class="nucleogov"><a href="cidadao/transparencia/sgservidores">F</a>'
         '<a href="cidadao/transparencia/sgdespesas">D</a><a href="cidadao/transparencia/sgreceitas">R</a>'
-        '<a href="cidadao/informacao/sgcontratos">C</a></div>'))
+        '<a href="cidadao/informacao/sgcontratos">C</a><a href="cidadao/informacao/sglicitacoes">L</a></div>'))
 
     def vazio(requisicao):
         ident, _ = _pedido(requisicao)
         return 200, {}, json.dumps({ident: {"dados": [], "total": 0}})
-    for modulo in ("servidores", "despesas", "receitas", "contratos"):
+    for modulo in ("servidores", "despesas", "receitas", "contratos", "licitacoes"):
         for sufixo in ("frl", "cnt"):
             responses.add_callback(responses.POST, f"{PORTAL}/api/{modulo}_{sufixo}/listar", callback=vazio,
                                    content_type="application/json")
@@ -66,11 +66,42 @@ def _portal_sg(*, servidores=(), movimentos=(), receitas=(), ignora_periodo=Fals
     def das_receitas(corpo):
         return [r for r in receitas if ignora_periodo or (r["ano"] == corpo["ano"] and r["mes"] in (corpo["mes"], None))]
 
+    def dos_contratos(corpo):
+        return [c for c in contratos if (ignora_periodo or corpo.get("ano") in (None, c["ano"]))
+                and corpo.get("tipo") in (None, c["tipo"])
+                and (not corpo.get("objeto") or corpo["objeto"].lower() in c["objeto"].lower())]
+
+    def das_licitacoes(corpo):
+        return [x for x in licitacoes if (ignora_periodo or corpo.get("ano") in (None, x["ano"]))
+                and bool(corpo.get("onlyDispensas")) == x["dispensa"]
+                and (not corpo.get("descricao") or corpo["descricao"].lower() in x["descricao"].lower())]
+
     for acao, selecionar in (("sgservidores", da_folha), ("sgdespesas", dos_movimentos),
-                             ("sgreceitas", das_receitas)):
+                             ("sgreceitas", das_receitas), ("sgcontratos", dos_contratos),
+                             ("sglicitacoes", das_licitacoes)):
         responses.add_callback(responses.POST, f"{PORTAL}/api/{acao}/listar", callback=sg(selecionar),
                                content_type="application/json")
+
+    def totais(requisicao):
+        ident, corpo = _pedido(requisicao)
+        pedidos.append({**corpo, "totais": True})
+        sel = dos_movimentos({k: v for k, v in corpo.items() if k != "tipo"})
+        soma = {"0": 0, "1": 0, "2": 0}
+        for m in sel:
+            soma[m["tipo"]] += _numero(m["valor_empenho"] if m["tipo"] == "0" else m["valor_mov"])
+        return 200, {}, json.dumps({ident: {"total_empenhado": _br(soma["0"]), "total_liquidado": _br(soma["1"]),
+                                            "total_pago": _br(soma["2"])}})
+    responses.add_callback(responses.POST, f"{PORTAL}/api/sgdespesas/relatorioTotais", callback=totais,
+                           content_type="application/json")
     return pedidos
+
+
+def _numero(br):
+    return round(float(br.replace(".", "").replace(",", ".")), 2)
+
+
+def _br(valor):
+    return f"{valor:,.2f}".replace(",", "_").replace(".", ",").replace("_", ".")
 
 
 def _digitos(documento):
@@ -95,12 +126,13 @@ def _servidor(i, **campos):
             "situacao_servidor": None, "total": "?", **campos}
 
 
-def _movimento(empenho, data, tipo="0", cpf_cnpj="25.107.525/0001-51", fornecedor="EMPRESA EXEMPLO LTDA"):
+def _movimento(empenho, data, tipo="0", cpf_cnpj="25.107.525/0001-51", fornecedor="EMPRESA EXEMPLO LTDA",
+               valor_mov="0,00"):
     nome = {"0": "Empenho", "1": "Liquidação", "2": "Pagamento"}[tipo]
     return {"chave_empenho": str(empenho), "tipo": tipo, "movimento": nome, "empenho": f"E{empenho:06d}",
             "numero": f"E{empenho:06d}" if tipo == "0" else f"E{empenho:06d}.0001", "data": data, "ano": data[-4:],
             "orgao": "1", "orgao_empenho": "1", "cpf_cnpj": cpf_cnpj, "fornecedor": fornecedor,
-            "descricao": "MATERIAL DE CONSUMO", "valor_empenho": "1.234,56", "valor_mov": "0,00", "valor": "1.234,56",
+            "descricao": "MATERIAL DE CONSUMO", "valor_empenho": "1.234,56", "valor_mov": valor_mov, "valor": "1.234,56",
             "liquidado": "0,00", "acumulado_pagamento": "0,00"}
 
 
@@ -157,7 +189,7 @@ def test_despesas_sg_sao_os_empenhos_do_periodo_mes_a_mes():
         "fornecedor": "EMPRESA EXEMPLO LTDA", "valor_empenhado": "1.234,56", "valor_liquidado": None,
         "valor_pago": None, "historico": "MATERIAL DE CONSUMO", "orgao": "1", "fonte": "NucleoGov (sistema de gestão)"}
     assert any("liquida" in x and "pagamento" in x for x in r["ressalvas"])
-    assert [(p["ano"], p["datamin"], p["datamax"], p["tipo"]) for p in pedidos] == [
+    assert [(p["ano"], p["datamin"], p["datamax"], p["tipo"]) for p in pedidos if not p.get("totais")] == [
         ("2025", "2025-01-15", "2025-01-31", "0"), ("2025", "2025-02-01", "2025-02-28", "0"),
         ("2025", "2025-03-01", "2025-03-31", "0")]
 
@@ -177,7 +209,7 @@ def test_despesas_sg_por_cnpj_e_por_nome_do_fornecedor():
     pedidos = _portal_sg(movimentos=movimentos)
     r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-02-28", "11364935000173")
     assert r["total"] == 2 and [x["empenho"] for x in r["registros"]] == ["E000002", "E000003"]
-    assert {p.get("cpf_cnpj") for p in pedidos} == {outro}
+    assert {p.get("cpf_cnpj") for p in pedidos if not p.get("totais")} == {outro}
 
     r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-02-28", "outra")
     assert r["total"] == 2 and [x["empenho"] for x in r["registros"]] == ["E000002", "E000003"]
@@ -207,13 +239,102 @@ def test_receitas_sg_com_linha_de_outro_mes_sao_recusadas():
         Portal(PORTAL, pausa=0).receitas(2025, 6)
 
 
-# ── módulo SG que o projeto ainda não lê: recusa clara, nunca zero ─────────
+# ── contratos e licitações (Anápolis, 05/11/2026) ──────────────────────────
+
+def _contrato(i, tipo="Contrato", ano="2025", objeto="Contratação de serviço de limpeza"):
+    return {"tabela": "aditivos" if tipo == "Aditivo" else "contratos", "chave_contrato": str(i), "id": str(i),
+            "orgao": "Fundo Municipal de Saúde", "orgao_id": "16", "objeto": objeto, "valor": "3780.00",
+            "data_firmatura": "2025-03-10", "inicio_vigencia": "2025-03-10", "fim_vigencia": "2026-03-10",
+            "licitacao": None, "label": f"Contrato <b>{i:06d}/{ano}</b>", "tipo": tipo,
+            "tipo_adt": "Prazo" if tipo == "Aditivo" else "", "numero": f"{i:06d}", "ano": ano,
+            "data_publicacao": "2025-03-12", "situacao": "Em Vigor", "fiscal_contrato": "FISCAL",
+            "contratados": json.dumps([{"cpf_cnpj": "25.107.525/0001-51", "nome": "EMPRESA EXEMPLO LTDA"}]),
+            "total": "?"}
+
+
+def _licitacao(i, ano="2025", dispensa=False, descricao="Aquisição de mobiliário"):
+    return {"tabela": "licitacoes", "label": f"{i:03d}/{ano}", "numero": str(i), "ano": ano,
+            "modalidade": "Dispensa de Licitação (14.133/21)" if dispensa else "Pregão - Eletrônico (14.133/21)",
+            "situacao": "HOMOLOGADO", "orgao": "Fundo Gestor da Educação", "orgao_id": "112",
+            "data_publicacao": "2026-01-05", "data_abertura": "2026-01-16 00:00:00", "data_homologacao": "2026-02-19",
+            "numero_processo": "000000357/2026", "valor_estimado": "4047925.59", "valor_homologado": None,
+            "descricao": descricao + "   ", "dispensa": dispensa, "total": "?"}
+
 
 @responses.activate
-def test_contratos_sg_sao_recusados_em_vez_de_responder_zero():
-    _portal_sg()
-    with pytest.raises(ModuloNaoSuportado, match="sistema de gestão"):
+def test_contratos_sg_do_ano_sem_os_aditivos_e_com_os_nomes_comuns():
+    _portal_sg(contratos=[_contrato(1), _contrato(2, "Convênio"), _contrato(3, "Aditivo"), _contrato(4, ano="2024")])
+    r = Portal(PORTAL, pausa=0).contratos(2025)
+    assert r["total"] == 2 and [x["numero"] for x in r["registros"]] == ["000001", "000002"]
+    assert r["registros"][0] == {
+        "numero": "000001", "ano": "2025", "tipo": "Contrato", "orgao_nome": "Fundo Municipal de Saúde",
+        "situacao": "Em Vigor", "objeto": "Contratação de serviço de limpeza", "fornecedor_nome": "EMPRESA EXEMPLO LTDA",
+        "fornecedor_cpfcnpj": "25.107.525/0001-51", "valor": "3.780,00", "data_publicacao": "12/03/2025",
+        "data_firmatura": "10/03/2025", "inicio_vigencia": "10/03/2025", "fim_vigencia": "10/03/2026",
+        "fiscal_contrato": "FISCAL", "fonte": "NucleoGov (sistema de gestão)"}
+
+
+@responses.activate
+def test_aditivos_sg_e_busca_pelo_objeto():
+    pedidos = _portal_sg(contratos=[_contrato(1), _contrato(3, "Aditivo"), _contrato(5, objeto="Locação de veículos")])
+    r = Portal(PORTAL, pausa=0).contratos(2025, tipo="aditivo")
+    assert [x["numero"] for x in r["registros"]] == ["000003"] and pedidos[-1]["tipo"] == "Aditivo"
+    r = Portal(PORTAL, pausa=0).contratos(2025, busca="locação")
+    assert [x["numero"] for x in r["registros"]] == ["000005"] and pedidos[-1]["objeto"] == "locação"
+    assert any("objeto" in x for x in r["ressalvas"])
+
+
+@responses.activate
+def test_contratos_sg_de_outro_ano_sao_recusados():
+    _portal_sg(contratos=[_contrato(1), _contrato(4, ano="2024")], ignora_periodo=True)
+    with pytest.raises(ErroPortal, match="outro ano"):
         Portal(PORTAL, pausa=0).contratos(2025)
+
+
+@responses.activate
+def test_licitacoes_e_dispensas_sg_por_ano_e_descricao():
+    pedidos = _portal_sg(licitacoes=[_licitacao(1), _licitacao(2, dispensa=True), _licitacao(3, ano="2024"),
+                                     _licitacao(4, descricao="Obras de pavimentação")])
+    r = Portal(PORTAL, pausa=0).licitacoes(ano=2025)
+    assert [x["numero"] for x in r["registros"]] == ["1", "4"]
+    assert r["registros"][0] == {
+        "numero": "1", "label": "001/2025", "ano": "2025", "modalidade": "Pregão - Eletrônico (14.133/21)",
+        "situacao": "HOMOLOGADO", "orgao": "Fundo Gestor da Educação", "descricao": "Aquisição de mobiliário",
+        "processo": "000000357/2026", "data_publicacao": "05/01/2026", "data_abertura": "16/01/2026",
+        "data_homologacao": "19/02/2026", "valor_estimado": "4.047.925,59", "fonte": "NucleoGov (sistema de gestão)"}
+    assert any("ano da licitação" in x for x in r["ressalvas"])
+    r = Portal(PORTAL, pausa=0).licitacoes(dispensas=True, ano=2025)
+    assert [x["numero"] for x in r["registros"]] == ["2"] and pedidos[-1]["onlyDispensas"] is True
+    r = Portal(PORTAL, pausa=0).licitacoes("pavimentação", ano=2025)
+    assert [x["numero"] for x in r["registros"]] == ["4"] and pedidos[-1]["descricao"] == "pavimentação"
+
+
+# ── despesas: somas do período e, na busca por CNPJ, liquidado e pago até hoje ──
+
+@responses.activate
+def test_despesas_sg_trazem_as_somas_do_periodo_mes_a_mes():
+    movimentos = [_movimento(1, "10/01/2025"), _movimento(1, "20/01/2025", "1", valor_mov="1.000,00"),
+                  _movimento(1, "05/02/2025", "2", valor_mov="1.000,00"), _movimento(2, "28/02/2025")]
+    _portal_sg(movimentos=movimentos)
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-02-28")
+    assert r["somas_do_periodo"] == {"empenhado": "2.469,12", "liquidado": "1.000,00", "pago": "1.000,00"}
+    assert any("somas_do_periodo" in x and "movimentos" in x for x in r["ressalvas"])
+
+
+@responses.activate
+def test_despesas_sg_por_cnpj_trazem_liquidado_e_pago_ate_hoje_por_empenho():
+    """O pagamento de março conta para o empenho de janeiro, mesmo pedindo só janeiro."""
+    outro = "11.364.935/0001-73"
+    movimentos = [_movimento(1, "10/01/2025"), _movimento(1, "20/01/2025", "1", valor_mov="1.000,00"),
+                  _movimento(1, "15/03/2025", "2", valor_mov="600,00"), _movimento(1, "20/03/2025", "2", valor_mov="400,00"),
+                  _movimento(2, "12/01/2025", cpf_cnpj=outro), _movimento(2, "13/01/2025", "2", cpf_cnpj=outro,
+                                                                           valor_mov="9,99"),
+                  _movimento(3, "15/01/2025")]
+    _portal_sg(movimentos=movimentos)
+    r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31", "25.107.525/0001-51")
+    assert [(x["empenho"], x["valor_liquidado"], x["valor_pago"]) for x in r["registros"]] == [
+        ("E000001", "1.000,00", "1.000,00"), ("E000003", "0,00", "0,00")]
+    assert any("até" in x and "liquida" in x for x in r["ressalvas"])
 
 
 # ── ponta a ponta, por cliente MCP no mesmo processo ─────────────────────
@@ -275,4 +396,16 @@ def test_despesas_sg_por_cnpj_que_comeca_com_zero_repetem_a_busca_sem_os_zeros()
     pedidos = _portal_sg(movimentos=movimentos)
     r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31", "00.000.000/0001-91")
     assert r["total"] == 1 and r["registros"][0]["cpf_cnpj"] == "00.000.000/0001-91"
-    assert [p["cpf_cnpj"] for p in pedidos] == ["00.000.000/0001-91", "191"]
+    assert [p["cpf_cnpj"] for p in pedidos if not p.get("totais") and p.get("tipo")] == ["00.000.000/0001-91", "191"]
+
+
+@responses.activate
+def test_declaracao_na_lista_de_contratos_vira_aviso_e_nao_conta():
+    """Câmara de Bom Jesus de Goiás (05/11/2026): uma "Declaração" de 2022 (não houve aditivos de 2022 a 2025) vem
+    na lista de contratos de 2025, com `tabela` "declaracoes"."""
+    declaracao = {**_contrato(9, tipo="Declaração", ano="2022"), "tabela": "declaracoes", "numero": None,
+                  "label": "<strong>Esta instituição, não realizou Termos Aditivos no período. <u>Conferir.</u></strong>"}
+    _portal_sg(contratos=[_contrato(1), declaracao], ignora_periodo=True)
+    r = Portal(PORTAL, pausa=0).contratos(2025)
+    assert r["total"] == 1 and [x["numero"] for x in r["registros"]] == ["000001"]
+    assert any("Esta instituição, não realizou Termos Aditivos no período." in x for x in r["ressalvas"])

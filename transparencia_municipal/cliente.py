@@ -22,7 +22,7 @@ import requests
 
 from .plataformas import plataforma_pelo_endereco, reconhecer
 
-UA_FERRAMENTA = ("Goias-Transparente-MCP/0.7 "
+UA_FERRAMENTA = ("Goias-Transparente-MCP/0.8 "
                  "(+https://github.com/leorochasf/Goias-Transparente-MCP)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -190,8 +190,22 @@ class Portal:
         return UA_NAVEGADOR if self.navegador else UA_FERRAMENTA
 
     def _pagina(self, acao, filtros, offset):
+        bruto = self._envelope(acao, {**(filtros or {}), "limit": f"{offset}, {self.por_pagina}"})
+        if not isinstance(bruto, dict):  # site que não é portal NucleoGov (saude.goiania.go.gov.br, 05/11/2026)
+            raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao}: "
+                             f"{type(bruto).__name__} no lugar de {{dados, total}} ({str(bruto)[:80]!r})")
+        for campo in ("erro", "error"):  # `error`: a Megasoft embutida, com total 0 (licitações com período)
+            motivo = bruto.get(campo)
+            if isinstance(motivo, str) and motivo.strip() and motivo.strip() != "null":
+                raise ErroPortal(f"{self.url} recusou {acao}: {motivo}")
+        registros = bruto.get("dados") or bruto.get("registros") or []
+        return registros, int(bruto.get("total") or 0)
+
+    def _envelope(self, acao, filtros):
+        """Uma chamada `acao` no envelope `multi_request`; devolve a resposta do pedido como veio (`relatorioTotais`
+        do sistema de gestão não tem `dados`)."""
         ident = "0-" + "".join(random.choices("abcdefghijklmnopqrstuvwxyz0123456789", k=6))
-        corpo = {**(filtros or {}), "limit": f"{offset}, {self.por_pagina}", "acao": acao}
+        corpo = {**(filtros or {}), "acao": acao}
         dados = urllib.parse.urlencode({
             "multi_request": "true",
             "params": json.dumps({ident: corpo}, ensure_ascii=False),
@@ -212,19 +226,10 @@ class Portal:
         if r.status_code != 200:
             raise ErroPortal(f"{self.url} respondeu HTTP {r.status_code} em {acao}: {r.text[:200]}")
         try:
-            bruto = r.json()[ident]
+            return r.json()[ident]
         except (ValueError, KeyError, TypeError) as e:
             raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao} "
                              f"({len(r.content)} bytes, começa com {r.text[:80]!r})") from e
-        if not isinstance(bruto, dict):  # site que não é portal NucleoGov (saude.goiania.go.gov.br, 05/11/2026)
-            raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao}: "
-                             f"{type(bruto).__name__} no lugar de {{dados, total}} ({str(bruto)[:80]!r})")
-        for campo in ("erro", "error"):  # `error`: a Megasoft embutida, com total 0 (licitações com período)
-            motivo = bruto.get(campo) if isinstance(bruto, dict) else None
-            if isinstance(motivo, str) and motivo.strip() and motivo.strip() != "null":
-                raise ErroPortal(f"{self.url} recusou {acao}: {motivo}")
-        registros = bruto.get("dados") or bruto.get("registros") or []
-        return registros, int(bruto.get("total") or 0)
 
     def _descobrir(self):
         """Plataforma e sufixos que a página inicial anuncia (`servidores_cnt`, `/src/main.jsx`...). Sem página: nada."""

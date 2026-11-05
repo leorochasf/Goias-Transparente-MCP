@@ -105,6 +105,22 @@ def sondar(args):
 
 PREFIXO_PORTAL = "acessoainformacao."
 
+#: endereços conferidos à mão (05/11/2026), que valem mais que os da origem: a origem trazia o endereço antigo, que
+#: não serve a API (as câmaras migraram para `.go.leg.br`). None: o órgão não tem portal que o projeto leia (a
+#: Prefeitura de Goiânia usa sistema próprio, `transweb`; a origem só trouxe o site da Saúde).
+ENDERECOS_CONFERIDOS = {
+    ("Ceres", "camara"): "acessoainformacao.ceres.go.leg.br",
+    ("Formoso", "camara"): "acessoainformacao.formoso.go.leg.br",
+    ("Leopoldo de Bulhões", "camara"): "acessoainformacao.leopoldodebulhoes.go.leg.br",
+    ("Morro Agudo de Goiás", "prefeitura"): "acessoainformacao.morroagudo.go.gov.br",
+    ("Petrolina de Goiás", "camara"): "acessoainformacao.petrolinadegoias.go.leg.br",
+    ("Piracanjuba", "camara"): "acessoainformacao.piracanjuba.go.leg.br",
+    ("Taquaral de Goiás", "camara"): "acessoainformacao.taquaraldegoias.go.leg.br",
+    ("Vila Boa", "camara"): "acessoainformacao.vilaboa.go.leg.br",
+    ("Goiânia", "camara"): "camaragoiania.nucleogov.com.br",
+    ("Goiânia", "prefeitura"): None,
+}
+
 
 def _derivados(orgao, sondados):
     """`acessoainformacao.` + o site institucional que a sondagem viu feito pela NucleoGov, quando a origem não trouxe
@@ -123,6 +139,9 @@ def _fila(orgaos, sondados):
         reconheciveis = [h for h in o["hosts"] if plataforma_pelo_endereco(h)]
         fila.update(reconheciveis or o["hosts"])
         fila.update(_derivados(o, sondados))
+        conferido = ENDERECOS_CONFERIDOS.get((o["municipio"], o["orgao"]))
+        if conferido:
+            fila.add(conferido)
     return fila
 
 
@@ -142,6 +161,13 @@ PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
 def _portal_escolhido(orgao, sondados):
     """O portal do órgão no catálogo: o que a sondagem viu no ar antes do só reconhecido pelo endereço; entre eles, o
     portal `acessoainformacao.` antes do site institucional, e a plataforma na ordem de PREFERENCIA. Devolve (host, plataforma, sondagem); sem plataforma, (host ou None, None, ...)."""
+    chave = (orgao["municipio"], orgao["orgao"])
+    if chave in ENDERECOS_CONFERIDOS:
+        host = ENDERECOS_CONFERIDOS[chave]
+        if host is None:
+            return None, None, {}
+        s = sondados.get(host) or {}
+        return host, s.get("plataforma") or plataforma_pelo_endereco(host), s
     opcoes = []
     derivados = _derivados(orgao, sondados)
     for h in orgao["hosts"] + derivados:

@@ -284,6 +284,9 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
 
     Ex.: quanto o município pagou à empresa tal em 2025. Em alguns portais (Megasoft, Centi) os empenhos da
     Prefeitura trazem também os da Câmara e dos fundos: o campo `orgao` diz de qual órgão é cada um.
+    No sistema de gestão do NucleoGov (fonte "NucleoGov (sistema de gestão)"), a resposta traz `somas_do_periodo`
+    (empenhado, liquidado e pago no período, as somas do próprio portal) e, na busca por CNPJ, cada empenho traz o
+    liquidado e o pago até hoje; sem CNPJ, esses dois ficam vazios em cada empenho.
     """
     return _executar(lambda: _aviso_orgaos(_portal(portal).despesas(de, ate, busca, maximo=maximo), "os empenhos"),
                      portal, maximo=maximo)
@@ -298,6 +301,8 @@ def consultar_contratos(ano: int | None = None, tipo: str = "contrato", busca: s
     fornecedor_cpfcnpj, valor, data_firmatura, fim_vigencia, fiscal_contrato). Aditivos: só nos portais NucleoGov;
     na Megasoft e nas câmaras Ortrel tipo="aditivo" é recusado (lá o aditivo vem dentro do contrato; no Ortrel, em
     valor_aditado e nos anexos). Na Megasoft embutida, a `busca` procura só no objeto e `orgao` é o código do órgão.
+    No sistema de gestão do NucleoGov, a `busca` procura só no objeto, e "contrato" inclui convênios, atas de
+    registro de preço, comodatos e distratos (o campo `tipo` diz qual).
     Ex.: os contratos de 2025 da empresa tal (busca = nome ou CNPJ).
     """
     return _executar(lambda: _aviso_orgaos(_portal(portal).contratos(ano, tipo, busca, maximo=maximo), "os contratos"),
@@ -309,7 +314,8 @@ def consultar_licitacoes(busca: str | None = None, dispensas: bool = False, ano:
                          portal: str | None = None, maximo: int = 100) -> dict:
     """Licitações do município; dispensas=True traz dispensas e inexigibilidades.
 
-    `ano`: só nos portais da Megasoft e nas câmaras Ortrel; nos portais NucleoGov é recusado (filtro não medido).
+    `ano`: nos portais da Megasoft, nas câmaras Ortrel e no sistema de gestão do NucleoGov (lá, o ano da licitação);
+    nos demais portais NucleoGov é recusado (filtro não medido).
     Os campos têm os nomes do NucleoGov em todo sistema (numero, label = número/ano, modalidade, situacao, orgao,
     descricao, data_publicacao).
     """

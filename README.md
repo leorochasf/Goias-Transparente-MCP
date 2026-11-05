@@ -189,7 +189,7 @@ pelo menu do portal, e entrega os registros no mesmo formato. Cada registro dos 
 | Megasoft embutida | menus `mg*`, `*_mg`, `sgdiarias` de um portal NucleoGov | sim | sim | sim | sim (`sgdiarias`; `mgdiarias` é recusado) | sim | sim, por ano | não tem |
 | Megasoft de domínio próprio | `<municipio>.megasofttransparencia.com.br` | sim | sim | sim | sim | sim | sim | sim |
 | Centi | menus `cntdespesas`, `cntreceitas` de um portal NucleoGov | não tem | sim | sim, por órgão | não tem | não tem | não tem | não tem |
-| Sistema de gestão (SG) do NucleoGov | menus `sgservidores`, `sgdespesas`, `sgreceitas` de um portal NucleoGov | sim | sim, os empenhos (sem liquidado e pago) | sim, todos os órgãos juntos | `sgdiarias`, como na Megasoft embutida | recusado (não medido) | recusado (não medido) | não tem |
+| Sistema de gestão (SG) do NucleoGov | menus `sgservidores`, `sgdespesas`, `sgreceitas`, `sgcontratos`, `sglicitacoes` de um portal NucleoGov | sim | sim, os empenhos, com as somas do período; por CNPJ, liquidado e pago até hoje | sim, todos os órgãos juntos | `sgdiarias`, como na Megasoft embutida | sim, por ano (contratos e aditivos) | sim, por ano, e dispensas | não tem |
 
 O que o sistema não tem ou o projeto não lê (legislação da Megasoft, aditivos fora do NucleoGov) é **recusado com
 aviso**, em vez de responder "zero". Contratos e licitações saem com os **nomes de campo do NucleoGov** em todo
@@ -283,11 +283,11 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 
 | Plataforma no catálogo | Órgãos |
 |---|---|
-| NucleoGov | 186 |
-| NucleoGov com folha Megasoft (Megasoft embutida) | 221 |
+| NucleoGov | 181 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 225 |
 | Megasoft de domínio próprio | 30 |
 | Ortrel | 4 |
-| Sem portal reconhecido | 20 |
+| Sem portal reconhecido | 21 |
 
 Toda resposta diz a **situação do portal**:
 
@@ -295,12 +295,13 @@ Toda resposta diz a **situação do portal**:
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 441 órgãos com plataforma reconhecida**. A conferência
+Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 440 órgãos com plataforma reconhecida**. A conferência
 passa pelos mesmos caminhos das consultas (NucleoGov, sistema de gestão do NucleoGov, Megasoft embutida e própria,
 Centi, Ortrel) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação. Folha do mês respeitada
-em 408 órgãos; despesas do período em 413; busca por CNPJ em 407; legislação em 368; contratos por ano em 342;
-receitas do mês em 236 (as câmaras quase não arrecadam); diárias em 173; licitações por ano em 164 (nos portais
-NucleoGov o ano das licitações não é usado). 12 órgãos têm portal que não responde direito. O
+em 416 órgãos; despesas do período em 421; busca por CNPJ em 416; contratos por ano em 377; legislação em 376;
+receitas do mês em 237 (as câmaras quase não arrecadam); licitações por ano em 192; diárias em 175. 2 órgãos têm
+portal que não responde (Câmara de Goianésia, Prefeitura de Terezópolis); a Prefeitura de Goiânia usa sistema
+próprio, que o projeto não lê. O
 resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:

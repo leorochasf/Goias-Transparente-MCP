@@ -131,6 +131,10 @@ def main(argv=None):
         print(f"AVISO: {aviso}")
     print(f"{r['total']} registros no portal; {len(r['registros'])} trazidos.")
     _somas_por_orgao(r.get("somas_por_orgao"))
+    if r.get("somas_do_periodo"):
+        s = r["somas_do_periodo"]
+        print(f"Somas do período (do portal): empenhado {s.get('empenhado')}; liquidado {s.get('liquidado')}; "
+              f"pago {s.get('pago')}")
     if not (a.csv or a.json):
         print(json.dumps(r["registros"][:5], ensure_ascii=False, indent=1))
         print("(mostrando até 5; use --csv ou --json para salvar tudo)")

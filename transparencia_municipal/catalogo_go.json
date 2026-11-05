@@ -497,13 +497,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -534,13 +532,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.aguaslindasdegoias.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -1192,15 +1188,13 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados",
 "diarias_periodo": "sem_dados",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "legislacao_ano": "nenhum decreto de 2025",
-"diarias_periodo": "nenhuma diária com saída em 06/2025",
-"contratos_ano": "em https://acessoainformacao.anapolis.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.anapolis.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "nenhuma diária com saída em 06/2025"
 }
 },
 "tcm": {
@@ -1398,15 +1392,13 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "falhou",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
-"diarias_periodo": "https://acessoainformacao.aparecidadegoiania.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
-"contratos_ano": "em https://acessoainformacao.aparecidadegoiania.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.aparecidadegoiania.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "https://acessoainformacao.aparecidadegoiania.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido."
 }
 },
 "tcm": {
@@ -2147,13 +2139,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.aurilandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.aurilandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -2540,14 +2530,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "em https://acessoainformacao.bomjesusdegoias.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.bomjesusdegoias.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -2585,13 +2573,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.bomjesus.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.bomjesus.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -3658,14 +3644,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "em https://acessoainformacao.caldasnovas.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.caldasnovas.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -3702,13 +3686,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "sem_dados",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
+"contratos_ano": "ok",
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "legislacao_ano": "nenhum decreto de 2025",
-"contratos_ano": "em https://acessoainformacao.caldasnovas.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -4179,7 +4162,7 @@
 "receitas": "centi",
 "despesas": "centi",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "sg"
 },
 "outros_enderecos": [
 "campolimpodegoias.go.gov.br"
@@ -4405,14 +4388,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "em https://acessoainformacao.carmodorioverde.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.carmodorioverde.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -4450,13 +4431,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.carmodorioverde.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.carmodorioverde.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -4494,13 +4473,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.castelandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.castelandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -4706,38 +4683,37 @@
 "ibge": "5205406",
 "municipio": "Ceres",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaraceres.go.gov.br",
+"portal": "https://acessoainformacao.ceres.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"diarias": "sg",
+"despesas": "sg",
+"servidores": "sg"
+},
 "outros_enderecos": [
+"acessoainformacao.camaraceres.go.gov.br",
 "camaraceres.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "ok",
+"contratos_ano": "sem_dados",
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em servidores_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em servidores_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em despesas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em receitas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"diarias_periodo": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em diarias_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camaraceres.go.gov.br respondeu HTTP 404 em contratos_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"contratos_ano": "nenhum(a) contrato de 2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -4776,13 +4752,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.ceres.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.ceres.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -6757,19 +6731,16 @@
 "folha_mes": "ok",
 "folha_orgaos": "sem_dados",
 "despesas_periodo": "ok",
-"despesas_cnpj": "sem_dados",
+"despesas_cnpj": "ok",
 "receitas_mes": "ok",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"contratos_ano": "em https://acessoainformacao.formosa.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.formosa.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -6781,42 +6752,42 @@
 "ibge": "5208103",
 "municipio": "Formoso",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaraformoso.go.gov.br",
-"plataforma": "nucleogov",
+"portal": "https://acessoainformacao.formoso.go.leg.br",
+"plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
+},
 "outros_enderecos": [
-"acessoainformacao.formoso.go.leg.br",
 "formoso.go.leg.br",
 "legislativo.camaraformoso.go.gov.br",
-"camaraformoso.go.gov.br"
+"camaraformoso.go.gov.br",
+"acessoainformacao.camaraformoso.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
-"licitacoes_ano": "nao_suportado"
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em despesas_frl/listar (0 bytes, começa com '')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em receitas_frl/listar (0 bytes, começa com '')",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"diarias_periodo": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em diarias_frl/listar (0 bytes, começa com '')",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camaraformoso.go.gov.br devolveu resposta inesperada em contratos_frl/listar (0 bytes, começa com '')",
-"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.formoso.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -7265,13 +7236,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.goianesia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.goianesia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -7283,42 +7252,38 @@
 "ibge": "5208707",
 "municipio": "Goiânia",
 "orgao": "camara",
-"portal": "https://goiania.go.leg.br",
+"portal": "https://camaragoiania.nucleogov.com.br",
 "plataforma": "nucleogov",
 "origem": "sondagem",
 "sufixos": {
+"servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt",
-"servidores": "centi"
+"contratos": "cnt"
 },
 "outros_enderecos": [
+"goiania.go.leg.br",
 "www10.goiania.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "nao_suportado",
-"folha_orgaos": "nao_suportado",
-"despesas_periodo": "erro",
+"folha_mes": "ok",
+"folha_orgaos": "ok",
+"despesas_periodo": "sem_dados",
 "despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "sem_dados",
+"contratos_ano": "ok",
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_mes": "em https://goiania.go.leg.br, o módulo servidores vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"folha_orgaos": "em https://goiania.go.leg.br, o módulo servidores vem da contabilidade Centi integrada ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"despesas_periodo": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 404 em despesas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\" dir=\"ltr\">\n\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n\n    \n        <base href=\"https://www.goiania.go.leg.br/\"><!--[if lt IE 7]",
+"despesas_periodo": "nenhuma despesa em 06/2025",
 "despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 404 em receitas_frl/listar: <!DOCTYPE html>\n<html lang=\"pt-br\" dir=\"ltr\">\n\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">\n\n    \n        <base href=\"https://www.goiania.go.leg.br/\"><!--[if lt IE 7]",
-"legislacao_tipo": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 504 em atos/buscaAvancada: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrom",
-"legislacao_ano": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 504 em atos/buscaAvancada: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrom",
-"diarias_periodo": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 502 em diarias_frl/listar: <html>\r\n<head><title>502 Bad Gateway</title></head>\r\n<body>\r\n<center><h1>502 Bad Gateway</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrome friendly",
-"contratos_ano": "ErroPortal: https://goiania.go.leg.br respondeu HTTP 504 em contratos_cnt/listar: <html>\r\n<head><title>504 Gateway Time-out</title></head>\r\n<body>\r\n<center><h1>504 Gateway Time-out</h1></center>\r\n<hr><center>nginx</center>\r\n</body>\r\n</html>\r\n<!-- a padding to disable MSIE and Chrom",
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "nenhuma diária com saída em 06/2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -7331,9 +7296,9 @@
 "ibge": "5208707",
 "municipio": "Goiânia",
 "orgao": "prefeitura",
-"portal": "https://saude.goiania.go.gov.br",
-"plataforma": "nucleogov",
-"origem": "sondagem",
+"portal": null,
+"plataforma": null,
+"origem": null,
 "sufixos": {},
 "outros_enderecos": [
 "portal.tce.go.gov.br",
@@ -7351,6 +7316,7 @@
 "ouvidoria.tce.go.gov.br",
 "vaptvupt.go.gov.br",
 "gnoi.tce.go.gov.br",
+"saude.goiania.go.gov.br",
 "saba.al.go.leg.br",
 "mapadeobras.seinfra.go.gov.br",
 "alegodigital.al.go.leg.br",
@@ -7370,34 +7336,7 @@
 "dec.tce.go.gov.br",
 "iquego.go.gov.br"
 ],
-"conferencia": {
-"data": "2026-11-05",
-"referencia": "06/2025",
-"filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
-"licitacoes_ano": "nao_suportado"
-},
-"detalhes": {
-"folha_mes": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em servidores_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"folha_orgaos": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em servidores_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"despesas_periodo": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em despesas_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em receitas_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"legislacao_tipo": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em atos/buscaAvancada: str no lugar de {dados, total} ('API não existe')",
-"legislacao_ano": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em atos/buscaAvancada: str no lugar de {dados, total} ('API não existe')",
-"diarias_periodo": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em diarias_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"contratos_ano": "ErroPortal: https://saude.goiania.go.gov.br devolveu resposta inesperada em contratos_frl/listar: str no lugar de {dados, total} ('API não existe')",
-"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
-}
-},
+"conferencia": null,
 "tcm": {
 "esiproc": "GOIÂNIA",
 "tcmjuris": "GOIANIA"
@@ -7571,15 +7510,13 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "falhou",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
-"diarias_periodo": "https://acessoainformacao.goiatuba.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
-"contratos_ano": "em https://acessoainformacao.goiatuba.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.goiatuba.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "https://acessoainformacao.goiatuba.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido."
 }
 },
 "tcm": {
@@ -7618,13 +7555,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.goiatuba.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.goiatuba.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -8632,14 +8567,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "em https://acessoainformacao.ipameri.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.ipameri.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -8678,13 +8611,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.ipameri.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.ipameri.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -9028,7 +8959,7 @@
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 10",
+"folha_orgaos": "sem filtro só vem o órgão 3; com filtro aparecem 5, 6, 8, 10",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -9243,12 +9174,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "sem_dados",
+"contratos_ano": "ok",
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
 "folha_orgaos": "sem filtro só vem o órgão 1; com filtro aparecem 2, 3, 4, 7",
-"contratos_ano": "nenhum(a) contrato de 2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -9565,7 +9495,7 @@
 "diarias": "cnt",
 "receitas": "centi",
 "despesas": "centi",
-"contratos": "cnt"
+"contratos": "sg"
 },
 "outros_enderecos": [
 "itaruma.go.gov.br"
@@ -10420,39 +10350,39 @@
 "ibge": "5212303",
 "municipio": "Leopoldo de Bulhões",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br",
-"plataforma": "nucleogov",
+"portal": "https://acessoainformacao.leopoldodebulhoes.go.leg.br",
+"plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
+},
 "outros_enderecos": [
+"acessoainformacao.camaraleopoldodebulhoes.go.gov.br",
 "camaraleopoldodebulhoes.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
-"licitacoes_ano": "nao_suportado"
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em despesas_frl/listar (0 bytes, começa com '')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em receitas_frl/listar (0 bytes, começa com '')",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"diarias_periodo": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em diarias_frl/listar (0 bytes, começa com '')",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camaraleopoldodebulhoes.go.gov.br devolveu resposta inesperada em contratos_frl/listar (0 bytes, começa com '')",
-"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.leopoldodebulhoes.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {
@@ -11122,16 +11052,14 @@
 "legislacao_tipo": "sem_dados",
 "legislacao_ano": "sem_dados",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
 "legislacao_tipo": "nenhum decreto",
-"legislacao_ano": "nenhum decreto de 2025",
-"contratos_ano": "em https://acessoainformacao.mineiros.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.mineiros.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"legislacao_ano": "nenhum decreto de 2025"
 }
 },
 "tcm": {
@@ -11585,13 +11513,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.morrinhos.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.morrinhos.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -11648,7 +11574,7 @@
 "ibge": "5213855",
 "municipio": "Morro Agudo de Goiás",
 "orgao": "prefeitura",
-"portal": "https://acessoainformacao.prefeiturademorroagudo.go.gov.br",
+"portal": "https://acessoainformacao.morroagudo.go.gov.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
 "sufixos": {
@@ -11660,34 +11586,27 @@
 "contratos": "mg"
 },
 "outros_enderecos": [
+"acessoainformacao.prefeiturademorroagudo.go.gov.br",
 "prefeiturademorroagudo.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "ok",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
 "diarias_periodo": "nao_suportado",
-"contratos_ano": "erro",
-"licitacoes_ano": "erro"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em megasoft/servidores: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em megasoft/servidores: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em megasoft/empenhos: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em megasoft/receitas: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em atos/buscaAvancada: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"diarias_periodo": "em https://acessoainformacao.prefeiturademorroagudo.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"contratos_ano": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em contratos_mg/listar: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    ",
-"licitacoes_ano": "ErroPortal: https://acessoainformacao.prefeiturademorroagudo.go.gov.br respondeu HTTP 404 em licitacoes_mg/listarCidadao: <!DOCTYPE html>\n<html lang=\"pt-br\">\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"/>\n    <meta property=\"og:locale\" content=\"pt_BR\"/>\n\n    <link rel=\"shortcut icon\"\n    "
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"diarias_periodo": "em https://acessoainformacao.morroagudo.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {
@@ -12215,13 +12134,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.niquelandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.niquelandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -13928,39 +13845,40 @@
 "ibge": "5216809",
 "municipio": "Petrolina de Goiás",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaradepetrolina.go.gov.br",
-"plataforma": "nucleogov",
+"portal": "https://acessoainformacao.petrolinadegoias.go.leg.br",
+"plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
+},
 "outros_enderecos": [
+"acessoainformacao.camaradepetrolina.go.gov.br",
 "camaradepetrolina.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
-"licitacoes_ano": "nao_suportado"
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em despesas_frl/listar (0 bytes, começa com '')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em receitas_frl/listar (0 bytes, começa com '')",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"diarias_periodo": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em diarias_frl/listar (0 bytes, começa com '')",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camaradepetrolina.go.gov.br devolveu resposta inesperada em contratos_frl/listar (0 bytes, começa com '')",
-"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.petrolinadegoias.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -14100,38 +14018,41 @@
 "ibge": "5217104",
 "municipio": "Piracanjuba",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaradepiracanjuba.go.gov.br",
+"portal": "https://acessoainformacao.piracanjuba.go.leg.br",
 "plataforma": "nucleogov",
-"origem": "endereco",
-"sufixos": {},
+"origem": "sondagem",
+"sufixos": {
+"servidores": "cnt",
+"licitacoes": "cnt",
+"contratos": "cnt",
+"diarias": "cnt",
+"despesas": "centi"
+},
 "outros_enderecos": [
-"camaradepiracanjuba.go.gov.br"
+"camaradepiracanjuba.go.gov.br",
+"acessoainformacao.camaradepiracanjuba.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
+"folha_mes": "sem_dados",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "sem_dados",
+"legislacao_ano": "sem_dados",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"folha_orgaos": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/servidores_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"despesas_periodo": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/despesas_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/receitas_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"legislacao_tipo": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by SSLError(SSLCertVerificationError(1, \"[SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid for 'acessoainformacao.camaradepiracanjuba.go.gov.br'. (_ssl.c:1081)\")))",
-"legislacao_ano": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/atos/buscaAvancada (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"diarias_periodo": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/diarias_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
-"contratos_ano": "ErroPortal: não foi possível falar com https://acessoainformacao.camaradepiracanjuba.go.gov.br: HTTPSConnectionPool(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Max retries exceeded with url: /api/contratos_frl/listar (Caused by NewConnectionError(\"HTTPSConnection(host='acessoainformacao.camaradepiracanjuba.go.gov.br', port=443): Failed to establish a new connection: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente\"))",
+"folha_mes": "folha de 05/2026 vazia",
+"folha_orgaos": "a folha não traz orgao_id",
+"receitas_mes": "receitas de 06/2025 vazias",
+"legislacao_tipo": "nenhum decreto",
+"legislacao_ano": "nenhum decreto de 2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -14300,15 +14221,14 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "falhou",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
 "diarias_periodo": "https://acessoainformacao.pirenopolis.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
-"contratos_ano": "em https://acessoainformacao.pirenopolis.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.pirenopolis.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -14778,12 +14698,11 @@
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
 "contratos_ano": "sem_dados",
-"licitacoes_ano": "nao_suportado"
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "nenhum(a) contrato de 2025",
-"licitacoes_ano": "em https://acessoainformacao.porteirao.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"contratos_ano": "nenhum(a) contrato de 2025"
 }
 },
 "tcm": {
@@ -14867,7 +14786,7 @@
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"folha_orgaos": "sem filtro só vem o órgão 2; com filtro aparecem 4, 6, 7, 9",
+"folha_orgaos": "sem filtro só vem o órgão 2; com filtro aparecem 3, 4, 6, 7, 9",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
 }
 },
@@ -15599,15 +15518,13 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "falhou",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
 "receitas_mes": "receitas de 06/2025 vazias",
-"diarias_periodo": "https://acessoainformacao.sanclerlandia.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido.",
-"contratos_ano": "em https://acessoainformacao.sanclerlandia.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.sanclerlandia.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"diarias_periodo": "https://acessoainformacao.sanclerlandia.go.leg.br devolveu 1 diária(s) com saída fora do período pedido: o filtro de datas não foi respeitado e nada foi devolvido."
 }
 },
 "tcm": {
@@ -15645,13 +15562,11 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"contratos_ano": "em https://acessoainformacao.sanclerlandia.go.gov.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.sanclerlandia.go.gov.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov"
 }
 },
 "tcm": {
@@ -16498,14 +16413,12 @@
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
 "diarias_periodo": "ok",
-"contratos_ano": "nao_suportado",
-"licitacoes_ano": "nao_suportado"
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
 "folha_orgaos": "a folha vem da NucleoGov (sistema de gestão): a sondagem de órgãos escondidos é só do NucleoGov",
-"receitas_mes": "receitas de 06/2025 vazias",
-"contratos_ano": "em https://acessoainformacao.carmodorioverde.go.leg.br, o módulo contratos vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"licitacoes_ano": "em https://acessoainformacao.carmodorioverde.go.leg.br, o módulo licitacoes vem do sistema de gestão (SG) integrado ao NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
+"receitas_mes": "receitas de 06/2025 vazias"
 }
 },
 "tcm": {
@@ -17922,7 +17835,7 @@
 "ibge": "5221007",
 "municipio": "Taquaral de Goiás",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camarataquaral.go.gov.br",
+"portal": "https://acessoainformacao.taquaraldegoias.go.leg.br",
 "plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
 "sufixos": {
@@ -17939,28 +17852,23 @@
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "sem_dados",
 "diarias_periodo": "nao_suportado",
-"contratos_ano": "erro",
-"licitacoes_ano": "erro"
+"contratos_ano": "ok",
+"licitacoes_ano": "sem_dados"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em megasoft/servidores (2 bytes, começa com '[]')",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em megasoft/servidores (2 bytes, começa com '[]')",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em megasoft/empenhos (2 bytes, começa com '[]')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em receitas_frl/listar (2 bytes, começa com '[]')",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (2 bytes, começa com '[]')",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (2 bytes, começa com '[]')",
-"diarias_periodo": "em https://acessoainformacao.camarataquaral.go.gov.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em contratos_mg/listar (2 bytes, começa com '[]')",
-"licitacoes_ano": "ErroPortal: https://acessoainformacao.camarataquaral.go.gov.br devolveu resposta inesperada em licitacoes_mg/listarCidadao (2 bytes, começa com '[]')"
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"legislacao_ano": "nenhum decreto de 2025",
+"diarias_periodo": "em https://acessoainformacao.taquaraldegoias.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso).",
+"licitacoes_ano": "nenhum(a) licitação de 2025"
 }
 },
 "tcm": {
@@ -19220,39 +19128,39 @@
 "ibge": "5222203",
 "municipio": "Vila Boa",
 "orgao": "camara",
-"portal": "https://acessoainformacao.camaravilaboa.go.gov.br",
-"plataforma": "nucleogov",
+"portal": "https://acessoainformacao.vilaboa.go.leg.br",
+"plataforma": "nucleogov-megasoft",
 "origem": "sondagem",
-"sufixos": {},
+"sufixos": {
+"despesas": "mg",
+"servidores": "mg",
+"diarias": "mg",
+"licitacoes": "mg",
+"contratos": "mg"
+},
 "outros_enderecos": [
+"acessoainformacao.camaravilaboa.go.gov.br",
 "camaravilaboa.go.gov.br"
 ],
 "conferencia": {
 "data": "2026-11-05",
 "referencia": "06/2025",
 "filtros": {
-"folha_mes": "erro",
-"folha_orgaos": "erro",
-"despesas_periodo": "erro",
-"despesas_cnpj": "sem_dados",
-"receitas_mes": "erro",
-"legislacao_tipo": "erro",
-"legislacao_ano": "erro",
-"diarias_periodo": "erro",
-"contratos_ano": "erro",
-"licitacoes_ano": "nao_suportado"
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "sem_dados",
+"legislacao_tipo": "ok",
+"legislacao_ano": "ok",
+"diarias_periodo": "nao_suportado",
+"contratos_ano": "ok",
+"licitacoes_ano": "ok"
 },
 "detalhes": {
-"folha_mes": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"folha_orgaos": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em servidores_frl/listar (0 bytes, começa com '')",
-"despesas_periodo": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em despesas_frl/listar (0 bytes, começa com '')",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
-"receitas_mes": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em receitas_frl/listar (0 bytes, começa com '')",
-"legislacao_tipo": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"legislacao_ano": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em atos/buscaAvancada (0 bytes, começa com '')",
-"diarias_periodo": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em diarias_frl/listar (0 bytes, começa com '')",
-"contratos_ano": "ErroPortal: https://acessoainformacao.camaravilaboa.go.gov.br devolveu resposta inesperada em contratos_frl/listar (0 bytes, começa com '')",
-"licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
+"folha_orgaos": "a folha vem da Megasoft: a sondagem de órgãos escondidos é só do NucleoGov",
+"receitas_mes": "receitas de 06/2025 vazias",
+"diarias_periodo": "em https://acessoainformacao.vilaboa.go.leg.br, o módulo diarias vem da Megasoft embutida no NucleoGov, ainda não suportada: a API NucleoGov não traz nenhum registro desse módulo (responderia zero, sem aviso)."
 }
 },
 "tcm": {

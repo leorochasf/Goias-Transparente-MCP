@@ -300,7 +300,8 @@ class Portal:
             if modulo is None:
                 return None
             externo = self._sufixo(modulo)
-            if nome == "diarias":  # sem leitura genérica: os campos das diárias mudam de portal para portal
+            if nome == "diarias" and externo not in EXTERNOS:
+                # sem leitura genérica: os campos das diárias mudam de portal para portal
                 acesso, origem = ((megasoft_embutida, EXTERNOS["mg"]) if externo == "sg"
                                   else (diarias_nucleogov, NUCLEOGOV))
             elif externo not in EXTERNOS:
@@ -311,8 +312,10 @@ class Portal:
                 sufixo = self._api_serve(modulo)
                 if sufixo:
                     self.sufixos[modulo] = sufixo
-                    return None
+                    return diarias_nucleogov.diarias if nome == "diarias" else None
                 acesso, origem = {"mg": megasoft_embutida, "centi": centi}[externo], EXTERNOS[externo]
+                if nome == "diarias":  # `mgdiarias` (câmaras de Aruanã, Corumbaíba, Cristalina): não medido
+                    raise recusa(self, nome, origem)
         ler = getattr(acesso, nome, None) if nome in LIDOS_POR_ACESSO else None
         if ler is None:
             raise recusa(self, nome, origem)

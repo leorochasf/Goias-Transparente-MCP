@@ -158,3 +158,39 @@ def test_somas_da_centi_sem_valor_em_nenhuma_analitica_saem_vazias_e_nao_zero():
 
 def test_valor_vazio_do_ortrel_e_none_e_nao_zero():
     assert ortrel._decimal("") is None and ortrel._decimal(None) is None and ortrel._decimal("12.5") == 12.5
+
+
+def _api_diarias(total_por_acao):
+    """API NucleoGov de mentira: `acao` → total; ação ausente responde `[]`, como a ação inexistente."""
+    def callback(requisicao):
+        campos = urllib.parse.parse_qs(requisicao.body.decode("utf-8"))
+        ident, corpo = next(iter(json.loads(campos["params"][0]).items()))
+        total = total_por_acao.get(corpo["acao"])
+        if total is None:
+            return 200, {}, "[]"
+        return 200, {}, json.dumps({ident: {"dados": [{"data_saida": "10/01/2025"}] * total, "total": total}})
+    for acao in ("diarias_frl/listar", "diarias_cnt/listar", "diarias_mg/listar"):
+        responses.add_callback(responses.POST, f"{PORTAL}/api/{acao}", callback=callback)
+
+
+@responses.activate
+def test_diarias_da_megasoft_embutida_por_mgdiarias_sao_recusadas_e_nao_vao_a_acao_inexistente():
+    """Câmaras de Aruanã, Corumbaíba e Cristalina (04/11/2026): o menu é `mgdiarias`, e `diarias_mg/listar` responde `[]`."""
+    from transparencia_municipal.cliente import ModuloNaoSuportado
+    _api_diarias({"diarias_frl/listar": 0, "diarias_cnt/listar": 0})
+    with pytest.raises(ModuloNaoSuportado, match="Megasoft"):
+        Portal(PORTAL, sufixos={"diarias": "mg"}, plataforma="nucleogov").diarias("2025-01-01", "2025-01-31")
+    assert not any("diarias_mg" in c.request.url for c in responses.calls)
+
+
+@responses.activate
+def test_diarias_mg_que_a_api_nucleogov_serve_vao_pela_api():
+    _api_diarias({"diarias_frl/listar": 0, "diarias_cnt/listar": 2})
+    r = Portal(PORTAL, sufixos={"diarias": "mg"}, plataforma="nucleogov").diarias("2025-01-01", "2025-01-31")
+    assert r["total"] == 2 and responses.calls[-1].request.url.endswith("diarias_cnt/listar")
+
+
+def test_pagina_com_mgdiarias_e_sgdiarias_fica_com_sgdiarias_que_foi_medido():
+    from transparencia_municipal.plataformas import reconhecer
+    html = '<div class="nucleogov"><a href="/mgdiarias">D</a><a href="/sgdiarias">S</a></div>'
+    assert reconhecer(html, PORTAL)["sufixos"]["diarias"] == "sg"

@@ -46,8 +46,8 @@ def reconhecer(html, endereco):
         # encaixe da Megasoft embutida; `sgdiarias`: as diárias do NucleoGov nesses portais (não existe `mgdiarias`)
         for modulo in re.findall(rf"\b({'|'.join(MODULOS_NUCLEOGOV)})_mg\b", low):
             sufixos.setdefault(modulo, "mg")
-        if re.search(r"\bsgdiarias\b", low):
-            sufixos.setdefault("diarias", "sg")
+        if re.search(r"\bsgdiarias\b", low) and sufixos.get("diarias") in (None, "mg"):
+            sufixos["diarias"] = "sg"  # o `sgdiarias` foi medido; o `mgdiarias`, não
         return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}

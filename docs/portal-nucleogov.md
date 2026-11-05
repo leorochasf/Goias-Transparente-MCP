@@ -128,6 +128,24 @@ NucleoGov e Megasoft embutida foram medidos antes dessa mudança, no 1º trimest
 - **Trindade, 10/2026, com os órgãos escondidos:** 3.638 linhas, contra 2.237 sem filtro. Órgão 3: 2.237;
   órgão 5: 835; órgão 7: 496; órgão 8: 70.
 
+## Sistema de gestão (SG) do NucleoGov (05/11/2026)
+
+Em cerca de 60 portais NucleoGov (Anápolis, Caldas Novas, Formosa, Goianésia, Valparaíso de Goiás...), o menu
+aponta `sgservidores`, `sgdespesas`, `sgreceitas`, `sgcontratos` e `sglicitacoes`. Neles **a API comum
+(`servidores_frl`, `despesas_frl`...) responde zero, sem erro**. A conferência geral mostrava folha, despesas e
+receitas vazias e só a legislação respondendo. Medido em Anápolis; desenho em `docs/design/2026-11-05-nucleogov-sg.md`;
+o teste ao vivo `tests/test_ao_vivo_sg.py` reconfere.
+
+| Módulo | Pedido | Funciona | Ignorado ou armadilha |
+|---|---|---|---|
+| Folha | `acao = sgservidores/listar`, `ano`, `mes`, página pelo `limit` | mês e `orgao` respeitados; páginas de 1.000 sem repetir | tipo "Folha Normal"; o órgão principal vem com `orgao` vazio |
+| Despesas | `acao = sgdespesas/listar`, `ano`, `datamin`/`datamax` (aaaa-mm-dd), `tipo` 0, `cpf_cnpj` | período, tipo e CNPJ respeitados | uma linha por movimento (empenho, liquidação, pagamento); **só com `ano`, vem o mês mais recente**; `periodo_inicial`/`periodo_final` dão zero; o CPF de pessoa física vem completo |
+| Receitas | `acao = sgreceitas/listar`, `ano`, `mes` | mês e `orgao` respeitados; todos os órgãos juntos | conta sem movimento no mês vem com `mes` nulo |
+
+O projeto lista nas despesas os **empenhos emitidos no período**, com o valor empenhado. Liquidado e pago ficam
+vazios, com ressalva: no SG eles são movimentos separados, e os valores da linha são os do momento do movimento.
+Contratos e licitações do SG ainda não foram medidos e são recusados com aviso.
+
 ## Megasoft e Centi (04/11/2026)
 
 Módulos que não vêm pela API NucleoGov. Medido em Corumbaíba (Megasoft própria), Aruanã (Megasoft embutida)

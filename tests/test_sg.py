@@ -397,3 +397,15 @@ def test_despesas_sg_por_cnpj_que_comeca_com_zero_repetem_a_busca_sem_os_zeros()
     r = Portal(PORTAL, pausa=0).despesas("2025-01-01", "2025-01-31", "00.000.000/0001-91")
     assert r["total"] == 1 and r["registros"][0]["cpf_cnpj"] == "00.000.000/0001-91"
     assert [p["cpf_cnpj"] for p in pedidos if not p.get("totais") and p.get("tipo")] == ["00.000.000/0001-91", "191"]
+
+
+@responses.activate
+def test_declaracao_na_lista_de_contratos_vira_aviso_e_nao_conta():
+    """Câmara de Bom Jesus de Goiás (05/11/2026): uma "Declaração" de 2022 (não houve aditivos de 2022 a 2025) vem
+    na lista de contratos de 2025, com `tabela` "declaracoes"."""
+    declaracao = {**_contrato(9, tipo="Declaração", ano="2022"), "tabela": "declaracoes", "numero": None,
+                  "label": "<strong>Esta instituição, não realizou Termos Aditivos no período. <u>Conferir.</u></strong>"}
+    _portal_sg(contratos=[_contrato(1), declaracao], ignora_periodo=True)
+    r = Portal(PORTAL, pausa=0).contratos(2025)
+    assert r["total"] == 1 and [x["numero"] for x in r["registros"]] == ["000001"]
+    assert any("Esta instituição, não realizou Termos Aditivos no período." in x for x in r["ressalvas"])

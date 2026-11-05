@@ -20,6 +20,7 @@ from __future__ import annotations
 
 import calendar
 import json
+import re
 import time
 from datetime import date, datetime, timedelta
 from decimal import Decimal, InvalidOperation
@@ -375,6 +376,15 @@ def contratos(portal, *, ano, tipo, busca, maximo):
         total = len(registros)
         ressalvas.append("os contratos deste portal incluem convênios, atas de registro de preço, comodatos e "
                          "distratos: o campo tipo diz qual é cada um")
+    # Câmara de Bom Jesus de Goiás (05/11/2026): uma declaração ("não realizou Termos Aditivos de 2022 a 2025") vem na
+    # lista, com outro ano: não é contrato; o texto dela vira aviso
+    declaracoes = [r for r in registros if r.get("tabela") == "declaracoes"]
+    if declaracoes:
+        registros = [r for r in registros if r.get("tabela") != "declaracoes"]
+        total -= len(declaracoes)
+        for r in declaracoes:
+            texto = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", r.get("label") or "")).strip()
+            ressalvas.append(f"o portal publica, junto dos contratos, a declaração: \"{texto}\" (ano {r.get('ano')})")
     _do_ano(registros, ano, portal, "contrato(s)")
     return {"total": total, "registros": [_contrato(r) for r in registros[:maximo]], "ressalvas": ressalvas}
 

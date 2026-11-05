@@ -211,30 +211,7 @@ def test_legislacao_da_megasoft_propria_continua_recusada_sem_chamar_a_rede():
     assert len(responses.calls) == 0
 
 
-# ── ticket 03: Megasoft embutida ainda não lê os módulos novos ──────────────────────────────────────────────────
-
-@pytest.mark.parametrize("nome, sem_dados", [
-    ("receitas", ("receitas_frl", "receitas_cnt")),
-    ("contratos", ("contratos_frl", "contratos_cnt")),
-    ("licitacoes", ("licitacoes_frl", "licitacoes_cnt")),
-    ("diarias", ()),
-])
-@responses.activate
-def test_megasoft_embutida_modulos_novos_ainda_nao_disponiveis(nome, sem_dados):  # ticket 03
-    responses.add(responses.GET, f"{NUCLEOGOV}/", body=PAGINA_EMBUTIDA)
-    _sem_dados(*sem_dados)
-    with pytest.raises(ModuloNaoSuportado, match="ainda não está disponível"):
-        CHAMADAS[nome][0](Portal(NUCLEOGOV, pausa=0))
-
-
-@responses.activate
-def test_mcp_receitas_da_megasoft_embutida_ainda_nao_disponiveis(monkeypatch):  # ticket 03
-    prefeitura = {"municipio": "Exemplo", "orgao": "prefeitura", "portal": NUCLEOGOV, "plataforma": "nucleogov-megasoft",
-                  "sufixos": {"receitas": "mg"}, "outros_enderecos": [], "conferencia": None}
-    monkeypatch.setattr(catalogo, "carregar", lambda: [prefeitura])
-    for acao in ("receitas_frl", "receitas_cnt"):
-        responses.add(responses.POST, f"{NUCLEOGOV}/api/{acao}/listar", body="[]")  # sufixo sem dados
-    assert "Megasoft" in servidor_mcp.consultar_receitas(2025, 3, portal=NUCLEOGOV)["erro"]
+# ── ticket 03: a Megasoft embutida lê os módulos novos (tests/test_megasoft_embutida_extras.py) ────────────────
 
 
 # ── permanente: o Ortrel não tem receitas medidas ───────────────────────────────────────────────────────────────

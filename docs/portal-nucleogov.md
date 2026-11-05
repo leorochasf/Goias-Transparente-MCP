@@ -23,6 +23,25 @@ toda consulta nova precisa de uma chamada ao vivo que mostre o total mudando e o
 | Legislação `atos/buscaAvancada` | `tipo` 1 = decreto, 2 = portaria, 3 = resolução; `search` (palavra na ementa); `ano` | `atos_pf_<municipio>/listar` volta vazio (até na tela do site) |
 | Leis `leis/listar` | lista tudo (41 em Senador Canedo) | ignora busca |
 | Folha | `ano` + `mes`; busca só por **nome** | sem `mes`, volta só o mês mais recente do ano |
+| Diárias `diarias_<sufixo>/listar` | `datamin`/`datamax` (aaaa-mm-dd), pela saída; `orgao` (Posse) | `txtbusca` volta 0 com palavra presente (Posse, Senador Canedo); sem `orgao`, alguns portais trazem só o órgão principal |
+| Contratos `contratos_<sufixo>/listar` | `tipo` contrato/aditivo; `ano` (Alexânia, `contratos_cnt`: 798 de 6.989, todos de 2025) | `anobase` é ignorado (`contratos_frl` de Alexânia: 147 com e sem ele): até a v0.5.0 o projeto o mandava, e o ano dos contratos vinha de todos os anos |
+| Licitações `licitacoes_<sufixo>/listar` | `dispensas`, `txtbusca` | o `ano` não foi medido e é recusado pelo projeto |
+
+## Diárias (04/11/2026)
+
+Medidas no 1º trimestre de 2025 em Posse (`diarias_cnt`) e Senador Canedo (`diarias_frl`); o teste ao vivo é
+`tests/test_ao_vivo_diarias_nucleogov.py`.
+
+- **Campos diferentes por portal.** Posse: `orgao_nome`, `data_inicio`/`data_fim`, `valor` e `quantidade` inteiros
+  (`valor` é o total da viagem), `destino` em texto livre e `cidade` padronizada, `id_empenho` como chave interna.
+  Senador Canedo: `orgao`, `data_saida`/`data_chegada`, e `valor`, `quantidade`, `cargo`, `data_chegada` vazios nas
+  115; `destino` é `" - "` nas 115. O projeto traduz para nomes comuns e diz o que veio vazio.
+- **Órgãos.** Posse: 64 diárias, todas do Poder Executivo; a resposta traz `orgao_principal: "3"`, e o filtro
+  `orgao` é respeitado (os outros códigos deram 0). Senador Canedo: 115 diárias de **6 órgãos**,
+  `orgao_principal: null`.
+- **Busca.** `txtbusca` respondeu 0 nos dois portais com palavras presentes em 39 (Posse, destino) e 96 (Senador
+  Canedo, motivo) linhas. O projeto lê o período inteiro e filtra.
+- **Período respeitado** nas saídas dos dois portais; uma `data_fim` passa do período em Posse.
 
 ## Formatos dos campos
 
@@ -95,16 +114,31 @@ NucleoGov e Megasoft embutida foram medidos antes dessa mudança, no 1º trimest
 
 ## Megasoft e Centi (04/11/2026)
 
-Folha e despesas que não vêm pela API NucleoGov. Medido em Corumbaíba (Megasoft própria), Aruanã (Megasoft embutida)
-e Posse (Centi); o desenho é `docs/design/2026-11-04-megasoft-centi.md`. Os testes ao vivo
-`tests/test_ao_vivo_megasoft_propria.py`, `tests/test_ao_vivo_megasoft_embutida.py` e `tests/test_ao_vivo_centi.py`
-reconferem estes pontos.
+Módulos que não vêm pela API NucleoGov. Medido em Corumbaíba (Megasoft própria), Aruanã (Megasoft embutida)
+e Posse (Centi); os desenhos são `docs/design/2026-11-04-megasoft-centi.md` (folha e despesas) e
+`docs/design/2026-11-04-modulos-extras.md` (receitas, diárias, contratos, licitações e detalhe do servidor). Os
+testes ao vivo `tests/test_ao_vivo_megasoft_propria*.py`, `tests/test_ao_vivo_megasoft_embutida*.py`,
+`tests/test_ao_vivo_centi*.py` reconferem estes pontos.
 
 | Sistema | Pedido | Funciona | Ignorado ou armadilha |
 |---|---|---|---|
 | Megasoft própria (`*.megasofttransparencia.com.br`) | `GET /api/<caminho>?pagina=&tamanhoDaPagina=` com `Authorization: Bearer <tokenPortal>` e `cliente-integrado: megasoft-portal-da-transparencia` | folha por `ano` + `mes` ("09"); empenhos por `dataInicial`/`dataFinal`; `cnpjDoFornecedor` filtra | `nome=` e `filtro=` não filtram a folha; `cpfOuCnpjDoFornecedor` é ignorado |
 | Megasoft embutida (menu `mg*`) | API NucleoGov, `acao = megasoft/servidores` ou `megasoft/empenhos`, com `pagina` (começa em 1), `tamanhoDaPagina`, `ordenacao: {}` | folha por `ano` + `mes` ("12") + `mesInteger`; empenhos por `dataInicial`/`dataFinal` | o `limit` do envelope é ignorado; folha sem mês não é aceita pelo projeto |
 | Centi (menu `cntdespesas`) | `POST /api/centi`, formulário simples, `acao=empenhos`, `id_orgao=0`, `data_inicio`/`data_fim` | período; lista inteira, sem páginas, com `TotalRegistros` | `cpf_cnpj` devolve lista vazia; `relatorioEmpenhos` só traz três somas |
+
+Os módulos novos (04/11/2026):
+
+| Sistema e módulo | Pedido | Funciona | Ignorado ou armadilha |
+|---|---|---|---|
+| Megasoft própria, receitas | `receitas-e-despesas/receita/receitas-pelo-tipo-de-natureza-detalhada/paginado`, `ano` + `mes` ("09") | mês respeitado; todas as entidades juntas | `receita/paginado` ignora o período: nunca usado |
+| Megasoft própria, diárias | `orgaos-e-servidores/diaria/paginado`, `data=1`, datas dd/mm/aaaa | período respeitado (394 de 394 no 1º tri/2025) | um só valor por viagem (parece o total); sem órgão |
+| Megasoft própria, contratos e licitações | POST; contratos com `ano`; licitações com `tipoDeConsultaDeModalidade` 1/2 e `dataDePublicacaoInicial/Final` | ano conferido em cada registro | sem `tipoDeConsultaDeModalidade` vem tudo; GET dá 405 |
+| Megasoft própria, detalhe do servidor | `orgaos-e-servidores/servidor/detalhe` | decreto, vínculo, licenças, movimentos | listas de 5 em 5 (`tamanhoDaPagina` ignorado); 406 para matrícula inexistente |
+| Megasoft embutida, receitas | `acao = megasoft/receitas`, `ano`, `mes` ("09") | mês respeitado; 9 órgãos juntos | a mesma receita uma vez por fonte de recurso |
+| Megasoft embutida, diárias | `acao = sgdiarias/listar`, `datamin`/`datamax`, `txtbusca` | período e `txtbusca` respeitados; página pelo `limit` | `quantidade` absurda em 3 linhas |
+| Megasoft embutida, contratos | `acao = contratos_mg/listar`, `ano`, `objeto` | `ano` e `objeto` | `txtbusca` zera; sem `ano`, todos os anos; `orgao` só código |
+| Megasoft embutida, licitações | `acao = licitacoes_mg/listarCidadao`, `ano`, `dispensas`, `descricao` | `ano` (da licitação) | período por data: `error` com total 0 (o cliente trata como recusa) |
+| Centi, receitas (menu `cntreceitas`) | `POST /api/centi`, `acao=receitas`, `orgao=<id>` de `sgcenti/listarOrgaos` | um órgão por resposta; mês respeitado | sem a Câmara; analíticas e sintéticas juntas (`TipoConta`); vazio passageiro |
 
 - **Senha pública da Megasoft própria.** `GET {portal}/api/configuracao/carregamento-inicial` devolve o
   `tokenPortal`, sem login: é o que o navegador de qualquer visitante faz ao abrir o portal. O JWT vence em

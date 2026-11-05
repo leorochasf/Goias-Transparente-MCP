@@ -126,7 +126,7 @@ def test_licitacoes_do_ortrel_com_os_nomes_do_nucleogov():
 
 @responses.activate
 def test_ano_dos_contratos_no_nucleogov_vai_no_filtro_ano_e_nao_no_anobase():
-    """Medido em Alexânia (04/11/2026): `anobase` é ignorado (6.989 contratos de todos os anos); `ano` filtra (798)."""
+    """Medido em Alexânia (04/11/2026): `anobase` é ignorado (147 com e sem ele); `ano` filtra (34, todos de 2025)."""
     pedidos = []
 
     def callback(requisicao):

@@ -182,13 +182,14 @@ devolvendo a folha completa. Na folha da Megasoft o 13º não aparece (veja **Me
 
 Muitos portais de Goiás mostram módulos de outros sistemas. O projeto escolhe o caminho sozinho, pelo endereço e
 pelo menu do portal, e entrega os registros no mesmo formato. Cada registro dos sistemas traduzidos traz o campo
-`fonte`, que diz de onde veio: `NucleoGov`, `Megasoft`, `Centi` ou `Ortrel`.
+`fonte`, que diz de onde veio: `NucleoGov`, `NucleoGov (sistema de gestão)`, `Megasoft`, `Centi` ou `Ortrel`.
 
 | Sistema | Onde aparece | Folha | Despesas | Receitas | Diárias | Contratos | Licitações | Detalhe do servidor |
 |---|---|---|---|---|---|---|---|---|
 | Megasoft embutida | menus `mg*`, `*_mg`, `sgdiarias` de um portal NucleoGov | sim | sim | sim | sim (`sgdiarias`; `mgdiarias` é recusado) | sim | sim, por ano | não tem |
 | Megasoft de domínio próprio | `<municipio>.megasofttransparencia.com.br` | sim | sim | sim | sim | sim | sim | sim |
 | Centi | menus `cntdespesas`, `cntreceitas` de um portal NucleoGov | não tem | sim | sim, por órgão | não tem | não tem | não tem | não tem |
+| Sistema de gestão (SG) do NucleoGov | menus `sgservidores`, `sgdespesas`, `sgreceitas` de um portal NucleoGov | sim | sim, os empenhos (sem liquidado e pago) | sim, todos os órgãos juntos | `sgdiarias`, como na Megasoft embutida | recusado (não medido) | recusado (não medido) | não tem |
 
 O que o sistema não tem ou o projeto não lê (legislação da Megasoft, aditivos fora do NucleoGov) é **recusado com
 aviso**, em vez de responder "zero". Contratos e licitações saem com os **nomes de campo do NucleoGov** em todo
@@ -282,8 +283,8 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 
 | Plataforma no catálogo | Órgãos |
 |---|---|
-| NucleoGov | 188 |
-| NucleoGov com folha Megasoft (Megasoft embutida) | 219 |
+| NucleoGov | 186 |
+| NucleoGov com folha Megasoft (Megasoft embutida) | 221 |
 | Megasoft de domínio próprio | 30 |
 | Ortrel | 4 |
 | Sem portal reconhecido | 20 |
@@ -294,20 +295,21 @@ Toda resposta diz a **situação do portal**:
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04/11/2026 foram conferidos os 32 órgãos de 16 municípios: Nova Crixás, Alto Paraíso de Goiás, Cristalina,
-São Miguel do Araguaia, Trindade, Aruanã, Posse, Alexânia, Vianópolis, Orizona, Cocalzinho de Goiás, Itapuranga,
-Goianápolis, Pirenópolis, Corumbaíba e Guapó, e as 4 câmaras Ortrel. A conferência passa pelos mesmos caminhos das
-consultas (NucleoGov, Megasoft embutida e própria, Centi, Ortrel) e mede folha, despesas, receitas, diárias,
-contratos, licitações e legislação. Contratos com o ano respeitado em 33 órgãos; diárias com o período respeitado em
-20; receitas do mês em 16; licitações por ano em 13 (nos portais NucleoGov o ano das licitações não é usado). O
+Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 441 órgãos com plataforma reconhecida**. A conferência
+passa pelos mesmos caminhos das consultas (NucleoGov, sistema de gestão do NucleoGov, Megasoft embutida e própria,
+Centi, Ortrel) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação. Folha do mês respeitada
+em 408 órgãos; despesas do período em 413; busca por CNPJ em 407; legislação em 368; contratos por ano em 342;
+receitas do mês em 236 (as câmaras quase não arrecadam); diárias em 173; licitações por ano em 164 (nos portais
+NucleoGov o ano das licitações não é usado). 12 órgãos têm portal que não responde direito. O
 resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:
 
 - **Muitos portais NucleoGov puxam módulos de outros sistemas.** Despesas e receitas podem vir da
   contabilidade Centi, e folha, despesas, receitas, diárias, contratos e licitações podem vir da Megasoft embutida.
-  O projeto lê esses sistemas (veja **Megasoft e Centi**); o que não lê é **recusado com aviso**, em vez de
-  responder "zero". Na amostra, as despesas só vieram pela API NucleoGov na Prefeitura de Alexânia.
+  Outros puxam folha, despesas e receitas do **sistema de gestão (SG)** do próprio NucleoGov (Anápolis, Caldas
+  Novas, Formosa e cerca de 60 portais): a API comum responde "zero" neles. O projeto lê esses sistemas (veja
+  **Megasoft e Centi**); o que não lê é **recusado com aviso**, em vez de responder "zero". Na amostra, as despesas só vieram pela API NucleoGov na Prefeitura de Alexânia.
 - **Em várias prefeituras a folha sem filtro esconde órgãos** (fundos, autarquias). As listas e o resumo da
   folha buscam esses órgãos um a um. A busca rápida por nome avisa quando o portal faz isso.
 - **Muitos portais só publicam a folha dos meses recentes.** Um mês antigo pode vir vazio.

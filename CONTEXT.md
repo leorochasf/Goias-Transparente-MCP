@@ -25,7 +25,7 @@ A prefeitura ou a câmara de um município, cada um com seu portal da transparê
 _Evitar_: entidade, ente
 
 **Fonte**:
-O sistema de onde veio um registro: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio), Centi ou Ortrel. Registro da API NucleoGov sem o campo `fonte` (receitas, contratos, licitações, legislação) é do NucleoGov. Nos dados do TCM-GO, a fonte é o eSiproc (processos) ou o TCMJuris (acórdãos).
+O sistema de onde veio um registro: NucleoGov, o sistema de gestão (SG) integrado ao NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio), Centi ou Ortrel. Registro da API NucleoGov sem o campo `fonte` (receitas, contratos, licitações, legislação) é do NucleoGov. Nos dados do TCM-GO, a fonte é o eSiproc (processos) ou o TCMJuris (acórdãos).
 _Evitar_: plataforma (quando se quer dizer a fonte do registro)
 
 **Diária**:

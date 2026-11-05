@@ -119,6 +119,35 @@ def _simular_conferencia(monkeypatch, saida):
     return chamadas
 
 
+# ── portal escolhido: o portal da transparência, não o site institucional (conferência geral, 05/11/2026) ──────
+
+def test_entre_dois_confirmados_vence_o_acessoainformacao():
+    """Abadia de Goiás: o site e o portal mostram a marca NucleoGov; antes vencia o site, na ordem alfabética."""
+    orgao = _orgao("Abadia de Goiás", "prefeitura", "abadiadegoias.go.gov.br")
+    orgao["hosts"].insert(0, "acessoainformacao.abadiadegoias.go.gov.br")
+    sondados = {h: {"plataforma": "nucleogov-megasoft"} for h in orgao["hosts"]}
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, sondados)
+    assert (host, plataforma) == ("acessoainformacao.abadiadegoias.go.gov.br", "nucleogov-megasoft")
+
+
+def test_site_institucional_nucleogov_leva_ao_portal_acessoainformacao_sondado():
+    """Cumari: só o site da prefeitura veio da origem; o portal é `acessoainformacao.` + o mesmo endereço."""
+    orgao = _orgao("Cumari", "prefeitura", "cumari.go.gov.br")
+    sondados = {"cumari.go.gov.br": {"plataforma": "nucleogov"}}
+    assert catalogo_go._fila([orgao], sondados) == {"cumari.go.gov.br", "acessoainformacao.cumari.go.gov.br"}
+    sondados["acessoainformacao.cumari.go.gov.br"] = {"plataforma": "nucleogov-megasoft"}
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, sondados)
+    assert (host, plataforma) == ("acessoainformacao.cumari.go.gov.br", "nucleogov-megasoft")
+
+
+def test_portal_derivado_fora_do_ar_nao_e_escolhido():
+    orgao = _orgao("Cumari", "prefeitura", "cumari.go.gov.br")
+    sondados = {"cumari.go.gov.br": {"plataforma": "nucleogov"},
+                "acessoainformacao.cumari.go.gov.br": {"status": None, "erro": "ConnectionError", "plataforma": None}}
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, sondados)
+    assert (host, plataforma) == ("cumari.go.gov.br", "nucleogov")
+
+
 def test_conferir_grava_na_saida_da_frente_depois_de_cada_orgao_e_retoma(trabalho, monkeypatch):
     saida = trabalho / "conferencias-frente2.json"
     ja = {"data": "2026-11-04", "referencia": "06/2025", "filtros": {"folha_mes": "ok"}, "detalhes": {}}

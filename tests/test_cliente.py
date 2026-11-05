@@ -101,3 +101,16 @@ def test_data_invalida_diz_o_que_esperava():
 
 def test_endereco_sem_esquema_ganha_https_e_perde_barra():
     assert Portal("acessoainformacao.exemplo.go.gov.br/").url == "https://acessoainformacao.exemplo.go.gov.br"
+
+
+@pytest.mark.parametrize("bruto", ["texto solto", ["lista", "crua"]])
+@responses.activate
+def test_resposta_que_nao_e_o_envelope_vira_erro_claro(bruto):
+    """Site que não é portal NucleoGov (saude.goiania.go.gov.br na conferência geral, 05/11/2026): antes, AttributeError."""
+    def callback(requisicao):
+        ident = next(iter(json.loads(urllib.parse.parse_qs(requisicao.body.decode("utf-8"))["params"][0])))
+        return 200, {}, json.dumps({ident: bruto})
+    responses.add_callback(responses.POST, f"{PORTAL}/api/servidores_frl/listar", callback=callback,
+                           content_type="application/json")
+    with pytest.raises(ErroPortal, match="resposta inesperada"):
+        Portal(PORTAL, pausa=0).consultar("servidores_frl/listar", {"ano": "2025"})

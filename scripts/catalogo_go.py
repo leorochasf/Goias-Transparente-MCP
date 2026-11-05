@@ -77,12 +77,7 @@ def sondar(args):
     feitos = set()
     if SONDAGEM.exists():
         feitos = {json.loads(ln)["host"] for ln in SONDAGEM.read_text(encoding="utf-8").splitlines() if ln}
-    # órgão com portal reconhecível pelo endereço: basta sondar esse portal (aprende sufixos e a variante
-    # Megasoft); o site oficial só é sondado quando o órgão não tem portal reconhecível.
-    fila = set()
-    for o in orgaos:
-        reconheciveis = [h for h in o["hosts"] if plataforma_pelo_endereco(h)]
-        fila.update(reconheciveis or o["hosts"])
+    fila = _fila(orgaos, _sondados())
     if args.refazer:  # sondar de novo os endereços que a sondagem anterior classificou assim
         anteriores = _sondados()
         feitos = {h for h in feitos if (anteriores.get(h) or {}).get("plataforma") != args.refazer}
@@ -108,6 +103,29 @@ def sondar(args):
                 print(f"  {i}/{len(fila)}", flush=True)
 
 
+PREFIXO_PORTAL = "acessoainformacao."
+
+
+def _derivados(orgao, sondados):
+    """`acessoainformacao.` + o site institucional que a sondagem viu feito pela NucleoGov, quando a origem não trouxe
+    o portal (Cumari, Inhumas, Nova Crixás...: o site não serve a API e responde 404; conferência geral, 05/11/2026)."""
+    return [PREFIXO_PORTAL + h for h in orgao["hosts"]
+            if not plataforma_pelo_endereco(h) and str((sondados.get(h) or {}).get("plataforma") or "").startswith(
+                "nucleogov") and PREFIXO_PORTAL + h not in orgao["hosts"]]
+
+
+def _fila(orgaos, sondados):
+    """Endereços a sondar. Órgão com portal reconhecível pelo endereço: basta esse portal (aprende sufixos e a
+    variante Megasoft); o site oficial só é sondado quando o órgão não tem portal reconhecível. Mais os portais
+    derivados dos sites institucionais já sondados (rode o `sondar` de novo depois da 1ª vez)."""
+    fila = set()
+    for o in orgaos:
+        reconheciveis = [h for h in o["hosts"] if plataforma_pelo_endereco(h)]
+        fila.update(reconheciveis or o["hosts"])
+        fila.update(_derivados(o, sondados))
+    return fila
+
+
 def _sondados():
     if not SONDAGEM.exists():
         return {}
@@ -122,17 +140,21 @@ PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
 
 
 def _portal_escolhido(orgao, sondados):
-    """O portal do órgão no catálogo: o que a sondagem viu no ar antes do só reconhecido pelo endereço; entre eles, a
-    plataforma na ordem de PREFERENCIA. Devolve (host, plataforma, sondagem); sem plataforma, (host ou None, None, ...)."""
+    """O portal do órgão no catálogo: o que a sondagem viu no ar antes do só reconhecido pelo endereço; entre eles, o
+    portal `acessoainformacao.` antes do site institucional, e a plataforma na ordem de PREFERENCIA. Devolve (host, plataforma, sondagem); sem plataforma, (host ou None, None, ...)."""
     opcoes = []
-    for h in orgao["hosts"]:
+    derivados = _derivados(orgao, sondados)
+    for h in orgao["hosts"] + derivados:
         s = sondados.get(h) or {}
-        plataforma = s.get("plataforma") or plataforma_pelo_endereco(h)
+        plataforma = s.get("plataforma") or (plataforma_pelo_endereco(h) if h not in derivados else None)
         if plataforma:
             confirmado = bool(s.get("plataforma"))  # a sondagem viu a marca da plataforma no ar
-            opcoes.append((not confirmado, PREFERENCIA.index(plataforma), h, plataforma, s))
+            # entre os confirmados, o portal da transparência (`acessoainformacao.`) vence o site institucional
+            # que também mostra a marca NucleoGov (Abadia de Goiás, conferência geral de 05/11/2026)
+            portal = bool(plataforma_pelo_endereco(h))
+            opcoes.append((not confirmado, not portal, PREFERENCIA.index(plataforma), h, plataforma, s))
     if opcoes:
-        return min(opcoes)[2:]
+        return min(opcoes)[3:]
     primeiro = (orgao["hosts"] or [None])[0]
     return primeiro, None, sondados.get(primeiro or "") or {}
 

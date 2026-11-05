@@ -135,7 +135,7 @@ Os módulos novos (04/11/2026):
 | Megasoft própria, contratos e licitações | POST; contratos com `ano`; licitações com `tipoDeConsultaDeModalidade` 1/2 e `dataDePublicacaoInicial/Final` | ano conferido em cada registro | sem `tipoDeConsultaDeModalidade` vem tudo; GET dá 405 |
 | Megasoft própria, detalhe do servidor | `orgaos-e-servidores/servidor/detalhe` | decreto, vínculo, licenças, movimentos | listas de 5 em 5 (`tamanhoDaPagina` ignorado); 406 para matrícula inexistente |
 | Megasoft embutida, receitas | `acao = megasoft/receitas`, `ano`, `mes` ("09") | mês respeitado; 9 órgãos juntos | a mesma receita uma vez por fonte de recurso |
-| Megasoft embutida, diárias | `acao = sgdiarias/listar`, `datamin`/`datamax`, `txtbusca` | período e `txtbusca` respeitados; página pelo `limit` | `quantidade` absurda em 3 linhas |
+| Megasoft embutida, diárias | `acao = sgdiarias/listar`, `datamin`/`datamax`, `txtbusca` | período e `txtbusca` respeitados; página pelo `limit` | `quantidade` absurda em 3 linhas; algumas câmaras anunciam `mgdiarias`, não medido (recusado se a API NucleoGov não servir as diárias) |
 | Megasoft embutida, contratos | `acao = contratos_mg/listar`, `ano`, `objeto` | `ano` e `objeto` | `txtbusca` zera; sem `ano`, todos os anos; `orgao` só código |
 | Megasoft embutida, licitações | `acao = licitacoes_mg/listarCidadao`, `ano`, `dispensas`, `descricao` | `ano` (da licitação) | período por data: `error` com total 0 (o cliente trata como recusa) |
 | Centi, receitas (menu `cntreceitas`) | `POST /api/centi`, `acao=receitas`, `orgao=<id>` de `sgcenti/listarOrgaos` | um órgão por resposta; mês respeitado | sem a Câmara; analíticas e sintéticas juntas (`TipoConta`); vazio passageiro |

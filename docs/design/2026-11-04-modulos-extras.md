@@ -464,6 +464,11 @@ vale este.
   `ano`, todos de 2025; em `contratos_cnt` (o do catálogo), 6.989 sem filtro e 798 com `ano`, todos de 2025.
   Corrigido no fechamento, com teste ao vivo em Senador Canedo.
 
+- **NucleoGov com Megasoft, diárias por `mgdiarias`:** as câmaras de Aruanã, Corumbaíba e Cristalina anunciam
+  `mgdiarias` (a prefeitura de Aruanã anuncia `sgdiarias`). O projeto mandava a consulta à ação inexistente
+  `diarias_mg/listar`, que responde `[]` (a conferência deu `erro`). Agora a API NucleoGov é sondada uma vez; sem ela,
+  as diárias são recusadas com aviso, porque o `mgdiarias` não foi medido.
+
 ### Nomes unificados de contratos e licitações
 
 Os nomes do NucleoGov valem para todo sistema (a API NucleoGov devolve os campos dela, sem tradução):

@@ -186,7 +186,7 @@ pelo menu do portal, e entrega os registros no mesmo formato. Cada registro dos 
 
 | Sistema | Onde aparece | Folha | Despesas | Receitas | Diárias | Contratos | Licitações | Detalhe do servidor |
 |---|---|---|---|---|---|---|---|---|
-| Megasoft embutida | menus `mg*`, `*_mg`, `sgdiarias` de um portal NucleoGov | sim | sim | sim | sim | sim | sim, por ano | não tem |
+| Megasoft embutida | menus `mg*`, `*_mg`, `sgdiarias` de um portal NucleoGov | sim | sim | sim | sim (`sgdiarias`; `mgdiarias` é recusado) | sim | sim, por ano | não tem |
 | Megasoft de domínio próprio | `<municipio>.megasofttransparencia.com.br` | sim | sim | sim | sim | sim | sim | sim |
 | Centi | menus `cntdespesas`, `cntreceitas` de um portal NucleoGov | não tem | sim | sim, por órgão | não tem | não tem | não tem | não tem |
 

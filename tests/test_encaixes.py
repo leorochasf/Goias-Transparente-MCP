@@ -185,22 +185,7 @@ def test_diarias_com_periodo_invertido_ou_ilegivel_sao_recusadas(de, ate):
         Portal(PROPRIA, pausa=0).diarias(de, ate)
 
 
-# ── ticket 02: Megasoft própria ainda não lê os módulos novos ───────────────────────────────────────────────────
-
-@pytest.mark.parametrize("nome", ["receitas", "diarias", "contratos", "licitacoes", "detalhe_servidor"])
-@responses.activate
-def test_megasoft_propria_modulos_novos_ainda_nao_disponiveis(nome):  # ticket 02
-    with pytest.raises(ModuloNaoSuportado, match="ainda não está disponível"):
-        CHAMADAS[nome][0](Portal(PROPRIA, pausa=0))
-    assert len(responses.calls) == 0
-
-
-@responses.activate
-def test_mcp_receitas_da_megasoft_propria_ainda_nao_disponiveis():  # ticket 02
-    r = servidor_mcp.consultar_receitas(2025, 3, portal="https://corumbaiba.megasofttransparencia.com.br")
-    assert "Megasoft" in r["erro"] and "corumbaiba" in r["erro"]
-    assert len(responses.calls) == 0
-
+# ── ticket 02: a Megasoft própria lê os módulos novos (testes em test_megasoft_propria_extras.py) ────────────────
 
 # ── permanente: a legislação da Megasoft própria continua recusada ───────────────────────────────────────────────
 

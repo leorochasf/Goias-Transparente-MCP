@@ -29,7 +29,8 @@ def test_as_tres_ferramentas_existem_com_os_parametros_da_spec():
     e = anyio.run(esquemas)
     assert set(e["processos_tcm"]["properties"]) == {"municipio", "tipo", "ano", "finalizado", "relator", "numero",
                                                      "maximo"}
-    assert set(e["acordaos_tcm"]["properties"]) == {"municipio", "texto", "assunto", "ano", "relator", "maximo"}
+    assert set(e["acordaos_tcm"]["properties"]) == {"municipio", "texto", "assunto", "ano", "relator", "numero",
+                                                    "maximo"}
     assert set(e["ler_acordao_tcm"]["properties"]) == {"id"}
     assert e["ler_acordao_tcm"]["required"] == ["id"]
 

@@ -3,4 +3,4 @@ from .cliente import ErroPortal, Portal, PortalBloqueou
 from .tcm import ClienteTCM, ErroTCM
 
 __all__ = ["Portal", "ErroPortal", "PortalBloqueou", "ClienteTCM", "ErroTCM"]
-__version__ = "0.5.0"
+__version__ = "0.6.0"

@@ -1,7 +1,8 @@
 """O caminho de cada módulo, decidido num ponto único do `Portal`. Offline; cada encaixe é trocado por um dublê.
 
 Caminhos: API NucleoGov; Megasoft embutida (menu `mg*`); Centi (menu `cnt*`); Megasoft de domínio próprio
-(`*.megasofttransparencia.com.br`, o portal inteiro). Os encaixes ainda recusam (`ModuloNaoSuportado`).
+(`*.megasofttransparencia.com.br`, o portal inteiro). Os módulos extras (receitas, diárias, contratos, licitações,
+detalhe do servidor, Ortrel) estão em tests/test_encaixes.py.
 """
 import json
 import urllib.parse
@@ -10,7 +11,6 @@ import pytest
 import responses
 
 from transparencia_municipal import Portal, centi, megasoft_embutida, megasoft_propria, servidor_mcp
-from transparencia_municipal.cliente import ModuloNaoSuportado
 
 pytestmark = pytest.mark.descobre_sufixos
 NUCLEOGOV = "https://acessoainformacao.exemplo.go.gov.br"
@@ -72,23 +72,8 @@ def test_modulo_centi_vai_pelo_encaixe_da_centi(monkeypatch):
                                      "busca": "EMPRESA X", "maximo": 10})]
 
 
-@responses.activate
-def test_portal_megasoft_proprio_recusa_os_modulos_que_nao_le_e_nao_chama_o_portal():
-    portal = Portal(PROPRIA, pausa=0)
-    for consulta in (lambda: portal.receitas(2025, 3), lambda: portal.contratos(2025),
-                     lambda: portal.legislacao("DECRETO")):
-        with pytest.raises(ModuloNaoSuportado, match="Megasoft"):
-            consulta()
-    assert len(responses.calls) == 0
-
-
-@responses.activate
-def test_modulo_que_o_encaixe_nao_le_e_recusado_pelo_portal(monkeypatch):
-    """A Centi de despesas não traz receitas: o módulo `cntreceitas` continua recusado, como hoje."""
-    responses.add(responses.GET, f"{NUCLEOGOV}/", body='<div class="nucleogov"><a href="x/cntreceitas">R</a></div>')
-    _sem_dados("receitas_frl", "receitas_cnt")
-    with pytest.raises(ModuloNaoSuportado, match="Centi"):
-        Portal(NUCLEOGOV, pausa=0).receitas(2025, 3)
+# As recusas de receitas, contratos e legislação (Megasoft própria) e de receitas (Centi) passaram para
+# tests/test_encaixes.py, com os encaixes dos módulos extras.
 
 
 @responses.activate

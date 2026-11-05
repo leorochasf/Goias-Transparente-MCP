@@ -21,12 +21,24 @@ Contagens e somas de linhas da folha por agrupamento (cargo, lotação ou víncu
 _Evitar_: relatório, estatística
 
 **Órgão**:
-A prefeitura ou a câmara de um município, cada um com seu portal da transparência. Nas despesas da Megasoft e da Centi, o campo `orgao` diz de quem é cada empenho: Prefeitura, Câmara ou fundo, que vêm juntos no mesmo portal.
+A prefeitura ou a câmara de um município, cada um com seu portal da transparência. Nas despesas, receitas e contratos da Megasoft e da Centi, o campo `orgao` (nos contratos, `orgao_nome`) diz de quem é cada registro: Prefeitura, Câmara ou fundo, que vêm juntos no mesmo portal.
 _Evitar_: entidade, ente
 
 **Fonte**:
-O sistema de onde veio um registro de folha ou de despesas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio) ou Centi. Nos dados do TCM-GO, a fonte é o eSiproc (processos) ou o TCMJuris (acórdãos).
+O sistema de onde veio um registro: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio), Centi ou Ortrel. Registro da API NucleoGov sem o campo `fonte` (receitas, contratos, licitações, legislação) é do NucleoGov. Nos dados do TCM-GO, a fonte é o eSiproc (processos) ou o TCMJuris (acórdãos).
 _Evitar_: plataforma (quando se quer dizer a fonte do registro)
+
+**Diária**:
+Um pagamento de diárias de viagem a serviço a uma pessoa, com saída, destino, motivo, quantidade e valor, nos nomes comuns do projeto. Valor vazio quer dizer que o portal não o publicou, não que foi zero.
+_Evitar_: viagem, ajuda de custo
+
+**Detalhe do servidor**:
+Cargo, vínculo, decreto de nomeação e a data dele, licenças, férias e movimentos de uma matrícula num mês, na Megasoft de domínio próprio, que não publica as rubricas.
+_Evitar_: ficha funcional, contracheque
+
+**Ressalva**:
+Um fato da fonte que quem lê a resposta precisa saber antes de somar ou concluir (ex.: valor não publicado, órgãos juntos, filtro que só vale por ano), dito em frase completa na resposta.
+_Evitar_: alerta, observação
 
 **Catálogo de portais**:
 A lista dos órgãos de Goiás, cada um com o endereço do portal, a plataforma e a situação da conferência.

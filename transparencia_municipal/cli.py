@@ -11,7 +11,7 @@ import json
 import sys
 
 from . import tcm
-from .cliente import ErroPortal, Portal
+from .cliente import AVISO_DETALHE, AVISO_DIARIAS, ErroPortal, Portal, marcas_em_texto
 
 for _saida in (sys.stdout, sys.stderr):  # stderr: o erro sai por SystemExit
     try:
@@ -57,7 +57,14 @@ def _parser():
     s.add_argument("--busca")
     s = sub.add_parser("licitacoes")
     s.add_argument("--dispensas", action="store_true"); s.add_argument("--busca")
+    s.add_argument("--ano", type=int, help="só Megasoft e Ortrel; no NucleoGov o filtro não foi medido")
     s = sub.add_parser("receitas", help="receitas de um mês (para um período, um mês por vez)")
+    s.add_argument("--ano", type=int, required=True); s.add_argument("--mes", type=int, required=True)
+    s = sub.add_parser("diarias", help="diárias de viagem, pela data de saída")
+    s.add_argument("--de", required=True); s.add_argument("--ate", required=True)
+    s.add_argument("--busca", help="nome, cargo, destino ou motivo")
+    s = sub.add_parser("detalhe-servidor", help="decreto, vínculo e licenças de uma matrícula (Megasoft própria)")
+    s.add_argument("--matricula", required=True)
     s.add_argument("--ano", type=int, required=True); s.add_argument("--mes", type=int, required=True)
     s = sub.add_parser("legislacao", help="decretos, portarias e resoluções")
     s.add_argument("--tipo", default="DECRETO", help="DECRETO (padrão), PORTARIA, RESOLUCAO ou o código")
@@ -73,6 +80,7 @@ def _parser():
     s = sub.add_parser("tcm-acordaos", help="acórdãos do TCM-GO desde 2020 (TCMJuris)")
     s.add_argument("--municipio"); s.add_argument("--texto"); s.add_argument("--assunto")
     s.add_argument("--ano", type=int, help="ano do julgamento"); s.add_argument("--relator")
+    s.add_argument("--numero", help="número do processo ou do acórdão, NNNNN/AA (sem /AA: todos os anos)")
     s = sub.add_parser("tcm-acordao", help="texto do PDF de um acórdão do TCM-GO")
     s.add_argument("id", help="document_id (de tcm-acordaos)")
     return p
@@ -87,7 +95,7 @@ def _tcm(a):
                 [tcm.AVISO_PROCESSOS, tcm.AVISO_ENVOLVIDOS])
     if a.modulo == "tcm-acordaos":
         return (cliente.acordaos(a.municipio, texto=a.texto, assunto=a.assunto, ano=a.ano, relator=a.relator,
-                                 maximo=a.maximo),
+                                 numero=a.numero, maximo=a.maximo),
                 [tcm.AVISO_ACORDAOS])
     return cliente.ler_acordao(a.id), [tcm.AVISO_ACORDAOS]
 
@@ -99,6 +107,7 @@ def main(argv=None):
     if not a.portal:
         raise SystemExit(f"ERRO: {a.modulo} precisa de --portal")
     portal = Portal(a.portal, navegador=a.navegador, pausa=a.pausa)
+    avisos = []
     try:
         if a.modulo == "folha":
             r = portal.folha(a.ano, a.mes, a.busca, maximo=a.maximo)
@@ -107,18 +116,36 @@ def main(argv=None):
         elif a.modulo == "contratos":
             r = portal.contratos(a.ano, a.tipo, a.busca, maximo=a.maximo)
         elif a.modulo == "licitacoes":
-            r = portal.licitacoes(a.busca, dispensas=a.dispensas, maximo=a.maximo)
+            r = portal.licitacoes(a.busca, dispensas=a.dispensas, ano=a.ano, maximo=a.maximo)
         elif a.modulo == "receitas":
             r = portal.receitas(a.ano, a.mes, maximo=a.maximo)
+        elif a.modulo == "diarias":
+            r, avisos = portal.diarias(a.de, a.ate, a.busca, maximo=a.maximo), [AVISO_DIARIAS]
+        elif a.modulo == "detalhe-servidor":
+            r, avisos = portal.detalhe_servidor(a.matricula, a.ano, a.mes), [AVISO_DETALHE]
         else:
             r = portal.legislacao(a.tipo, a.busca, ano=a.ano, maximo=a.maximo)
     except (ErroPortal, ValueError) as e:
         raise SystemExit(f"ERRO: {e}")
+    for aviso in avisos + list(r.get("ressalvas") or []) + list(marcas_em_texto(r, a.maximo).values()):
+        print(f"AVISO: {aviso}")
     print(f"{r['total']} registros no portal; {len(r['registros'])} trazidos.")
+    _somas_por_orgao(r.get("somas_por_orgao"))
     if not (a.csv or a.json):
         print(json.dumps(r["registros"][:5], ensure_ascii=False, indent=1))
         print("(mostrando até 5; use --csv ou --json para salvar tudo)")
     _gravar(r["registros"], a.csv, a.json)
+
+
+def _somas_por_orgao(somas):
+    """As somas das contas analíticas de cada órgão (receitas da Centi), sobre o mês inteiro."""
+    if not somas:
+        return
+    print("Somas das contas analíticas por órgão (mês inteiro; os órgãos não são somados entre si):")
+    for s in somas:
+        print(f"  {s.get('orgao')}: {s.get('linhas')} linhas ({s.get('linhas_analiticas')} analíticas); "
+              f"arrecadado no mês {s.get('valor_arrecadado_mes') or '-'}; "
+              f"até o mês {s.get('valor_arrecadado_ate_mes') or '-'}")
 
 
 def _main_tcm(a):
@@ -126,7 +153,8 @@ def _main_tcm(a):
         r, avisos = _tcm(a)
     except (ErroPortal, ValueError) as e:
         raise SystemExit(f"ERRO: {e}")
-    for aviso in [tcm.AVISO_GERAL, *avisos] + [r[k] for k in ("aviso_total", "aviso_leitura", "aviso_texto")
+    for aviso in [tcm.AVISO_GERAL, *avisos] + [r[k] for k in ("aviso_numero", "aviso_total", "aviso_leitura",
+                                                              "aviso_texto")
                                                 if r.get(k)]:
         print(f"AVISO: {aviso}")
     if a.modulo == "tcm-acordao" and not (a.csv or a.json):

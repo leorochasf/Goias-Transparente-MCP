@@ -195,11 +195,19 @@ class ClienteTCM:
             self, municipio=nome, tipo=tipo, ano=ano, finalizado=finalizado, relator=relator, numero=numero,
             maximo=maximo))
 
-    def acordaos(self, municipio=None, *, texto=None, assunto=None, ano=None, relator=None, maximo=100) -> dict:
-        """Acórdãos do TCMJuris (julgados desde 2020). Sem `municipio`, de todos os municípios."""
+    def acordaos(self, municipio=None, *, texto=None, assunto=None, ano=None, relator=None, numero=None,
+                 maximo=100) -> dict:
+        """Acórdãos do TCMJuris (julgados desde 2020). Sem `municipio`, de todos os municípios.
+
+        `numero`: do processo ou do acórdão, NNNNN/AA; sem /AA, todos os anos (com aviso). Cada resultado é conferido
+        campo a campo, porque o filtro do TCMJuris aceita parte do número.
+        """
         from . import tcmjuris
+        if numero is not None:
+            tcmjuris.numero_pedido(numero)  # fora do formato: recusa antes de consultar
         return self._consultar("tcmjuris", municipio, maximo, lambda nome: tcmjuris.acordaos(
-            self, municipio=nome, texto=texto, assunto=assunto, ano=ano, relator=relator, maximo=maximo))
+            self, municipio=nome, texto=texto, assunto=assunto, ano=ano, relator=relator, maximo=maximo,
+            **({"numero": numero} if numero is not None else {})))
 
     def _consultar(self, fonte, municipio, maximo, consulta):
         """Resolve o município, consulta e desconfia do zero: as duas fontes respondem total 0, em silêncio, a um

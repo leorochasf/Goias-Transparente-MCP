@@ -220,8 +220,10 @@ class Portal:
         except (ValueError, KeyError, TypeError) as e:
             raise ErroPortal(f"{self.url} devolveu resposta inesperada em {acao} "
                              f"({len(r.content)} bytes, começa com {r.text[:80]!r})") from e
-        if isinstance(bruto, dict) and isinstance(bruto.get("erro"), str) and bruto["erro"]:
-            raise ErroPortal(f"{self.url} recusou {acao}: {bruto['erro']}")
+        for campo in ("erro", "error"):  # `error`: a Megasoft embutida, com total 0 (licitações com período)
+            motivo = bruto.get(campo) if isinstance(bruto, dict) else None
+            if isinstance(motivo, str) and motivo.strip() and motivo.strip() != "null":
+                raise ErroPortal(f"{self.url} recusou {acao}: {motivo}")
         registros = bruto.get("dados") or bruto.get("registros") or []
         return registros, int(bruto.get("total") or 0)
 

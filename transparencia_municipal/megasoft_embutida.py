@@ -224,12 +224,13 @@ def _contrato(reg):
     return {
         "numero": reg.get("numero") or None, "ano": reg.get("ano"),
         "orgao": None if orgao in (None, "") else str(orgao), "situacao": reg.get("situacao") or None,
-        "objeto": reg.get("objeto") or None, "fornecedor": reg.get("fornecedor_nome") or None,
-        "cpf_cnpj": reg.get("fornecedor_cpfcnpj") or None, "valor": reg.get("valor") or None,
+        "objeto": reg.get("objeto") or None, "fornecedor_nome": reg.get("fornecedor_nome") or None,
+        "fornecedor_cpfcnpj": reg.get("fornecedor_cpfcnpj") or None, "valor": reg.get("valor") or None,
         "valor_executado": reg.get("valor_executado") or None, "saldo": reg.get("saldo") or None,
-        "data_publicacao": reg.get("data_publicacao") or None, "data_assinatura": reg.get("data_firmatura") or None,
+        "data_publicacao": reg.get("data_publicacao") or None, "data_firmatura": reg.get("data_firmatura") or None,
         "inicio_vigencia": reg.get("inicio_vigencia") or None, "fim_vigencia": reg.get("fim_vigencia") or None,
-        "licitacao": reg.get("licitacao_label") or None, "fiscal": reg.get("fiscal_contrato") or None, "fonte": FONTE,
+        "licitacao": reg.get("licitacao_label") or None, "fiscal_contrato": reg.get("fiscal_contrato") or None,
+        "fonte": FONTE,
     }
 
 
@@ -253,9 +254,9 @@ def licitacoes(portal, *, busca, dispensas, ano, maximo):
 
 def _licitacao(reg):
     return {
-        "numero": reg.get("label") or reg.get("numero") or None, "ano": reg.get("ano"),
+        "numero": reg.get("numero") or None, "label": reg.get("label") or None, "ano": reg.get("ano"),
         "modalidade": reg.get("modalidade") or None, "situacao": reg.get("situacao") or None,
-        "orgao": reg.get("orgao") or None, "objeto": reg.get("descricao") or None,
+        "orgao": reg.get("orgao") or None, "descricao": reg.get("descricao") or None,
         "data_publicacao": reg.get("data_publicacao") or None, "data_abertura": reg.get("data_abertura") or None,
         "data_julgamento": reg.get("data_julgamento") or None, "data_homologacao": reg.get("data_homologacao") or None,
         "valor_vencedor": reg.get("valor_vencedor_total") or None, "fonte": FONTE,

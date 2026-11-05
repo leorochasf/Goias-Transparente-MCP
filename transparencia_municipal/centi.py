@@ -293,7 +293,7 @@ def receitas(portal, *, ano, mes, maximo):
         "órgãos.",
         "vêm todas as contas, analíticas e sintéticas, cada uma marcada no campo analitica: só as linhas com "
         "analitica = true podem ser somadas (as sintéticas, false, agregam as outras, e somá-las conta em dobro); "
-        "a soma das analíticas de cada órgão, sobre o mês inteiro, está em somas_por_orgao (na resposta do MCP)."]
+        "a soma das analíticas de cada órgão, sobre o mês inteiro, está em somas_por_orgao (no MCP; a linha de comando a imprime)."]
     if sem_marca:
         ressalvas.append(f"{sem_marca} linha(s) sem dizer se é analítica ou sintética (analitica = null): fora das "
                          "somas.")

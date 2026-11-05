@@ -238,7 +238,7 @@ def test_contratos_vem_todos_e_sao_filtrados_por_ano_e_busca():
     r = _portal().contratos(2025, busca="veiculo")
     assert r["total"] == 1
     x = r["registros"][0]
-    assert x["numero"] == "1.2025.1" and x["data_assinatura"] == "01/02/2025" and x["valor"] == "1.000,00"
+    assert x["numero"] == "1.2025.1" and x["data_firmatura"] == "01/02/2025" and x["valor"] == "1.000,00"
     assert x["fonte"] == "Ortrel" and x["valor_aditado"] is None
 
 

@@ -166,10 +166,11 @@ def test_contratos_do_ano_por_post_traduzidos_com_fonte():
     assert _corpos(CONTRATOS)[0]["ano"] == 2025
     assert r["total"] == 2
     assert r["registros"][0] == {
-        "codigo": 1, "numero": "1", "modalidade": "DISPENSA DE LICITAÇÃO", "licitacao": "316/2025",
-        "data": "01/12/2025", "vigencia": "31/12/2025", "orgao": "FUNDO MUNICIPAL DE SAÚDE",
-        "cpf_cnpj": "25.107.525/0001-51", "fornecedor": "EMPRESA A LTDA", "objeto": "OBRA DE PAVIMENTAÇÃO",
-        "valor": "5.100,00", "fiscal": "PESSOA F", "exercicio": 2025, "situacao": "Encerrado",
+        "id": 1, "numero": "1", "modalidade": "DISPENSA DE LICITAÇÃO", "licitacao": "316/2025",
+        "data_firmatura": "01/12/2025", "fim_vigencia": "31/12/2025", "orgao_nome": "FUNDO MUNICIPAL DE SAÚDE",
+        "fornecedor_cpfcnpj": "25.107.525/0001-51", "fornecedor_nome": "EMPRESA A LTDA",
+        "objeto": "OBRA DE PAVIMENTAÇÃO",
+        "valor": "5.100,00", "fiscal_contrato": "PESSOA F", "ano": 2025, "situacao": "Encerrado",
         "finalidade": "Prestação de Serviços", "fonte": "Megasoft"}
 
 
@@ -179,7 +180,7 @@ def test_contratos_por_busca_filtrados_pelo_projeto_e_repetidos_tirados(monkeypa
     # a fronteira de página repete o contrato 2: são 3 distintos
     _post(CONTRATOS, [_contrato(1), _contrato(2), _contrato(2), _contrato(3, objeto="MERENDA")], total=3)
     r = Portal(URL, pausa=0).contratos(2025, busca="pavimentacao")
-    assert r["total"] == 2 and [x["codigo"] for x in r["registros"]] == [1, 2]
+    assert r["total"] == 2 and [x["id"] for x in r["registros"]] == [1, 2]
 
 
 @responses.activate
@@ -215,9 +216,9 @@ def test_licitacoes_e_dispensas_pelo_tipo_de_consulta_e_ano_pela_data_de_publica
     assert (licitacoes["dataDePublicacaoInicial"], licitacoes["dataDePublicacaoFinal"]) == ("01/01/2025", "31/12/2025")
     assert "dataDePublicacaoInicial" not in dispensas
     assert r["registros"][0] == {
-        "codigo": 1, "numero": "1/2025", "modalidade": "PREGÃO ELETRÔNICO", "situacao": "Homologada",
-        "data_publicacao": "15/03/2025", "data_julgamento": "20/03/2025", "valor": "49.860,00",
-        "objeto": "AQUISIÇÃO DE MEDICAMENTOS", "orgao": "FUNDO MUNICIPAL DE SAÚDE", "fonte": "Megasoft"}
+        "id": 1, "numero": "1", "label": "1/2025", "modalidade": "PREGÃO ELETRÔNICO", "situacao": "Homologada",
+        "data_publicacao": "15/03/2025", "data_julgamento": "20/03/2025", "valor_vencedor": "49.860,00",
+        "descricao": "AQUISIÇÃO DE MEDICAMENTOS", "orgao": "FUNDO MUNICIPAL DE SAÚDE", "fonte": "Megasoft"}
     assert portal.licitacoes("medicamentos", dispensas=True)["total"] == 1
     assert any("chamamento" in x for x in r["ressalvas"])
 

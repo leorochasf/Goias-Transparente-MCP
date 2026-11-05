@@ -200,10 +200,10 @@ def test_contratos_do_ano_vem_com_a_traducao_e_a_busca_vai_no_objeto():
     assert r["total"] == 2
     assert r["registros"][0] == {
         "numero": "1", "ano": 2025, "orgao": "3", "situacao": "Vigente", "objeto": "AQUISIÇÃO DE COMBUSTÍVEL",
-        "fornecedor": "POSTO EXEMPLO LTDA", "cpf_cnpj": "25.107.525/0001-51", "valor": "501.902,40",
-        "valor_executado": "1.000,00", "saldo": None, "data_publicacao": "23/12/2025", "data_assinatura": "22/12/2025",
+        "fornecedor_nome": "POSTO EXEMPLO LTDA", "fornecedor_cpfcnpj": "25.107.525/0001-51", "valor": "501.902,40",
+        "valor_executado": "1.000,00", "saldo": None, "data_publicacao": "23/12/2025", "data_firmatura": "22/12/2025",
         "inicio_vigencia": "23/12/2025", "fim_vigencia": "23/02/2026", "licitacao": "PREGÃO ELETRÔNICO 024/2025",
-        "fiscal": "PESSOA FISCAL", "fonte": "Megasoft"}
+        "fiscal_contrato": "PESSOA FISCAL", "fonte": "Megasoft"}
     assert any("código" in x for x in r["ressalvas"])
 
     r = p.contratos(2025, busca="pavimenta")
@@ -238,8 +238,8 @@ def test_licitacoes_do_ano_separam_dispensas_e_sempre_dizem_que_so_o_ano_filtra(
     r = p.licitacoes(ano=2025)
     assert r["total"] == 1
     assert r["registros"][0] == {
-        "numero": "001/2025", "ano": 2025, "modalidade": "PREGÃO PRESENCIAL", "situacao": "Homologada",
-        "orgao": "MUNICIPIO DE EXEMPLO", "objeto": "MATERIAL DE LIMPEZA", "data_publicacao": "01/12/2025",
+        "numero": "1", "label": "001/2025", "ano": 2025, "modalidade": "PREGÃO PRESENCIAL", "situacao": "Homologada",
+        "orgao": "MUNICIPIO DE EXEMPLO", "descricao": "MATERIAL DE LIMPEZA", "data_publicacao": "01/12/2025",
         "data_abertura": None, "data_julgamento": "10/12/2025", "data_homologacao": None,
         "valor_vencedor": "7.543.339,30", "fonte": "Megasoft"}
     assert any("só filtram por ano" in x for x in r["ressalvas"])
@@ -253,7 +253,7 @@ def test_licitacoes_do_ano_separam_dispensas_e_sempre_dizem_que_so_o_ano_filtra(
 def test_licitacoes_com_busca_vao_na_descricao():
     pedidos = _portal(licitacoes=[_licitacao(1), _licitacao(2, descricao="LOCAÇÃO DE MÁQUINAS")])
     r = Portal(PORTAL, pausa=0).licitacoes("locação", ano=2025)
-    assert r["total"] == 1 and r["registros"][0]["numero"] == "002/2025"
+    assert r["total"] == 1 and r["registros"][0]["label"] == "002/2025"
     assert pedidos["licitacoes_mg/listarCidadao"][-1]["descricao"] == "locação"
 
 

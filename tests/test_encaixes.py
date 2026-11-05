@@ -281,21 +281,3 @@ def test_diarias_do_nucleogov_ainda_nao_disponiveis():  # ticket 05
 def test_detalhe_do_servidor_no_ortrel_e_recusado():
     with pytest.raises(ModuloNaoSuportado, match="Ortrel"):
         Portal(ORTREL, pausa=0, plataforma="ortrel").detalhe_servidor("1", 2025, 9)
-
-
-# ── ticket 06: Ortrel ainda não disponível ───────────────────────────────────────────────────────────────────────
-
-@pytest.mark.parametrize("nome", ["folha", "despesas", "contratos", "licitacoes", "diarias", "legislacao"])
-@responses.activate
-def test_ortrel_modulos_ainda_nao_disponiveis(nome):  # ticket 06
-    with pytest.raises(ModuloNaoSuportado, match="ainda não está disponível"):
-        CHAMADAS[nome][0](Portal(ORTREL, pausa=0, plataforma="ortrel"))
-    assert len(responses.calls) == 0
-
-
-def test_mcp_ortrel_ainda_nao_disponivel(monkeypatch):  # ticket 06
-    camara = {"municipio": "Exemplo", "orgao": "camara", "portal": ORTREL, "plataforma": "ortrel", "sufixos": {},
-              "outros_enderecos": [], "conferencia": None}
-    monkeypatch.setattr(catalogo, "carregar", lambda: [camara])
-    r = servidor_mcp.consultar_despesas("2025-01-01", "2025-01-31", portal=ORTREL)
-    assert "Ortrel" in r["erro"] and "ainda não está disponível" in r["erro"]

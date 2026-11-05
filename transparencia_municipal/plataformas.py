@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import re
 
-MODULOS_NUCLEOGOV = ("servidores", "despesas", "receitas", "contratos", "licitacoes")
+MODULOS_NUCLEOGOV = ("servidores", "despesas", "receitas", "contratos", "licitacoes", "diarias")
 
 
 def _host(endereco):
@@ -42,6 +42,12 @@ def reconhecer(html, endereco):
         # a API NucleoGov não o serve. Não confundir com `servidores_cnt`, que é módulo NucleoGov comum.
         for modulo in re.findall(rf"\bcnt({'|'.join(MODULOS_NUCLEOGOV)})\b", low):
             sufixos.setdefault(modulo, "centi")
+        # `contratos_mg`, `licitacoes_mg`: módulos do NucleoGov com os dados da Megasoft (Aruanã, 04/11/2026), lidos pelo
+        # encaixe da Megasoft embutida; `sgdiarias`: as diárias do NucleoGov nesses portais (não existe `mgdiarias`)
+        for modulo in re.findall(rf"\b({'|'.join(MODULOS_NUCLEOGOV)})_mg\b", low):
+            sufixos.setdefault(modulo, "mg")
+        if re.search(r"\bsgdiarias\b", low):
+            sufixos.setdefault("diarias", "sg")
         return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}

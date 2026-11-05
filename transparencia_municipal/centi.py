@@ -22,7 +22,7 @@ from decimal import Decimal, InvalidOperation
 
 import requests
 
-from .cliente import ErroPortal, PortalBloqueou, _cnpj
+from .cliente import EXTERNOS, ErroPortal, PortalBloqueou, _cnpj, ainda_nao_disponivel
 
 FONTE = "Centi"
 #: o formulário que a página `cntdespesas` manda, com os filtros zerados (os mesmos nomes e valores)
@@ -138,3 +138,10 @@ def despesas(portal, *, de, ate, cnpj, busca, maximo):
             registros = [x for x in registros if _sem_acento(busca) in _sem_acento(x["fornecedor"])]
         total = len(registros)
     return {"total": total, "registros": registros[:maximo]}
+
+
+# ── módulo extra (ticket 04): nasce respondendo "ainda não disponível"; interface no ticket 01, `## Comments` ──
+
+def receitas(portal, *, ano, mes, maximo):
+    """Receitas de `mes`/`ano` (int), com os nomes comuns de receitas (`acao=receitas`, um órgão por vez)."""
+    raise ainda_nao_disponivel(portal, "receitas", EXTERNOS["centi"])

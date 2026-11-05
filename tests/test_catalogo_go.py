@@ -148,6 +148,26 @@ def test_portal_derivado_fora_do_ar_nao_e_escolhido():
     assert (host, plataforma) == ("cumari.go.gov.br", "nucleogov")
 
 
+def test_endereco_conferido_vale_mais_que_a_origem(monkeypatch):
+    """Câmara de Formoso (05/11/2026): o endereço antigo `camaraformoso.go.gov.br` não serve a API; o conferido, sim."""
+    monkeypatch.setattr(catalogo_go, "ENDERECOS_CONFERIDOS",
+                        {("Formoso", "camara"): "acessoainformacao.formoso.go.leg.br", ("Goiânia", "prefeitura"): None})
+    orgao = _orgao("Formoso", "camara", "acessoainformacao.camaraformoso.go.gov.br")
+    sondados = {"acessoainformacao.camaraformoso.go.gov.br": {"plataforma": "nucleogov"},
+                "acessoainformacao.formoso.go.leg.br": {"plataforma": "nucleogov-megasoft"}}
+    assert "acessoainformacao.formoso.go.leg.br" in catalogo_go._fila([orgao], {})
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, sondados)
+    assert (host, plataforma) == ("acessoainformacao.formoso.go.leg.br", "nucleogov-megasoft")
+
+
+def test_orgao_sem_portal_conferido_fica_sem_portal(monkeypatch):
+    """Prefeitura de Goiânia: a origem só trouxe o site da Saúde; o portal é um sistema próprio que o projeto não lê."""
+    monkeypatch.setattr(catalogo_go, "ENDERECOS_CONFERIDOS", {("Goiânia", "prefeitura"): None})
+    orgao = _orgao("Goiânia", "prefeitura", "saude.goiania.go.gov.br")
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, {"saude.goiania.go.gov.br": {"plataforma": "nucleogov"}})
+    assert (host, plataforma) == (None, None)
+
+
 def test_conferir_grava_na_saida_da_frente_depois_de_cada_orgao_e_retoma(trabalho, monkeypatch):
     saida = trabalho / "conferencias-frente2.json"
     ja = {"data": "2026-11-04", "referencia": "06/2025", "filtros": {"folha_mes": "ok"}, "detalhes": {}}

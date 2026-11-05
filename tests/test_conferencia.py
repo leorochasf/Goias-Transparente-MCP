@@ -44,6 +44,24 @@ class PortalDeMentira:
             atos = [x for x in atos if x["ano"] == str(ano)]
         return self._r(atos)
 
+    def diarias(self, de, ate, busca=None, *, maximo=200):
+        todas = [{"data_saida": "10/01/2025"}] * 3 + [{"data_saida": "05/02/2025"}] * 2
+        if "diarias_periodo" not in self.ignora:
+            todas = [x for x in todas if de <= "-".join(reversed(x["data_saida"].split("/"))) <= ate]
+        return self._r(todas)
+
+    def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
+        todos = [{"ano": a} for a in (2024, 2025, 2025)]
+        if ano and "contratos_ano" not in self.ignora:
+            todos = [x for x in todos if x["ano"] == ano]
+        return self._r(todos)
+
+    def licitacoes(self, busca=None, *, dispensas=False, ano=None, maximo=200):
+        todas = [{"data_publicacao": f"01/03/{a}"} for a in (2024, 2025)]
+        if ano and "licitacoes_ano" not in self.ignora:
+            todas = [x for x in todas if x["data_publicacao"].endswith(str(ano))]
+        return self._r(todas)
+
 
 def test_portal_que_respeita_tudo_sai_todo_ok():
     r = conferir(PortalDeMentira(), ano=2025, mes=1, hoje="2026-11-05", pausa=0)
@@ -51,11 +69,13 @@ def test_portal_que_respeita_tudo_sai_todo_ok():
     assert r["filtros"] == {
         "folha_mes": "ok", "folha_orgaos": "ok", "despesas_periodo": "ok", "despesas_cnpj": "ok",
         "receitas_mes": "ok", "legislacao_tipo": "ok", "legislacao_ano": "ok",
+        "diarias_periodo": "ok", "contratos_ano": "ok", "licitacoes_ano": "ok",
     }
 
 
 def test_cada_filtro_ignorado_aparece_como_falhou_sem_derrubar_os_outros():
-    ignorados = ("folha_mes", "despesas_periodo", "despesas_cnpj", "receitas_mes", "legislacao_ano")
+    ignorados = ("folha_mes", "despesas_periodo", "despesas_cnpj", "receitas_mes", "legislacao_ano",
+                 "diarias_periodo", "contratos_ano", "licitacoes_ano")
     r = conferir(PortalDeMentira(ignora=ignorados), ano=2025, mes=1, hoje="2026-11-05", pausa=0)
     assert {k for k, v in r["filtros"].items() if v == "falhou"} == set(ignorados)
     assert r["filtros"]["legislacao_tipo"] == "ok"
@@ -141,3 +161,74 @@ def test_folha_vazia_num_sistema_que_exige_o_mes_sai_sem_dados_e_nao_erro():
             return self._r([])
     r = conferir(ExigeMes(), ano=2025, mes=6, hoje="2026-11-05", pausa=0)
     assert r["filtros"]["folha_mes"] == "sem_dados"
+
+
+def test_diarias_sao_conferidas_no_mes_de_referencia():
+    pedidos = []
+
+    class Registra(PortalDeMentira):
+        def diarias(self, de, ate, busca=None, *, maximo=200):
+            pedidos.append((de, ate, maximo))
+            return super().diarias(de, ate, busca, maximo=maximo)
+    r = conferir(Registra(), ano=2025, mes=2, hoje="x", pausa=0)
+    assert pedidos == [("2025-02-01", "2025-02-28", 20)] and r["filtros"]["diarias_periodo"] == "ok"
+
+
+def test_encaixe_que_recusa_o_filtro_ignorado_sai_falhou_e_nao_erro():
+    """Os encaixes conferem o filtro e levantam ErroPortal ("fora do período", "de outro ano"): é o filtro que falhou."""
+    from transparencia_municipal.cliente import ErroPortal
+
+    class Guardado(PortalDeMentira):
+        def diarias(self, *a, **k):
+            raise ErroPortal("x devolveu 3 diárias com saída fora do período pedido: o recorte não foi respeitado")
+
+        def contratos(self, ano=None, *a, **k):
+            if ano:
+                raise ErroPortal("x devolveu 2 contratos de outro ano ao pedir 2025: o filtro de ano não foi respeitado")
+            return super().contratos(*a, **k)
+
+        def receitas(self, *a, **k):
+            raise ErroPortal("x devolveu receitas de outro mês (3 de 9 linhas) ao pedir 01/2025")
+    r = conferir(Guardado(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert {k: r["filtros"][k] for k in ("diarias_periodo", "contratos_ano", "receitas_mes")} == {
+        "diarias_periodo": "falhou", "contratos_ano": "falhou", "receitas_mes": "falhou"}
+    assert "outro ano" in r["detalhes"]["contratos_ano"]
+
+
+def test_licitacoes_sem_filtro_de_ano_medido_saem_nao_suportado():
+    """Na API NucleoGov o `ano` das licitações é recusado (ValueError): não é erro do portal."""
+    class NucleoGov(PortalDeMentira):
+        def licitacoes(self, busca=None, *, dispensas=False, ano=None, maximo=200):
+            if ano:
+                raise ValueError("ano: o filtro de ano das licitações não foi medido nos portais NucleoGov")
+            return super().licitacoes(maximo=maximo)
+    r = conferir(NucleoGov(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["licitacoes_ano"] == "nao_suportado" and "não foi medido" in r["detalhes"]["licitacoes_ano"]
+
+
+def test_ano_das_licitacoes_pelo_campo_ano_ou_pela_data_do_protocolo():
+    """A embutida dá `ano` (o da licitação, que pode ter sido publicada no ano anterior); o Ortrel, sem publicação, o
+    protocolo."""
+    class Variado(PortalDeMentira):
+        def licitacoes(self, busca=None, *, dispensas=False, ano=None, maximo=200):
+            todas = [{"ano": 2025, "data_publicacao": "20/12/2024"}, {"data_protocolo": "02/01/2025"},
+                     {"ano": 2024}]
+            return self._r([x for x in todas if not ano or x.get("ano", 2025) == ano])
+    assert conferir(Variado(), ano=2025, mes=1, hoje="x", pausa=0)["filtros"]["licitacoes_ano"] == "ok"
+
+
+def test_contratos_de_um_ano_so_quando_todos_sao_de_um_ano_e_o_total_nao_diz_nada():
+    """Se o total com ano não é menor que sem ano, mas todos os contratos do portal são daquele ano, não é falha."""
+    class UmAnoSo(PortalDeMentira):
+        def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
+            return self._r([{"ano": 2025}] * 3)
+    assert conferir(UmAnoSo(), ano=2025, mes=1, hoje="x", pausa=0)["filtros"]["contratos_ano"] == "ok"
+
+
+def test_contratos_com_total_igual_ao_sem_ano_e_anos_misturados_falham():
+    class Ignora(PortalDeMentira):
+        def contratos(self, ano=None, tipo="contrato", busca=None, *, maximo=200):
+            todos = [{"ano": 2025}] * 20 + [{"ano": 2024}] * 5
+            return {"total": 25, "registros": todos[:maximo] if ano else todos[-maximo:]}
+    r = conferir(Ignora(), ano=2025, mes=1, hoje="x", pausa=0)
+    assert r["filtros"]["contratos_ano"] == "falhou" and "não é menor" in r["detalhes"]["contratos_ano"]

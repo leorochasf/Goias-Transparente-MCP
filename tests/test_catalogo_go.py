@@ -146,6 +146,20 @@ def test_conferir_sem_saida_usa_o_arquivo_comum(trabalho, monkeypatch):
         "acessoainformacao.trindade.go.gov.br"]
 
 
+def test_conferir_le_as_camaras_ortrel_pela_plataforma_do_catalogo(trabalho, monkeypatch):
+    portais = []
+
+    def falsa(portal, *, ano, mes):
+        portais.append(portal)
+        return {"data": "2026-11-05", "referencia": "06/2025", "filtros": {"folha_mes": "ok"}, "detalhes": {}}
+    monkeypatch.setattr(catalogo_go, "conferir_portal", falsa)
+    catalogo_go.conferir(_args(plataformas=["megasoft", "ortrel"]))
+    assert [(x.url, x.plataforma, x.navegador) for x in portais] == [
+        ("https://cidadeocidental.go.leg.br", "ortrel", False),
+        ("https://corumbaiba.megasofttransparencia.com.br", None, False)]
+    assert "cidadeocidental.go.leg.br" in json.loads((trabalho / "conferencias.json").read_text(encoding="utf-8"))
+
+
 def _conf(data, filtro="ok"):
     return {"data": data, "referencia": "06/2025", "filtros": {"folha_mes": filtro}, "detalhes": {}, "sufixos": {}}
 

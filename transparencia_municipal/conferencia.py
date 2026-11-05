@@ -1,8 +1,11 @@
-"""Conferência: mede ao vivo se um portal respeita cada filtro que o cliente manda (NucleoGov, Megasoft, Centi).
+"""Conferência: mede ao vivo se um portal respeita cada filtro que o cliente manda (NucleoGov, Megasoft, Centi, Ortrel).
 
 Os exemplos saem do próprio portal: o CNPJ é um fornecedor das despesas dele, os órgãos são os da folha dele.
 O portal ignora filtro desconhecido em silêncio (docs/portal-nucleogov.md), e por isso cada filtro é conferido
-nos dados que voltam. Resultado de cada filtro: ok, falhou, sem_dados ou erro.
+nos dados que voltam. Resultado de cada filtro: ok, falhou, sem_dados, nao_suportado ou erro.
+
+Os encaixes de outros sistemas já conferem o filtro e recusam a resposta (`ErroPortal` "fora do período", "de outro
+ano"): essa recusa conta como `falhou`, não como `erro`.
 """
 from __future__ import annotations
 
@@ -11,10 +14,15 @@ import re
 import time
 from collections import Counter
 from datetime import date, datetime
+from functools import cache
 
-from .cliente import FONTE, ModuloNaoSuportado
+from .cliente import FONTE, ErroPortal, ModuloNaoSuportado
 
 ORGAOS_SONDADOS = range(1, 11)
+#: o que os encaixes dizem quando recusam uma resposta que ignorou o filtro
+FILTRO_IGNORADO = re.compile(r"fora d[oe]|de outro (mês|ano)|em outro ano")
+#: poucos registros por consulta: a conferência é leve
+AMOSTRA = 20
 
 
 def _data(texto):
@@ -127,7 +135,7 @@ def _despesas_cnpj(p, ano, mes, contexto):
 
 
 def _receitas(p, ano, mes, contexto):
-    regs = p.receitas(ano, mes, maximo=20)["registros"]
+    regs = p.receitas(ano, mes, maximo=AMOSTRA)["registros"]
     if not regs:
         return "sem_dados", f"receitas de {mes:02d}/{ano} vazias"
     fora = sorted({(x.get("ano"), x.get("mes")) for x in regs if (int(x.get("ano") or 0), int(x.get("mes") or 0)) != (ano, mes)})
@@ -165,17 +173,67 @@ def _legislacao_ano(p, ano, mes, contexto):
     return "ok", None
 
 
+def _diarias(p, ano, mes, contexto):
+    de, ate = _mes_inteiro(ano, mes)
+    regs = p.diarias(de.isoformat(), ate.isoformat(), maximo=AMOSTRA)["registros"]
+    datas = [_data(x.get("data_saida")) for x in regs]
+    if not datas:
+        return "sem_dados", f"nenhuma diária com saída em {mes:02d}/{ano}"
+    fora = sorted({d.isoformat() for d in datas if d and not de <= d <= ate})
+    return ("falhou", f"pediu {de}..{ate}, vieram saídas em {fora[:5]}") if fora else ("ok", None)
+
+
+def _ano_respeitado(do_ano, todos, ano, ano_de, nome):
+    """O filtro de ano: cada registro do ano pedido é daquele ano, e o total com ano é menor que sem ano (salvo se o
+    portal só tem registros daquele ano). `todos`: a consulta sem ano, feita só se preciso e uma vez."""
+    if not do_ano["registros"]:
+        return "sem_dados", f"nenhum(a) {nome} de {ano}"
+    fora = sorted({str(ano_de(x)) for x in do_ano["registros"] if ano_de(x) != ano})
+    if fora:
+        return "falhou", f"pediu {ano}, vieram {fora[:5]}"
+    if do_ano["total"] >= todos()["total"] and {ano_de(x) for x in todos()["registros"]} != {ano}:
+        return "falhou", f"o total com ano ({do_ano['total']}) não é menor que sem ano ({todos()['total']})"
+    return "ok", None
+
+
+def _ano_inteiro(valor):
+    return int(valor) if str(valor or "").strip().isdigit() else None
+
+
+def _contratos(p, ano, mes, contexto):
+    return _ano_respeitado(p.contratos(ano, maximo=AMOSTRA), cache(lambda: p.contratos(maximo=AMOSTRA)), ano,
+                           lambda x: _ano_inteiro(x.get("ano")), "contrato")
+
+
+def _ano_da_licitacao(x):
+    """O `ano` (embutida, NucleoGov); sem ele, o da publicação (Megasoft própria), ou o do protocolo (Ortrel)."""
+    if _ano_inteiro(x.get("ano")):
+        return _ano_inteiro(x["ano"])
+    data = _data(x.get("data_publicacao")) or _data(x.get("data_protocolo"))
+    return data.year if data else None
+
+
+def _licitacoes(p, ano, mes, contexto):
+    try:
+        do_ano = p.licitacoes(ano=ano, maximo=AMOSTRA)
+    except ValueError as e:  # a API NucleoGov recusa o ano: o filtro não foi medido
+        return "nao_suportado", str(e)
+    return _ano_respeitado(do_ano, cache(lambda: p.licitacoes(maximo=AMOSTRA)), ano, _ano_da_licitacao,
+                           "licitação")
+
+
 VERIFICACOES = {
     "folha_mes": _folha, "folha_orgaos": _folha_orgaos,
     "despesas_periodo": _despesas_periodo, "despesas_cnpj": _despesas_cnpj,
     "receitas_mes": _receitas, "legislacao_tipo": _legislacao_tipo, "legislacao_ano": _legislacao_ano,
+    "diarias_periodo": _diarias, "contratos_ano": _contratos, "licitacoes_ano": _licitacoes,
 }
 
 
 def conferir(portal, *, ano, mes, hoje=None, pausa=1.0):
     """Confere os filtros de um portal num mês de referência. Uma verificação que quebra não derruba as outras.
 
-    `pausa`: segundos entre as verificações (são umas 9 consultas por portal).
+    `pausa`: segundos entre as verificações (são umas 14 consultas por portal, com até 20 registros cada).
     """
     hoje = hoje or date.today().isoformat()
     ano_atual = int(hoje[:4]) if hoje[:4].isdigit() else date.today().year
@@ -187,6 +245,9 @@ def conferir(portal, *, ano, mes, hoje=None, pausa=1.0):
             filtros[nome], detalhe = verificar(portal, ano, mes, contexto)
         except ModuloNaoSuportado as e:
             filtros[nome], detalhe = "nao_suportado", str(e)
+        except ErroPortal as e:  # o encaixe recusou a resposta porque o filtro foi ignorado
+            ignorado = FILTRO_IGNORADO.search(str(e))
+            filtros[nome], detalhe = ("falhou", str(e)) if ignorado else ("erro", f"{type(e).__name__}: {e}")
         except Exception as e:  # noqa: BLE001 - o portal pode falhar de qualquer jeito; registra e segue
             filtros[nome], detalhe = "erro", f"{type(e).__name__}: {e}"
         if detalhe:

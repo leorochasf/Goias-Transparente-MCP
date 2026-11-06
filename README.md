@@ -9,7 +9,8 @@ para quem quer só baixar a planilha.
 Cobre a plataforma **NucleoGov**, usada pela maioria dos municípios de Goiás e por municípios de
 outros estados. São os portais no padrão `acessoainformacao.<municipio>.go.gov.br`. Também lê a **Megasoft**
 (embutida no NucleoGov ou no domínio próprio `<municipio>.megasofttransparencia.com.br`), a contabilidade **Centi**
-(veja **Megasoft e Centi**) e as câmaras no sistema **Ortrel** (veja **Ortrel**). Para Goiás há um catálogo dos
+(veja **Megasoft e Centi**), as câmaras no sistema **Ortrel** (veja **Ortrel**) e os sistemas próprios da
+**Prefeitura de Goiânia** (veja **Goiânia**). Para Goiás há um catálogo dos
 portais de prefeituras e câmaras (veja **Municípios de Goiás**) e os processos e acórdãos do Tribunal de Contas dos
 Municípios (veja **TCM-GO**).
 
@@ -182,7 +183,8 @@ devolvendo a folha completa. Na folha da Megasoft o 13º não aparece (veja **Me
 
 Muitos portais de Goiás mostram módulos de outros sistemas. O projeto escolhe o caminho sozinho, pelo endereço e
 pelo menu do portal, e entrega os registros no mesmo formato. Cada registro dos sistemas traduzidos traz o campo
-`fonte`, que diz de onde veio: `NucleoGov`, `NucleoGov (sistema de gestão)`, `Megasoft`, `Centi` ou `Ortrel`.
+`fonte`, que diz de onde veio: `NucleoGov`, `NucleoGov (sistema de gestão)`, `Megasoft`, `Centi`, `Ortrel`,
+`TransWeb (Prefeitura de Goiânia)` ou `BSIT (folha da Prefeitura de Goiânia)`.
 
 | Sistema | Onde aparece | Folha | Despesas | Receitas | Diárias | Contratos | Licitações | Detalhe do servidor |
 |---|---|---|---|---|---|---|---|---|
@@ -273,6 +275,25 @@ Goiás, em `transparencia.<câmara>`). O projeto o reconhece pelo catálogo ou p
 Receitas e detalhe do servidor não existem no Ortrel e são recusados. O sistema roda em modo de desenvolvimento e
 entrega a chave pública da API na própria página; o projeto a lê como o navegador lê, sem login.
 
+## Goiânia
+
+A Prefeitura de Goiânia não usa NucleoGov: o índice de transparência (`www.goiania.go.gov.br/transparencia`) abre
+dois sistemas próprios, lidos pelas planilhas que eles mesmos exportam. Use o endereço
+`https://www.goiania.go.gov.br/transparencia` no parâmetro `portal`.
+
+| Módulo | Sistema | O que saber |
+|---|---|---|
+| Folha | BSIT | o mês inteiro (46 mil linhas, cerca de 30 s) ou por nome (filtro do próprio sistema); traz o vínculo (comissionado, efetivo, temporário, aposentado); **sem o órgão** de cada servidor (a lotação diz onde trabalha); só a folha mensal |
+| Despesas | TransWeb | os empenhos do período com **empenhado, anulado, liquidado e pago até hoje**; o liquidado e o pago são conferidos, mês a mês, com os totais do próprio TransWeb; CNPJ e nome filtrados pelo projeto |
+| Receitas | TransWeb | todos os órgãos juntos; deduções com valor negativo |
+| Contratos | TransWeb | contratos e convênios juntos; o ano é o da firmatura; aditivos separados; sem o CNPJ do contratado |
+| Licitações | TransWeb | **só o ano corrente**: a exportação do TransWeb não traz outros anos |
+| Diárias | TransWeb | por mês, pela data de saída |
+| Legislação | — | não publicada em sistema consultável: use o portal da Câmara |
+
+As **despesas da Câmara de Goiânia** também estão no TransWeb e são lidas de lá. Folha, contratos e legislação da
+Câmara seguem no portal NucleoGov dela (`camaragoiania.nucleogov.com.br`).
+
 ## Municípios de Goiás
 
 O pacote traz um **catálogo de portais** com os 461 órgãos (prefeituras e câmaras) de Goiás que aparecem nos
@@ -287,7 +308,8 @@ página inicial em 04/11/2026. No assistente, `encontrar_portal("Posse", "camara
 | NucleoGov com folha Megasoft (Megasoft embutida) | 225 |
 | Megasoft de domínio próprio | 30 |
 | Ortrel | 4 |
-| Sem portal reconhecido | 21 |
+| Sistemas próprios da Prefeitura de Goiânia | 1 |
+| Sem portal reconhecido | 20 |
 
 Toda resposta diz a **situação do portal**:
 
@@ -295,13 +317,12 @@ Toda resposta diz a **situação do portal**:
 - **não conferido:** confira os números no próprio portal;
 - **fora do catálogo.**
 
-Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 440 órgãos com plataforma reconhecida**. A conferência
+Em 04 e 05/11/2026 foram conferidos ao vivo **todos os 441 órgãos com plataforma reconhecida**. A conferência
 passa pelos mesmos caminhos das consultas (NucleoGov, sistema de gestão do NucleoGov, Megasoft embutida e própria,
-Centi, Ortrel) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação. Folha do mês respeitada
-em 416 órgãos; despesas do período em 421; busca por CNPJ em 416; contratos por ano em 377; legislação em 376;
-receitas do mês em 237 (as câmaras quase não arrecadam); licitações por ano em 192; diárias em 175. 2 órgãos têm
-portal que não responde (Câmara de Goianésia, Prefeitura de Terezópolis); a Prefeitura de Goiânia usa sistema
-próprio, que o projeto não lê. O
+Centi, Ortrel, sistemas de Goiânia) e mede folha, despesas, receitas, diárias, contratos, licitações e legislação.
+Folha do mês respeitada em 417 órgãos; despesas do período em 423; busca por CNPJ em 418; contratos por ano em 378;
+legislação em 376; receitas do mês em 238 (as câmaras quase não arrecadam); licitações por ano em 192; diárias em
+176. 2 órgãos têm portal que não responde (Câmara de Goianésia, Prefeitura de Terezópolis). O
 resultado de cada órgão está no catálogo e o resumo em `docs/portal-nucleogov.md`.
 
 O que vale saber antes de confiar num número:
@@ -392,8 +413,10 @@ processos e os acórdãos do município certo.
 
 - **NucleoGov** inteiro. Da **Megasoft** e do **Ortrel**, tudo menos legislação da Megasoft, receitas do Ortrel e
   aditivos; da **Centi**, despesas e receitas (veja as seções acima). O que não é lido é recusado com aviso.
-- **O ano das licitações** só filtra na Megasoft e no Ortrel; nos portais NucleoGov é recusado (o filtro não foi
-  medido): use a busca.
+- **O ano das licitações** só filtra na Megasoft, no Ortrel e no sistema de gestão do NucleoGov; nos outros portais
+  NucleoGov é recusado (o filtro não foi medido): use a busca. Na Prefeitura de Goiânia, só o ano corrente.
+- **Prefeitura de Goiânia:** folha sem o órgão de cada servidor; em alguns meses o "Total Empenhado" do próprio
+  TransWeb fica abaixo do empenhado menos o anulado (06/2025, 12/2025), e a resposta avisa com os dois valores.
 - Folha da Megasoft **sem 13º e sem rubricas**; a rescisão não vem separada. No lugar das rubricas, o detalhe do
   servidor (só na Megasoft de domínio próprio).
 - Despesas, receitas e contratos da Centi e da Megasoft **incluem Câmara e fundos**: confira o campo `orgao`.

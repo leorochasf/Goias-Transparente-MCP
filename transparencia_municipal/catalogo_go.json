@@ -7258,7 +7258,8 @@
 "sufixos": {
 "servidores": "cnt",
 "licitacoes": "cnt",
-"contratos": "cnt"
+"contratos": "cnt",
+"despesas": "transweb"
 },
 "outros_enderecos": [
 "goiania.go.leg.br",
@@ -7270,8 +7271,8 @@
 "filtros": {
 "folha_mes": "ok",
 "folha_orgaos": "ok",
-"despesas_periodo": "sem_dados",
-"despesas_cnpj": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
 "receitas_mes": "sem_dados",
 "legislacao_tipo": "ok",
 "legislacao_ano": "ok",
@@ -7280,8 +7281,6 @@
 "licitacoes_ano": "nao_suportado"
 },
 "detalhes": {
-"despesas_periodo": "nenhuma despesa em 06/2025",
-"despesas_cnpj": "nenhum CNPJ nas despesas de 06/2025",
 "receitas_mes": "receitas de 06/2025 vazias",
 "diarias_periodo": "nenhuma diária com saída em 06/2025",
 "licitacoes_ano": "ano: o filtro de ano das licitações não foi medido nos portais NucleoGov; consulte sem ano (use a busca, ex.: o número do processo)"
@@ -7296,9 +7295,9 @@
 "ibge": "5208707",
 "municipio": "Goiânia",
 "orgao": "prefeitura",
-"portal": null,
-"plataforma": null,
-"origem": null,
+"portal": "https://www.goiania.go.gov.br",
+"plataforma": "goiania",
+"origem": "sondagem",
 "sufixos": {},
 "outros_enderecos": [
 "portal.tce.go.gov.br",
@@ -7336,7 +7335,28 @@
 "dec.tce.go.gov.br",
 "iquego.go.gov.br"
 ],
-"conferencia": null,
+"conferencia": {
+"data": "2026-11-05",
+"referencia": "06/2025",
+"filtros": {
+"folha_mes": "ok",
+"folha_orgaos": "sem_dados",
+"despesas_periodo": "ok",
+"despesas_cnpj": "ok",
+"receitas_mes": "ok",
+"legislacao_tipo": "nao_suportado",
+"legislacao_ano": "nao_suportado",
+"diarias_periodo": "ok",
+"contratos_ano": "ok",
+"licitacoes_ano": "nao_suportado"
+},
+"detalhes": {
+"folha_orgaos": "a folha vem da BSIT (folha da Prefeitura de Goiânia): a sondagem de órgãos escondidos é só do NucleoGov",
+"legislacao_tipo": "https://www.goiania.go.gov.br: a Prefeitura de Goiânia não publica a legislação em sistema consultável; a legislação municipal está no portal da Câmara de Goiânia (https://camaragoiania.nucleogov.com.br)",
+"legislacao_ano": "https://www.goiania.go.gov.br: a Prefeitura de Goiânia não publica a legislação em sistema consultável; a legislação municipal está no portal da Câmara de Goiânia (https://camaragoiania.nucleogov.com.br)",
+"licitacoes_ano": "ano: o TransWeb da Prefeitura de Goiânia só exporta as licitações do ano corrente (2026); as de 2025 só aparecem na tela do portal (https://www10.goiania.go.gov.br/TransWeb/Portal_Licitacoes.aspx)"
+}
+},
 "tcm": {
 "esiproc": "GOIÂNIA",
 "tcmjuris": "GOIANIA"

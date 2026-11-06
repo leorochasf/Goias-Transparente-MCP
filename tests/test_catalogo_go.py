@@ -161,11 +161,21 @@ def test_endereco_conferido_vale_mais_que_a_origem(monkeypatch):
 
 
 def test_orgao_sem_portal_conferido_fica_sem_portal(monkeypatch):
-    """Prefeitura de Goiânia: a origem só trouxe o site da Saúde; o portal é um sistema próprio que o projeto não lê."""
+    """Órgão conferido sem portal que o projeto leia (a Prefeitura de Goiânia antes do encaixe próprio, 05/11/2026)."""
     monkeypatch.setattr(catalogo_go, "ENDERECOS_CONFERIDOS", {("Goiânia", "prefeitura"): None})
     orgao = _orgao("Goiânia", "prefeitura", "saude.goiania.go.gov.br")
     host, plataforma, _ = catalogo_go._portal_escolhido(orgao, {"saude.goiania.go.gov.br": {"plataforma": "nucleogov"}})
     assert (host, plataforma) == (None, None)
+
+
+def test_prefeitura_de_goiania_aponta_o_proprio_portal_com_a_plataforma_goiania():
+    """O índice de transparência (WordPress) carrega fontes da NucleoGov: a sondagem diria NucleoGov, mas o endereço
+    decide, e a conferência a lê sem se passar por navegador."""
+    orgao = _orgao("Goiânia", "prefeitura", "saude.goiania.go.gov.br")
+    assert "www.goiania.go.gov.br" in catalogo_go._fila([orgao], {})
+    host, plataforma, _ = catalogo_go._portal_escolhido(orgao, {"www.goiania.go.gov.br": {"plataforma": "goiania"}})
+    assert (host, plataforma) == ("www.goiania.go.gov.br", "goiania")
+    assert "goiania" in catalogo_go.CONFERIVEIS and "goiania" in catalogo_go.SEM_NAVEGADOR
 
 
 def test_conferir_grava_na_saida_da_frente_depois_de_cada_orgao_e_retoma(trabalho, monkeypatch):

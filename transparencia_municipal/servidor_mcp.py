@@ -20,7 +20,7 @@ from .tcm import ClienteTCM
 
 mcp = MCPServer("goias-transparente",
                 instructions="Consulta dados públicos do Portal da Transparência de municípios de Goiás: folha de pagamento, empenhos, contratos, licitações, receitas, diárias e legislação. "
-                             "Plataformas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio, esta com o detalhe do servidor), contabilidade Centi e câmaras Ortrel; o que um sistema não publica é recusado com aviso. "
+                             "Plataformas: NucleoGov, Megasoft (embutida no NucleoGov ou de domínio próprio, esta com o detalhe do servidor), contabilidade Centi, câmaras Ortrel e os sistemas próprios da Prefeitura de Goiânia (TransWeb e BSIT); o que um sistema não publica é recusado com aviso. "
                              "Do TCM-GO, os processos de contas (eSiproc) e os acórdãos desde 2020 (TCMJuris).")
 
 AVISO = ("Dado público do Portal da Transparência do município (Lei 12.527/2011), lido na hora. "
@@ -287,6 +287,8 @@ def consultar_despesas(de: str, ate: str, busca: str | None = None,
     No sistema de gestão do NucleoGov (fonte "NucleoGov (sistema de gestão)"), a resposta traz `somas_do_periodo`
     (empenhado, liquidado e pago no período, as somas do próprio portal) e, na busca por CNPJ, cada empenho traz o
     liquidado e o pago até hoje; sem CNPJ, esses dois ficam vazios em cada empenho.
+    Na Prefeitura de Goiânia e nas despesas da Câmara de Goiânia (fonte "TransWeb (Prefeitura de Goiânia)"), cada
+    empenho do período traz empenhado, anulado, liquidado e pago até hoje, e `somas_do_periodo` soma os empenhos.
     """
     return _executar(lambda: _aviso_orgaos(_portal(portal).despesas(de, ate, busca, maximo=maximo), "os empenhos"),
                      portal, maximo=maximo)
@@ -302,7 +304,9 @@ def consultar_contratos(ano: int | None = None, tipo: str = "contrato", busca: s
     na Megasoft e nas câmaras Ortrel tipo="aditivo" é recusado (lá o aditivo vem dentro do contrato; no Ortrel, em
     valor_aditado e nos anexos). Na Megasoft embutida, a `busca` procura só no objeto e `orgao` é o código do órgão.
     No sistema de gestão do NucleoGov, a `busca` procura só no objeto, e "contrato" inclui convênios, atas de
-    registro de preço, comodatos e distratos (o campo `tipo` diz qual).
+    registro de preço, comodatos e distratos (o campo `tipo` diz qual). Na Prefeitura de Goiânia, o ano é o da
+    firmatura, a lista junta contratos e convênios e não traz o CNPJ do contratado (a `busca` procura no objeto, no
+    título, no contratado e no número).
     Ex.: os contratos de 2025 da empresa tal (busca = nome ou CNPJ).
     """
     return _executar(lambda: _aviso_orgaos(_portal(portal).contratos(ano, tipo, busca, maximo=maximo), "os contratos"),
@@ -315,7 +319,8 @@ def consultar_licitacoes(busca: str | None = None, dispensas: bool = False, ano:
     """Licitações do município; dispensas=True traz dispensas e inexigibilidades.
 
     `ano`: nos portais da Megasoft, nas câmaras Ortrel e no sistema de gestão do NucleoGov (lá, o ano da licitação);
-    nos demais portais NucleoGov é recusado (filtro não medido).
+    nos demais portais NucleoGov é recusado (filtro não medido). Na Prefeitura de Goiânia só há o ano corrente (o
+    TransWeb não exporta os outros anos).
     Os campos têm os nomes do NucleoGov em todo sistema (numero, label = número/ano, modalidade, situacao, orgao,
     descricao, data_publicacao).
     """
@@ -380,7 +385,8 @@ def encontrar_portal(municipio: str, orgao: str | None = None) -> dict:
     """O portal da transparência de um órgão de Goiás pelo nome do município.
 
     `orgao`: "prefeitura" ou "camara" (vazio traz os dois). Devolve o endereço, a plataforma (NucleoGov, Megasoft,
-    Centi ou Ortrel: cada uma responde os módulos que publica, e o que falta é recusado com aviso) e a situação da
+    Centi, Ortrel ou os sistemas próprios da Prefeitura de Goiânia: cada uma responde os módulos que publica, e o que
+    falta é recusado com aviso) e a situação da
     conferência (se os filtros daquele portal foram medidos).
     Ex.: qual o portal da Câmara de Posse. Use o endereço no parâmetro `portal` das outras ferramentas.
     """

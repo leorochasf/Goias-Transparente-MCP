@@ -106,8 +106,9 @@ def sondar(args):
 PREFIXO_PORTAL = "acessoainformacao."
 
 #: endereços conferidos à mão (05/11/2026), que valem mais que os da origem: a origem trazia o endereço antigo, que
-#: não serve a API (as câmaras migraram para `.go.leg.br`). None: o órgão não tem portal que o projeto leia (a
-#: Prefeitura de Goiânia usa sistema próprio, `transweb`; a origem só trouxe o site da Saúde).
+#: não serve a API (as câmaras migraram para `.go.leg.br`), ou nem trazia o portal (a Prefeitura de Goiânia: só o site
+#: da Saúde; o portal é o índice de transparência, com os sistemas próprios TransWeb e BSIT). None: o órgão não tem
+#: portal que o projeto leia.
 ENDERECOS_CONFERIDOS = {
     ("Ceres", "camara"): "acessoainformacao.ceres.go.leg.br",
     ("Formoso", "camara"): "acessoainformacao.formoso.go.leg.br",
@@ -118,7 +119,7 @@ ENDERECOS_CONFERIDOS = {
     ("Taquaral de Goiás", "camara"): "acessoainformacao.taquaraldegoias.go.leg.br",
     ("Vila Boa", "camara"): "acessoainformacao.vilaboa.go.leg.br",
     ("Goiânia", "camara"): "camaragoiania.nucleogov.com.br",
-    ("Goiânia", "prefeitura"): None,
+    ("Goiânia", "prefeitura"): "www.goiania.go.gov.br",
 }
 
 
@@ -152,10 +153,10 @@ def _sondados():
 
 
 #: plataformas que o `Portal` lê (a Megasoft embutida e a Centi entram pelo portal NucleoGov)
-CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft", "ortrel")
+CONFERIVEIS = ("nucleogov", "nucleogov-megasoft", "megasoft", "ortrel", "goiania")
 #: as que aceitam a identificação da ferramenta (os portais NucleoGov respondem 403 a ela)
-SEM_NAVEGADOR = ("megasoft", "ortrel")
-PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft")
+SEM_NAVEGADOR = ("megasoft", "ortrel", "goiania")
+PREFERENCIA = ("nucleogov", "nucleogov-megasoft", "ortrel", "megasoft", "goiania")
 
 
 def _portal_escolhido(orgao, sondados):

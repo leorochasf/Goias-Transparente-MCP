@@ -15,10 +15,12 @@ def _host(endereco):
 
 
 def plataforma_pelo_endereco(endereco):
-    """'nucleogov', 'megasoft' ou None quando só a página inicial pode dizer."""
+    """'nucleogov', 'megasoft', 'goiania' ou None quando só a página inicial pode dizer."""
     host = _host(endereco)
     if host.endswith(".megasofttransparencia.com.br"):
         return "megasoft"
+    if host == "goiania.go.gov.br":  # a Prefeitura de Goiânia: TransWeb e BSIT (05/11/2026)
+        return "goiania"
     if host.startswith("acessoainformacao."):
         return "nucleogov"
     return None
@@ -26,8 +28,9 @@ def plataforma_pelo_endereco(endereco):
 
 def reconhecer(html, endereco):
     """Plataforma e sufixos dos módulos (`servidores` → `cnt` ou `frl`) a partir da página inicial."""
-    if plataforma_pelo_endereco(endereco) == "megasoft":
-        return {"plataforma": "megasoft", "sufixos": {}}
+    pelo_endereco = plataforma_pelo_endereco(endereco)
+    if pelo_endereco in ("megasoft", "goiania"):  # o índice de Goiânia carrega fontes da NucleoGov: o endereço decide
+        return {"plataforma": pelo_endereco, "sufixos": {}}
     low = (html or "").lower()
     if "nucleogov" in low:
         sufixos = {}
@@ -52,6 +55,9 @@ def reconhecer(html, endereco):
         # NucleoGov comum (`servidores_frl`...) responde zero, sem erro, nesses portais
         for modulo in re.findall(r"\bsg(servidores|despesas|receitas|contratos|licitacoes)\b", low):
             sufixos.setdefault(modulo, "sg")
+        # a Câmara de Goiânia aponta as despesas para o TransWeb da Prefeitura (05/11/2026)
+        if "goiania.go.gov.br/transweb/portal_despesas.aspx" in low:
+            sufixos.setdefault("despesas", "transweb")
         return {"plataforma": "nucleogov-megasoft" if megasoft else "nucleogov", "sufixos": sufixos}
     if "/src/main.jsx" in low:
         return {"plataforma": "ortrel", "sufixos": {}}

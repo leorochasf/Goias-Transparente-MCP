@@ -22,7 +22,7 @@ import requests
 
 from .plataformas import plataforma_pelo_endereco, reconhecer
 
-UA_FERRAMENTA = ("Goias-Transparente-MCP/0.8 "
+UA_FERRAMENTA = ("Goias-Transparente-MCP/0.9 "
                  "(+https://github.com/leorochasf/Goias-Transparente-MCP)")
 UA_NAVEGADOR = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                 "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
@@ -52,6 +52,9 @@ EXTERNOS = {"mg": "da Megasoft embutida no NucleoGov", "centi": "da contabilidad
 PROPRIA = "da Megasoft de domínio próprio"
 #: origem das câmaras Ortrel (página inicial com `/src/main.jsx`), que vão inteiras pelo encaixe Ortrel
 ORTREL = "do sistema Ortrel"
+#: origem da Prefeitura de Goiânia (`goiania.go.gov.br`), que vai inteira pelo encaixe de Goiânia; o sufixo `transweb`
+#: (despesas da Câmara de Goiânia) também
+GOIANIA = "dos sistemas próprios da Prefeitura de Goiânia (TransWeb e BSIT)"
 #: origem das diárias dos portais NucleoGov, que têm encaixe próprio (os campos mudam de portal para portal)
 NUCLEOGOV = "do NucleoGov"
 #: módulos que um encaixe pode ler; o encaixe que não tem a função recusa o módulo (`ModuloNaoSuportado`)
@@ -96,7 +99,7 @@ class PortalBloqueou(ErroPortal):
 def recusa(portal, nome, origem):
     """A recusa de um módulo que o sistema não tem ou que este projeto não lê. `origem`: EXTERNOS, PROPRIA ou ORTREL."""
     modulo = MODULOS.get(nome, nome)
-    if origem in (PROPRIA, ORTREL):
+    if origem in (PROPRIA, ORTREL, GOIANIA):
         return ModuloNaoSuportado(f"{portal.url} é portal {origem}: o módulo {modulo} "
                                   "ainda não é suportado por este projeto.")
     return ModuloNaoSuportado(f"em {portal.url}, o módulo {modulo} vem {origem}, ainda não suportada: "
@@ -308,16 +311,19 @@ class Portal:
         Módulo que o encaixe não lê é recusado (`ModuloNaoSuportado`).
         """
         # importados aqui: os encaixes importam do cliente
-        from . import centi, diarias_nucleogov, megasoft_embutida, megasoft_propria, ortrel, sg
+        from . import centi, diarias_nucleogov, goiania, megasoft_embutida, megasoft_propria, ortrel, sg
         plataforma = self._plataforma()
-        if plataforma in ("megasoft", "ortrel"):
-            acesso, origem = {"megasoft": (megasoft_propria, PROPRIA), "ortrel": (ortrel, ORTREL)}[plataforma]
+        if plataforma in ("megasoft", "ortrel", "goiania"):
+            acesso, origem = {"megasoft": (megasoft_propria, PROPRIA), "ortrel": (ortrel, ORTREL),
+                              "goiania": (goiania, GOIANIA)}[plataforma]
         else:
             modulo = MODULOS.get(nome)
             if modulo is None:
                 return None
             externo = self._sufixo(modulo)
-            if nome == "diarias" and (externo == "sg" or externo not in EXTERNOS):
+            if externo == "transweb":  # o portal aponta o módulo para o TransWeb da Prefeitura de Goiânia
+                acesso, origem = goiania, GOIANIA
+            elif nome == "diarias" and (externo == "sg" or externo not in EXTERNOS):
                 # sem leitura genérica: os campos das diárias mudam de portal para portal
                 acesso, origem = ((megasoft_embutida, EXTERNOS["mg"]) if externo == "sg"
                                   else (diarias_nucleogov, NUCLEOGOV))

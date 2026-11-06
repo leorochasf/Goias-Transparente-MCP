@@ -12,7 +12,8 @@ from .folha_leve import _comparavel
 from .plataformas import _host
 
 ARQUIVO = Path(__file__).with_name("catalogo_go.json")
-NOMES_PLATAFORMA = {"megasoft": "Megasoft", "ortrel": "Ortrel", "nucleogov-megasoft": "NucleoGov com folha Megasoft"}
+NOMES_PLATAFORMA = {"megasoft": "Megasoft", "ortrel": "Ortrel", "nucleogov-megasoft": "NucleoGov com folha Megasoft",
+                    "goiania": "sistemas próprios da Prefeitura de Goiânia (TransWeb e BSIT)"}
 
 
 @lru_cache(maxsize=1)
